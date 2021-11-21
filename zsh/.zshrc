@@ -5,15 +5,9 @@
 # ----------
 export ZSH=$HOME/.oh-my-zsh
 
-# zsh theme
-# ----------
-# ZSH_THEME="oxide"
-export TYPEWRITTEN_PROMPT_LAYOUT="pure"
-export TYPEWRITTEN_CURSOR="block"
-
 # bat theme
 # ----------
-export BAT_THEME="GitHub"
+export BAT_THEME="TwoDark"
 
 # disable auto-setting terminal title.
 # ----------
@@ -29,6 +23,14 @@ plugins=(
     git
     # vi-mode
 )
+
+# zsh theme
+# ----------
+fpath+=$HOME/.zsh/pure
+autoload -U promptinit; promptinit
+prompt pure
+export TYPEWRITTEN_PROMPT_LAYOUT="pure"
+export TYPEWRITTEN_CURSOR="block"
 
 # load oh-my-zsh
 # ----------
@@ -47,3 +49,13 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# go
+# ----------
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# virtualenv
+# ----------
+export PATH=$PATH:/home/colcv/.local/bin
