@@ -47,3 +47,6 @@ export PATH=$PATH:$GOPATH/bin
 
 # virtualenv
 export PATH=$PATH:/home/colcv/.local/bin
+
+# Neovim
+export PATH=$HOME/tools/nvim-linux64/bin:$PATH
