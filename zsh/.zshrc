@@ -1,10 +1,5 @@
-# Sourced from $HOME/.zshrc
-
 # Path to oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-
-# Load oh-my-zsh
-source $ZSH/oh-my-zsh.sh
 
 # Bat theme
 export BAT_THEME="TwoDark"
@@ -50,3 +45,6 @@ export PATH=$PATH:/home/colcv/.local/bin
 
 # Neovim
 export PATH=$HOME/tools/nvim-linux64/bin:$PATH
+
+# Load oh-my-zsh
+source $ZSH/oh-my-zsh.sh

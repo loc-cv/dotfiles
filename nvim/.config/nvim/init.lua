@@ -1,0 +1,6 @@
+require "impatient"
+require "core.options"
+require "core.autocmds"
+require "core.mappings"
+require "core.colors"
+require "plugins"
