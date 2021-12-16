@@ -7,9 +7,9 @@ local condition = require "galaxyline.condition"
 local gls = gl.section
 local colors = require "core.colors"
 
-local bg = colors.galaxyline_bg
-local active_fg = colors.galaxyline_active_fg
-local inactive_fg = colors.galaxyline_inactive_fg
+local bg = colors.GalaxylineBG
+local active_fg = colors.GalaxylineActiveFG
+local inactive_fg = colors.GalaxylineInactiveFG
 
 gl.short_line_list = { " " }
 
