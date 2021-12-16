@@ -5,7 +5,7 @@ local fileinfo = require "galaxyline.providers.fileinfo"
 local buffer = require "galaxyline.providers.buffer"
 local condition = require "galaxyline.condition"
 local gls = gl.section
-local colors = require "core.colors"
+local colors = require "core.highlights"
 
 local bg = colors.GalaxylineBG
 local active_fg = colors.GalaxylineActiveFG

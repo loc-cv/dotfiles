@@ -1,47 +1,7 @@
--- TODO: make it more managable
+local _, colorschemes = pcall(require, "colorschemes")
 local hi = vim.highlight.create
 
 _G.colors = {}
-
-local vscode_dark = {
-  -- telescope
-  TelescopeSelection = "#323232",
-
-  -- floaterm
-  FloatermBorder = "#1e1e1e",
-
-  -- git
-  DiffAdd = "#458700",
-  DiffChange = "#007c9f",
-  DiffDelete = "#db4b4b",
-
-  -- yank region
-  HighlightedyankRegion = "#454545",
-
-  -- indent_blankline
-  IndentBlanklineContextChar = "#d4d4d4",
-
-  -- trailing whitespaces
-  Whitespace = "#808080",
-
-  -- statusline
-  GalaxylineBG = "#323232",
-  GalaxylineActiveFG = "#d4d4d4",
-  GalaxylineInactiveFG = "#808080",
-  StatusLine = "#454545",
-  StatusLineNC = "#454545",
-
-  -- coc.nvim
-  CocError = "#db4b4b",
-  CocWarning = "#e0af68",
-  CocInfo = "#0db9d7",
-  CocHint = "#10b981",
-  CocFadeOut = "#808080",
-
-  -- nvim_window
-  NvimWindowBG = "#d4d4d4",
-  NvimWindowFG = "#0a0a0a",
-}
 
 local set_colors = function(colorscheme, style)
   if colorscheme == "vscode" then
@@ -51,7 +11,7 @@ local set_colors = function(colorscheme, style)
       vim.g.vscode_style = "dark"
     end
     vim.cmd("colorscheme " .. colorscheme)
-    _G.colors = vscode_dark
+    _G.colors = colorschemes.vscode_dark
   end
 end
 
