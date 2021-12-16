@@ -16,7 +16,7 @@ end
 
 require "plugins.packer_compiled"
 local misc = require "plugins.configs.misc"
-local _, packer = pcall(require, "packer")
+local packer = require "packer"
 local use = packer.use
 
 return packer.startup {
@@ -163,9 +163,9 @@ return packer.startup {
 
     use {
       "https://gitlab.com/yorickpeterse/nvim-window.git",
-      config = function ()
+      config = function()
         require "plugins.configs.nvim_window"
-      end
+      end,
     }
 
     use "matze/vim-move"

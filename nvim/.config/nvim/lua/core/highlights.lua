@@ -1,4 +1,4 @@
-local _, colorschemes = pcall(require, "colorschemes")
+local colorschemes = require "colorschemes"
 local hi = vim.highlight.create
 
 _G.colors = {}

@@ -1,4 +1,4 @@
-local _, gl = pcall(require, "galaxyline")
+local gl = require "galaxyline"
 local diagnostic = require "galaxyline.providers.diagnostic"
 local vcs = require "galaxyline.providers.vcs"
 local fileinfo = require "galaxyline.providers.fileinfo"

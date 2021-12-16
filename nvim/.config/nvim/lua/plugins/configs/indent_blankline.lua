@@ -1,4 +1,4 @@
-local _, indent_blankline = pcall(require, "indent_blankline")
+local indent_blankline = require "indent_blankline"
 
 indent_blankline.setup {
   char = "▏",
