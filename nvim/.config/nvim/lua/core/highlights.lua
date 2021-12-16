@@ -17,6 +17,9 @@ end
 
 set_colors "vscode"
 
+-- Trailing whitespaces
+vim.g.better_whitespace_guicolor = colors.Whitespace
+
 -- Telescope
 hi("TelescopeSelection", { guibg = colors.TelescopeSelection })
 
@@ -31,9 +34,6 @@ hi("StatusLineNC", { guibg = colors.StatusLineNC })
 hi("DiffAdd", { guifg = colors.DiffAdd, guibg = "NONE" })
 hi("DiffChange", { guifg = colors.DiffChange, guibg = "NONE" })
 hi("DiffDelete", { guifg = colors.DiffDelete, guibg = "NONE" })
-
--- Trailing whitespaces
-vim.g.better_whitespace_guicolor = colors.Whitespace
 
 -- Yank region
 hi("HighlightedyankRegion", { guibg = colors.HighlightedyankRegion, gui = "bold" })

@@ -30,7 +30,7 @@ function M.show_docs()
 end
 
 M.CR = function()
-  local autopairs = require "nvim-autopairs"
+  local _, autopairs = pcall(require, "nvim-autopairs")
   if vim.fn.pumvisible() ~= 0 then
     return vim.fn["coc#_select_confirm"]()
   else

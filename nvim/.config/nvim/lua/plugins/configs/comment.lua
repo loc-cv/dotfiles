@@ -1,4 +1,4 @@
-local comment = require "Comment"
+local _, comment = pcall(require, "Comment")
 
 comment.setup {
   pre_hook = function(ctx)

@@ -14,9 +14,8 @@ if not is_installed then
   end
 end
 
-require "plugins.packer_compiled"
+local _, packer = pcall(require, "packer")
 local misc = require "plugins.configs.misc"
-local packer = require "packer"
 local use = packer.use
 
 return packer.startup {
@@ -175,9 +174,5 @@ return packer.startup {
     use "ntpeters/vim-better-whitespace"
     use "junegunn/vim-easy-align"
     use "lewis6991/impatient.nvim"
-  end,
-  config = {
-    -- Move to lua dir so impatient.nvim can cache it
-    compile_path = vim.fn.stdpath "config" .. "/lua/plugins/packer_compiled.lua",
-  },
+  end
 }

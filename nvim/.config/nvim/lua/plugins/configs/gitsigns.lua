@@ -1,4 +1,4 @@
-local gitsigns = require "gitsigns"
+local _, gitsigns = pcall(require, "gitsigns")
 
 gitsigns.setup {
   signs = {
