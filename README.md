@@ -1,5 +1,6 @@
 # dotfiles
 
-* tmux (.tmux.conf)
-* zsh (.zshrc)
-* kitty (kitty.conf)
+* tmux
+* zsh
+* kitty
+* nvim
