@@ -48,13 +48,13 @@ return packer.startup {
       branch = "release",
       requires = {
         { "neoclide/coc.nvim", branch = "release" },
-        "junegunn/fzf.vim",
         {
           "junegunn/fzf",
           run = function()
             vim.fn["fzf#install"]()
           end,
         },
+        "junegunn/fzf.vim",
       },
     }
 
@@ -174,5 +174,5 @@ return packer.startup {
     use "ntpeters/vim-better-whitespace"
     use "junegunn/vim-easy-align"
     use "lewis6991/impatient.nvim"
-  end
+  end,
 }

@@ -14,9 +14,9 @@ vim.g.coc_global_extensions = {
   "coc-eslint",
   "coc-snippets",
   "coc-highlight",
-  "coc-sumneko-lua",
   "coc-explorer",
 }
+-- "coc-sumneko-lua",
 
 function M.show_docs()
   local cw = vim.fn.expand "<cword>"

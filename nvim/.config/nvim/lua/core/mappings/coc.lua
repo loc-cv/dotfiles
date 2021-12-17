@@ -3,7 +3,7 @@ local map = utils.map
 _G.coc_utils = require "plugins.configs.coc"
 
 -- coc-explorer
-map("n", "<C-n>", "<Cmd>CocCommand explorer<CR><Cmd>sleep 10ms<cr><C-w>=")
+map("n", "<C-n>", "<Cmd>CocCommand explorer<CR><Cmd>sleep 50ms<cr><C-w>=")
 
 -- coc-prettier
 map("n", "<C-i>", "<Cmd>CocCommand prettier.formatFile<Cr>")
@@ -61,17 +61,17 @@ map("x", "ac", "<Plug>(coc-classobj-a)", { noremap = false })
 map("o", "ac", "<Plug>(coc-classobj-a)", { noremap = false })
 
 -- Remap <C-d> and <C-u> for scroll float windows/popups.
-map("n", "<C-d>", "coc#float#has_scroll() ? coc#float#scroll(1) : '<C-d>'", { expr = true, nowait = true })
-map("n", "<C-u>", "coc#float#has_scroll() ? coc#float#scroll(0) : '<C-u>'", { expr = true, nowait = true })
-map("v", "<C-d>", "coc#float#has_scroll() ? coc#float#scroll(1) : '<C-d>'", { expr = true, nowait = true })
-map("v", "<C-u>", "coc#float#has_scroll() ? coc#float#scroll(0) : '<C-u>'", { expr = true, nowait = true })
+map("n", "<C-f>", "coc#float#has_scroll() ? coc#float#scroll(1) : '<C-d>'", { expr = true, nowait = true })
+map("n", "<C-b>", "coc#float#has_scroll() ? coc#float#scroll(0) : '<C-u>'", { expr = true, nowait = true })
+map("v", "<C-f>", "coc#float#has_scroll() ? coc#float#scroll(1) : '<C-d>'", { expr = true, nowait = true })
+map("v", "<C-b>", "coc#float#has_scroll() ? coc#float#scroll(0) : '<C-u>'", { expr = true, nowait = true })
 map(
   "i",
-  "<C-d>",
+  "<C-f>",
   "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(1)<cr>' : '<Right>'",
   { expr = true, nowait = true }
 )
-map("i", "<C-u>", "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<cr>' : '<Left>'", {
+map("i", "<C-b>", "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<cr>' : '<Left>'", {
   expr = true,
   nowait = true,
 })

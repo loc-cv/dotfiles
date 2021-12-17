@@ -27,6 +27,7 @@ telescope.setup {
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-q>"] = actions.close,
+        ["<M-w>"] = actions.delete_buffer,
         -- ["<esc>"] = actions.close,
       },
     },
