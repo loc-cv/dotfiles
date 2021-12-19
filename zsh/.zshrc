@@ -49,4 +49,5 @@ export PATH=$HOME/tools/nvim-linux64/bin:$PATH
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# Lua
 alias luamake=/home/colcv/lua-language-server/3rd/luamake/luamake
