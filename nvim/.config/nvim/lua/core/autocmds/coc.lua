@@ -1,5 +1,5 @@
 -- Setup formatexpr specified filetype(s)
--- And update signature help on jump placeholder
+-- and update signature help on jump placeholder
 vim.cmd [[
   augroup mygroup
     autocmd!

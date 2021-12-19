@@ -170,7 +170,6 @@ return packer.startup {
     use "matze/vim-move"
     use "haya14busa/is.vim"
     use "PeterRincker/vim-searchlight"
-    use "christoomey/vim-tmux-navigator"
     use "ntpeters/vim-better-whitespace"
     use "junegunn/vim-easy-align"
     use "lewis6991/impatient.nvim"

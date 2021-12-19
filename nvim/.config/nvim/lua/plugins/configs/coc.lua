@@ -15,8 +15,8 @@ vim.g.coc_global_extensions = {
   "coc-snippets",
   "coc-highlight",
   "coc-explorer",
+  "coc-sumneko-lua",
 }
--- "coc-sumneko-lua",
 
 function M.show_docs()
   local cw = vim.fn.expand "<cword>"

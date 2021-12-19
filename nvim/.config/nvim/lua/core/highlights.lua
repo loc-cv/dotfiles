@@ -1,5 +1,5 @@
-local colorschemes = require "colorschemes"
 local hi = vim.highlight.create
+local colorschemes = require "colorschemes"
 
 _G.colors = {}
 
@@ -13,6 +13,7 @@ local set_colors = function(colorscheme, style)
     vim.cmd("colorscheme " .. colorscheme)
     _G.colors = colorschemes.vscode_dark
   end
+  -- more colorschemes ...
 end
 
 set_colors "vscode"
