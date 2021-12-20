@@ -18,7 +18,7 @@ vim.g.coc_global_extensions = {
   "coc-sumneko-lua",
 }
 
-function M.show_docs()
+M.show_docs = function()
   local cw = vim.fn.expand "<cword>"
   if vim.fn.index({ "vim", "help" }, vim.bo.filetype) >= 0 then
     vim.cmd("h " .. cw)
