@@ -10,17 +10,8 @@ vim.cmd [[silent! command PackerUpdate lua require 'plugins' require('packer').u
 vim.cmd [[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost ~/dotfiles/nvim/.config/nvim/lua/plugins/init.lua source <afile> | PackerCompile
-    autocmd BufWritePost ~/dotfiles/nvim/.config/nvim/lua/plugins/init.lua source <afile> | PackerClean
-    autocmd BufWritePost ~/dotfiles/nvim/.config/nvim/lua/plugins/init.lua source <afile> | PackerInstall
+    autocmd BufWritePost */lua/plugins/init.lua source <afile> | PackerCompile
+    autocmd BufWritePost */lua/plugins/init.lua source <afile> | PackerClean
+    autocmd BufWritePost */lua/plugins/init.lua source <afile> | PackerInstall
   augroup end
 ]]
-
--- vim.cmd [[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost lua/plugins/init.lua source <afile> | PackerCompile
---     autocmd BufWritePost lua/plugins/init.lua source <afile> | PackerClean
---     autocmd BufWritePost lua/plugins/init.lua source <afile> | PackerInstall
---   augroup end
--- ]]
