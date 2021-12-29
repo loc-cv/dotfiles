@@ -36,6 +36,11 @@ local colors = {
   -- nvim_window
   NvimWindowBG = "#d4d4d4",
   NvimWindowFG = "#0a0a0a",
+
+  -- Hop
+  HopNextKey = "#f44747",
+  HopNextKey1 = "#d7ba7d",
+  HopNextKey2 = "#dcdcaa",
 }
 
 return colors

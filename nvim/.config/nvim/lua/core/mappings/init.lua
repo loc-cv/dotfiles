@@ -7,6 +7,7 @@ require "core.mappings.easy_align"
 require "core.mappings.floaterm"
 require "core.mappings.telescope"
 require "core.mappings.nvim_window"
+require "core.mappings.hop"
 
 -- Better movements
 map("n", "<C-j>", "<C-w><C-j>")

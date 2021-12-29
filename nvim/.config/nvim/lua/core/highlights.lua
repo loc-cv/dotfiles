@@ -64,4 +64,9 @@ hi("CocFadeOut", { guifg = colors.CocFadeOut, gui = "underline" })
 -- nvim-window
 hi("NvimWindow", { guifg = colors.NvimWindowFG, guibg = colors.NvimWindowBG })
 
+-- Hop
+hi("HopNextKey", { guifg = colors.HopNextKey })
+hi("HopNextKey1", { guifg = colors.HopNextKey1 })
+hi("HopNextKey2", { guifg = colors.HopNextKey2 })
+
 return _G.colors

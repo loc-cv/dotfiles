@@ -167,6 +167,15 @@ return packer.startup {
       end,
     }
 
+    -- Easy motions
+    use {
+      "phaazon/hop.nvim",
+      branch = "v1",
+      config = function()
+        require "plugins.configs.hop"
+      end,
+    }
+
     use "matze/vim-move"
     use "haya14busa/is.vim"
     use "PeterRincker/vim-searchlight"
