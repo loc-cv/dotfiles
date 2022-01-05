@@ -43,6 +43,8 @@ return packer.startup {
       end,
     }
 
+    use "rafamadriz/friendly-snippets"
+
     use {
       "antoinemadec/coc-fzf",
       branch = "release",
@@ -176,6 +178,7 @@ return packer.startup {
       end,
     }
 
+    use "digitaltoad/vim-pug"
     use "matze/vim-move"
     use "haya14busa/is.vim"
     use "PeterRincker/vim-searchlight"

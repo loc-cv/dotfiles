@@ -18,6 +18,9 @@ end
 
 set_colors "vscode"
 
+-- CursorLine
+hi("CursorLine", { guibg = colors.CursorLine })
+
 -- Trailing whitespaces
 vim.g.better_whitespace_guicolor = colors.Whitespace
 

@@ -61,7 +61,6 @@
   "explorer.focus": false,
 
   // emmet
-  "emmet.includeLanguages": { "javascript": "javascriptreact" },
   "emmet.priority": 95,
 
   // tsserver
