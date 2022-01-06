@@ -18,6 +18,7 @@ local colors = {
 
   -- indent_blankline
   IndentBlanklineContextChar = "#d4d4d4",
+  IndentBlanklineContextStart = "#d4d4d4",
 
   -- trailing whitespaces
   Whitespace = "#808080",

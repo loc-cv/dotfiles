@@ -106,7 +106,7 @@ return packer.startup {
     -- Sessions
     use "tpope/vim-obsession"
 
-    -- Coding enhancement
+    -- Coding enhancements
     use {
       "numToStr/Comment.nvim",
       after = "nvim-ts-context-commentstring",
@@ -178,7 +178,15 @@ return packer.startup {
       end,
     }
 
-    use "digitaltoad/vim-pug"
+    -- Buffers management
+    use {
+      "kazhala/close-buffers.nvim",
+      config = function()
+        require "plugins.configs.close_buffers"
+      end,
+    }
+
+    -- Miscs
     use "matze/vim-move"
     use "haya14busa/is.vim"
     use "PeterRincker/vim-searchlight"

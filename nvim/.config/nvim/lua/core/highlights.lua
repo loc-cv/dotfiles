@@ -44,6 +44,7 @@ hi("HighlightedyankRegion", { guibg = colors.HighlightedyankRegion, gui = "bold"
 
 -- For indent_blankline only
 hi("IndentBlanklineContextChar", { guifg = colors.IndentBlanklineContextChar, gui = "nocombine" })
+hi("IndentBlanklineContextStart", { guifg = "NONE", guisp = colors.IndentBlanklineContextStart, gui = "underline" })
 
 -- coc.nvim
 hi("CocErrorSign", { guifg = colors.CocError })
