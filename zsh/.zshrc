@@ -15,7 +15,7 @@ export TYPEWRITTEN_CURSOR="block"
 DISABLE_AUTO_TITLE="true"
 
 # Enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Plugins
 plugins=(
