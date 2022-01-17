@@ -61,12 +61,18 @@
   "explorer.focus": false,
 
   // emmet
-  "emmet.priority": 95,
+  "emmet.priority": 99,
 
   // tsserver
   "javascript.suggest.completeFunctionCalls": false,
   "javascript.suggestionActions.enabled": false,
   "javascript.showUnused": false,
+
+  // tailwindcss
+  "tailwindCSS.emmetCompletions": true,
+
+  // css
+  "css.lint.unknownAtRules": "ignore",
 
   // prettier
   "prettier.singleQuote": true

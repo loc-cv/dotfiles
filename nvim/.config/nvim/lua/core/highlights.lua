@@ -73,4 +73,7 @@ hi("HopNextKey", { guifg = colors.HopNextKey })
 hi("HopNextKey1", { guifg = colors.HopNextKey1 })
 hi("HopNextKey2", { guifg = colors.HopNextKey2 })
 
+-- vim-sandwich
+hi("OperatorSandwichChange", { guibg = colors.OperatorSandwichChangeBG, guifg = colors.OperatorSandwichChangeFG })
+
 return _G.colors

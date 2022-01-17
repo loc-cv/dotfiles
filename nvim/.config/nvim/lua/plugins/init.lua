@@ -15,7 +15,7 @@ if not is_installed then
 end
 
 local _, packer = pcall(require, "packer")
-local misc = require "plugins.configs.misc"
+local miscs = require "plugins.configs.miscs"
 local use = packer.use
 
 return packer.startup {
@@ -69,6 +69,8 @@ return packer.startup {
       end,
     }
 
+    use "sheerun/vim-polyglot"
+
     -- Telescope
     use {
       "nvim-telescope/telescope.nvim",
@@ -119,14 +121,14 @@ return packer.startup {
       "JoosepAlviste/nvim-ts-context-commentstring",
       requires = "nvim-treesitter/nvim-treesitter",
       after = "nvim-treesitter",
-      config = misc.context_commentstring,
+      config = miscs.context_commentstring,
     }
 
     use {
       "windwp/nvim-ts-autotag",
       requires = "nvim-treesitter/nvim-treesitter",
       after = "nvim-treesitter",
-      config = misc.autotag,
+      config = miscs.autotag,
     }
 
     use {
@@ -178,11 +180,21 @@ return packer.startup {
       end,
     }
 
+    use "rlane/pounce.nvim"
+
     -- Buffers management
     use {
       "kazhala/close-buffers.nvim",
       config = function()
         require "plugins.configs.close_buffers"
+      end,
+    }
+
+    -- Tmux
+    use {
+      "aserowy/tmux.nvim",
+      config = function()
+        require "plugins.configs.tmux"
       end,
     }
 
@@ -193,5 +205,8 @@ return packer.startup {
     use "ntpeters/vim-better-whitespace"
     use "junegunn/vim-easy-align"
     use "lewis6991/impatient.nvim"
+
+    -- Temps
+    use "digitaltoad/vim-pug"
   end,
 }

@@ -45,6 +45,10 @@ local colors = {
   HopNextKey = "#f44747",
   HopNextKey1 = "#d7ba7d",
   HopNextKey2 = "#dcdcaa",
+
+  -- vim-sandwich
+  OperatorSandwichChangeBG = "#d4d4d4",
+  OperatorSandwichChangeFG = "#1e1e1e",
 }
 
 return colors

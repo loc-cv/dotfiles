@@ -15,10 +15,10 @@ telescope.setup {
       "--glob=!.git/",
     },
     file_ignore_patterns = {
-      "%.png",
-      "%.jpg",
-      "%.jpeg",
-      "%.webp",
+      -- "%.png",
+      -- "%.jpg",
+      -- "%.jpeg",
+      -- "%.webp",
       "node_modules",
       "*%.min%.*",
       "dotbot",
@@ -40,7 +40,11 @@ telescope.setup {
       hidden = true,
     },
   },
-  extensions = {},
+  extensions = {
+    media_files = {
+      filetypes = { "png", "webp", "jpg", "jpeg", "webm", "pdf", "mp4" },
+    },
+  },
 }
 
 -- Loading extensions
