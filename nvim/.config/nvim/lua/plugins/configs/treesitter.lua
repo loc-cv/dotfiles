@@ -2,6 +2,7 @@ local _, ts_config = pcall(require, "nvim-treesitter.configs")
 
 ts_config.setup {
   ensure_installed = {
+    "lua",
     "html",
     "css",
     "scss",

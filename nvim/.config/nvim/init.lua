@@ -1,2 +1,2 @@
-require "impatient"
+-- require "impatient"
 require "core"

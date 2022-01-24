@@ -44,7 +44,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/home/colcv/.local/bin
 
 # Neovim
-export PATH=$HOME/tools/nvim-linux64/bin:$PATH
+# export PATH=$HOME/tools/nvim-linux64/bin:$PATH
 
 # Lua
 alias luamake=/home/colcv/lua-language-server/3rd/luamake/luamake
