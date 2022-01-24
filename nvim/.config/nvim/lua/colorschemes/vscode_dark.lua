@@ -41,14 +41,17 @@ local colors = {
   NvimWindowBG = "#d4d4d4",
   NvimWindowFG = "#0a0a0a",
 
-  -- Hop
-  HopNextKey = "#f44747",
-  HopNextKey1 = "#d7ba7d",
-  HopNextKey2 = "#dcdcaa",
-
   -- vim-sandwich
   OperatorSandwichChangeBG = "#d4d4d4",
   OperatorSandwichChangeFG = "#1e1e1e",
+
+  -- pounce.nvim
+  PounceMatchFG = "#0a0a0a",
+  PounceMatchBG = "#808080",
+  PounceGapFG = "#0a0a0a",
+  PounceGapBG = "#454545",
+  PounceAcceptFG = "#0a0a0a",
+  PounceAcceptBG = "#d4d4d4",
 }
 
 return colors

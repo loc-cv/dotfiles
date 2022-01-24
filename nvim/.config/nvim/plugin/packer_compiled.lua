@@ -121,12 +121,6 @@ _G.packer_plugins = {
     path = "/home/colcv/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["hop.nvim"] = {
-    config = { "\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24plugins.configs.hop\frequire\0" },
-    loaded = true,
-    path = "/home/colcv/.local/share/nvim/site/pack/packer/start/hop.nvim",
-    url = "https://github.com/phaazon/hop.nvim"
-  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/home/colcv/.local/share/nvim/site/pack/packer/start/impatient.nvim",
@@ -150,7 +144,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-treesitter"] = {
-    after = { "nvim-ts-context-commentstring", "nvim-ts-autotag" },
+    after = { "nvim-ts-autotag", "nvim-ts-context-commentstring" },
     loaded = true,
     only_config = true
   },
@@ -164,7 +158,7 @@ _G.packer_plugins = {
   },
   ["nvim-ts-context-commentstring"] = {
     after = { "Comment.nvim" },
-    config = { "\27LJ\2\n十1\0\0\6\0\a\0\n6\0\0\0006\2\1\0'\3\2\0B\0\3\0039\2\3\0015\4\5\0005\5\4\0=\5\6\4B\2\2\1K\0\1\0\26context_commentstring\1\0\0\1\0\2\19enable_autocmd\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\npcall\0" },
+    config = { "\27LJ\2\n十1\0\0\6\0\a\0\n6\0\0\0006\2\1\0'\3\2\0B\0\3\0039\2\3\0015\4\5\0005\5\4\0=\5\6\4B\2\2\1K\0\1\0\26context_commentstring\1\0\0\1\0\2\venable\2\19enable_autocmd\1\nsetup\28nvim-treesitter.configs\frequire\npcall\0" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
@@ -300,18 +294,30 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30plugins.configs.autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
+-- Config for: tmux.nvim
+time([[Config for tmux.nvim]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugins.configs.tmux\frequire\0", "config", "tmux.nvim")
+time([[Config for tmux.nvim]], false)
+-- Config for: vim-highlightedyank
+time([[Config for vim-highlightedyank]], true)
+try_loadstring("\27LJ\2\nD\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1,\1=\1\2\0K\0\1\0'highlightedyank_highlight_duration\6g\bvim\0", "config", "vim-highlightedyank")
+time([[Config for vim-highlightedyank]], false)
+-- Config for: close-buffers.nvim
+time([[Config for close-buffers.nvim]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\"plugins.configs.close_buffers\frequire\0", "config", "close-buffers.nvim")
+time([[Config for close-buffers.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\31plugins.configs.treesitter\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-window.git
 time([[Config for nvim-window.git]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0 plugins.configs.nvim_window\frequire\0", "config", "nvim-window.git")
 time([[Config for nvim-window.git]], false)
--- Config for: galaxyline.nvim
-time([[Config for galaxyline.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\31plugins.configs.galaxyline\frequire\0", "config", "galaxyline.nvim")
-time([[Config for galaxyline.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30plugins.configs.autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\29plugins.configs.gitsigns\frequire\0", "config", "gitsigns.nvim")
@@ -320,10 +326,10 @@ time([[Config for gitsigns.nvim]], false)
 time([[Config for coc.nvim]], true)
 try_loadstring("\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24plugins.configs.coc\frequire\0", "config", "coc.nvim")
 time([[Config for coc.nvim]], false)
--- Config for: hop.nvim
-time([[Config for hop.nvim]], true)
-try_loadstring("\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24plugins.configs.hop\frequire\0", "config", "hop.nvim")
-time([[Config for hop.nvim]], false)
+-- Config for: vim-floaterm
+time([[Config for vim-floaterm]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\29plugins.configs.floaterm\frequire\0", "config", "vim-floaterm")
+time([[Config for vim-floaterm]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0%plugins.configs.indent_blankline\frequire\0", "config", "indent-blankline.nvim")
@@ -332,46 +338,30 @@ time([[Config for indent-blankline.nvim]], false)
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30plugins.configs.telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
--- Config for: vim-floaterm
-time([[Config for vim-floaterm]], true)
-try_loadstring("\27LJ\2\n8\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\29plugins.configs.floaterm\frequire\0", "config", "vim-floaterm")
-time([[Config for vim-floaterm]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\31plugins.configs.treesitter\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: vim-highlightedyank
-time([[Config for vim-highlightedyank]], true)
-try_loadstring("\27LJ\2\nD\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1,\1=\1\2\0K\0\1\0'highlightedyank_highlight_duration\6g\bvim\0", "config", "vim-highlightedyank")
-time([[Config for vim-highlightedyank]], false)
--- Config for: tmux.nvim
-time([[Config for tmux.nvim]], true)
-try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugins.configs.tmux\frequire\0", "config", "tmux.nvim")
-time([[Config for tmux.nvim]], false)
+-- Config for: galaxyline.nvim
+time([[Config for galaxyline.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\31plugins.configs.galaxyline\frequire\0", "config", "galaxyline.nvim")
+time([[Config for galaxyline.nvim]], false)
 -- Config for: vim-sandwich
 time([[Config for vim-sandwich]], true)
 try_loadstring("\27LJ\2\nO\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0000runtime macros/sandwich/keymap/surround.vim\bcmd\bvim\0", "config", "vim-sandwich")
 time([[Config for vim-sandwich]], false)
--- Config for: close-buffers.nvim
-time([[Config for close-buffers.nvim]], true)
-try_loadstring("\27LJ\2\n=\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\"plugins.configs.close_buffers\frequire\0", "config", "close-buffers.nvim")
-time([[Config for close-buffers.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd nvim-ts-autotag ]]
-
--- Config for: nvim-ts-autotag
-try_loadstring("\27LJ\2\nq\0\0\6\0\a\0\n6\0\0\0006\2\1\0'\3\2\0B\0\3\0039\2\3\0015\4\5\0005\5\4\0=\5\6\4B\2\2\1K\0\1\0\fautotag\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\npcall\0", "config", "nvim-ts-autotag")
-
 vim.cmd [[ packadd nvim-ts-context-commentstring ]]
 
 -- Config for: nvim-ts-context-commentstring
-try_loadstring("\27LJ\2\n十1\0\0\6\0\a\0\n6\0\0\0006\2\1\0'\3\2\0B\0\3\0039\2\3\0015\4\5\0005\5\4\0=\5\6\4B\2\2\1K\0\1\0\26context_commentstring\1\0\0\1\0\2\19enable_autocmd\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\npcall\0", "config", "nvim-ts-context-commentstring")
+try_loadstring("\27LJ\2\n十1\0\0\6\0\a\0\n6\0\0\0006\2\1\0'\3\2\0B\0\3\0039\2\3\0015\4\5\0005\5\4\0=\5\6\4B\2\2\1K\0\1\0\26context_commentstring\1\0\0\1\0\2\venable\2\19enable_autocmd\1\nsetup\28nvim-treesitter.configs\frequire\npcall\0", "config", "nvim-ts-context-commentstring")
 
 vim.cmd [[ packadd Comment.nvim ]]
 
 -- Config for: Comment.nvim
 try_loadstring("\27LJ\2\n7\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\28plugins.configs.comment\frequire\0", "config", "Comment.nvim")
+
+vim.cmd [[ packadd nvim-ts-autotag ]]
+
+-- Config for: nvim-ts-autotag
+try_loadstring("\27LJ\2\nq\0\0\6\0\a\0\n6\0\0\0006\2\1\0'\3\2\0B\0\3\0039\2\3\0015\4\5\0005\5\4\0=\5\6\4B\2\2\1K\0\1\0\fautotag\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\npcall\0", "config", "nvim-ts-autotag")
 
 time([[Sequenced loading]], false)
 if should_profile then save_profiles() end

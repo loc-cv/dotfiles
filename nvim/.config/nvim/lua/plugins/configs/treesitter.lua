@@ -10,7 +10,6 @@ ts_config.setup {
     "tsx",
     "json",
     "jsonc",
-    "lua",
     "c",
     "cpp",
     "go",

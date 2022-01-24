@@ -7,7 +7,6 @@ require "core.mappings.easy_align"
 require "core.mappings.floaterm"
 require "core.mappings.telescope"
 require "core.mappings.nvim_window"
-require "core.mappings.hop"
 require "core.mappings.pounce"
 
 -- Better movements

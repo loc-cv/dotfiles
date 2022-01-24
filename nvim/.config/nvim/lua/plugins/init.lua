@@ -172,14 +172,6 @@ return packer.startup {
     }
 
     -- Easy motions
-    use {
-      "phaazon/hop.nvim",
-      branch = "v1",
-      config = function()
-        require "plugins.configs.hop"
-      end,
-    }
-
     use "rlane/pounce.nvim"
 
     -- Buffers management

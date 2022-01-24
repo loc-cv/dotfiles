@@ -68,12 +68,12 @@ hi("CocFadeOut", { guifg = colors.CocFadeOut, gui = "underline" })
 -- nvim-window
 hi("NvimWindow", { guifg = colors.NvimWindowFG, guibg = colors.NvimWindowBG })
 
--- Hop
-hi("HopNextKey", { guifg = colors.HopNextKey })
-hi("HopNextKey1", { guifg = colors.HopNextKey1 })
-hi("HopNextKey2", { guifg = colors.HopNextKey2 })
-
 -- vim-sandwich
 hi("OperatorSandwichChange", { guibg = colors.OperatorSandwichChangeBG, guifg = colors.OperatorSandwichChangeFG })
+
+-- pounce.nvim
+hi("PounceMatch", { guibg = colors.PounceMatchBG, guifg = colors.PounceMatchFG, gui = "bold" })
+hi("PounceGap", { guibg = colors.PounceGapBG, guifg = colors.PounceGapFG, gui = "bold" })
+hi("PounceAccept", { guibg = colors.PounceAcceptBG, guifg = colors.PounceAcceptFG, gui = "bold" })
 
 return _G.colors
