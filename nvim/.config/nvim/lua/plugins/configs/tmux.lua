@@ -1,4 +1,4 @@
-local _, tmux = pcall(require, "tmux")
+local _, tmux = pcall(require, 'tmux')
 
 tmux.setup {
   copy_sync = {

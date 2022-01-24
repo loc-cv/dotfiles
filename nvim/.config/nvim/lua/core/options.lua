@@ -2,7 +2,7 @@ local opt = vim.opt
 
 local options = {
   -- General options
-  clipboard = "unnamed,unnamedplus", -- Copy-paste between vim and everything else
+  clipboard = 'unnamed,unnamedplus', -- Copy-paste between vim and everything else
   showmode = false, -- Don't show things like -- INSERT -- anymore
   pumheight = 10, -- Set popup menu height
   splitright = true, -- Vertical splits will automatically be to the right
@@ -10,14 +10,14 @@ local options = {
   updatetime = 200, -- Faster completion
   termguicolors = true, -- Enable true color
   scrolloff = 1, -- Minimal number of lines above and below cursor
-  fillchars = { eob = " " }, -- Hide the tilde sign (~) on end of buffers
+  fillchars = { eob = ' ' }, -- Hide the tilde sign (~) on end of buffers
   conceallevel = 0, -- So that I can see `` in Markdown files
   number = true, -- Enable number lines
   relativenumber = true, -- Enable relative number lines
-  signcolumn = "yes", -- Always show the signcolumn
+  signcolumn = 'yes', -- Always show the signcolumn
   linebreak = true, -- Prevent words from being split across two lines when line wraps
   cursorline = true, -- Enable cursorline
-  mouse = "a", -- Enable your mouse
+  mouse = 'a', -- Enable your mouse
 
   -- Disable swapfiles & backup files
   backup = false, -- Prevent making a backup before overwriting a file
@@ -47,7 +47,7 @@ local options = {
 }
 
 -- Don't give ins-completion-menu messages
-opt.shortmess:append "c"
+opt.shortmess:append 'c'
 
 for k, v in pairs(options) do
   opt[k] = v

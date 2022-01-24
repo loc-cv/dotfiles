@@ -1,7 +1,7 @@
 -- Autocmds for plugins
-require "core.autocmds.packer"
-require "core.autocmds.coc"
-require "core.autocmds.floaterm"
+require 'core.autocmds.packer'
+require 'core.autocmds.coc'
+require 'core.autocmds.floaterm'
 
 -- Making sure everything works as expected
 vim.cmd [[filetype plugin indent on]]
