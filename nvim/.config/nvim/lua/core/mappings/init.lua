@@ -10,10 +10,10 @@ require 'core.mappings.nvim_window'
 require 'core.mappings.pounce'
 
 -- Better movements
--- map("n", "<C-j>", "<C-w><C-j>")
--- map("n", "<C-k>", "<C-w><C-k>")
--- map("n", "<C-l>", "<C-w><C-l>")
--- map("n", "<C-h>", "<C-w><C-h>")
+map('n', '<C-j>', '<C-w><C-j>')
+map('n', '<C-k>', '<C-w><C-k>')
+map('n', '<C-l>', '<C-w><C-l>')
+map('n', '<C-h>', '<C-w><C-h>')
 
 -- Better indenting in visual mode
 map('v', '<', '<gv')

@@ -60,6 +60,8 @@ return packer.startup {
       },
     }
 
+    -- use 'fatih/vim-go'
+
     -- Syntax highlighting (and more)
     use {
       'nvim-treesitter/nvim-treesitter',
@@ -171,6 +173,13 @@ return packer.startup {
       end,
     }
 
+    use {
+      'sunjon/shade.nvim',
+      config = function()
+        require 'plugins.configs.shade'
+      end,
+    }
+
     -- Easy motions
     use 'rlane/pounce.nvim'
 
@@ -182,13 +191,8 @@ return packer.startup {
       end,
     }
 
-    -- Tmux
-    use {
-      'aserowy/tmux.nvim',
-      config = function()
-        require 'plugins.configs.tmux'
-      end,
-    }
+    -- Markdown
+    use 'ellisonleao/glow.nvim'
 
     -- Miscs
     use 'matze/vim-move'
@@ -197,8 +201,5 @@ return packer.startup {
     use 'ntpeters/vim-better-whitespace'
     use 'junegunn/vim-easy-align'
     use 'lewis6991/impatient.nvim'
-
-    -- Temps
-    use 'digitaltoad/vim-pug'
   end,
 }

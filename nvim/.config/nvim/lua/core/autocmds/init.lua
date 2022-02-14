@@ -12,11 +12,5 @@ vim.cmd [[autocmd TermOpen * setlocal nonumber norelativenumber]]
 -- Disable auto comment insertion
 vim.cmd [[autocmd FileType * setlocal formatoptions-=cro]]
 
--- Smarter cursorline
-vim.cmd [[
-  autocmd InsertLeave,WinEnter * if index(["coc-explorer"], &ft) < 0 | set cursorline
-  autocmd InsertEnter,WinLeave * if index(["coc-explorer"], &ft) < 0 | set nocursorline
-]]
-
 -- Markdown
 vim.cmd [[au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown]]

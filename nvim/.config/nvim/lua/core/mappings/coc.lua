@@ -30,7 +30,6 @@ map('n', 'gi', '<Plug>(coc-implementation)', { noremap = false })
 map('n', 'gr', '<Plug>(coc-references)', { noremap = false })
 
 -- Use gh to show documentation in preview window
--- map("n", "gh", "<CMD>lua require('plugins.configs.coc').show_docs()<CR>")
 map('n', 'gh', coc_utils.show_docs)
 
 -- Symbol renaming

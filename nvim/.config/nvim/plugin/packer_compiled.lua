@@ -121,6 +121,11 @@ _G.packer_plugins = {
     path = "/home/colcv/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["glow.nvim"] = {
+    loaded = true,
+    path = "/home/colcv/.local/share/nvim/site/pack/packer/start/glow.nvim",
+    url = "https://github.com/ellisonleao/glow.nvim"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/home/colcv/.local/share/nvim/site/pack/packer/start/impatient.nvim",
@@ -158,7 +163,7 @@ _G.packer_plugins = {
   },
   ["nvim-ts-context-commentstring"] = {
     after = { "Comment.nvim" },
-    config = { "\27LJ\2\2十1\0\0\5\0\a\0\n6\0\0\0006\1\1\0'\2\2\0B\0\3\0039\2\3\0015\3\5\0005\4\4\0=\4\6\3B\2\2\1K\0\1\0\26context_commentstring\1\0\0\1\0\2\19enable_autocmd\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\npcall\0" },
+    config = { "\27LJ\2\2十1\0\0\5\0\a\0\n6\0\0\0006\1\1\0'\2\2\0B\0\3\0039\2\3\0015\3\5\0005\4\4\0=\4\6\3B\2\2\1K\0\1\0\26context_commentstring\1\0\0\1\0\2\venable\2\19enable_autocmd\1\nsetup\28nvim-treesitter.configs\frequire\npcall\0" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
@@ -191,6 +196,12 @@ _G.packer_plugins = {
     path = "/home/colcv/.local/share/nvim/site/pack/packer/start/pounce.nvim",
     url = "https://github.com/rlane/pounce.nvim"
   },
+  ["shade.nvim"] = {
+    config = { "\27LJ\2\0025\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\26plugins.configs.shade\frequire\0" },
+    loaded = true,
+    path = "/home/colcv/.local/share/nvim/site/pack/packer/start/shade.nvim",
+    url = "https://github.com/sunjon/shade.nvim"
+  },
   ["telescope-emoji.nvim"] = {
     loaded = true,
     path = "/home/colcv/.local/share/nvim/site/pack/packer/start/telescope-emoji.nvim",
@@ -211,12 +222,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/colcv/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["tmux.nvim"] = {
-    config = { "\27LJ\2\0024\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\25plugins.configs.tmux\frequire\0" },
-    loaded = true,
-    path = "/home/colcv/.local/share/nvim/site/pack/packer/start/tmux.nvim",
-    url = "https://github.com/aserowy/tmux.nvim"
   },
   ["vim-better-whitespace"] = {
     loaded = true,
@@ -260,11 +265,6 @@ _G.packer_plugins = {
     path = "/home/colcv/.local/share/nvim/site/pack/packer/start/vim-polyglot",
     url = "https://github.com/sheerun/vim-polyglot"
   },
-  ["vim-pug"] = {
-    loaded = true,
-    path = "/home/colcv/.local/share/nvim/site/pack/packer/start/vim-pug",
-    url = "https://github.com/digitaltoad/vim-pug"
-  },
   ["vim-sandwich"] = {
     config = { "\27LJ\2\2O\0\0\2\0\3\0\0056\0\0\0009\0\1\0'\1\2\0B\0\2\1K\0\1\0000runtime macros/sandwich/keymap/surround.vim\bcmd\bvim\0" },
     loaded = true,
@@ -302,10 +302,10 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for vim-floaterm]], true)
 try_loadstring("\27LJ\2\0028\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\29plugins.configs.floaterm\frequire\0", "config", "vim-floaterm")
 time([[Config for vim-floaterm]], false)
--- Config for: nvim-window.git
-time([[Config for nvim-window.git]], true)
-try_loadstring("\27LJ\2\2;\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0 plugins.configs.nvim_window\frequire\0", "config", "nvim-window.git")
-time([[Config for nvim-window.git]], false)
+-- Config for: vim-highlightedyank
+time([[Config for vim-highlightedyank]], true)
+try_loadstring("\27LJ\2\2D\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1,\1=\1\2\0K\0\1\0'highlightedyank_highlight_duration\6g\bvim\0", "config", "vim-highlightedyank")
+time([[Config for vim-highlightedyank]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
 try_loadstring("\27LJ\2\2@\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0%plugins.configs.indent_blankline\frequire\0", "config", "indent-blankline.nvim")
@@ -314,30 +314,30 @@ time([[Config for indent-blankline.nvim]], false)
 time([[Config for coc.nvim]], true)
 try_loadstring("\27LJ\2\0023\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\24plugins.configs.coc\frequire\0", "config", "coc.nvim")
 time([[Config for coc.nvim]], false)
--- Config for: vim-highlightedyank
-time([[Config for vim-highlightedyank]], true)
-try_loadstring("\27LJ\2\2D\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1,\1=\1\2\0K\0\1\0'highlightedyank_highlight_duration\6g\bvim\0", "config", "vim-highlightedyank")
-time([[Config for vim-highlightedyank]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\0029\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\30plugins.configs.telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
+-- Config for: nvim-window.git
+time([[Config for nvim-window.git]], true)
+try_loadstring("\27LJ\2\2;\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0 plugins.configs.nvim_window\frequire\0", "config", "nvim-window.git")
+time([[Config for nvim-window.git]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\0028\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\29plugins.configs.gitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
--- Config for: vim-sandwich
-time([[Config for vim-sandwich]], true)
-try_loadstring("\27LJ\2\2O\0\0\2\0\3\0\0056\0\0\0009\0\1\0'\1\2\0B\0\2\1K\0\1\0000runtime macros/sandwich/keymap/surround.vim\bcmd\bvim\0", "config", "vim-sandwich")
-time([[Config for vim-sandwich]], false)
+-- Config for: shade.nvim
+time([[Config for shade.nvim]], true)
+try_loadstring("\27LJ\2\0025\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\26plugins.configs.shade\frequire\0", "config", "shade.nvim")
+time([[Config for shade.nvim]], false)
 -- Config for: galaxyline.nvim
 time([[Config for galaxyline.nvim]], true)
 try_loadstring("\27LJ\2\2:\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\31plugins.configs.galaxyline\frequire\0", "config", "galaxyline.nvim")
 time([[Config for galaxyline.nvim]], false)
--- Config for: tmux.nvim
-time([[Config for tmux.nvim]], true)
-try_loadstring("\27LJ\2\0024\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\25plugins.configs.tmux\frequire\0", "config", "tmux.nvim")
-time([[Config for tmux.nvim]], false)
+-- Config for: vim-sandwich
+time([[Config for vim-sandwich]], true)
+try_loadstring("\27LJ\2\2O\0\0\2\0\3\0\0056\0\0\0009\0\1\0'\1\2\0B\0\2\1K\0\1\0000runtime macros/sandwich/keymap/surround.vim\bcmd\bvim\0", "config", "vim-sandwich")
+time([[Config for vim-sandwich]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\0029\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\30plugins.configs.autopairs\frequire\0", "config", "nvim-autopairs")
@@ -351,7 +351,7 @@ time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-ts-context-commentstring ]]
 
 -- Config for: nvim-ts-context-commentstring
-try_loadstring("\27LJ\2\2十1\0\0\5\0\a\0\n6\0\0\0006\1\1\0'\2\2\0B\0\3\0039\2\3\0015\3\5\0005\4\4\0=\4\6\3B\2\2\1K\0\1\0\26context_commentstring\1\0\0\1\0\2\19enable_autocmd\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\npcall\0", "config", "nvim-ts-context-commentstring")
+try_loadstring("\27LJ\2\2十1\0\0\5\0\a\0\n6\0\0\0006\1\1\0'\2\2\0B\0\3\0039\2\3\0015\3\5\0005\4\4\0=\4\6\3B\2\2\1K\0\1\0\26context_commentstring\1\0\0\1\0\2\venable\2\19enable_autocmd\1\nsetup\28nvim-treesitter.configs\frequire\npcall\0", "config", "nvim-ts-context-commentstring")
 
 vim.cmd [[ packadd Comment.nvim ]]
 
@@ -369,5 +369,6 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end

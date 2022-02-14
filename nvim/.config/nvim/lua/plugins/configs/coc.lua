@@ -16,7 +16,7 @@ vim.g.coc_global_extensions = {
   'coc-highlight',
   'coc-explorer',
   'coc-sumneko-lua',
-  -- "coc-tailwindcss",
+  -- 'coc-go',
 }
 
 M.show_docs = function()
