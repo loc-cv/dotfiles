@@ -26,7 +26,7 @@ ts_config.setup {
 
   highlight = {
     enable = true,
-    disable = { 'vim' },
+    disable = { 'vim', 'html', 'css' },
     additional_vim_regex_highlighting = false,
   },
 

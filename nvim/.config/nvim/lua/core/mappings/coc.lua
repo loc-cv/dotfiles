@@ -1,6 +1,5 @@
 local utils = require 'core.utils'
 local map = utils.map
-_G.coc_utils = require 'plugins.configs.coc'
 
 -- coc-explorer
 map('n', '<C-n>', '<Cmd>CocCommand explorer<CR><Cmd>sleep 50ms<cr><C-w>=')
@@ -30,7 +29,16 @@ map('n', 'gi', '<Plug>(coc-implementation)', { noremap = false })
 map('n', 'gr', '<Plug>(coc-references)', { noremap = false })
 
 -- Use gh to show documentation in preview window
-map('n', 'gh', coc_utils.show_docs)
+map('n', 'gh', function()
+  local cw = vim.fn.expand '<cword>'
+  if vim.fn.index({ 'vim', 'help' }, vim.bo.filetype) >= 0 then
+    vim.cmd('h ' .. cw)
+  elseif vim.api.nvim_eval 'coc#rpc#ready()' then
+    vim.fn.CocActionAsync 'doHover'
+  else
+    vim.cmd('!' .. vim.o.keywordprg .. ' ' .. cw)
+  end
+end)
 
 -- Symbol renaming
 map('n', '<space>rn', '<Plug>(coc-rename)', { noremap = false })
@@ -54,7 +62,7 @@ map({ 'x', 'o' }, 'af', '<Plug>(coc-funcobj-a)', { noremap = false })
 map({ 'x', 'o' }, 'ic', '<Plug>(coc-classobj-i)', { noremap = false })
 map({ 'x', 'o' }, 'ac', '<Plug>(coc-classobj-a)', { noremap = false })
 
--- Remap <C-d> and <C-u> for scroll float windows/popups.
+-- Remap <C-f> and <C-b> for scroll float windows/popups.
 map({ 'n', 'v' }, '<C-f>', "coc#float#has_scroll() ? coc#float#scroll(1) : '<C-d>'", { expr = true, nowait = true })
 map({ 'n', 'v' }, '<C-b>', "coc#float#has_scroll() ? coc#float#scroll(0) : '<C-u>'", { expr = true, nowait = true })
 map(
@@ -84,4 +92,12 @@ map('n', '<space>p', '<Cmd>CocFzfListResume<CR>')
 
 -- Make <CR> auto-select the first completion item and notify coc.nvim to
 -- format on enter, <CR> could be remapped by other vim plugin
-map('i', '<cr>', 'v:lua.coc_utils.CR()', { expr = true })
+_G.CR = function()
+  local _, autopairs = pcall(require, 'nvim-autopairs')
+  if vim.fn.pumvisible() ~= 0 then
+    return vim.fn['coc#_select_confirm']()
+  else
+    return autopairs.autopairs_cr()
+  end
+end
+map('i', '<cr>', 'v:lua.CR()', { expr = true })

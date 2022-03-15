@@ -69,11 +69,12 @@
   "javascript.showUnused": false,
 
   // tailwindcss
-  "tailwindCSS.emmetCompletions": true,
+  // "tailwindCSS.emmetCompletions": true,
 
   // css
   "css.lint.unknownAtRules": "ignore",
 
   // prettier
-  "prettier.singleQuote": true
+  "prettier.singleQuote": true,
+  "Lua.telemetry.enable": false
 }
