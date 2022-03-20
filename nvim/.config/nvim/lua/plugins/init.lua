@@ -194,14 +194,6 @@ return packer.startup {
     -- Markdown
     use 'ellisonleao/glow.nvim'
 
-    -- Tmux
-    use {
-      'aserowy/tmux.nvim',
-      config = function()
-        require 'plugins.configs.tmux'
-      end,
-    }
-
     -- Miscs
     use 'matze/vim-move'
     use 'haya14busa/is.vim'
