@@ -10,7 +10,6 @@ local options = {
   updatetime = 200, -- faster completion
   termguicolors = true, -- enable true color
   scrolloff = 1, -- minimal number of lines above and below cursor
-  fillchars = { eob = ' ' }, -- hide the tilde sign (~) on end of buffers
   conceallevel = 0, -- so that I can see `` in Markdown files
   number = true, -- enable number lines
   relativenumber = true, -- enable relative number lines
@@ -18,6 +17,7 @@ local options = {
   linebreak = true, -- prevent words from being split across two lines when line wraps
   cursorline = true, -- enable cursorline
   mouse = 'a', -- enable your mouse
+  shortmess = opt.shortmess + { c = true }, -- don't give ins-completion-menu message
 
   -- Disable swapfiles & backup files
   backup = false, -- prevent making a backup before overwriting a file
@@ -45,9 +45,6 @@ local options = {
   ttimeoutlen = 0, -- fix delay <esc>
   timeout = false, -- no waiting for key combination
 }
-
--- Don't give ins-completion-menu messages
-opt.shortmess:append 'c'
 
 for k, v in pairs(options) do
   opt[k] = v

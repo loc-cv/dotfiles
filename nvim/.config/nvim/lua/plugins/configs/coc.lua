@@ -11,8 +11,8 @@ vim.g.coc_global_extensions = {
   'coc-prettier',
   'coc-eslint',
   'coc-snippets',
-  'coc-highlight',
   'coc-explorer',
   'coc-sumneko-lua',
+  -- 'coc-highlight',
   -- 'coc-go',
 }

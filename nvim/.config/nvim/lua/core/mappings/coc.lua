@@ -49,17 +49,17 @@ map({ 'x', 'n' }, '<space>a', '<Plug>(coc-codeaction-selected)', { noremap = fal
 -- Applying code action to the current buffer
 map('n', '<space>A', '<Plug>(coc-codeaction)', { noremap = false })
 
--- Apply autofix to problem on the current line.
+-- Apply autofix to problem on the current line
 map('n', '<space>qf', '<Plug>(coc-fix-current)', { noremap = false })
 
 -- Map function and class text objects
--- NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+-- NOTE: Requires 'textDocument.documentSymbol' support from the language server
 map({ 'x', 'o' }, 'if', '<Plug>(coc-funcobj-i)', { noremap = false })
 map({ 'x', 'o' }, 'af', '<Plug>(coc-funcobj-a)', { noremap = false })
 map({ 'x', 'o' }, 'ic', '<Plug>(coc-classobj-i)', { noremap = false })
 map({ 'x', 'o' }, 'ac', '<Plug>(coc-classobj-a)', { noremap = false })
 
--- Remap <C-f> and <C-b> for scroll float windows/popups.
+-- Remap <C-f> and <C-b> for scroll float windows/popups
 map({ 'n', 'v' }, '<C-f>', "coc#float#has_scroll() ? coc#float#scroll(1) : '<C-d>'", { expr = true, nowait = true })
 map({ 'n', 'v' }, '<C-b>', "coc#float#has_scroll() ? coc#float#scroll(0) : '<C-u>'", { expr = true, nowait = true })
 map(
@@ -73,7 +73,7 @@ map('i', '<C-b>', "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<cr>' : '<
   nowait = true,
 })
 
--- Use ctrl-s for selections ranges.
+-- Use ctrl-s for selections ranges
 map({ 'n', 'x' }, '<C-s>', '<Plug>(coc-range-select)', { noremap = false })
 
 -- Mappings for CoCList
@@ -87,8 +87,8 @@ map('n', '<space>o', '<cmd>CocFzfList outline<cr>')
 map('n', '<space>s', '<cmd>CocFzfList symbols<cr>')
 map('n', '<space>p', '<cmd>CocFzfListResume<cr>')
 
--- Make <CR> auto-select the first completion item and notify coc.nvim to
--- format on enter, <CR> could be remapped by other vim plugin
+-- Make <CR> auto-select the first completion item and notify coc.nvim to ...
+-- ... format on enter, <CR> could be remapped by other vim plugin
 _G.CR = function()
   local _, autopairs = pcall(require, 'nvim-autopairs')
   if vim.fn.pumvisible() ~= 0 then

@@ -13,4 +13,4 @@ vim.cmd [[autocmd TermOpen * setlocal nonumber norelativenumber]]
 vim.cmd [[autocmd FileType * setlocal formatoptions-=cro]]
 
 -- Markdown
-vim.cmd [[au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown]]
+vim.cmd [[autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown]]

@@ -202,5 +202,12 @@ return packer.startup {
     use 'ntpeters/vim-better-whitespace'
     use 'junegunn/vim-easy-align'
     use 'lewis6991/impatient.nvim'
+
+    use {
+      'norcalli/nvim-colorizer.lua',
+      config = function()
+        require 'plugins.configs.nvim_colorizer'
+      end,
+    }
   end,
 }
