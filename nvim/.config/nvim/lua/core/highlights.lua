@@ -7,16 +7,19 @@ local set_colors = function(colorscheme, style)
   if colorscheme == 'vscode' then
     if style then
       vim.g.vscode_style = style
+      _G.colors = colorschemes['vscode_' .. style]
     else
       vim.g.vscode_style = 'dark'
+      _G.colors = colorschemes.vscode_dark
     end
-    vim.cmd('colorscheme ' .. colorscheme)
-    _G.colors = colorschemes.vscode_dark
   end
   -- more colorschemes ...
+  -- ...
+  vim.cmd('colorscheme ' .. colorscheme)
 end
 
 set_colors 'vscode'
+-- set_colors('vscode', 'light')
 
 -- CursorLine
 hi('CursorLine', { guibg = colors.CursorLine })

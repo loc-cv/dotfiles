@@ -2,10 +2,7 @@ local utils = require 'core.utils'
 local map = utils.map
 
 -- coc-explorer
-map('n', '<C-n>', '<Cmd>CocCommand explorer<CR><Cmd>sleep 50ms<cr><C-w>=')
-
--- coc-prettier
-map('n', '<C-i>', '<Cmd>CocCommand prettier.formatFile<Cr>')
+map('n', '<C-n>', '<cmd>CocCommand explorer<cr><cmd>sleep 50ms<cr><C-w>=')
 
 -- coc-snippet
 vim.g.coc_snippet_next = '<Tab>'
@@ -80,15 +77,15 @@ map('i', '<C-b>', "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<cr>' : '<
 map({ 'n', 'x' }, '<C-s>', '<Plug>(coc-range-select)', { noremap = false })
 
 -- Mappings for CoCList
-map('n', '<space><space>', '<Cmd>CocFzfList<CR>')
-map('n', '<space>D', '<Cmd>CocFzfList diagnostics<CR>')
-map('n', '<space>d', '<Cmd>CocFzfList diagnostics --current-buf<CR>')
-map('n', '<space>c', '<Cmd>CocFzfList commands<CR>')
-map('n', '<space>e', '<Cmd>CocFzfList extensions<CR>')
-map('n', '<space>l', '<Cmd>CocFzfList location<CR>')
-map('n', '<space>o', '<Cmd>CocFzfList outline<CR>')
-map('n', '<space>s', '<Cmd>CocFzfList symbols<CR>')
-map('n', '<space>p', '<Cmd>CocFzfListResume<CR>')
+map('n', '<space><space>', '<cmd>CocFzfList<cr>')
+map('n', '<space>D', '<cmd>CocFzfList diagnostics<cr>')
+map('n', '<space>d', '<cmd>CocFzfList diagnostics --current-buf<cr>')
+map('n', '<space>c', '<cmd>CocFzfList commands<cr>')
+map('n', '<space>e', '<cmd>CocFzfList extensions<cr>')
+map('n', '<space>l', '<cmd>CocFzfList location<cr>')
+map('n', '<space>o', '<cmd>CocFzfList outline<cr>')
+map('n', '<space>s', '<cmd>CocFzfList symbols<cr>')
+map('n', '<space>p', '<cmd>CocFzfListResume<cr>')
 
 -- Make <CR> auto-select the first completion item and notify coc.nvim to
 -- format on enter, <CR> could be remapped by other vim plugin

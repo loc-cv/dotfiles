@@ -173,15 +173,16 @@ return packer.startup {
       end,
     }
 
-    use {
-      'sunjon/shade.nvim',
-      config = function()
-        require 'plugins.configs.shade'
-      end,
-    }
+    -- use {
+    --   'sunjon/shade.nvim',
+    --   config = function()
+    --     require 'plugins.configs.shade'
+    --   end,
+    -- }
 
     -- Easy motions
     use 'rlane/pounce.nvim'
+    use 'mrjones2014/smart-splits.nvim'
 
     -- Buffers management
     use {

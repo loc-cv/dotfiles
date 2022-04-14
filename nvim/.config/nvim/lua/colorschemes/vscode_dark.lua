@@ -24,9 +24,9 @@ local colors = {
   Whitespace = '#808080',
 
   -- statusline
-  GalaxylineBG = '#323232',
   GalaxylineActiveFG = '#d4d4d4',
   GalaxylineInactiveFG = '#808080',
+  GalaxylineBG = '#323232',
   StatusLine = '#4f4f4f',
   StatusLineNC = '#4f4f4f',
 
@@ -38,12 +38,12 @@ local colors = {
   CocFadeOut = '#808080',
 
   -- nvim_window
-  NvimWindowBG = '#d4d4d4',
   NvimWindowFG = '#0a0a0a',
+  NvimWindowBG = '#d4d4d4',
 
   -- vim-sandwich
-  OperatorSandwichChangeBG = '#d4d4d4',
   OperatorSandwichChangeFG = '#1e1e1e',
+  OperatorSandwichChangeBG = '#d4d4d4',
 
   -- pounce.nvim
   PounceMatchFG = '#0a0a0a',
