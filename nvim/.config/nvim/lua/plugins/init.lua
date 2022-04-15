@@ -61,7 +61,8 @@ return packer.startup {
     }
 
     -- Neovim LSP
-    -- use 'neovim/nvim-lspconfig'
+    use 'neovim/nvim-lspconfig'
+    use 'williamboman/nvim-lsp-installer'
 
     -- Syntax highlighting (and more)
     use 'sheerun/vim-polyglot'

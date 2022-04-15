@@ -2,7 +2,6 @@ local _, nvim_window = pcall(require, 'nvim-window')
 
 nvim_window.setup {
   chars = {
-    'z',
     'a',
     'b',
     'c',
@@ -28,6 +27,7 @@ nvim_window.setup {
     'w',
     'x',
     'y',
+    'z',
   },
   normal_hl = 'NvimWindow',
   hint_hl = 'Bold',

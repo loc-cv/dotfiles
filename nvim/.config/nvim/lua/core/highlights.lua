@@ -1,4 +1,5 @@
-local hi = vim.highlight.create
+-- local hi = vim.highlight.create
+local hi = vim.api.nvim_set_hl
 local colorschemes = require 'colorschemes'
 
 _G.colors = {}
@@ -22,61 +23,61 @@ set_colors 'vscode'
 -- set_colors('vscode', 'light')
 
 -- CursorLine
-hi('CursorLine', { guibg = colors.CursorLine })
+hi(0, 'CursorLine', { bg = colors.CursorLine })
 
 -- Trailing whitespaces
 vim.g.better_whitespace_guicolor = colors.Whitespace
 
 -- Telescope
-hi('TelescopeSelection', { guibg = colors.TelescopeSelection })
+hi(0, 'TelescopeSelection', { bg = colors.TelescopeSelection })
 
 -- Floaterm
-hi('FloatermBorder', { guibg = colors.FloatermBorder })
+hi(0, 'FloatermBorder', { bg = colors.FloatermBorder })
 
 -- Statusline
-hi('StatusLine', { guibg = colors.StatusLine })
-hi('StatusLineNC', { guibg = colors.StatusLineNC })
+hi(0, 'StatusLine', { bg = colors.StatusLine })
+hi(0, 'StatusLineNC', { bg = colors.StatusLineNC })
 
 -- Git
-hi('DiffAdd', { guifg = colors.DiffAdd, guibg = 'NONE' })
-hi('DiffChange', { guifg = colors.DiffChange, guibg = 'NONE' })
-hi('DiffDelete', { guifg = colors.DiffDelete, guibg = 'NONE' })
+hi(0, 'DiffAdd', { fg = colors.DiffAdd, bg = 'NONE' })
+hi(0, 'DiffChange', { fg = colors.DiffChange, bg = 'NONE' })
+hi(0, 'DiffDelete', { fg = colors.DiffDelete, bg = 'NONE' })
 
 -- Yank region
-hi('HighlightedyankRegion', { guibg = colors.HighlightedyankRegion, gui = 'bold' })
+hi(0, 'HighlightedyankRegion', { bg = colors.HighlightedyankRegion, bold = true})
 
 -- For indent_blankline only
-hi('IndentBlanklineContextChar', { guifg = colors.IndentBlanklineContextChar, gui = 'nocombine' })
-hi('IndentBlanklineContextStart', { guifg = 'NONE', guisp = colors.IndentBlanklineContextStart, gui = 'underline' })
+hi(0, 'IndentBlanklineContextChar', { fg = colors.IndentBlanklineContextChar })
+hi(0, 'IndentBlanklineContextStart', { fg = 'NONE', sp = colors.IndentBlanklineContextStart, underline = true})
 
 -- coc.nvim
-hi('CocErrorSign', { guifg = colors.CocError })
-hi('CocErrorVirtualText', { guifg = colors.CocError })
-hi('CocErrorHighlight', { guifg = colors.CocError, gui = 'underline' })
+hi(0, 'CocErrorSign', { fg = colors.CocError })
+hi(0, 'CocErrorVirtualText', { fg = colors.CocError })
+hi(0, 'CocErrorHighlight', { fg = colors.CocError, underline = true})
 
-hi('CocWarningSign', { guifg = colors.CocWarning })
-hi('CocWarningVirtualText', { guifg = colors.CocWarning })
-hi('CocWarningHighlight', { guifg = colors.CocWarning, gui = 'underline' })
+hi(0, 'CocWarningSign', { fg = colors.CocWarning })
+hi(0, 'CocWarningVirtualText', { fg = colors.CocWarning })
+hi(0, 'CocWarningHighlight', { fg = colors.CocWarning, underline = true})
 
-hi('CocInfoSign', { guifg = colors.CocInfo })
-hi('CocInfoVirtualText', { guifg = colors.CocInfo })
-hi('CocInfoHighlight', { guifg = colors.CocInfo, gui = 'underline' })
+hi(0, 'CocInfoSign', { fg = colors.CocInfo })
+hi(0, 'CocInfoVirtualText', { fg = colors.CocInfo })
+hi(0, 'CocInfoHighlight', { fg = colors.CocInfo, underline = true})
 
-hi('CocHintSign', { guifg = colors.CocHint })
-hi('CocHintVirtualText', { guifg = colors.CocHint })
-hi('CocHintHighlight', { guifg = colors.CocHint, gui = 'underline' })
+hi(0, 'CocHintSign', { fg = colors.CocHint })
+hi(0, 'CocHintVirtualText', { fg = colors.CocHint })
+hi(0, 'CocHintHighlight', { fg = colors.CocHint, underline = true})
 
-hi('CocFadeOut', { guifg = colors.CocFadeOut, gui = 'underline' })
+hi(0, 'CocFadeOut', { fg = colors.CocFadeOut, underline = true})
 
 -- nvim-window
-hi('NvimWindow', { guifg = colors.NvimWindowFG, guibg = colors.NvimWindowBG })
+hi(0, 'NvimWindow', { fg = colors.NvimWindowFG, bg = colors.NvimWindowBG })
 
 -- vim-sandwich
-hi('OperatorSandwichChange', { guibg = colors.OperatorSandwichChangeBG, guifg = colors.OperatorSandwichChangeFG })
+hi(0, 'OperatorSandwichChange', { bg = colors.OperatorSandwichChangeBG, fg = colors.OperatorSandwichChangeFG })
 
 -- pounce.nvim
-hi('PounceMatch', { guibg = colors.PounceMatchBG, guifg = colors.PounceMatchFG, gui = 'bold' })
-hi('PounceGap', { guibg = colors.PounceGapBG, guifg = colors.PounceGapFG, gui = 'bold' })
-hi('PounceAccept', { guibg = colors.PounceAcceptBG, guifg = colors.PounceAcceptFG, gui = 'bold' })
+hi(0, 'PounceMatch', { bg = colors.PounceMatchBG, fg = colors.PounceMatchFG, bold = true})
+hi(0, 'PounceGap', { bg = colors.PounceGapBG, fg = colors.PounceGapFG, bold = true})
+hi(0, 'PounceAccept', { bg = colors.PounceAcceptBG, fg = colors.PounceAcceptFG, bold = true})
 
 return _G.colors
