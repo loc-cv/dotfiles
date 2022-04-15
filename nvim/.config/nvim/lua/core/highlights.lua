@@ -1,4 +1,3 @@
--- local hi = vim.highlight.create
 local hi = vim.api.nvim_set_hl
 local colorschemes = require 'colorschemes'
 

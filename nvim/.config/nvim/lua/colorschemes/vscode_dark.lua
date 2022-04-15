@@ -28,7 +28,7 @@ local colors = {
   GalaxylineInactiveFG = '#808080',
   GalaxylineBG = '#323232',
   StatusLine = '#4f4f4f',
-  StatusLineNC = '#4f4f4f',
+  StatusLineNC = '#454545',
 
   -- coc.nvim
   CocError = '#db4b4b',
