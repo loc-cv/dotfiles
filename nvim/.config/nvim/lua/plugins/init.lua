@@ -60,9 +60,11 @@ return packer.startup {
       },
     }
 
-    -- use 'fatih/vim-go'
+    -- Neovim LSP
+    -- use 'neovim/nvim-lspconfig'
 
     -- Syntax highlighting (and more)
+    use 'sheerun/vim-polyglot'
     use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
@@ -70,8 +72,6 @@ return packer.startup {
         require 'plugins.configs.treesitter'
       end,
     }
-
-    use 'sheerun/vim-polyglot'
 
     -- Telescope
     use {
@@ -98,7 +98,6 @@ return packer.startup {
 
     -- Git
     use 'tpope/vim-fugitive'
-
     use {
       'lewis6991/gitsigns.nvim',
       requires = 'nvim-lua/plenary.nvim',
@@ -200,9 +199,7 @@ return packer.startup {
     use 'haya14busa/is.vim'
     use 'PeterRincker/vim-searchlight'
     use 'ntpeters/vim-better-whitespace'
-    use 'junegunn/vim-easy-align'
     use 'lewis6991/impatient.nvim'
-
     use {
       'norcalli/nvim-colorizer.lua',
       config = function()

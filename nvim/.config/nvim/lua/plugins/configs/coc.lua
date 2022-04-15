@@ -13,6 +13,5 @@ vim.g.coc_global_extensions = {
   'coc-snippets',
   'coc-explorer',
   'coc-sumneko-lua',
-  -- 'coc-highlight',
   -- 'coc-go',
 }
