@@ -18,6 +18,7 @@ local options = {
   cursorline = true, -- enable cursorline
   mouse = "a", -- enable your mouse
   shortmess = opt.shortmess + { c = true }, -- don't give ins-completion-menu message
+  fillchars = { eob = " " }, -- disable `~` on nonexistent lines
   ttimeout = false, -- fix delay <es>
   timeout = false, -- no waiting for key combination
 
