@@ -25,7 +25,6 @@ return packer.startup {
 
     -- Make Neovim look good
     use "Mofiqul/vscode.nvim"
-
     use {
       "NTBBloodbath/galaxyline.nvim",
       requires = "kyazdani42/nvim-web-devicons",
@@ -42,9 +41,7 @@ return packer.startup {
         require "plugins.configs.coc"
       end,
     }
-
     use "rafamadriz/friendly-snippets"
-
     use {
       "antoinemadec/coc-fzf",
       branch = "release",
@@ -118,47 +115,40 @@ return packer.startup {
         require "plugins.configs.comment"
       end,
     }
-
     use {
       "JoosepAlviste/nvim-ts-context-commentstring",
       requires = "nvim-treesitter/nvim-treesitter",
       after = "nvim-treesitter",
       config = miscs.context_commentstring,
     }
-
     use {
       "windwp/nvim-ts-autotag",
       requires = "nvim-treesitter/nvim-treesitter",
       after = "nvim-treesitter",
       config = miscs.autotag,
     }
-
     use {
       "windwp/nvim-autopairs",
       config = function()
         require "plugins.configs.autopairs"
       end,
     }
-
     use {
       "kana/vim-textobj-entire",
       requires = "kana/vim-textobj-user",
     }
-
     use {
       "lukas-reineke/indent-blankline.nvim",
       config = function()
         require "plugins.configs.indent_blankline"
       end,
     }
-
     use {
       "machakann/vim-sandwich",
       config = function()
         vim.cmd [[runtime macros/sandwich/keymap/surround.vim]]
       end,
     }
-
     use {
       "machakann/vim-highlightedyank",
       config = function()
@@ -166,23 +156,15 @@ return packer.startup {
       end,
     }
 
+    -- Easy motions
+    use "rlane/pounce.nvim"
+    use "mrjones2014/smart-splits.nvim"
     use {
       "https://gitlab.com/yorickpeterse/nvim-window.git",
       config = function()
         require "plugins.configs.nvim_window"
       end,
     }
-
-    -- use {
-    --   'sunjon/shade.nvim',
-    --   config = function()
-    --     require 'plugins.configs.shade'
-    --   end,
-    -- }
-
-    -- Easy motions
-    use "rlane/pounce.nvim"
-    use "mrjones2014/smart-splits.nvim"
 
     -- Buffers management
     use {
@@ -201,10 +183,23 @@ return packer.startup {
     use "PeterRincker/vim-searchlight"
     use "ntpeters/vim-better-whitespace"
     use "lewis6991/impatient.nvim"
+    use "tpope/vim-sleuth"
+    use {
+      "nathom/filetype.nvim",
+      config = function()
+        require("plugins.configs.filetype").setup()
+      end,
+    }
     use {
       "norcalli/nvim-colorizer.lua",
       config = function()
         require "plugins.configs.nvim_colorizer"
+      end,
+    }
+    use {
+      "karb94/neoscroll.nvim",
+      config = function()
+        require("plugins.configs.neoscroll").setup()
       end,
     }
   end,
