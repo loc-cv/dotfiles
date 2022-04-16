@@ -18,6 +18,8 @@ local options = {
   cursorline = true, -- enable cursorline
   mouse = 'a', -- enable your mouse
   shortmess = opt.shortmess + { c = true }, -- don't give ins-completion-menu message
+  ttimeout = false, -- fix delay <es>
+  timeout = false, -- no waiting for key combination
 
   -- Disable swapfiles & backup files
   backup = false, -- prevent making a backup before overwriting a file
@@ -39,11 +41,6 @@ local options = {
   shiftwidth = 2, -- number of spaces to use for each step of (auto)indent
   tabstop = 2, -- number of spaces that a <Tab> counts for
   softtabstop = 2, -- number of spaces that a <Tab> counts for while performing editting eperations
-
-  -- Timout options
-  timeoutlen = 300, -- time in milliseconds to wait for a mapped sequence to complete
-  ttimeoutlen = 0, -- fix delay <esc>
-  timeout = false, -- no waiting for key combination
 }
 
 for k, v in pairs(options) do
