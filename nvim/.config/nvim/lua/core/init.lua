@@ -1,5 +1,5 @@
-require 'core.options'
-require 'core.user_cmds'
-require 'core.autocmds'
-require 'core.mappings'
-require 'core.highlights'
+require "core.options"
+require "core.user_cmds"
+require "core.autocmds"
+require "core.mappings"
+require "core.highlights"

@@ -2,7 +2,7 @@ local opt = vim.opt
 
 local options = {
   -- General options
-  clipboard = 'unnamed,unnamedplus', -- copy-paste between vim and everything else
+  clipboard = "unnamed,unnamedplus", -- copy-paste between vim and everything else
   showmode = false, -- don't show things like -- INSERT -- anymore
   pumheight = 10, -- set popup menu height
   splitright = true, -- vertical splits will automatically be to the right
@@ -13,10 +13,10 @@ local options = {
   conceallevel = 0, -- so that I can see `` in Markdown files
   number = true, -- enable number lines
   relativenumber = true, -- enable relative number lines
-  signcolumn = 'yes', -- always show the signcolumn
+  signcolumn = "yes", -- always show the signcolumn
   linebreak = true, -- prevent words from being split across two lines when line wraps
   cursorline = true, -- enable cursorline
-  mouse = 'a', -- enable your mouse
+  mouse = "a", -- enable your mouse
   shortmess = opt.shortmess + { c = true }, -- don't give ins-completion-menu message
   ttimeout = false, -- fix delay <es>
   timeout = false, -- no waiting for key combination

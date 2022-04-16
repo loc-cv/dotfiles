@@ -1,39 +1,39 @@
-local _, telescope = pcall(require, 'telescope')
-local actions = require 'telescope.actions'
+local _, telescope = pcall(require, "telescope")
+local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
     vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case',
-      '--hidden',
-      '--glob=!.git/',
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--hidden",
+      "--glob=!.git/",
     },
     file_ignore_patterns = {
       -- "%.png",
       -- "%.jpg",
       -- "%.jpeg",
       -- "%.webp",
-      'node_modules',
-      '*%.min%.*',
-      'dotbot',
-      '^.git/',
+      "node_modules",
+      "*%.min%.*",
+      "dotbot",
+      "^.git/",
     },
     mappings = {
       i = {
-        ['<C-j>'] = actions.move_selection_next,
-        ['<C-k>'] = actions.move_selection_previous,
-        ['<M-c>'] = actions.close,
-        ['<M-w>'] = actions.delete_buffer,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<M-c>"] = actions.close,
+        ["<M-w>"] = actions.delete_buffer,
         -- ["<esc>"] = actions.close,
       },
     },
-    borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+    borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
   },
   pickers = {
     find_files = {
@@ -42,13 +42,13 @@ telescope.setup {
   },
   extensions = {
     media_files = {
-      filetypes = { 'png', 'webp', 'jpg', 'jpeg', 'webm', 'pdf', 'mp4' },
+      filetypes = { "png", "webp", "jpg", "jpeg", "webm", "pdf", "mp4" },
     },
   },
 }
 
 -- Loading extensions
-local extensions = { 'fzf', 'media_files', 'emoji' }
+local extensions = { "fzf", "media_files", "emoji" }
 for _, ext in ipairs(extensions) do
   telescope.load_extension(ext)
 end

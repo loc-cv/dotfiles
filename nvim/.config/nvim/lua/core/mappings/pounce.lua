@@ -1,4 +1,4 @@
-local utils = require 'core.utils'
+local utils = require "core.utils"
 local map = utils.map
 
-map({ 'n', 'v', 'o' }, 'z/', [[<cmd>Pounce<cr>]])
+map({ "n", "v", "o" }, "z/", [[<cmd>Pounce<cr>]])

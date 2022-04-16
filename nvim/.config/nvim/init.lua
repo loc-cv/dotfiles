@@ -1,2 +1,2 @@
-require 'impatient'
-require 'core'
+require "impatient"
+require "core"

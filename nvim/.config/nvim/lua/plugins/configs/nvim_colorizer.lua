@@ -1,3 +1,3 @@
-local _, colorizer = pcall(require, 'colorizer')
+local _, colorizer = pcall(require, "colorizer")
 
 colorizer.setup()
