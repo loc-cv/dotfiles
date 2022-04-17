@@ -32,21 +32,30 @@ return packer.startup {
     use {
       "NTBBloodbath/galaxyline.nvim",
       requires = "kyazdani42/nvim-web-devicons",
-      config = require("plugins.configs.galaxyline").setup,
+      config = function()
+        require("plugins.configs.galaxyline").setup()
+      end,
     }
 
     -- Lsp and friends
     use {
       "neoclide/coc.nvim",
       branch = "release",
-      config = require("plugins.configs.coc").setup,
+      config = function()
+        require("plugins.configs.coc").setup()
+      end,
     }
     use {
       "antoinemadec/coc-fzf",
       branch = "release",
       requires = {
         { "neoclide/coc.nvim", branch = "release" },
-        { "junegunn/fzf", run = vim.fn["fzf#install"] },
+        {
+          "junegunn/fzf",
+          run = function()
+            vim.fn["fzf#install"]()
+          end,
+        },
         "junegunn/fzf.vim",
       },
     }
@@ -61,7 +70,9 @@ return packer.startup {
     use {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
-      config = require("plugins.configs.treesitter").setup,
+      config = function()
+        require("plugins.configs.treesitter").setup()
+      end,
     }
 
     -- Telescope
@@ -74,13 +85,17 @@ return packer.startup {
         "xiyaowong/telescope-emoji.nvim",
         "nvim-telescope/telescope-media-files.nvim",
       },
-      config = require("plugins.configs.telescope").setup,
+      config = function()
+        require("plugins.configs.telescope").setup()
+      end,
     }
 
     -- Terminal
     use {
       "voldikss/vim-floaterm",
-      config = require("plugins.configs.floaterm").setup,
+      config = function()
+        require("plugins.configs.floaterm").setup()
+      end,
     }
 
     -- Git
@@ -88,7 +103,9 @@ return packer.startup {
     use {
       "lewis6991/gitsigns.nvim",
       requires = "nvim-lua/plenary.nvim",
-      config = require("plugins.configs.gitsigns").setup,
+      config = function()
+        require("plugins.configs.gitsigns").setup()
+      end,
     }
 
     -- Sessions
@@ -98,7 +115,9 @@ return packer.startup {
     use {
       "numToStr/Comment.nvim",
       after = "nvim-ts-context-commentstring",
-      config = require("plugins.configs.comment").setup,
+      config = function()
+        require("plugins.configs.comment").setup()
+      end,
     }
     use {
       "JoosepAlviste/nvim-ts-context-commentstring",
@@ -114,7 +133,9 @@ return packer.startup {
     }
     use {
       "windwp/nvim-autopairs",
-      config = require("plugins.configs.autopairs").setup,
+      config = function()
+        require("plugins.configs.autopairs").setup()
+      end,
     }
     use {
       "kana/vim-textobj-entire",
@@ -122,15 +143,21 @@ return packer.startup {
     }
     use {
       "lukas-reineke/indent-blankline.nvim",
-      config = require("plugins.configs.indent_blankline").setup,
+      config = function()
+        require("plugins.configs.indent_blankline").setup()
+      end,
     }
     use {
       "machakann/vim-sandwich",
-      config = require("plugins.configs.vim_sandwich").setup,
+      config = function()
+        require("plugins.configs.vim_sandwich").setup()
+      end,
     }
     use {
       "machakann/vim-highlightedyank",
-      config = require("plugins.configs.highlightedyank").setup,
+      config = function()
+        require("plugins.configs.highlightedyank").setup()
+      end,
     }
 
     -- Easy motions
@@ -138,13 +165,17 @@ return packer.startup {
     use "mrjones2014/smart-splits.nvim"
     use {
       "https://gitlab.com/yorickpeterse/nvim-window.git",
-      config = require("plugins.configs.nvim_window").setup,
+      config = function()
+        require("plugins.configs.nvim_window").setup()
+      end,
     }
 
     -- Buffers management
     use {
       "kazhala/close-buffers.nvim",
-      config = require("plugins.configs.close_buffers").setup,
+      config = function()
+        require("plugins.configs.close_buffers").setup()
+      end,
     }
 
     -- Markdown
@@ -159,15 +190,21 @@ return packer.startup {
     use "tpope/vim-sleuth"
     use {
       "nathom/filetype.nvim",
-      config = require("plugins.configs.filetype").setup,
+      config = function()
+        require("plugins.configs.filetype").setup()
+      end,
     }
     use {
       "norcalli/nvim-colorizer.lua",
-      config = require("plugins.configs.nvim_colorizer").setup,
+      config = function()
+        require("plugins.configs.nvim_colorizer").setup()
+      end,
     }
     use {
       "karb94/neoscroll.nvim",
-      config = require("plugins.configs.neoscroll").setup,
+      config = function()
+        require("plugins.configs.neoscroll").setup()
+      end,
     }
   end,
 }
