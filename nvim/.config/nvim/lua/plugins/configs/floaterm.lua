@@ -1,7 +1,11 @@
-local g = vim.g
+local M = {}
 
-g.floaterm_wintype = "float"
-g.floaterm_position = "bottomright"
-g.floaterm_title = " TERMINAL: $1/$2 "
-g.floaterm_width = 0.4
-g.floaterm_height = vim.api.nvim_win_get_height(0)
+M.setup = function()
+  vim.g.floaterm_wintype = "float"
+  vim.g.floaterm_position = "bottomright"
+  vim.g.floaterm_title = " TERMINAL: $1/$2 "
+  vim.g.floaterm_width = 0.4
+  vim.g.floaterm_height = vim.api.nvim_win_get_height(0)
+end
+
+return M

@@ -5,6 +5,7 @@ M.setup = function()
   if not ok then
     return
   end
+
   neoscroll.setup()
 end
 

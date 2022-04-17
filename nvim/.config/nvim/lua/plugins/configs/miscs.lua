@@ -1,7 +1,11 @@
 local M = {}
 
-M.context_commentstring = function()
-  local _, ts_config = pcall(require, "nvim-treesitter.configs")
+M.setup_context_commentstring = function()
+  local ok, ts_config = pcall(require, "nvim-treesitter.configs")
+  if not ok then
+    return
+  end
+
   ts_config.setup {
     context_commentstring = {
       enable = true,
@@ -10,8 +14,12 @@ M.context_commentstring = function()
   }
 end
 
-M.autotag = function()
-  local _, ts_config = pcall(require, "nvim-treesitter.configs")
+M.setup_autotag = function()
+  local ok, ts_config = pcall(require, "nvim-treesitter.configs")
+  if not ok then
+    return
+  end
+
   ts_config.setup {
     autotag = {
       enable = true,
