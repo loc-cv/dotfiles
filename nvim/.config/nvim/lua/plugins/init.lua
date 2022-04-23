@@ -171,15 +171,11 @@ return packer.startup {
     }
 
     -- Buffers management
-    use {
-      "kazhala/close-buffers.nvim",
-      config = function()
-        require("plugins.configs.close_buffers").setup()
-      end,
-    }
+    use "Asheq/close-buffers.vim"
 
     -- Markdown
     use "ellisonleao/glow.nvim"
+    use "davidgranstrom/nvim-markdown-preview"
 
     -- Miscs
     use "matze/vim-move"
