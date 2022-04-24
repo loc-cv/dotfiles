@@ -1,9 +1,20 @@
 -- Auto compile/clean/install plugins with packer-nvim
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost */lua/plugins/init.lua source <afile> | PackerCompile
-    autocmd BufWritePost */lua/plugins/init.lua source <afile> | PackerClean
-    autocmd BufWritePost */lua/plugins/init.lua source <afile> | PackerInstall
-  augroup end
-]]
+local augroup = vim.api.nvim_create_augroup("PackerUserConfig", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = augroup,
+  pattern = "*/lua/plugins/init.lua",
+  command = "source <afile> | PackerCompile",
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = augroup,
+  pattern = "*/lua/plugins/init.lua",
+  command = "source <afile> | PackerClean",
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = augroup,
+  pattern = "*/lua/plugins/init.lua",
+  command = "source <afile> | PackerInstall",
+})

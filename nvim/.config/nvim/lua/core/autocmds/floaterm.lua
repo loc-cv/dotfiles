@@ -1,2 +1,5 @@
 -- Make floaterm window transparent
-vim.cmd [[autocmd FileType floaterm setlocal winblend=15]]
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "floaterm",
+  command = "setlocal winblend=15",
+})

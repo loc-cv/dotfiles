@@ -65,7 +65,6 @@ return packer.startup {
     -- use "williamboman/nvim-lsp-installer"
 
     -- Syntax highlighting (and more)
-    use "sheerun/vim-polyglot"
     use {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",

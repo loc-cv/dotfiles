@@ -1,15 +1,29 @@
 -- Setup formatexpr specified filetype(s)
 -- and update signature help on jump placeholder
-vim.cmd [[
-  augroup mygroup
-    autocmd!
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  augroup end
-]]
+local augroup = vim.api.nvim_create_augroup("MyGroup", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup,
+  pattern = { "typescript", "json" },
+  command = "setl formatexpr=CocAction('formatSelected')",
+})
+
+vim.api.nvim_create_autocmd("User", {
+  group = augroup,
+  pattern = "CocJumpPlaceholder",
+  command = "call CocActionAsync('showSignatureHelp')",
+})
 
 -- Auto close coc-explorer when exit Neovim
-vim.cmd [[autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif]]
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  command = "if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif",
+})
 
 -- Highlight the symbol and its references when holding the cursor
-vim.cmd [[autocmd CursorHold * silent call CocActionAsync('highlight')]]
+vim.api.nvim_create_autocmd("CursorHold", {
+  pattern = "*",
+  callback = function()
+    vim.fn.CocActionAsync "highlight"
+  end,
+})
