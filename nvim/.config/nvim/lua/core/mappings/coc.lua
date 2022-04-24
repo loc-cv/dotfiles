@@ -16,14 +16,14 @@ map("i", "<C-j>", 'pumvisible() ? "<C-n>" : "<Tab>"', { expr = true })
 map("i", "<C-k>", 'pumvisible() ? "<C-p>" : "<S-Tab>"', { expr = true })
 
 -- Use `[g` and `]g` to navigate diagnostics
-map("n", "[d", "<Plug>(coc-diagnostic-prev)", { noremap = false })
-map("n", "]d", "<Plug>(coc-diagnostic-next)", { noremap = false })
+map("n", "[d", "<Plug>(coc-diagnostic-prev)")
+map("n", "]d", "<Plug>(coc-diagnostic-next)")
 
 -- GOTO code navigation
-map("n", "gd", "<Plug>(coc-definition)", { noremap = false })
-map("n", "gy", "<Plug>(coc-type-definition)", { noremap = false })
-map("n", "gi", "<Plug>(coc-implementation)", { noremap = false })
-map("n", "gr", "<Plug>(coc-references)", { noremap = false })
+map("n", "gd", "<Plug>(coc-definition)")
+map("n", "gy", "<Plug>(coc-type-definition)")
+map("n", "gi", "<Plug>(coc-implementation)")
+map("n", "gr", "<Plug>(coc-references)")
 
 -- Use gh to show documentation in preview window
 map("n", "gh", function()
@@ -38,26 +38,26 @@ map("n", "gh", function()
 end)
 
 -- Symbol renaming
-map("n", "<space>rn", "<Plug>(coc-rename)", { noremap = false })
+map("n", "<space>rn", "<Plug>(coc-rename)")
 
 -- Formatting selected code
-map({ "x", "n" }, "<space>fm", "<Plug>(coc-format-selected)", { noremap = false })
+map({ "x", "n" }, "<space>fm", "<Plug>(coc-format-selected)")
 
 -- Applying code action to the selected region
-map({ "x", "n" }, "<space>a", "<Plug>(coc-codeaction-selected)", { noremap = false })
+map({ "x", "n" }, "<space>a", "<Plug>(coc-codeaction-selected)")
 
 -- Applying code action to the current buffer
-map("n", "<space>A", "<Plug>(coc-codeaction)", { noremap = false })
+map("n", "<space>A", "<Plug>(coc-codeaction)")
 
 -- Apply autofix to problem on the current line
-map("n", "<space>qf", "<Plug>(coc-fix-current)", { noremap = false })
+map("n", "<space>qf", "<Plug>(coc-fix-current)")
 
 -- Map function and class text objects
 -- NOTE: Requires 'textDocument.documentSymbol' support from the language server
-map({ "x", "o" }, "if", "<Plug>(coc-funcobj-i)", { noremap = false })
-map({ "x", "o" }, "af", "<Plug>(coc-funcobj-a)", { noremap = false })
-map({ "x", "o" }, "ic", "<Plug>(coc-classobj-i)", { noremap = false })
-map({ "x", "o" }, "ac", "<Plug>(coc-classobj-a)", { noremap = false })
+map({ "x", "o" }, "if", "<Plug>(coc-funcobj-i)")
+map({ "x", "o" }, "af", "<Plug>(coc-funcobj-a)")
+map({ "x", "o" }, "ic", "<Plug>(coc-classobj-i)")
+map({ "x", "o" }, "ac", "<Plug>(coc-classobj-a)")
 
 -- Remap <C-f> and <C-b> for scroll float windows/popups
 map({ "n", "v" }, "<C-f>", "coc#float#has_scroll() ? coc#float#scroll(1) : '<C-d>'", { expr = true, nowait = true })
@@ -74,7 +74,7 @@ map("i", "<C-b>", "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<cr>' : '<
 })
 
 -- Use ctrl-s for selections ranges
-map({ "n", "x" }, "<C-s>", "<Plug>(coc-range-select)", { noremap = false })
+map({ "n", "x" }, "<C-s>", "<Plug>(coc-range-select)")
 
 -- Mappings for CoCList
 map("n", "<space><space>", "<cmd>CocFzfList<cr>")
