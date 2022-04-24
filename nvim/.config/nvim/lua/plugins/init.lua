@@ -49,24 +49,19 @@ return packer.startup {
       end,
     }
     use {
+      "junegunn/fzf.vim",
+      requires = {
+        "junegunn/fzf",
+        run = function()
+          vim.fn["fzf#install"]()
+        end
+      }
+    }
+    use {
       "antoinemadec/coc-fzf",
       branch = "release",
-      requires = {
-        { "neoclide/coc.nvim", branch = "release" },
-        {
-          "junegunn/fzf",
-          run = function()
-            vim.fn["fzf#install"]()
-          end,
-        },
-        "junegunn/fzf.vim",
-      },
     }
     use "rafamadriz/friendly-snippets"
-
-    -- Neovim LSP
-    -- use "neovim/nvim-lspconfig"
-    -- use "williamboman/nvim-lsp-installer"
 
     -- Syntax highlighting (and more)
     use {
