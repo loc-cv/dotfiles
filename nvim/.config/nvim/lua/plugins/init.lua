@@ -19,7 +19,6 @@ if not ok then
   return
 end
 
-local miscs = require "plugins.configs.miscs"
 local use = packer.use
 
 return packer.startup {
@@ -123,13 +122,17 @@ return packer.startup {
       "JoosepAlviste/nvim-ts-context-commentstring",
       requires = "nvim-treesitter/nvim-treesitter",
       after = "nvim-treesitter",
-      config = miscs.setup_context_commentstring,
+      config = function()
+        require("plugins.configs.miscs").setup_context_commentstring()
+      end,
     }
     use {
       "windwp/nvim-ts-autotag",
       requires = "nvim-treesitter/nvim-treesitter",
       after = "nvim-treesitter",
-      config = miscs.setup_autotag,
+      config = function()
+        require("plugins.configs.miscs").setup_autotag()
+      end,
     }
     use {
       "windwp/nvim-autopairs",
@@ -184,12 +187,7 @@ return packer.startup {
     use "ntpeters/vim-better-whitespace"
     use "lewis6991/impatient.nvim"
     use "tpope/vim-sleuth"
-    use {
-      "nathom/filetype.nvim",
-      config = function()
-        require("plugins.configs.filetype").setup()
-      end,
-    }
+    use "nathom/filetype.nvim"
     use {
       "norcalli/nvim-colorizer.lua",
       config = function()

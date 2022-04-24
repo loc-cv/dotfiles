@@ -1,3 +1,5 @@
+-- TODO
+
 local colors = {
   -- cursorline
   -- CursorLine = '#2c2c2c',

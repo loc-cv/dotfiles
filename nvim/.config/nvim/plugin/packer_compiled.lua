@@ -95,7 +95,6 @@ _G.packer_plugins = {
     url = "https://github.com/neoclide/coc.nvim"
   },
   ["filetype.nvim"] = {
-    config = { "\27LJ\2\2F\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\29plugins.configs.filetype\frequire\0" },
     loaded = true,
     path = "/home/colcv/.local/share/nvim/site/pack/packer/start/filetype.nvim",
     url = "https://github.com/nathom/filetype.nvim"
@@ -177,7 +176,7 @@ _G.packer_plugins = {
     only_config = true
   },
   ["nvim-ts-autotag"] = {
-    config = { "\27LJ\2\2}\0\0\5\0\a\0\r6\0\0\0006\1\1\0'\2\2\0B\0\3\3\14\0\0\0X\2\1€K\0\1\0009\2\3\0015\3\5\0005\4\4\0=\4\6\3B\2\2\1K\0\1\0\fautotag\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\npcall\0" },
+    config = { "\27LJ\2\2K\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\18setup_autotag\26plugins.configs.miscs\frequire\0" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
@@ -186,7 +185,7 @@ _G.packer_plugins = {
   },
   ["nvim-ts-context-commentstring"] = {
     after = { "Comment.nvim" },
-    config = { "\27LJ\2\2›\1\0\0\5\0\a\0\r6\0\0\0006\1\1\0'\2\2\0B\0\3\3\14\0\0\0X\2\1€K\0\1\0009\2\3\0015\3\5\0005\4\4\0=\4\6\3B\2\2\1K\0\1\0\26context_commentstring\1\0\0\1\0\2\venable\2\19enable_autocmd\1\nsetup\28nvim-treesitter.configs\frequire\npcall\0" },
+    config = { "\27LJ\2\2Y\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0 setup_context_commentstring\26plugins.configs.miscs\frequire\0" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
@@ -340,10 +339,6 @@ time([[Config for indent-blankline.nvim]], false)
 time([[Config for coc.nvim]], true)
 try_loadstring("\27LJ\2\2A\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\24plugins.configs.coc\frequire\0", "config", "coc.nvim")
 time([[Config for coc.nvim]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-try_loadstring("\27LJ\2\2L\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup#plugins.configs.nvim_colorizer\frequire\0", "config", "nvim-colorizer.lua")
-time([[Config for nvim-colorizer.lua]], false)
 -- Config for: vim-sandwich
 time([[Config for vim-sandwich]], true)
 try_loadstring("\27LJ\2\2J\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup!plugins.configs.vim_sandwich\frequire\0", "config", "vim-sandwich")
@@ -352,10 +347,10 @@ time([[Config for vim-sandwich]], false)
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\2F\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\29plugins.configs.gitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
--- Config for: filetype.nvim
-time([[Config for filetype.nvim]], true)
-try_loadstring("\27LJ\2\2F\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\29plugins.configs.filetype\frequire\0", "config", "filetype.nvim")
-time([[Config for filetype.nvim]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+try_loadstring("\27LJ\2\2L\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup#plugins.configs.nvim_colorizer\frequire\0", "config", "nvim-colorizer.lua")
+time([[Config for nvim-colorizer.lua]], false)
 -- Config for: galaxyline.nvim
 time([[Config for galaxyline.nvim]], true)
 try_loadstring("\27LJ\2\2H\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\31plugins.configs.galaxyline\frequire\0", "config", "galaxyline.nvim")
@@ -377,7 +372,7 @@ time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-ts-context-commentstring ]]
 
 -- Config for: nvim-ts-context-commentstring
-try_loadstring("\27LJ\2\2›\1\0\0\5\0\a\0\r6\0\0\0006\1\1\0'\2\2\0B\0\3\3\14\0\0\0X\2\1€K\0\1\0009\2\3\0015\3\5\0005\4\4\0=\4\6\3B\2\2\1K\0\1\0\26context_commentstring\1\0\0\1\0\2\venable\2\19enable_autocmd\1\nsetup\28nvim-treesitter.configs\frequire\npcall\0", "config", "nvim-ts-context-commentstring")
+try_loadstring("\27LJ\2\2Y\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0 setup_context_commentstring\26plugins.configs.miscs\frequire\0", "config", "nvim-ts-context-commentstring")
 
 vim.cmd [[ packadd Comment.nvim ]]
 
@@ -387,7 +382,7 @@ try_loadstring("\27LJ\2\2E\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K
 vim.cmd [[ packadd nvim-ts-autotag ]]
 
 -- Config for: nvim-ts-autotag
-try_loadstring("\27LJ\2\2}\0\0\5\0\a\0\r6\0\0\0006\1\1\0'\2\2\0B\0\3\3\14\0\0\0X\2\1€K\0\1\0009\2\3\0015\3\5\0005\4\4\0=\4\6\3B\2\2\1K\0\1\0\fautotag\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\npcall\0", "config", "nvim-ts-autotag")
+try_loadstring("\27LJ\2\2K\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\18setup_autotag\26plugins.configs.miscs\frequire\0", "config", "nvim-ts-autotag")
 
 time([[Sequenced loading]], false)
 if should_profile then save_profiles() end
