@@ -11,10 +11,9 @@ M.setup = function()
   local fileinfo = require "galaxyline.providers.fileinfo"
   local buffer = require "galaxyline.providers.buffer"
   local condition = require "galaxyline.condition"
-
   local gls = gl.section
-  local colors = require "core.highlights"
 
+  local colors = require "core.highlights"
   local bg = colors.GalaxylineBG
   local active_fg = colors.GalaxylineActiveFG
   local inactive_fg = colors.GalaxylineInactiveFG
@@ -31,11 +30,8 @@ M.setup = function()
 
   -- Render read-only file icon
   local function get_file_readonly_icon(readonly_icon)
-    if vim.bo.filetype == "help" then
-      return ""
-    end
-    local icon = readonly_icon or ""
-    if vim.bo.readonly == true then
+    if vim.bo.readonly == true and vim.bo.filetype ~= "help" then
+      local icon = readonly_icon or ""
       return " " .. icon .. " "
     end
     return ""
@@ -232,7 +228,7 @@ M.setup = function()
   --     event = 'VimResized'
   --   }
   -- }
-  --
+
   -- gls.right[2] = {
   --   DiffModified = {
   --     provider = function() return get_element_with_condition(vcs.diff_modified()) end,
@@ -241,7 +237,7 @@ M.setup = function()
   --     event = 'VimResized'
   --   }
   -- }
-  --
+
   -- gls.right[3] = {
   --   DiffRemove = {
   --     provider = function() return get_element_with_condition(vcs.diff_remove()) end,
@@ -250,7 +246,7 @@ M.setup = function()
   --     event = 'VimResized'
   --   }
   -- }
-  --
+
   -- gls.right[4] = {
   --   GitSpaces = {
   --     provider = function() return get_element_with_condition('  ') end,

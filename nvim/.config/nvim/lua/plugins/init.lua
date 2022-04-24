@@ -29,6 +29,10 @@ return packer.startup {
     -- Make Neovim look good
     use "Mofiqul/vscode.nvim"
     use {
+      "mcchrish/zenbones.nvim",
+      requires = "rktjmp/lush.nvim"
+    }
+    use {
       "NTBBloodbath/galaxyline.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
