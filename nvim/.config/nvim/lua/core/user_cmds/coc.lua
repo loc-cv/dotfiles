@@ -1,11 +1,11 @@
 -- Add `:Format` command to format current buffer.
-vim.cmd [[command! -nargs=0 Format :call CocAction('format')]]
+vim.api.nvim_create_user_command("Format", "call CocAction('format')", { nargs = 0 })
 
 -- Add `:Fold` command to fold current buffer.
-vim.cmd [[command! -nargs=? Fold :call CocAction('fold', <f-args>)]]
+vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", { nargs = '?' })
 
 -- Add `:OR` command for organize imports of the current buffer.
-vim.cmd [[command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')]]
+vim.api.nvim_create_user_command("OR", "call CocAction('runCommand', 'editor.action.organizeImport')", { nargs = 0 })
 
 -- Add `:Prettier` command
-vim.cmd [[command! -nargs=0 Prettier :CocCommand prettier.formatFile]]
+vim.api.nvim_create_user_command("Prettier", "CocCommand prettier.formatFile", { nargs = 0 })

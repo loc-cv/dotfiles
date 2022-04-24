@@ -1,7 +1,35 @@
+local ok, packer = pcall(require, "packer")
+if not ok then
+  return
+end
+
 -- Add Packer commands because we are not loading it at startup
-vim.cmd [[silent! command PackerClean lua require 'plugins' require('packer').clean()]]
-vim.cmd [[silent! command PackerCompile lua require 'plugins' require('packer').compile()]]
-vim.cmd [[silent! command PackerInstall lua require 'plugins' require('packer').install()]]
-vim.cmd [[silent! command PackerStatus lua require 'plugins' require('packer').status()]]
-vim.cmd [[silent! command PackerSync lua require 'plugins' require('packer').sync()]]
-vim.cmd [[silent! command PackerUpdate lua require 'plugins' require('packer').update()]]
+vim.api.nvim_create_user_command("PackerClean", function()
+  require 'plugins'
+  packer.clean()
+end, {})
+
+vim.api.nvim_create_user_command("PackerInstall", function()
+  require 'plugins'
+  packer.install()
+end, {})
+
+vim.api.nvim_create_user_command("PackerCompile", function()
+  require 'plugins'
+  packer.compile()
+end, {})
+
+vim.api.nvim_create_user_command("PackerStatus", function()
+  require 'plugins'
+  packer.status()
+end, {})
+
+vim.api.nvim_create_user_command("PackerSync", function()
+  require 'plugins'
+  packer.sync()
+end, {})
+
+vim.api.nvim_create_user_command("PackerUpdate", function()
+  require 'plugins'
+  packer.update()
+end, {})
