@@ -188,6 +188,7 @@ return packer.startup {
     use "lewis6991/impatient.nvim"
     use "tpope/vim-sleuth"
     use "nathom/filetype.nvim"
+    use "junegunn/vim-easy-align"
     use {
       "norcalli/nvim-colorizer.lua",
       config = function()
