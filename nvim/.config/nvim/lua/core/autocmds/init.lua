@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd({ "WinLeave", "InsertEnter" }, {
       end
     end
     vim.cmd [[set nocursorline]]
-  end
+  end,
 })
 
 vim.api.nvim_create_autocmd({ "WinEnter", "InsertLeave" }, {
