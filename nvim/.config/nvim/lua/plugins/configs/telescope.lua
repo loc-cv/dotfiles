@@ -10,6 +10,16 @@ M.setup = function()
 
   telescope.setup {
     defaults = {
+      layout_strategy = "vertical",
+      layout_config = {
+        height = 0.95,
+        -- width = 120,
+        prompt_position = "bottom",
+        preview_height = 0.4,
+        preview_cutoff = 0,
+        mirror = false,
+        scroll_speed = 1,
+      },
       vimgrep_arguments = {
         "rg",
         "--color=never",
@@ -33,6 +43,8 @@ M.setup = function()
           ["<C-k>"] = actions.move_selection_previous,
           ["<M-c>"] = actions.close,
           ["<M-w>"] = actions.delete_buffer,
+          ["<C-y>"] = actions.preview_scrolling_up,
+          ["<C-e>"] = actions.preview_scrolling_down,
           -- ["<esc>"] = actions.close,
         },
       },
