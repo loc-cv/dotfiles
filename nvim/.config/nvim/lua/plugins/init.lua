@@ -47,6 +47,7 @@ return packer.startup {
     use "rafamadriz/friendly-snippets"
 
     -- Syntax highlighting (and more)
+    use "sheerun/vim-polyglot"
     use {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
