@@ -95,8 +95,8 @@ M.setup = function()
   }
 
   local function has_value(tab, val)
-    for _, value in ipairs(tab) do
-      if value == val then
+    for _, v in ipairs(tab) do
+      if v == val then
         return true
       end
     end

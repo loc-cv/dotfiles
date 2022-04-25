@@ -65,6 +65,7 @@ return packer.startup {
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
         "xiyaowong/telescope-emoji.nvim",
         "nvim-telescope/telescope-media-files.nvim",
+        "fannheyward/telescope-coc.nvim",
       },
       config = function()
         require("plugins.configs.telescope").setup()
@@ -177,11 +178,11 @@ return packer.startup {
         require("plugins.configs.nvim_colorizer").setup()
       end,
     }
-    use {
-      "sunjon/shade.nvim",
-      config = function()
-        require("plugins.configs.shade").setup()
-      end,
-    }
+    -- use {
+    --   "sunjon/shade.nvim",
+    --   config = function()
+    --     require("plugins.configs.shade").setup()
+    --   end,
+    -- }
   end,
 }

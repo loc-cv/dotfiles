@@ -17,3 +17,26 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   command = "setlocal formatoptions-=cro",
 })
+
+-- Better cursorline
+vim.api.nvim_create_autocmd({ "WinLeave", "InsertEnter" }, {
+  pattern = "*",
+  callback = function()
+    local filetypes_exclude = {
+      "coc-explorer",
+    }
+    for _, v in ipairs(filetypes_exclude) do
+      if vim.bo.filetype == v then
+        return
+      end
+    end
+    vim.cmd [[set nocursorline]]
+  end
+})
+
+vim.api.nvim_create_autocmd({ "WinEnter", "InsertLeave" }, {
+  pattern = "*",
+  callback = function()
+    vim.cmd [[set cursorline]]
+  end,
+})

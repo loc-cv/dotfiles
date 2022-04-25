@@ -51,7 +51,7 @@ M.setup = function()
   }
 
   -- Loading extensions
-  local extensions = { "fzf", "media_files", "emoji" }
+  local extensions = { "fzf", "media_files", "emoji", "coc" }
   for _, ext in ipairs(extensions) do
     telescope.load_extension(ext)
   end
