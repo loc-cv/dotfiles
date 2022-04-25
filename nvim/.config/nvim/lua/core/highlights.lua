@@ -17,7 +17,7 @@ local colors = {
   DiffDelete = "#db4b4b",
 
   -- yank region
-  HighlightedyankRegion = "#454545",
+  HighlightedyankRegion = "#4f4f4f",
 
   -- indent_blankline
   IndentBlanklineContextChar = "#d4d4d4",
@@ -26,13 +26,17 @@ local colors = {
   -- trailing whitespaces
   Whitespace = "#808080",
 
+  -- galaxyline
+  GalaxylineActiveFG = "#0a0a0a",
+  GalaxylineActiveBG = "#cacaca",
+  GalaxylineInactiveFG = "#d4d4d4",
+  GalaxylineInactiveBG = "#3b3b3b",
+
   -- statusline
-  GalaxylineActiveFG = "#d4d4d4",
-  GalaxylineInactiveFG = "#808080",
-  GalaxylineActiveBG = "#3b3b3b",
-  GalaxylineInactiveBG = "#282828",
-  StatusLineNC = "#4f4f4f",
-  -- StatusLine = "#282828",
+  StatusLineNCBG = "#454545",
+  StatusLineNCFG = "#e8e8e8",
+  StatusLineBG = "#cacaca",
+  StatusLineFG = "#0a0a0a",
 
   -- coc.nvim
   CocError = "#db4b4b",
@@ -42,8 +46,8 @@ local colors = {
   CocFadeOut = "#808080",
 
   -- nvim_window
-  NvimWindowFG = "#1e1e1e",
-  NvimWindowBG = "#d4d4d4",
+  NvimWindowFG = "#0a0a0a",
+  NvimWindowBG = "#f1f1f1",
 
   -- vim-sandwich
   OperatorSandwichChangeFG = "#1e1e1e",
@@ -74,8 +78,8 @@ hi("TelescopeSelection", { bg = colors.TelescopeSelection })
 hi("FloatermBorder", { bg = colors.FloatermBorder })
 
 -- Statusline
--- hi("StatusLine", { bg = colors.StatusLine })
-hi("StatusLineNC", { bg = colors.StatusLineNC })
+hi("StatusLine", { bg = colors.StatusLineBG, fg = colors.StatusLineFG })
+hi("StatusLineNC", { bg = colors.StatusLineNCBG, fg = colors.StatusLineNCFG })
 
 -- Git
 hi("DiffAdd", { fg = colors.DiffAdd, bg = "NONE" })

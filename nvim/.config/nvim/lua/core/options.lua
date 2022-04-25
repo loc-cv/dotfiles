@@ -35,14 +35,14 @@ local options = {
   smartcase = true, -- ...unless we type a capital
 
   -- Indent options
-  -- expandtab = true, -- expand tabs to spaces
-  -- autoindent = true, -- copy the indentation from the previous, when starting a new line
-  -- smartindent = true, -- do smart autoindenting when starting a new line
-  -- smarttab = true, -- <Tab> in front of a line inserts blanks according to 'shiftwidth'
-  -- shiftround = true, -- round indent to multiple of 'shiftwidth'
-  -- shiftwidth = 2, -- number of spaces to use for each step of (auto)indent
-  -- tabstop = 2, -- number of spaces that a <Tab> counts for
-  -- softtabstop = 2, -- number of spaces that a <Tab> counts for while performing editting eperations
+  expandtab = true, -- expand tabs to spaces
+  autoindent = true, -- copy the indentation from the previous, when starting a new line
+  smartindent = true, -- do smart autoindenting when starting a new line
+  smarttab = true, -- <Tab> in front of a line inserts blanks according to 'shiftwidth'
+  shiftround = true, -- round indent to multiple of 'shiftwidth'
+  shiftwidth = 2, -- number of spaces to use for each step of (auto)indent
+  tabstop = 2, -- number of spaces that a <Tab> counts for
+  softtabstop = 2, -- number of spaces that a <Tab> counts for while performing editting eperations
 }
 
 for k, v in pairs(options) do
