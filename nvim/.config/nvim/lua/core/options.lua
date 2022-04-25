@@ -21,6 +21,7 @@ local options = {
   fillchars = { eob = " " }, -- disable `~` on nonexistent lines
   ttimeout = false, -- fix delay <es>
   timeout = false, -- no waiting for key combination
+  -- laststatus = 3, -- global statusline
 
   -- Disable swapfiles & backup files
   backup = false, -- prevent making a backup before overwriting a file

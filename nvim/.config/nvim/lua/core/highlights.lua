@@ -3,7 +3,7 @@ local hi = utils.hi
 
 local colors = {
   -- cursorline
-  CursorLine = "#282828",
+  CursorLine = "#323232",
 
   -- telescope
   TelescopeSelection = "#323232",
@@ -29,9 +29,10 @@ local colors = {
   -- statusline
   GalaxylineActiveFG = "#d4d4d4",
   GalaxylineInactiveFG = "#808080",
-  GalaxylineBG = "#323232",
-  StatusLine = "#4f4f4f",
+  GalaxylineActiveBG = "#3b3b3b",
+  GalaxylineInactiveBG = "#282828",
   StatusLineNC = "#454545",
+  -- StatusLine = "#3b3b3b",
 
   -- coc.nvim
   CocError = "#db4b4b",
@@ -73,7 +74,7 @@ hi("TelescopeSelection", { bg = colors.TelescopeSelection })
 hi("FloatermBorder", { bg = colors.FloatermBorder })
 
 -- Statusline
-hi("StatusLine", { bg = colors.StatusLine })
+-- hi("StatusLine", { bg = colors.StatusLine })
 hi("StatusLineNC", { bg = colors.StatusLineNC })
 
 -- Git

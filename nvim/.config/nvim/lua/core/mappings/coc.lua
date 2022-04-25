@@ -77,15 +77,15 @@ map("i", "<C-b>", "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<cr>' : '<
 map({ "n", "x" }, "<C-s>", "<Plug>(coc-range-select)")
 
 -- Mappings for CoCList
-map("n", "<space><space>", "<cmd>CocFzfList<cr>")
-map("n", "<space>D", "<cmd>CocFzfList diagnostics<cr>")
-map("n", "<space>d", "<cmd>CocFzfList diagnostics --current-buf<cr>")
-map("n", "<space>c", "<cmd>CocFzfList commands<cr>")
-map("n", "<space>e", "<cmd>CocFzfList extensions<cr>")
-map("n", "<space>l", "<cmd>CocFzfList location<cr>")
-map("n", "<space>o", "<cmd>CocFzfList outline<cr>")
-map("n", "<space>s", "<cmd>CocFzfList symbols<cr>")
-map("n", "<space>p", "<cmd>CocFzfListResume<cr>")
+map("n", "<space><space>", "<cmd>CocList<cr>")
+map("n", "<space>D", "<cmd>CocList diagnostics<cr>")
+map("n", "<space>d", "<cmd>CocList diagnostics --current-buf<cr>")
+map("n", "<space>c", "<cmd>CocList commands<cr>")
+map("n", "<space>e", "<cmd>CocList extensions<cr>")
+map("n", "<space>l", "<cmd>CocList location<cr>")
+map("n", "<space>o", "<cmd>CocList outline<cr>")
+map("n", "<space>s", "<cmd>CocList symbols<cr>")
+map("n", "<space>p", "<cmd>CocListResume<cr>")
 
 -- Make <CR> auto-select the first completion item and notify coc.nvim to ...
 -- ... format on enter, <CR> could be remapped by other vim plugin

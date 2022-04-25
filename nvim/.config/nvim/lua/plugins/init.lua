@@ -44,19 +44,6 @@ return packer.startup {
         require("plugins.configs.coc").setup()
       end,
     }
-    use {
-      "junegunn/fzf.vim",
-      requires = {
-        "junegunn/fzf",
-        run = function()
-          vim.fn["fzf#install"]()
-        end
-      }
-    }
-    use {
-      "antoinemadec/coc-fzf",
-      branch = "release",
-    }
     use "rafamadriz/friendly-snippets"
 
     -- Syntax highlighting (and more)
@@ -190,9 +177,9 @@ return packer.startup {
       end,
     }
     use {
-      "karb94/neoscroll.nvim",
+      "sunjon/shade.nvim",
       config = function()
-        require("plugins.configs.neoscroll").setup()
+        require("plugins.configs.shade").setup()
       end,
     }
   end,
