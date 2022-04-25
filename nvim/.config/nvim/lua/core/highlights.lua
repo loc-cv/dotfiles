@@ -26,17 +26,16 @@ local colors = {
   -- trailing whitespaces
   Whitespace = "#808080",
 
-  -- galaxyline
+  -- galaxyline & statusline
+  GalaxylineActiveBG = "#adadad",
   GalaxylineActiveFG = "#0a0a0a",
-  GalaxylineActiveBG = "#c0c0c0",
-  GalaxylineInactiveFG = "#d4d4d4",
-  GalaxylineInactiveBG = "#3b3b3b",
+  StatusLineBG = "#adadad",
+  StatusLineFG = "#0a0a0a",
 
-  -- statusline
+  GalaxylineInactiveBG = "#3b3b3b",
+  GalaxylineInactiveFG = "#c0c0c0",
   StatusLineNCBG = "#454545",
   StatusLineNCFG = "#e8e8e8",
-  StatusLineBG = "#c0c0c0",
-  StatusLineFG = "#0a0a0a",
 
   -- coc.nvim
   CocError = "#db4b4b",
@@ -47,7 +46,7 @@ local colors = {
 
   -- nvim_window
   NvimWindowFG = "#0a0a0a",
-  NvimWindowBG = "#f1f1f1",
+  NvimWindowBG = "#d4d4d4",
 
   -- vim-sandwich
   OperatorSandwichChangeFG = "#1e1e1e",
