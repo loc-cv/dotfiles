@@ -19,11 +19,15 @@ map("i", "<C-k>", 'pumvisible() ? "<C-p>" : "<S-Tab>"', { expr = true })
 map("n", "[d", "<Plug>(coc-diagnostic-prev)")
 map("n", "]d", "<Plug>(coc-diagnostic-next)")
 
--- GOTO code navigation
-map("n", "gd", "<Plug>(coc-definition)")
-map("n", "gy", "<Plug>(coc-type-definition)")
-map("n", "gi", "<Plug>(coc-implementation)")
-map("n", "gr", "<Plug>(coc-references)")
+-- GOTO code navigation (Use telescope-coc.nvim)
+-- map("n", "gd", "<Plug>(coc-definition)")
+-- map("n", "gy", "<Plug>(coc-type-definition)")
+-- map("n", "gi", "<Plug>(coc-implementation)")
+-- map("n", "gr", "<Plug>(coc-references)")
+map("n", "gd", "<cmd>Telescope coc definitions<cr>")
+map("n", "gy", "<cmd>Telescope coc type_definitions<cr>")
+map("n", "gi", "<cmd>Telescope coc implementations<cr>")
+map("n", "gr", "<cmd>Telescope coc references<cr>")
 
 -- Use gh to show documentation in preview window
 map("n", "gh", function()
@@ -77,15 +81,15 @@ map("i", "<C-b>", "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<cr>' : '<
 map({ "n", "x" }, "<C-s>", "<Plug>(coc-range-select)")
 
 -- Mappings for CoCList
-map("n", "<space><space>", "<cmd>CocList<cr>")
-map("n", "<space>D", "<cmd>CocList diagnostics<cr>")
-map("n", "<space>d", "<cmd>CocList diagnostics --current-buf<cr>")
-map("n", "<space>c", "<cmd>CocList commands<cr>")
 map("n", "<space>e", "<cmd>CocList extensions<cr>")
-map("n", "<space>l", "<cmd>CocList location<cr>")
-map("n", "<space>o", "<cmd>CocList outline<cr>")
-map("n", "<space>s", "<cmd>CocList symbols<cr>")
-map("n", "<space>p", "<cmd>CocListResume<cr>")
+map("n", "<space><space>", "<cmd>Telescope coc coc<cr>")
+map("n", "<space>D", "<cmd>Telescope coc workspace_diagnostics<cr>")
+map("n", "<space>d", "<cmd>Telescope coc diagnostics<cr>")
+map("n", "<space>c", "<cmd>Telescope coc commands<cr>")
+map("n", "<space>l", "<cmd>Telescope coc locations<cr>")
+map("n", "<space>s", "<cmd>Telescope coc document_symbols<cr>")
+-- map("n", "<space>o", "<cmd>CocList outline<cr>")
+-- map("n", "<space>p", "<cmd>CocListResume<cr>")
 
 -- Make <CR> auto-select the first completion item and notify coc.nvim to ...
 -- ... format on enter, <CR> could be remapped by other vim plugin
