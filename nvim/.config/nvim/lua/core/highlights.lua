@@ -31,12 +31,12 @@ local colors = {
   -- galaxyline & statusline
   GalaxylineActiveBG = "#adadad",
   GalaxylineActiveFG = "#0a0a0a",
-  StatusLineBG = "#adadad",
-  StatusLineFG = "#0a0a0a",
+  StatusLineBG = "#282828",
+  StatusLineFG = "#d4d4d4",
 
   GalaxylineInactiveBG = "#3b3b3b",
   GalaxylineInactiveFG = "#c0c0c0",
-  StatusLineNCBG = "#3b3b3b",
+  StatusLineNCBG = "#808080",
   StatusLineNCFG = "#c0c0c0",
 
   -- coc.nvim
