@@ -172,6 +172,7 @@ return packer.startup {
     -- use "tpope/vim-sleuth"
     use "nathom/filetype.nvim"
     use "junegunn/vim-easy-align"
+    use "antoinemadec/FixCursorHold.nvim"
     use {
       "norcalli/nvim-colorizer.lua",
       config = function()

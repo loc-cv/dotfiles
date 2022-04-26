@@ -6,7 +6,9 @@ local colors = {
   CursorLine = "#323232",
 
   -- telescope
-  TelescopeSelection = "#323232",
+  -- TelescopeSelectionBG = "#adadad",
+  -- TelescopeSelectionFG = "#0a0a0a",
+  TelescopeSelectionBG = "#323232",
 
   -- floaterm
   FloatermBorder = "#1e1e1e",
@@ -34,8 +36,8 @@ local colors = {
 
   GalaxylineInactiveBG = "#3b3b3b",
   GalaxylineInactiveFG = "#c0c0c0",
-  StatusLineNCBG = "#454545",
-  StatusLineNCFG = "#e8e8e8",
+  StatusLineNCBG = "#3b3b3b",
+  StatusLineNCFG = "#c0c0c0",
 
   -- coc.nvim
   CocError = "#db4b4b",
@@ -71,7 +73,8 @@ hi("CursorLine", { bg = colors.CursorLine })
 vim.g.better_whitespace_guicolor = colors.Whitespace
 
 -- Telescope
-hi("TelescopeSelection", { bg = colors.TelescopeSelection })
+-- hi("TelescopeSelection", { bg = colors.TelescopeSelectionBG, fg = colors.TelescopeSelectionFG })
+hi("TelescopeSelection", { bg = colors.TelescopeSelectionBG })
 
 -- Floaterm
 hi("FloatermBorder", { bg = colors.FloatermBorder })
