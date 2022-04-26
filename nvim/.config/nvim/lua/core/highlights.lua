@@ -45,6 +45,7 @@ local colors = {
   CocInfo = "#0db9d7",
   CocHint = "#10b981",
   CocFadeOut = "#808080",
+  CocHighlightTextBG = "#282828",
 
   -- nvim_window
   NvimWindowFG = "#0a0a0a",
@@ -99,20 +100,17 @@ hi("IndentBlanklineContextStart", { fg = "NONE", sp = colors.IndentBlanklineCont
 hi("CocErrorSign", { fg = colors.CocError })
 hi("CocErrorVirtualText", { fg = colors.CocError })
 hi("CocErrorHighlight", { fg = colors.CocError, underline = true })
-
 hi("CocWarningSign", { fg = colors.CocWarning })
 hi("CocWarningVirtualText", { fg = colors.CocWarning })
 hi("CocWarningHighlight", { fg = colors.CocWarning, underline = true })
-
 hi("CocInfoSign", { fg = colors.CocInfo })
 hi("CocInfoVirtualText", { fg = colors.CocInfo })
 hi("CocInfoHighlight", { fg = colors.CocInfo, underline = true })
-
 hi("CocHintSign", { fg = colors.CocHint })
 hi("CocHintVirtualText", { fg = colors.CocHint })
 hi("CocHintHighlight", { fg = colors.CocHint, underline = true })
-
 hi("CocFadeOut", { fg = colors.CocFadeOut, underline = true })
+hi("CocHighlightText", { bg = colors.CocHighlightTextBG, underline = true })
 
 -- nvim-window
 hi("NvimWindow", { fg = colors.NvimWindowFG, bg = colors.NvimWindowBG })
