@@ -35,7 +35,7 @@ M.setup = function()
         "node_modules",
         "*%.min%.*",
         "dotbot",
-        "^.git/",
+        "^./.git/",
       },
       mappings = {
         i = {
