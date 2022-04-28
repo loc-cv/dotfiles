@@ -19,7 +19,10 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Better cursorline
+local cursorGrp = vim.api.nvim_create_augroup("CursorLine", { clear = true })
+
 vim.api.nvim_create_autocmd({ "WinLeave", "InsertEnter" }, {
+  group = cursorGrp,
   pattern = "*",
   callback = function()
     local filetypes_exclude = { "coc-explorer" }
@@ -33,6 +36,7 @@ vim.api.nvim_create_autocmd({ "WinLeave", "InsertEnter" }, {
 })
 
 vim.api.nvim_create_autocmd({ "WinEnter", "InsertLeave" }, {
+  group = cursorGrp,
   pattern = "*",
   command = "set cursorline",
 })
