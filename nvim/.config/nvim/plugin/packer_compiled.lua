@@ -301,6 +301,11 @@ _G.packer_plugins = {
     path = "/home/colcv/.local/share/nvim/site/pack/packer/start/vim-sleuth",
     url = "https://github.com/tpope/vim-sleuth"
   },
+  ["vim-startuptime"] = {
+    loaded = true,
+    path = "/home/colcv/.local/share/nvim/site/pack/packer/start/vim-startuptime",
+    url = "https://github.com/dstein64/vim-startuptime"
+  },
   ["vim-textobj-entire"] = {
     loaded = true,
     path = "/home/colcv/.local/share/nvim/site/pack/packer/start/vim-textobj-entire",

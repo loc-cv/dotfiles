@@ -191,6 +191,7 @@ return packer.startup {
         require("plugins.configs.nvim_colorizer").setup()
       end,
     }
+    use "dstein64/vim-startuptime"
     use "nathom/filetype.nvim"
   end,
 }
