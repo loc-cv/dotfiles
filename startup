@@ -1,0 +1,96 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.013  000.013: --- NVIM STARTING ---
+000.370  000.357: locale set
+000.795  000.425: inits 1
+000.813  000.017: window checked
+000.817  000.004: parsing arguments
+003.769  002.953: expanding arguments
+003.821  000.052: inits 2
+004.652  000.831: init highlight
+004.655  000.003: waiting for UI
+005.788  001.133: done waiting for UI
+005.814  000.026: init screen for UI
+005.858  000.043: init default mappings
+005.895  000.037: init default autocommands
+007.211  000.060  000.060: sourcing /usr/share/nvim/runtime/ftplugin.vim
+007.403  000.030  000.030: sourcing /usr/share/nvim/runtime/indent.vim
+014.549  000.032  000.032: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/filetype.nvim/filetype.vim
+014.853  000.021  000.021: sourcing /usr/share/nvim/runtime/filetype.lua
+014.886  000.015  000.015: sourcing /usr/share/nvim/runtime/filetype.vim
+015.060  000.009  000.009: sourcing /usr/share/nvim/runtime/ftplugin.vim
+015.222  000.008  000.008: sourcing /usr/share/nvim/runtime/indent.vim
+020.399  003.374  003.374: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vscode.nvim/colors/vscode.vim
+020.507  013.030  009.572: sourcing /home/colcv/.config/nvim/init.lua
+020.529  001.514: sourcing vimrc file(s)
+021.222  000.314  000.314: sourcing /usr/share/nvim/runtime/syntax/synload.vim
+021.470  000.891  000.577: sourcing /usr/share/nvim/runtime/syntax/syntax.vim
+022.972  000.193  000.193: sourcing /usr/share/nvim/runtime/plugin/gzip.vim
+023.010  000.015  000.015: sourcing /usr/share/nvim/runtime/plugin/health.vim
+023.083  000.057  000.057: sourcing /usr/share/nvim/runtime/plugin/man.vim
+023.830  000.300  000.300: sourcing /usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+023.973  000.872  000.572: sourcing /usr/share/nvim/runtime/plugin/matchit.vim
+024.134  000.144  000.144: sourcing /usr/share/nvim/runtime/plugin/matchparen.vim
+024.502  000.351  000.351: sourcing /usr/share/nvim/runtime/plugin/netrwPlugin.vim
+024.678  000.010  000.010: sourcing /home/colcv/.local/share/nvim/rplugin.vim
+024.685  000.154  000.144: sourcing /usr/share/nvim/runtime/plugin/rplugin.vim
+024.763  000.059  000.059: sourcing /usr/share/nvim/runtime/plugin/shada.vim
+024.815  000.025  000.025: sourcing /usr/share/nvim/runtime/plugin/spellfile.vim
+024.939  000.104  000.104: sourcing /usr/share/nvim/runtime/plugin/tarPlugin.vim
+025.043  000.079  000.079: sourcing /usr/share/nvim/runtime/plugin/tohtml.vim
+025.082  000.018  000.018: sourcing /usr/share/nvim/runtime/plugin/tutor.vim
+025.241  000.141  000.141: sourcing /usr/share/nvim/runtime/plugin/zipPlugin.vim
+030.213  000.386  000.386: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-sandwich/macros/sandwich/keymap/surround.vim
+047.865  000.098  000.098: sourcing /home/colcv/.local/share/nvim/site/pack/packer/opt/nvim-ts-context-commentstring/plugin/ts_context_commentstring.vim
+049.675  000.159  000.159: sourcing /home/colcv/.local/share/nvim/site/pack/packer/opt/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+049.988  024.613  023.970: sourcing /home/colcv/.config/nvim/plugin/packer_compiled.lua
+050.324  002.080: loading rtp plugins
+050.952  000.112  000.112: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim/plugin/fix_cursorhold_nvim.vim
+051.278  000.221  000.221: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/close-buffers.vim/plugin/close-buffers.vim
+053.459  000.126  000.126: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/coc.nvim/autoload/coc/rpc.vim
+054.096  000.531  000.531: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/coc.nvim/autoload/coc/util.vim
+054.719  000.216  000.216: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/coc.nvim/autoload/coc/client.vim
+059.847  008.462  007.589: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/coc.nvim/plugin/coc.vim
+060.339  000.235  000.235: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/galaxyline.nvim/plugin/galaxyline.lua
+060.553  000.049  000.049: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/glow.nvim/plugin/glow.lua
+060.962  000.312  000.312: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+061.509  000.432  000.432: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/is.vim/plugin/is.vim
+061.721  000.078  000.078: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua/plugin/colorizer.vim
+062.441  000.593  000.593: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.vim
+062.622  000.050  000.050: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+062.861  000.043  000.043: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+063.004  000.045  000.045: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/pounce.nvim/plugin/pounce.vim
+063.242  000.106  000.106: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/smart-splits.nvim/plugin/smart-splits.lua
+063.628  000.193  000.193: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+064.199  000.495  000.495: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-better-whitespace/plugin/better-whitespace.vim
+064.488  000.170  000.170: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-easy-align/plugin/easy_align.vim
+064.841  000.237  000.237: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-floaterm/plugin/floaterm.vim
+066.337  001.381  001.381: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+066.629  000.128  000.128: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-highlightedyank/plugin/highlightedyank.vim
+067.060  000.325  000.325: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-move/plugin/move.vim
+067.287  000.111  000.111: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-obsession/plugin/obsession.vim
+067.781  000.313  000.313: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-sandwich/plugin/operator/sandwich.vim
+068.031  000.221  000.221: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-sandwich/plugin/sandwich.vim
+068.202  000.144  000.144: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-sandwich/plugin/textobj/sandwich.vim
+068.566  000.190  000.190: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-searchlight/plugin/searchlight.vim
+069.118  000.439  000.439: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-sleuth/plugin/sleuth.vim
+069.874  000.392  000.392: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-textobj-user/autoload/textobj/user.vim
+071.157  001.891  001.499: sourcing /home/colcv/.local/share/nvim/site/pack/packer/start/vim-textobj-entire/plugin/textobj/entire.vim
+071.476  004.176: loading packages
+071.823  000.232  000.232: sourcing /home/colcv/.local/share/nvim/site/pack/packer/opt/Comment.nvim/after/plugin/Comment.lua
+071.829  000.121: loading after plugins
+071.849  000.020: inits 3
+074.206  002.357: reading ShaDa
+075.461  001.255: opening buffers
+075.854  000.393: BufEnter autocommands
+075.858  000.004: editing files in windows
+076.909  001.050: VimEnter autocommands
+076.916  000.008: UIEnter autocommands
+077.388  000.227  000.227: sourcing /usr/share/nvim/runtime/autoload/provider/clipboard.vim
+077.398  000.255: before starting main loop
+078.781  001.383: first screen update
+078.785  000.004: --- NVIM STARTED ---
