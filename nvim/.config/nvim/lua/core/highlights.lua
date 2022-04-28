@@ -75,7 +75,7 @@ vim.g.better_whitespace_guicolor = colors.Whitespace
 
 -- Telescope
 -- hi("TelescopeSelection", { bg = colors.TelescopeSelectionBG, fg = colors.TelescopeSelectionFG })
-hi("TelescopeSelection", { bg = colors.TelescopeSelectionBG })
+hi("TelescopeSelection", { bg = colors.TelescopeSelectionBG, bold = true })
 
 -- Floaterm
 hi("FloatermBorder", { bg = colors.FloatermBorder })
