@@ -1,0 +1,29 @@
+[user]
+	email = donbb6824@gmail.com
+	name = loc-cv
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
+[push]
+	default = simple
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[alias]
+	s = status
+	ss = status --short
+	ssb = status --short --branch
+	cm = commit
+	co = checkout
+	cob = checkout -b
+	br = branch
+	adog = log --all --decorate --oneline --graph
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[diff]
+	tool = nvimdiff
+[difftool]
+	prompt = false
