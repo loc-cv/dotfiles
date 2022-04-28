@@ -149,8 +149,8 @@ M.setup = function()
   gls.left[3] = {
     GitIcon = {
       provider = function()
-        return get_element " "
-        -- return get_element " "
+        -- return get_element " "
+        return get_element " "
       end,
       condition = condition.check_git_workspace,
       highlight = { active_fg, active_bg, "bold" },
