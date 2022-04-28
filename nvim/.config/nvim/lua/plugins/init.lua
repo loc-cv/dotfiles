@@ -1,19 +1,3 @@
--- Check if packer is installed (~/.local/share/nvim/site/pack)
-local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-local is_installed = vim.fn.empty(vim.fn.glob(install_path)) == 0
-
-if not is_installed then
-  local execute = vim.api.nvim_command
-  if vim.fn.input "Install packer.nvim? (y for yes) " == "y" then
-    execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
-    execute "packadd packer.nvim"
-    print "Installed packer.nvim"
-    is_installed = 1
-  else
-    return
-  end
-end
-
 local ok, packer = pcall(require, "packer")
 if not ok then
   return
@@ -27,10 +11,10 @@ return packer.startup {
     use "wbthomason/packer.nvim"
 
     -- Make Neovim look good
+    use "kyazdani42/nvim-web-devicons"
     use "Mofiqul/vscode.nvim"
     use {
       "NTBBloodbath/galaxyline.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
       config = function()
         require("plugins.configs.galaxyline").setup()
       end,
@@ -44,7 +28,6 @@ return packer.startup {
         require("plugins.configs.coc").setup()
       end,
     }
-    use "rafamadriz/friendly-snippets"
     use {
       "antoinemadec/coc-fzf",
       branch = "release",
@@ -59,26 +42,20 @@ return packer.startup {
       },
     }
 
-    -- Syntax highlighting (and more)
-    -- use "sheerun/vim-polyglot"
+    -- Snippet
     use {
-      "nvim-treesitter/nvim-treesitter",
-      run = ":TSUpdate",
-      config = function()
-        require("plugins.configs.treesitter").setup()
-      end,
+      "rafamadriz/friendly-snippets",
+      event = "InsertEnter",
     }
 
     -- Telescope
     use {
       "nvim-telescope/telescope.nvim",
+      module = "telescope",
       requires = {
         "nvim-lua/plenary.nvim",
-        "kyazdani42/nvim-web-devicons",
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-        "xiyaowong/telescope-emoji.nvim",
         "nvim-telescope/telescope-media-files.nvim",
-        "fannheyward/telescope-coc.nvim",
       },
       config = function()
         require("plugins.configs.telescope").setup()
@@ -97,23 +74,44 @@ return packer.startup {
     use "tpope/vim-fugitive"
     use {
       "lewis6991/gitsigns.nvim",
+      event = { "BufRead", "BufNewFile" },
       requires = "nvim-lua/plenary.nvim",
       config = function()
         require("plugins.configs.gitsigns").setup()
       end,
     }
 
-    -- Sessions
-    use "tpope/vim-obsession"
-
-    -- Coding enhancements
+    -- Commenting code
     use {
       "numToStr/Comment.nvim",
-      after = "nvim-ts-context-commentstring",
+      event = { "BufRead", "BufNewFile" },
       config = function()
         require("plugins.configs.comment").setup()
       end,
     }
+
+    -- Syntax highlighting (and more)
+    -- use "sheerun/vim-polyglot"
+    use {
+      "nvim-treesitter/nvim-treesitter",
+      event = { "BufRead", "BufNewFile" },
+      cmd = {
+        "TSInstall",
+        "TSInstallInfo",
+        "TSInstallSync",
+        "TSUninstall",
+        "TSUpdate",
+        "TSUpdateSync",
+        "TSDisableAll",
+        "TSEnableAll",
+      },
+      run = ":TSUpdate",
+      config = function()
+        require("plugins.configs.treesitter").setup()
+      end,
+    }
+
+    -- Set the commentstring based on the cursor location in a file
     use {
       "JoosepAlviste/nvim-ts-context-commentstring",
       requires = "nvim-treesitter/nvim-treesitter",
@@ -122,6 +120,8 @@ return packer.startup {
         require("plugins.configs.miscs").setup_context_commentstring()
       end,
     }
+
+    -- Use treesitter to auto close and auto rename HTML tags
     use {
       "windwp/nvim-ts-autotag",
       requires = "nvim-treesitter/nvim-treesitter",
@@ -130,68 +130,130 @@ return packer.startup {
         require("plugins.configs.miscs").setup_autotag()
       end,
     }
+
+    -- Autopairs
     use {
       "windwp/nvim-autopairs",
+      event = "InsertEnter",
       config = function()
         require("plugins.configs.autopairs").setup()
       end,
     }
+
+    -- Text objects for entire buffer
     use {
       "kana/vim-textobj-entire",
+      event = { "BufRead", "BufNewFile" },
       requires = "kana/vim-textobj-user",
     }
+
+    -- Indent guides for Neovim
     use {
       "lukas-reineke/indent-blankline.nvim",
+      event = { "BufRead", "BufNewFile" },
       config = function()
         require("plugins.configs.indent_blankline").setup()
       end,
     }
+
+    -- Surround
     use {
       "machakann/vim-sandwich",
+      event = { "BufRead", "BufNewFile" },
       config = function()
         require("plugins.configs.vim_sandwich").setup()
       end,
     }
+
+    -- Make the yanked region apparent
     use {
       "machakann/vim-highlightedyank",
+      event = { "BufRead", "BufNewFile" },
       config = function()
         require("plugins.configs.highlightedyank").setup()
       end,
     }
 
     -- Easy motions
-    use "rlane/pounce.nvim"
-    use "mrjones2014/smart-splits.nvim"
+    use {
+      "rlane/pounce.nvim",
+      event = { "BufRead", "BufNewFile" },
+    }
+    use {
+      "mrjones2014/smart-splits.nvim",
+      event = "VimEnter",
+    }
     use {
       "https://gitlab.com/yorickpeterse/nvim-window.git",
+      event = "VimEnter",
       config = function()
         require("plugins.configs.nvim_window").setup()
       end,
     }
 
     -- Buffers management
-    use "Asheq/close-buffers.vim"
+    use {
+      "Asheq/close-buffers.vim",
+      cmd = { "Bdelete", "Bwipeout" },
+    }
 
     -- Markdown
-    use "ellisonleao/glow.nvim"
-    use "davidgranstrom/nvim-markdown-preview"
+    use { "ellisonleao/glow.nvim", ft = { "markdown" } }
+    use { "davidgranstrom/nvim-markdown-preview", ft = { "markdown" } }
 
-    -- Miscs
-    use "matze/vim-move"
-    use "haya14busa/is.vim"
-    use "PeterRincker/vim-searchlight"
-    use "ntpeters/vim-better-whitespace"
-    use "lewis6991/impatient.nvim"
-    use "tpope/vim-sleuth"
-    use "junegunn/vim-easy-align"
-    use "antoinemadec/FixCursorHold.nvim"
+    -- Color highlighting
     use {
       "norcalli/nvim-colorizer.lua",
+      event = { "BufRead", "BufNewFile" },
       config = function()
         require("plugins.configs.nvim_colorizer").setup()
       end,
     }
-    use "dstein64/vim-startuptime"
+
+    -- Move lines and selections
+    use {
+      "matze/vim-move",
+      event = { "BufRead", "BufNewFile" },
+    }
+
+    -- Search enhancements
+    use {
+      "haya14busa/is.vim",
+      event = { "BufRead", "BufNewFile" },
+    }
+    use {
+      "PeterRincker/vim-searchlight",
+      event = { "BufRead", "BufNewFile" },
+    }
+
+    -- Trailing white spaces
+    use {
+      "ntpeters/vim-better-whitespace",
+      event = { "BufRead", "BufNewFile" },
+    }
+
+    -- Auto set indenting options
+    use "tpope/vim-sleuth"
+
+    -- Align
+    use {
+      "junegunn/vim-easy-align",
+      event = { "BufRead", "BufNewFile" },
+    }
+
+    -- Sessions
+    use "tpope/vim-obsession"
+
+    -- Better performance for Neovim
+    use "lewis6991/impatient.nvim"
     use "nathom/filetype.nvim"
+    use {
+      "dstein64/vim-startuptime",
+      cmd = "StartupTime",
+    }
+    use {
+      "antoinemadec/FixCursorHold.nvim",
+      event = { "BufRead", "BufNewFile" },
+    }
   end,
 }

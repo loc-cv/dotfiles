@@ -6,6 +6,12 @@ M.setup = function()
     return
   end
 
+  -- Loading extensions
+  local extensions = { "fzf", "media_files" }
+  for _, ext in ipairs(extensions) do
+    telescope.load_extension(ext)
+  end
+
   local actions = require "telescope.actions"
 
   telescope.setup {
@@ -61,12 +67,6 @@ M.setup = function()
       },
     },
   }
-
-  -- Loading extensions
-  local extensions = { "fzf", "media_files", "emoji", "coc" }
-  for _, ext in ipairs(extensions) do
-    telescope.load_extension(ext)
-  end
 end
 
 return M

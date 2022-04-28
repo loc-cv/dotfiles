@@ -6,8 +6,6 @@ local colors = {
   CursorLine = "#323232",
 
   -- telescope
-  -- TelescopeSelectionBG = "#adadad",
-  -- TelescopeSelectionFG = "#0a0a0a",
   TelescopeSelectionBG = "#323232",
 
   -- floaterm
@@ -28,14 +26,15 @@ local colors = {
   -- trailing whitespaces
   Whitespace = "#808080",
 
-  -- galaxyline & statusline
+  -- galaxyline
   GalaxylineActiveBG = "#adadad",
   GalaxylineActiveFG = "#0a0a0a",
-  StatusLineBG = "#282828",
-  StatusLineFG = "#d4d4d4",
-
   GalaxylineInactiveBG = "#323232",
   GalaxylineInactiveFG = "#c0c0c0",
+
+  -- statusline
+  StatusLineBG = "#282828",
+  StatusLineFG = "#d4d4d4",
   StatusLineNCBG = "#454545",
   StatusLineNCFG = "#c0c0c0",
 
@@ -62,6 +61,10 @@ local colors = {
   PounceGapBG = "#454545",
   PounceAcceptFG = "#1e1e1e",
   PounceAcceptBG = "#d4d4d4",
+
+  -- vim-searchlight
+  SearchlightBG = "#adadad",
+  SearchlightFG = "#0a0a0a",
 }
 
 vim.g.vscode_style = "dark"
@@ -122,5 +125,8 @@ hi("OperatorSandwichChange", { bg = colors.OperatorSandwichChangeBG, fg = colors
 hi("PounceMatch", { bg = colors.PounceMatchBG, fg = colors.PounceMatchFG, bold = true })
 hi("PounceGap", { bg = colors.PounceGapBG, fg = colors.PounceGapFG, bold = true })
 hi("PounceAccept", { bg = colors.PounceAcceptBG, fg = colors.PounceAcceptFG, bold = true })
+
+-- vim-searchlight
+hi("Searchlight", { bg = colors.SearchlightBG, fg = colors.SearchlightFG, bold = true })
 
 return colors
