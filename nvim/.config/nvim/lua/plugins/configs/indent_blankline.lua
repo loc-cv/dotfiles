@@ -15,16 +15,12 @@ M.setup = function()
     filetype_exclude = {
       "help",
       "terminal",
-      "dashboard",
       "TelescopePrompt",
       "TelescopeResults",
       "fugitive",
-      "vim-plug",
       "coc-explorer",
       "packer",
-      "lspinfo",
-      "NvimTree",
-      "CHADTree",
+      "tutor",
     },
     buftype_exclude = { "terminal" },
   }

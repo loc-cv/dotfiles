@@ -45,6 +45,19 @@ return packer.startup {
       end,
     }
     use "rafamadriz/friendly-snippets"
+    use {
+      "antoinemadec/coc-fzf",
+      branch = "release",
+      requires = {
+        {
+          "junegunn/fzf",
+          run = function()
+            vim.fn["fzf#install"]()
+          end,
+        },
+        "junegunn/fzf.vim",
+      },
+    }
 
     -- Syntax highlighting (and more)
     -- use "sheerun/vim-polyglot"
@@ -179,11 +192,5 @@ return packer.startup {
       end,
     }
     use "nathom/filetype.nvim"
-    -- use {
-    --   "sunjon/shade.nvim",
-    --   config = function()
-    --     require("plugins.configs.shade").setup()
-    --   end,
-    -- }
   end,
 }

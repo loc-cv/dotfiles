@@ -2,8 +2,8 @@ local M = {}
 
 M.setup = function()
   -- for coc-fzf
-  -- vim.g.fzf_layout = { window = { width = 0.9, height = 0.8 } }
-  -- vim.g.coc_fzf_preview = "right:50%"
+  vim.g.fzf_layout = { window = { height = 0.8, width = 0.8 } }
+  vim.g.coc_fzf_preview = "up:60%"
 
   vim.g.coc_global_extensions = {
     "coc-html",
