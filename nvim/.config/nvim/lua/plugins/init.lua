@@ -47,7 +47,7 @@ return packer.startup {
     use "rafamadriz/friendly-snippets"
 
     -- Syntax highlighting (and more)
-    use "sheerun/vim-polyglot"
+    -- use "sheerun/vim-polyglot"
     use {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
@@ -169,8 +169,7 @@ return packer.startup {
     use "PeterRincker/vim-searchlight"
     use "ntpeters/vim-better-whitespace"
     use "lewis6991/impatient.nvim"
-    -- use "tpope/vim-sleuth"
-    use "nathom/filetype.nvim"
+    use "tpope/vim-sleuth"
     use "junegunn/vim-easy-align"
     use "antoinemadec/FixCursorHold.nvim"
     use {
@@ -179,6 +178,7 @@ return packer.startup {
         require("plugins.configs.nvim_colorizer").setup()
       end,
     }
+    use "nathom/filetype.nvim"
     -- use {
     --   "sunjon/shade.nvim",
     --   config = function()
