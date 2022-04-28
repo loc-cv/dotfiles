@@ -22,9 +22,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd({ "WinLeave", "InsertEnter" }, {
   pattern = "*",
   callback = function()
-    local filetypes_exclude = {
-      "coc-explorer",
-    }
+    local filetypes_exclude = { "coc-explorer" }
     for _, v in ipairs(filetypes_exclude) do
       if vim.bo.filetype == v then
         return
@@ -36,7 +34,5 @@ vim.api.nvim_create_autocmd({ "WinLeave", "InsertEnter" }, {
 
 vim.api.nvim_create_autocmd({ "WinEnter", "InsertLeave" }, {
   pattern = "*",
-  callback = function()
-    vim.cmd [[set cursorline]]
-  end,
+  command = "set cursorline",
 })
