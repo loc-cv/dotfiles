@@ -41,6 +41,7 @@ return packer.startup {
         "junegunn/fzf.vim",
       },
     }
+    use { "fatih/vim-go", ft = { "go" } }
 
     -- Snippet
     use {

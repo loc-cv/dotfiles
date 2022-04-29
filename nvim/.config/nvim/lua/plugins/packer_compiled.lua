@@ -298,6 +298,13 @@ _G.packer_plugins = {
     path = "/home/colcv/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  ["vim-go"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/colcv/.local/share/nvim/site/pack/packer/opt/vim-go",
+    url = "https://github.com/fatih/vim-go"
+  },
   ["vim-highlightedyank"] = {
     config = { "\27LJ\2\2M\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup$plugins.configs.highlightedyank\frequire\0" },
     loaded = false,
@@ -438,14 +445,20 @@ vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'nvim-markdown-preview', 'glow.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType go ++once lua require("packer.load")({'vim-go'}, { ft = "go" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufNewFile * ++once lua require("packer.load")({'nvim-treesitter', 'indent-blankline.nvim', 'pounce.nvim', 'vim-textobj-entire', 'vim-searchlight', 'vim-highlightedyank', 'is.vim', 'vim-easy-align', 'FixCursorHold.nvim', 'nvim-colorizer.lua', 'vim-move', 'vim-polyglot', 'gitsigns.nvim', 'vim-better-whitespace', 'Comment.nvim', 'vim-sandwich'}, { event = "BufNewFile *" }, _G.packer_plugins)]]
+vim.cmd [[au BufNewFile * ++once lua require("packer.load")({'nvim-treesitter', 'indent-blankline.nvim', 'pounce.nvim', 'vim-textobj-entire', 'vim-searchlight', 'vim-highlightedyank', 'vim-sandwich', 'is.vim', 'vim-easy-align', 'vim-better-whitespace', 'vim-move', 'FixCursorHold.nvim', 'nvim-colorizer.lua', 'vim-polyglot', 'gitsigns.nvim', 'Comment.nvim'}, { event = "BufNewFile *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-autopairs', 'friendly-snippets'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-window.git'}, { event = "VimEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter', 'indent-blankline.nvim', 'pounce.nvim', 'vim-textobj-entire', 'vim-searchlight', 'vim-highlightedyank', 'is.vim', 'vim-easy-align', 'FixCursorHold.nvim', 'nvim-colorizer.lua', 'vim-move', 'vim-polyglot', 'gitsigns.nvim', 'vim-better-whitespace', 'Comment.nvim', 'vim-sandwich'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter', 'indent-blankline.nvim', 'pounce.nvim', 'vim-textobj-entire', 'vim-searchlight', 'vim-highlightedyank', 'vim-sandwich', 'is.vim', 'vim-easy-align', 'vim-better-whitespace', 'vim-move', 'FixCursorHold.nvim', 'nvim-colorizer.lua', 'vim-polyglot', 'gitsigns.nvim', 'Comment.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /home/colcv/.local/share/nvim/site/pack/packer/opt/vim-go/ftdetect/gofiletype.vim]], true)
+vim.cmd [[source /home/colcv/.local/share/nvim/site/pack/packer/opt/vim-go/ftdetect/gofiletype.vim]]
+time([[Sourcing ftdetect script at: /home/colcv/.local/share/nvim/site/pack/packer/opt/vim-go/ftdetect/gofiletype.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 

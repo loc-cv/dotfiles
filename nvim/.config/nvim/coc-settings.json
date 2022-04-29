@@ -37,6 +37,7 @@
     "html",
     "css",
     "json",
+    "jsonc",
     "javascript",
     "javascriptreact",
     "typescript"
