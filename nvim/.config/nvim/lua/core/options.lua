@@ -1,3 +1,4 @@
+local M = {}
 local opt = vim.opt
 
 local options = {
@@ -21,7 +22,6 @@ local options = {
   fillchars = { eob = " " }, -- disable `~` on nonexistent lines
   ttimeout = false, -- fix delay <es>
   timeout = false, -- no waiting for key combination
-  -- laststatus = 3, -- global statusline
 
   -- Disable swapfiles & backup files
   backup = false, -- prevent making a backup before overwriting a file
@@ -45,6 +45,30 @@ local options = {
   -- softtabstop = 2, -- number of spaces that a <Tab> counts for while performing editting eperations
 }
 
-for k, v in pairs(options) do
-  opt[k] = v
+M.init = function()
+  -- Disable some builtin plugins
+  local g = vim.g
+  g.loaded_2html_plugin = false
+  g.loaded_getscript = false
+  g.loaded_getscriptPlugin = false
+  g.loaded_gzip = false
+  g.loaded_logipat = false
+  g.loaded_netrwFileHandlers = false
+  g.loaded_netrwPlugin = false
+  g.loaded_netrwSettngs = false
+  g.loaded_remote_plugins = false
+  g.loaded_tar = false
+  g.loaded_tarPlugin = false
+  g.loaded_zip = false
+  g.loaded_zipPlugin = false
+  g.loaded_vimball = false
+  g.loaded_vimballPlugin = false
+  g.zipPlugin = false
+
+  -- Set options
+  for k, v in pairs(options) do
+    opt[k] = v
+  end
 end
+
+return M

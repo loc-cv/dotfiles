@@ -183,7 +183,7 @@ return packer.startup {
     }
     use {
       "mrjones2014/smart-splits.nvim",
-      module = "smart-splits"
+      module = "smart-splits",
     }
     use {
       "https://gitlab.com/yorickpeterse/nvim-window.git",
@@ -259,8 +259,8 @@ return packer.startup {
     }
   end,
   config = {
-    compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
+    compile_path = vim.fn.stdpath "config" .. "/lua/plugins/packer_compiled.lua",
     auto_clean = true,
     compile_on_sync = true,
-  }
+  },
 }

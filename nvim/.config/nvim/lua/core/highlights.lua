@@ -1,44 +1,44 @@
-local utils = require "core.utils"
-local hi = utils.hi
+local M = {}
+local hi = require("core.utils").hi
 
-local colors = {
-  -- cursorline
+M.colors = {
+  -- Cursorline
   CursorLine = "#323232",
 
-  -- telescope
+  -- Telescope
   TelescopeSelectionBG = "#323232",
 
-  -- floaterm
+  -- Floaterm
   FloatermBorder = "#1e1e1e",
 
-  -- git
+  -- Git
   DiffAdd = "#458700",
   DiffChange = "#007c9f",
   DiffDelete = "#db4b4b",
 
-  -- yank region
+  -- Yank region
   HighlightedyankRegion = "#4f4f4f",
 
-  -- indent_blankline
+  -- Indent_blankline
   IndentBlanklineContextChar = "#d4d4d4",
   IndentBlanklineContextStart = "#d4d4d4",
 
-  -- trailing whitespaces
+  -- Trailing whitespaces
   Whitespace = "#808080",
 
-  -- galaxyline
+  -- Galaxyline
   GalaxylineActiveBG = "#adadad",
   GalaxylineActiveFG = "#0a0a0a",
   GalaxylineInactiveBG = "#323232",
   GalaxylineInactiveFG = "#c0c0c0",
 
-  -- statusline
+  -- Statusline
   StatusLineBG = "#282828",
   StatusLineFG = "#d4d4d4",
   StatusLineNCBG = "#454545",
   StatusLineNCFG = "#c0c0c0",
 
-  -- coc.nvim
+  -- CoC
   CocError = "#db4b4b",
   CocWarning = "#e0af68",
   CocInfo = "#0db9d7",
@@ -46,15 +46,15 @@ local colors = {
   CocFadeOut = "#808080",
   CocHighlightTextBG = "#282828",
 
-  -- nvim_window
+  -- Nvim_window
   NvimWindowFG = "#0a0a0a",
   NvimWindowBG = "#d4d4d4",
 
-  -- vim-sandwich
+  -- Vim-sandwich
   OperatorSandwichChangeFG = "#1e1e1e",
   OperatorSandwichChangeBG = "#d4d4d4",
 
-  -- pounce.nvim
+  -- Pounce.nvim
   PounceMatchFG = "#0a0a0a",
   PounceMatchBG = "#808080",
   PounceGapFG = "#0a0a0a",
@@ -62,71 +62,74 @@ local colors = {
   PounceAcceptFG = "#1e1e1e",
   PounceAcceptBG = "#d4d4d4",
 
-  -- vim-searchlight
+  -- Vim-searchlight
   SearchlightBG = "#adadad",
   SearchlightFG = "#0a0a0a",
 }
 
-vim.g.vscode_style = "dark"
-vim.cmd [[colorscheme vscode]]
+local colors = M.colors
 
--- CursorLine
-hi("CursorLine", { bg = colors.CursorLine })
+M.init = function()
+  vim.g.vscode_style = "dark"
+  vim.cmd [[colorscheme vscode]]
 
--- Trailing whitespaces
-vim.g.better_whitespace_guicolor = colors.Whitespace
+  -- CursorLine
+  hi("CursorLine", { bg = colors.CursorLine })
 
--- Telescope
--- hi("TelescopeSelection", { bg = colors.TelescopeSelectionBG, fg = colors.TelescopeSelectionFG })
-hi("TelescopeSelection", { bg = colors.TelescopeSelectionBG, bold = true })
+  -- Trailing whitespaces
+  vim.g.better_whitespace_guicolor = colors.Whitespace
 
--- Floaterm
-hi("FloatermBorder", { bg = colors.FloatermBorder })
+  -- Telescope
+  hi("TelescopeSelection", { bg = colors.TelescopeSelectionBG, bold = true })
 
--- Statusline
-hi("StatusLine", { bg = colors.StatusLineBG, fg = colors.StatusLineFG })
-hi("StatusLineNC", { bg = colors.StatusLineNCBG, fg = colors.StatusLineNCFG })
+  -- Floaterm
+  hi("FloatermBorder", { bg = colors.FloatermBorder })
 
--- Git
-hi("DiffAdd", { fg = colors.DiffAdd, bg = "NONE" })
-hi("DiffChange", { fg = colors.DiffChange, bg = "NONE" })
-hi("DiffDelete", { fg = colors.DiffDelete, bg = "NONE" })
+  -- Statusline
+  hi("StatusLine", { bg = colors.StatusLineBG, fg = colors.StatusLineFG })
+  hi("StatusLineNC", { bg = colors.StatusLineNCBG, fg = colors.StatusLineNCFG })
 
--- Yank region
-hi("HighlightedyankRegion", { bg = colors.HighlightedyankRegion, bold = true })
+  -- Git
+  hi("DiffAdd", { fg = colors.DiffAdd, bg = "NONE" })
+  hi("DiffChange", { fg = colors.DiffChange, bg = "NONE" })
+  hi("DiffDelete", { fg = colors.DiffDelete, bg = "NONE" })
 
--- For indent_blankline only
-hi("IndentBlanklineContextChar", { fg = colors.IndentBlanklineContextChar })
-hi("IndentBlanklineContextStart", { fg = "NONE", sp = colors.IndentBlanklineContextStart, underline = true })
+  -- Yank region
+  hi("HighlightedyankRegion", { bg = colors.HighlightedyankRegion, bold = true })
 
--- coc.nvim
-hi("CocErrorSign", { fg = colors.CocError })
-hi("CocErrorVirtualText", { fg = colors.CocError })
-hi("CocErrorHighlight", { fg = colors.CocError, underline = true })
-hi("CocWarningSign", { fg = colors.CocWarning })
-hi("CocWarningVirtualText", { fg = colors.CocWarning })
-hi("CocWarningHighlight", { fg = colors.CocWarning, underline = true })
-hi("CocInfoSign", { fg = colors.CocInfo })
-hi("CocInfoVirtualText", { fg = colors.CocInfo })
-hi("CocInfoHighlight", { fg = colors.CocInfo, underline = true })
-hi("CocHintSign", { fg = colors.CocHint })
-hi("CocHintVirtualText", { fg = colors.CocHint })
-hi("CocHintHighlight", { fg = colors.CocHint, underline = true })
-hi("CocFadeOut", { fg = colors.CocFadeOut, underline = true })
-hi("CocHighlightText", { bg = colors.CocHighlightTextBG, underline = true })
+  -- Indent_blankline
+  hi("IndentBlanklineContextChar", { fg = colors.IndentBlanklineContextChar })
+  hi("IndentBlanklineContextStart", { fg = "NONE", sp = colors.IndentBlanklineContextStart, underline = true })
 
--- nvim-window
-hi("NvimWindow", { fg = colors.NvimWindowFG, bg = colors.NvimWindowBG })
+  -- CoC
+  hi("CocErrorSign", { fg = colors.CocError })
+  hi("CocErrorVirtualText", { fg = colors.CocError })
+  hi("CocErrorHighlight", { fg = colors.CocError, underline = true })
+  hi("CocWarningSign", { fg = colors.CocWarning })
+  hi("CocWarningVirtualText", { fg = colors.CocWarning })
+  hi("CocWarningHighlight", { fg = colors.CocWarning, underline = true })
+  hi("CocInfoSign", { fg = colors.CocInfo })
+  hi("CocInfoVirtualText", { fg = colors.CocInfo })
+  hi("CocInfoHighlight", { fg = colors.CocInfo, underline = true })
+  hi("CocHintSign", { fg = colors.CocHint })
+  hi("CocHintVirtualText", { fg = colors.CocHint })
+  hi("CocHintHighlight", { fg = colors.CocHint, underline = true })
+  hi("CocFadeOut", { fg = colors.CocFadeOut, underline = true })
+  hi("CocHighlightText", { bg = colors.CocHighlightTextBG, underline = true })
 
--- vim-sandwich
-hi("OperatorSandwichChange", { bg = colors.OperatorSandwichChangeBG, fg = colors.OperatorSandwichChangeFG })
+  -- Nvim-window
+  hi("NvimWindow", { fg = colors.NvimWindowFG, bg = colors.NvimWindowBG })
 
--- pounce.nvim
-hi("PounceMatch", { bg = colors.PounceMatchBG, fg = colors.PounceMatchFG, bold = true })
-hi("PounceGap", { bg = colors.PounceGapBG, fg = colors.PounceGapFG, bold = true })
-hi("PounceAccept", { bg = colors.PounceAcceptBG, fg = colors.PounceAcceptFG, bold = true })
+  -- Vim-sandwich
+  hi("OperatorSandwichChange", { bg = colors.OperatorSandwichChangeBG, fg = colors.OperatorSandwichChangeFG })
 
--- vim-searchlight
-hi("Searchlight", { bg = colors.SearchlightBG, fg = colors.SearchlightFG, bold = true })
+  -- Pounce.nvim
+  hi("PounceMatch", { bg = colors.PounceMatchBG, fg = colors.PounceMatchFG, bold = true })
+  hi("PounceGap", { bg = colors.PounceGapBG, fg = colors.PounceGapFG, bold = true })
+  hi("PounceAccept", { bg = colors.PounceAcceptBG, fg = colors.PounceAcceptFG, bold = true })
 
-return colors
+  -- Vim-searchlight
+  hi("Searchlight", { bg = colors.SearchlightBG, fg = colors.SearchlightFG, bold = true })
+end
+
+return M

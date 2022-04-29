@@ -1,3 +1,3 @@
 require "impatient"
 require "core"
-require "packer_compiled"
+require "plugins.packer_compiled"

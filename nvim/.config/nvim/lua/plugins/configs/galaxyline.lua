@@ -13,7 +13,7 @@ M.setup = function()
   local condition = require "galaxyline.condition"
   local gls = gl.section
 
-  local colors = require "core.highlights"
+  local colors = require("core.highlights").colors
   local active_bg = colors.GalaxylineActiveBG
   local inactive_bg = colors.GalaxylineInactiveBG
   local active_fg = colors.GalaxylineActiveFG
