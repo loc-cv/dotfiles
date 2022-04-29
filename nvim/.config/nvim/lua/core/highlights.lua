@@ -35,7 +35,7 @@ M.colors = {
   -- Statusline
   StatusLineBG = "#282828",
   StatusLineFG = "#d4d4d4",
-  StatusLineNCBG = "#454545",
+  StatusLineNCBG = "#272727",
   StatusLineNCFG = "#c0c0c0",
 
   -- CoC
