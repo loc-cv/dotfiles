@@ -51,7 +51,6 @@ return packer.startup {
     -- Telescope
     use {
       "nvim-telescope/telescope.nvim",
-      module = "telescope",
       requires = {
         "nvim-lua/plenary.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
@@ -91,7 +90,10 @@ return packer.startup {
     }
 
     -- Syntax highlighting (and more)
-    -- use "sheerun/vim-polyglot"
+    use {
+      "sheerun/vim-polyglot",
+      event = { "BufRead", "BufNewFile" },
+    }
     use {
       "nvim-treesitter/nvim-treesitter",
       event = { "BufRead", "BufNewFile" },
@@ -181,7 +183,7 @@ return packer.startup {
     }
     use {
       "mrjones2014/smart-splits.nvim",
-      event = "VimEnter",
+      module = "smart-splits"
     }
     use {
       "https://gitlab.com/yorickpeterse/nvim-window.git",
@@ -256,4 +258,9 @@ return packer.startup {
       event = { "BufRead", "BufNewFile" },
     }
   end,
+  config = {
+    compile_path = vim.fn.stdpath "config" .. "/lua/plugins/packer_compiled.lua",
+    auto_clean = true,
+    compile_on_sync = true,
+  }
 }

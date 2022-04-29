@@ -269,10 +269,8 @@ _G.packer_plugins = {
   },
   ["telescope.nvim"] = {
     config = { "\27LJ\2\2G\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\30plugins.configs.telescope\frequire\0" },
-    loaded = false,
-    needs_bufread = true,
-    only_cond = false,
-    path = "/home/colcv/.local/share/nvim/site/pack/packer/opt/telescope.nvim",
+    loaded = true,
+    path = "/home/colcv/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["vim-better-whitespace"] = {
@@ -319,6 +317,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/colcv/.local/share/nvim/site/pack/packer/start/vim-obsession",
     url = "https://github.com/tpope/vim-obsession"
+  },
+  ["vim-polyglot"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/colcv/.local/share/nvim/site/pack/packer/opt/vim-polyglot",
+    url = "https://github.com/sheerun/vim-polyglot"
   },
   ["vim-sandwich"] = {
     config = { "\27LJ\2\2J\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup!plugins.configs.vim_sandwich\frequire\0" },
@@ -369,7 +374,7 @@ _G.packer_plugins = {
 
 time([[Defining packer_plugins]], false)
 local module_lazy_loads = {
-  ["^telescope"] = "telescope.nvim"
+  ["^smart%-splits"] = "smart-splits.nvim"
 }
 local lazy_load_called = {['packer.load'] = true}
 local function lazy_load_module(module_name)
@@ -400,6 +405,10 @@ end
 time([[Config for galaxyline.nvim]], true)
 try_loadstring("\27LJ\2\2H\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\31plugins.configs.galaxyline\frequire\0", "config", "galaxyline.nvim")
 time([[Config for galaxyline.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\2G\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\30plugins.configs.telescope\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
 -- Config for: vim-floaterm
 time([[Config for vim-floaterm]], true)
 try_loadstring("\27LJ\2\2F\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\29plugins.configs.floaterm\frequire\0", "config", "vim-floaterm")
@@ -432,10 +441,10 @@ vim.cmd [[au FileType markdown ++once lua require("packer.load")({'nvim-markdown
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufNewFile * ++once lua require("packer.load")({'nvim-treesitter', 'indent-blankline.nvim', 'pounce.nvim', 'vim-textobj-entire', 'vim-searchlight', 'vim-highlightedyank', 'vim-move', 'vim-sandwich', 'FixCursorHold.nvim', 'nvim-colorizer.lua', 'vim-better-whitespace', 'vim-easy-align', 'gitsigns.nvim', 'Comment.nvim', 'is.vim'}, { event = "BufNewFile *" }, _G.packer_plugins)]]
+vim.cmd [[au BufNewFile * ++once lua require("packer.load")({'nvim-treesitter', 'indent-blankline.nvim', 'pounce.nvim', 'vim-textobj-entire', 'vim-searchlight', 'vim-highlightedyank', 'is.vim', 'vim-easy-align', 'FixCursorHold.nvim', 'nvim-colorizer.lua', 'vim-move', 'vim-polyglot', 'gitsigns.nvim', 'vim-better-whitespace', 'Comment.nvim', 'vim-sandwich'}, { event = "BufNewFile *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-autopairs', 'friendly-snippets'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-window.git', 'smart-splits.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter', 'indent-blankline.nvim', 'pounce.nvim', 'vim-textobj-entire', 'vim-searchlight', 'vim-highlightedyank', 'vim-move', 'vim-sandwich', 'FixCursorHold.nvim', 'nvim-colorizer.lua', 'vim-better-whitespace', 'vim-easy-align', 'gitsigns.nvim', 'Comment.nvim', 'is.vim'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-window.git'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter', 'indent-blankline.nvim', 'pounce.nvim', 'vim-textobj-entire', 'vim-searchlight', 'vim-highlightedyank', 'is.vim', 'vim-easy-align', 'FixCursorHold.nvim', 'nvim-colorizer.lua', 'vim-move', 'vim-polyglot', 'gitsigns.nvim', 'vim-better-whitespace', 'Comment.nvim', 'vim-sandwich'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
