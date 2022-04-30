@@ -3,6 +3,7 @@
 	name = loc-cv
 [core]
 	editor = nvim
+	pager = delta
 [init]
 	defaultBranch = main
 [push]
@@ -27,3 +28,14 @@
 	tool = nvimdiff
 [difftool]
 	prompt = false
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
+
