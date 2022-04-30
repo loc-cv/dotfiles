@@ -63,15 +63,15 @@ local plugins = {
     map({ "x", "o" }, "ac", "<Plug>(coc-classobj-a)")
 
     -- Remap <C-f> and <C-b> for scroll float windows/popups
-    map({ "n", "v" }, "<C-f>", "coc#float#has_scroll() ? coc#float#scroll(1) : '<C-d>'", { expr = true, nowait = true })
-    map({ "n", "v" }, "<C-b>", "coc#float#has_scroll() ? coc#float#scroll(0) : '<C-u>'", { expr = true, nowait = true })
+    map({ "n", "v" }, "<C-d>", "coc#float#has_scroll() ? coc#float#scroll(1) : '<C-d>'", { expr = true, nowait = true })
+    map({ "n", "v" }, "<C-u>", "coc#float#has_scroll() ? coc#float#scroll(0) : '<C-u>'", { expr = true, nowait = true })
     map(
       "i",
-      "<C-f>",
-      "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(1)<cr>' : '<Right>'",
+      "<C-d>",
+      "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(1)<cr>' : '<C-d>'",
       { expr = true, nowait = true }
     )
-    map("i", "<C-b>", "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<cr>' : '<Left>'", {
+    map("i", "<C-u>", "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<cr>' : '<C-u>'", {
       expr = true,
       nowait = true,
     })
