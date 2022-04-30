@@ -28,6 +28,7 @@ M.setup = function()
       "jsdoc",
       "dot",
       "graphql",
+      "rust",
     },
 
     highlight = {
