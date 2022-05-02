@@ -179,24 +179,33 @@ local plugins = {
   end,
 
   -- Telescope
-  telescope = function()
-    map("n", "<C-p>t", function()
-      require("telescope.builtin").builtin()
-    end)
-    map("n", "<C-p>f", function()
-      require("telescope.builtin").find_files()
-    end)
-    map("n", "<C-p>b", function()
-      require("telescope.builtin").buffers()
-    end)
-    map("n", "<C-p>r", function()
-      require("telescope.builtin").live_grep()
-    end)
-    map("n", "<C-p>h", function()
-      require("telescope.builtin").help_tags()
-    end)
-    map("n", "<C-p>i", [[<cmd>Telescope media_files<cr>]])
-  end,
+  -- telescope = function()
+  --   map("n", "<C-p>t", function()
+  --     require("telescope.builtin").builtin()
+  --   end)
+  --   map("n", "<C-p>f", function()
+  --     require("telescope.builtin").find_files()
+  --   end)
+  --   map("n", "<C-p>b", function()
+  --     require("telescope.builtin").buffers()
+  --   end)
+  --   map("n", "<C-p>r", function()
+  --     require("telescope.builtin").live_grep()
+  --   end)
+  --   map("n", "<C-p>h", function()
+  --     require("telescope.builtin").help_tags()
+  --   end)
+  --   map("n", "<C-p>i", [[<cmd>Telescope media_files<cr>]])
+  -- end,
+
+  -- Fzf-lua
+  fzf_lua = function()
+    map("n", "<C-p>p", [[<cmd>FzfLua builtin<cr>]])
+    map("n", "<C-p>f", [[<cmd>FzfLua files<cr>]])
+    map("n", "<C-p>b", [[<cmd>FzfLua buffers<cr>]])
+    map("n", "<C-p>r", [[<cmd>FzfLua live_grep_native<cr>]])
+    map("n", "<C-p>h", [[<cmd>FzfLua help_tags<cr>]])
+  end
 }
 
 M.init = function()
