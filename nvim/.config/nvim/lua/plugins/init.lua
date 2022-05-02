@@ -41,7 +41,12 @@ return packer.startup {
     use "junegunn/fzf.vim"
     use { "fatih/vim-go", ft = { "go" } }
 
-    use {"ibhagwan/fzf-lua", config = function() require("fzf-lua").setup {} end}
+    use {
+      "ibhagwan/fzf-lua",
+      config = function()
+        require("fzf-lua").setup {}
+      end,
+    }
 
     -- Snippet
     use {
