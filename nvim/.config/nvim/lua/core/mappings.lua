@@ -205,7 +205,7 @@ local plugins = {
     map("n", "<C-p>b", [[<cmd>FzfLua buffers<cr>]])
     map("n", "<C-p>r", [[<cmd>FzfLua live_grep_native<cr>]])
     map("n", "<C-p>h", [[<cmd>FzfLua help_tags<cr>]])
-  end
+  end,
 }
 
 M.init = function()

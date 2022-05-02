@@ -4,6 +4,14 @@ M.setup = function()
   -- for coc-fzf
   vim.g.fzf_layout = { window = { height = 0.8, width = 0.8, border = "sharp" } }
   vim.g.coc_fzf_preview = "up:60%"
+  vim.g.fzf_action = {
+    ["ctrl-t"] = "tab split",
+    ["ctrl-s"] = "split",
+    ["ctrl-v"] = "vsplit",
+  }
+  vim.g.fzf_colors = {
+    ["border"] = { "fg", "Normal" },
+  }
 
   vim.g.coc_global_extensions = {
     "coc-html",

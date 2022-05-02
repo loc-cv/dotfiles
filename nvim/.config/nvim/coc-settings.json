@@ -58,7 +58,10 @@
   "explorer.filename.colored.enable": true,
   "explorer.buffer.showHiddenBuffers": true,
   "explorer.previewAction.onHover": false,
-  "explorer.keyMappings.global": { "v": "open:vsplit", "x": "open:split" },
+  "explorer.keyMappings.global": {
+    "<C-v>": "open:vsplit",
+    "<C-s>": "open:split"
+  },
   "explorer.focus": false,
 
   // emmet

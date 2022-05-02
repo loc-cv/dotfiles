@@ -29,24 +29,17 @@ return packer.startup {
       end,
     }
     use {
+      "antoinemadec/coc-fzf",
+      branch = "release",
+    }
+    use {
       "junegunn/fzf",
       run = function()
         vim.fn["fzf#install"]()
       end,
     }
     use "junegunn/fzf.vim"
-    use {
-      "antoinemadec/coc-fzf",
-      branch = "release",
-    }
     use { "fatih/vim-go", ft = { "go" } }
-
-    use {
-      "ibhagwan/fzf-lua",
-      config = function()
-        require("plugins.configs.fzf_lua").setup()
-      end,
-    }
 
     -- Snippet
     use {
@@ -54,18 +47,25 @@ return packer.startup {
       event = "InsertEnter",
     }
 
-    -- Telescope
+    -- Fuzzy finder
     use {
-      "nvim-telescope/telescope.nvim",
-      requires = {
-        "nvim-lua/plenary.nvim",
-        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-        "nvim-telescope/telescope-media-files.nvim",
-      },
+      "ibhagwan/fzf-lua",
+      cmd = "FzfLua",
       config = function()
-        require("plugins.configs.telescope").setup()
+        require("plugins.configs.fzf_lua").setup()
       end,
     }
+    -- use {
+    --   "nvim-telescope/telescope.nvim",
+    --   requires = {
+    --     "nvim-lua/plenary.nvim",
+    --     { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+    --     "nvim-telescope/telescope-media-files.nvim",
+    --   },
+    --   config = function()
+    --     require("plugins.configs.telescope").setup()
+    --   end,
+    -- }
 
     -- Terminal
     use {
