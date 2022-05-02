@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Bat theme
-export BAT_THEME="TwoDark"
+export BAT_THEME="Visual Studio Dark+"
 
 # Zsh theme
 fpath+=$HOME/.zsh/pure
