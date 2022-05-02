@@ -29,22 +29,22 @@ return packer.startup {
       end,
     }
     use {
-      "antoinemadec/coc-fzf",
-      branch = "release",
-    }
-    use {
       "junegunn/fzf",
       run = function()
         vim.fn["fzf#install"]()
       end,
     }
     use "junegunn/fzf.vim"
+    use {
+      "antoinemadec/coc-fzf",
+      branch = "release",
+    }
     use { "fatih/vim-go", ft = { "go" } }
 
     use {
       "ibhagwan/fzf-lua",
       config = function()
-        require("fzf-lua").setup {}
+        require("plugins.configs.fzf_lua").setup()
       end,
     }
 
