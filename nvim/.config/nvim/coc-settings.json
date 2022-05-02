@@ -42,6 +42,7 @@
     "javascriptreact",
     "typescript"
   ],
+  "coc.preferences.jumpCommand": "vsplit",
 
   // lua
   "sumneko-lua.enableNvimLuaDev": true,
