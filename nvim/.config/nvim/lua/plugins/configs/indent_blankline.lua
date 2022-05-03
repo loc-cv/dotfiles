@@ -22,6 +22,7 @@ M.setup = function()
       "coc-explorer",
       "packer",
       "tutor",
+      "startuptime",
     },
     buftype_exclude = { "terminal" },
   }
