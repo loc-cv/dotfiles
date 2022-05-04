@@ -97,16 +97,16 @@ return packer.startup {
 
     -- Syntax highlighting (and more)
     use {
-      "sheerun/vim-polyglot",
-      event = { "BufRead", "BufNewFile" },
-    }
-    use {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
       config = function()
         require("plugins.configs.treesitter").setup()
       end,
     }
+    -- use {
+    --   "sheerun/vim-polyglot",
+    --   event = { "BufRead", "BufNewFile" },
+    -- }
 
     -- Set the commentstring based on the cursor location in a file
     use {
