@@ -229,9 +229,6 @@ return packer.startup {
       event = { "BufRead", "BufNewFile" },
     }
 
-    -- Auto set indenting options
-    use "tpope/vim-sleuth"
-
     -- Align
     use {
       "junegunn/vim-easy-align",
