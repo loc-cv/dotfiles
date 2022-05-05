@@ -55,17 +55,17 @@ return packer.startup {
         require("plugins.configs.fzf_lua").setup()
       end,
     }
-    -- use {
-    --   "nvim-telescope/telescope.nvim",
-    --   requires = {
-    --     "nvim-lua/plenary.nvim",
-    --     { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-    --     "nvim-telescope/telescope-media-files.nvim",
-    --   },
-    --   config = function()
-    --     require("plugins.configs.telescope").setup()
-    --   end,
-    -- }
+    --[[ use {
+      "nvim-telescope/telescope.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+        "nvim-telescope/telescope-media-files.nvim",
+      },
+      config = function()
+        require("plugins.configs.telescope").setup()
+      end,
+    } ]]
 
     -- Terminal
     use {
@@ -103,10 +103,10 @@ return packer.startup {
         require("plugins.configs.treesitter").setup()
       end,
     }
-    -- use {
-    --   "sheerun/vim-polyglot",
-    --   event = { "BufRead", "BufNewFile" },
-    -- }
+    --[[ use {
+      "sheerun/vim-polyglot",
+      event = { "BufRead", "BufNewFile" },
+    } ]]
 
     -- Set the commentstring based on the cursor location in a file
     use {

@@ -72,9 +72,6 @@
   "javascript.suggestionActions.enabled": false,
   "javascript.showUnused": false,
 
-  // tailwindcss
-  // "tailwindCSS.emmetCompletions": true,
-
   // css
   "css.lint.unknownAtRules": "ignore",
 
