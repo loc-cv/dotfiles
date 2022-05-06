@@ -28,19 +28,17 @@ M.setup = function()
       },
       vimgrep_arguments = {
         "rg",
-        "--color=never",
-        "--no-heading",
-        "--with-filename",
-        "--line-number",
         "--column",
+        "--line-number",
+        "--no-heading",
+        "--color=always",
         "--smart-case",
         "--hidden",
+        "--with-filename",
         "--glob=!.git/",
       },
       file_ignore_patterns = {
         "node_modules",
-        "*%.min%.*",
-        "dotbot",
         "^./.git/",
       },
       mappings = {

@@ -48,15 +48,16 @@ return packer.startup {
     }
 
     -- Fuzzy finder
-    use {
+    --[[ use {
       "ibhagwan/fzf-lua",
       cmd = "FzfLua",
       config = function()
         require("plugins.configs.fzf_lua").setup()
       end,
-    }
-    --[[ use {
+    } ]]
+    use {
       "nvim-telescope/telescope.nvim",
+      module = "telescope",
       requires = {
         "nvim-lua/plenary.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
@@ -65,7 +66,7 @@ return packer.startup {
       config = function()
         require("plugins.configs.telescope").setup()
       end,
-    } ]]
+    }
 
     -- Terminal
     use {
