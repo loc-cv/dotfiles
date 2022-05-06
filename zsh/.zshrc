@@ -51,3 +51,6 @@ alias luamake=/home/colcv/lua-language-server/3rd/luamake/luamake
 
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# Tmux
+unset TMUX

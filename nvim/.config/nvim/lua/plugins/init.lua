@@ -103,10 +103,10 @@ return packer.startup {
         require("plugins.configs.treesitter").setup()
       end,
     }
-    --[[ use {
+    use {
       "sheerun/vim-polyglot",
       event = { "BufRead", "BufNewFile" },
-    } ]]
+    }
 
     -- Set the commentstring based on the cursor location in a file
     use {
