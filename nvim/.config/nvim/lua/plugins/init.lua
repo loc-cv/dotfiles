@@ -86,6 +86,14 @@ return packer.startup {
         require("plugins.configs.gitsigns").setup()
       end,
     }
+    use {
+      "sindrets/diffview.nvim",
+      requires = "nvim-lua/plenary.nvim"
+    }
+    use {
+      "TimUntersberger/neogit",
+      requires = "nvim-lua/plenary.nvim",
+    }
 
     -- Commenting code
     use {
