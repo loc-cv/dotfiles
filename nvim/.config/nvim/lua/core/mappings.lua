@@ -197,7 +197,11 @@ local plugins = {
     end)
     -- map("n", "<C-p>i", [[<cmd>Telescope media_files<cr>]])
     map("n", "<C-p>i", function()
-      require('telescope').extensions.media_files.media_files()
+      local ok, telescope = pcall(require, "telescope")
+      if not ok then
+        return
+      end
+      telescope.extensions.media_files.media_files()
     end)
   end,
 
