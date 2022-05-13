@@ -1,6 +1,6 @@
 local M = {}
 
-local plugins = {
+local configs = {
   -- Packer
   packer = function()
     -- Auto compile/clean/install plugins with packer-nvim
@@ -97,8 +97,8 @@ M.init = function()
   })
 
   -- Load plugins autocmds
-  for _, plugin in pairs(plugins) do
-    plugin()
+  for _, config in pairs(configs) do
+    config()
   end
 end
 

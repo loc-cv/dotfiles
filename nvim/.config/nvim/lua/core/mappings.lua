@@ -1,7 +1,7 @@
 local M = {}
 local map = require("core.utils").map
 
-local plugins = {
+local configs = {
   -- CoC
   coc = function()
     -- coc-explorer
@@ -231,8 +231,8 @@ M.init = function()
   map("v", "p", '"_dP')
 
   -- Load plugins mappings
-  for _, plugin in pairs(plugins) do
-    plugin()
+  for _, config in pairs(configs) do
+    config()
   end
 end
 

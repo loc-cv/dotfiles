@@ -1,6 +1,6 @@
 local M = {}
 
-local plugins = {
+local configs = {
   -- CoC
   coc = function()
     -- Add `:Format` command to format current buffer.
@@ -62,8 +62,8 @@ local plugins = {
 
 M.init = function()
   -- Load plugins related user cmds
-  for _, plugin in pairs(plugins) do
-    plugin()
+  for _, config in pairs(configs) do
+    config()
   end
 end
 

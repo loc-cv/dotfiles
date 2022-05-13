@@ -6,7 +6,7 @@ M.setup = function()
   vim.g.coc_fzf_preview = "up:60%"
   vim.g.fzf_action = {
     ["ctrl-t"] = "tab split",
-    ["ctrl-x"] = "split",
+    ["ctrl-s"] = "split",
     ["ctrl-v"] = "vsplit",
   }
   vim.g.fzf_colors = {

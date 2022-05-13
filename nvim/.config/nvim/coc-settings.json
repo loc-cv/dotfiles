@@ -59,10 +59,10 @@
   "explorer.buffer.showHiddenBuffers": true,
   "explorer.previewAction.onHover": false,
   "explorer.keyMappings.global": {
-    // "<C-v>": "open:vsplit",
-    // "<C-s>": "open:split"
-    "v": "open:vsplit",
-    "x": "open:split"
+    "<C-v>": "open:vsplit",
+    "<C-s>": "open:split"
+    // "v": "open:vsplit",
+    // "x": "open:split"
   },
   "explorer.focus": false,
 
