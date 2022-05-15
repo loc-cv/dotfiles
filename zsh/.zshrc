@@ -54,3 +54,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Tmux
 unset TMUX
+
+# Emacs
+export PATH=$PATH:/home/colcv/.emacs.d/bin
