@@ -41,6 +41,14 @@ M.colors = {
   StatusLineNCBG = "#272727",
   StatusLineNCFG = "#c0c0c0",
 
+  -- Tabline
+  TabLineFillBG = "#282828",
+  TabLineFillFG = "#d4d4d4",
+  TabLineSelBG = "#adadad",
+  TabLineSelFG = "#0a0a0a",
+  TabLineBG = "#323232",
+  TabLineFG = "#c0c0c0",
+
   -- CoC
   CocError = "#db4b4b",
   CocWarning = "#e0af68",
@@ -94,6 +102,11 @@ M.init = function()
   -- Statusline
   hi("StatusLine", { bg = colors.StatusLineBG, fg = colors.StatusLineFG })
   hi("StatusLineNC", { bg = colors.StatusLineNCBG, fg = colors.StatusLineNCFG })
+
+  -- Tabline
+  hi("TabLine", { bg = colors.TabLineBG, fg = colors.TabLineFG, bold = true })
+  hi("TabLineSel", { bg = colors.TabLineSelBG, fg = colors.TabLineSelFG, bold = true })
+  hi("TabLineFill", { bg = colors.TabLineFillBG, fg = colors.TabLineFillFG, bold = true })
 
   -- Git
   hi("DiffAdd", { fg = colors.DiffAdd, bg = "NONE" })
