@@ -92,6 +92,7 @@ M.setup = function()
     "NvimTree",
     "CHADTree",
     "coc-explorer",
+    "DiffviewFiles",
   }
 
   local function has_value(tab, val)
