@@ -80,7 +80,7 @@ M.init = function()
     group = cursorGrp,
     pattern = "*",
     callback = function()
-      local filetypes_exclude = { "coc-explorer" }
+      local filetypes_exclude = { "coc-explorer", "DiffviewFiles" }
       for _, v in ipairs(filetypes_exclude) do
         if vim.bo.filetype == v then
           return
