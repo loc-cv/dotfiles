@@ -88,11 +88,13 @@ return packer.startup {
     }
     use {
       "sindrets/diffview.nvim",
-      requires = "nvim-lua/plenary.nvim"
+      requires = "nvim-lua/plenary.nvim",
+      cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     }
     use {
       "TimUntersberger/neogit",
       requires = "nvim-lua/plenary.nvim",
+      cmd = { "Neogit" },
     }
 
     -- Commenting code
