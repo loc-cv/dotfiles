@@ -53,22 +53,22 @@ local configs = {
     end)
 
     -- Symbol renaming
-    map("n", "<space>rn", "<Plug>(coc-rename)")
+    map("n", "gn", "<Plug>(coc-rename)")
 
     -- Formatting selected code
-    map({ "x", "n" }, "<space>fm", "<Plug>(coc-format-selected)")
+    map({ "x", "n" }, "gf", "<Plug>(coc-format-selected)")
 
     -- Applying code action to the selected region
-    map({ "x", "n" }, "<space>ac", "<Plug>(coc-codeaction-selected)")
+    map({ "x", "n" }, "ga", "<Plug>(coc-codeaction-selected)")
 
     -- Applying code action to the current buffer
-    map("n", "<space>A", "<Plug>(coc-codeaction)")
+    map("n", "gA", "<Plug>(coc-codeaction)")
 
     -- Apply autofix to problem on the current line
-    map("n", "<space>qf", "<Plug>(coc-fix-current)")
+    map("n", "gI", "<Plug>(coc-fix-current)")
 
     -- Run the Code Lens action on the current line
-    map("n", "<space>al", "<Plug>(coc-codelens-action)")
+    map("n", "gl", "<Plug>(coc-codelens-action)")
 
     -- Map function and class text objects
     -- NOTE: Requires 'textDocument.documentSymbol' support from the language server
@@ -95,20 +95,15 @@ local configs = {
     map({ "n", "x" }, "<C-s>", "<Plug>(coc-range-select)")
 
     -- Mappings for CoCList
-    map("n", "<space><space>", "<cmd>CocFzfList<cr>")
-    map("n", "<space>e", "<cmd>CocFzfList extensions<cr>")
-    map("n", "<space>D", "<cmd>CocFzfList diagnostics<cr>")
-    map("n", "<space>d", "<cmd>CocFzfList diagnostics --current-buf<cr>")
-    map("n", "<space>c", "<cmd>CocFzfList commands<cr>")
-    map("n", "<space>l", "<cmd>CocFzfList location<cr>")
-    map("n", "<space>s", "<cmd>CocFzfList symbols<cr>")
-    map("n", "<space>o", "<cmd>CocFzfList outline<cr>")
-    map("n", "<space>p", "<cmd>CocFzfListResume<cr>")
-  end,
-
-  -- Easy-align
-  easy_align = function()
-    map({ "n", "x" }, "ga", "<Plug>(EasyAlign)")
+    map("n", "<space>cL", "<cmd>CocFzfList<cr>")
+    map("n", "<space>ce", "<cmd>CocFzfList extensions<cr>")
+    map("n", "<space>cD", "<cmd>CocFzfList diagnostics<cr>")
+    map("n", "<space>cd", "<cmd>CocFzfList diagnostics --current-buf<cr>")
+    map("n", "<space>cc", "<cmd>CocFzfList commands<cr>")
+    map("n", "<space>cl", "<cmd>CocFzfList location<cr>")
+    map("n", "<space>cs", "<cmd>CocFzfList symbols<cr>")
+    map("n", "<space>co", "<cmd>CocFzfList outline<cr>")
+    map("n", "<space>cp", "<cmd>CocFzfListResume<cr>")
   end,
 
   -- Floaterm
@@ -178,33 +173,6 @@ local configs = {
     end)
   end,
 
-  -- Telescope
-  -- telescope = function()
-  --   map("n", "<C-p>t", function()
-  --     require("telescope.builtin").builtin()
-  --   end)
-  --   map("n", "<C-p>f", function()
-  --     require("telescope.builtin").find_files()
-  --   end)
-  --   map("n", "<C-p>b", function()
-  --     require("telescope.builtin").buffers()
-  --   end)
-  --   map("n", "<C-p>r", function()
-  --     require("telescope.builtin").live_grep()
-  --   end)
-  --   map("n", "<C-p>h", function()
-  --     require("telescope.builtin").help_tags()
-  --   end)
-  --   -- map("n", "<C-p>i", [[<cmd>Telescope media_files<cr>]])
-  --   map("n", "<C-p>i", function()
-  --     local ok, telescope = pcall(require, "telescope")
-  --     if not ok then
-  --       return
-  --     end
-  --     telescope.extensions.media_files.media_files()
-  --   end)
-  -- end,
-
   -- Fzf-lua
   fzf_lua = function()
     map("n", "<C-p>p", [[<cmd>FzfLua builtin<cr>]])
@@ -213,6 +181,32 @@ local configs = {
     map("n", "<C-p>r", [[<cmd>FzfLua live_grep_native<cr>]])
     map("n", "<C-p>h", [[<cmd>FzfLua help_tags<cr>]])
   end,
+
+  -- Telescope
+  --[[ telescope = function()
+    map("n", "<C-p>t", function()
+      require("telescope.builtin").builtin()
+    end)
+    map("n", "<C-p>f", function()
+      require("telescope.builtin").find_files()
+    end)
+    map("n", "<C-p>b", function()
+      require("telescope.builtin").buffers()
+    end)
+    map("n", "<C-p>r", function()
+      require("telescope.builtin").live_grep()
+    end)
+    map("n", "<C-p>h", function()
+      require("telescope.builtin").help_tags()
+    end)
+    map("n", "<C-p>i", function()
+      local ok, telescope = pcall(require, "telescope")
+      if not ok then
+        return
+      end
+      telescope.extensions.media_files.media_files()
+    end)
+  end, ]]
 }
 
 M.init = function()

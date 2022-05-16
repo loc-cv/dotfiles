@@ -238,12 +238,6 @@ return packer.startup {
       event = { "BufRead", "BufNewFile" },
     }
 
-    -- Align
-    use {
-      "junegunn/vim-easy-align",
-      event = { "BufRead", "BufNewFile" },
-    }
-
     -- Sessions
     use "tpope/vim-obsession"
 
