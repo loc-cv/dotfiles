@@ -123,6 +123,7 @@ return packer.startup {
       "JoosepAlviste/nvim-ts-context-commentstring",
       requires = "nvim-treesitter/nvim-treesitter",
       after = "nvim-treesitter",
+      event = { "BufRead", "BufNewFile" },
       config = function()
         require("plugins.configs.miscs").setup_context_commentstring()
       end,
@@ -133,6 +134,7 @@ return packer.startup {
       "windwp/nvim-ts-autotag",
       requires = "nvim-treesitter/nvim-treesitter",
       after = "nvim-treesitter",
+      event = { "BufRead", "BufNewFile" },
       config = function()
         require("plugins.configs.miscs").setup_autotag()
       end,
