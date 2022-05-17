@@ -94,6 +94,9 @@ return packer.startup {
       "TimUntersberger/neogit",
       requires = "nvim-lua/plenary.nvim",
       cmd = { "Neogit" },
+      config = function()
+        require("plugins.configs.neogit").setup()
+      end,
     }
 
     -- Commenting code
