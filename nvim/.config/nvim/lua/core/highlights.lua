@@ -20,11 +20,11 @@ M.colors = {
   DiffDelete = { fg = "#db4b4b", bg = "NONE" },
 
   -- Neogit
-  NeogitDiffAddHighlight = "",
-  NeogitDiffDeleteHighlight = "",
-  NeogitDiffContextHighlight = "",
-  NeogitHunkHeader = "",
-  NeogitHunkHeaderHighlight = "",
+  --[[ NeogitDiffAddHighlight = { bg = "", fg = "" },
+  NeogitDiffDeleteHighlight = { bg = "", fg = "" },
+  NeogitDiffContextHighlight = { bg = "", fg = "" },
+  NeogitHunkHeader = { bg = "", fg = "" },
+  NeogitHunkHeaderHighlight = { bg = "", fg = "" }, ]]
 
   -- Yank region
   HighlightedyankRegion = { bg = "#4f4f4f" },
@@ -58,7 +58,7 @@ M.colors = {
   CocHighlightText = { bg = "#282828" },
 
   -- Nvim_window
-  NvimWindow = { bg = "#0a0a0a", fg = "#d4d4d4" },
+  NvimWindow = { bg = "#d4d4d4", fg = "#0a0a0a" },
 
   -- Vim-sandwich
   OperatorSandwichChange = { bg = "#d4d4d4", fg = "#1e1e1e" },
