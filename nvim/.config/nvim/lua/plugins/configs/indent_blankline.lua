@@ -24,6 +24,7 @@ M.setup = function()
       "tutor",
       "startuptime",
       "NeogitStatus",
+      "DiffviewFiles",
     },
     buftype_exclude = { "terminal" },
   }
