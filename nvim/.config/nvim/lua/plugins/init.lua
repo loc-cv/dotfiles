@@ -184,10 +184,6 @@ return packer.startup {
 
     -- Easy motions
     use {
-      "rlane/pounce.nvim",
-      event = { "BufRead", "BufNewFile" },
-    }
-    use {
       "mrjones2014/smart-splits.nvim",
       module = "smart-splits",
     }

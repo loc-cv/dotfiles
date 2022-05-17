@@ -65,14 +65,6 @@ M.colors = {
   OperatorSandwichChangeFG = "#1e1e1e",
   OperatorSandwichChangeBG = "#d4d4d4",
 
-  -- Pounce.nvim
-  PounceMatchFG = "#0a0a0a",
-  PounceMatchBG = "#808080",
-  PounceGapFG = "#0a0a0a",
-  PounceGapBG = "#454545",
-  PounceAcceptFG = "#1e1e1e",
-  PounceAcceptBG = "#d4d4d4",
-
   -- Vim-searchlight
   SearchlightBG = "#adadad",
   SearchlightFG = "#0a0a0a",
@@ -141,11 +133,6 @@ M.init = function()
 
   -- Vim-sandwich
   hi("OperatorSandwichChange", { bg = colors.OperatorSandwichChangeBG, fg = colors.OperatorSandwichChangeFG })
-
-  -- Pounce.nvim
-  hi("PounceMatch", { bg = colors.PounceMatchBG, fg = colors.PounceMatchFG, bold = true })
-  hi("PounceGap", { bg = colors.PounceGapBG, fg = colors.PounceGapFG, bold = true })
-  hi("PounceAccept", { bg = colors.PounceAcceptBG, fg = colors.PounceAcceptFG, bold = true })
 
   -- Vim-searchlight
   hi("Searchlight", { bg = colors.SearchlightBG, fg = colors.SearchlightFG, bold = true })

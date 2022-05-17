@@ -137,11 +137,6 @@ local configs = {
     end)
   end,
 
-  -- Pounce
-  pounce = function()
-    map({ "n", "v", "o" }, "z/", [[<cmd>Pounce<cr>]])
-  end,
-
   -- Smart-splits
   smart_splits = function()
     -- resizing splits
