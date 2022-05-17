@@ -6,10 +6,10 @@ M.colors = {
   CursorLine = "#323232",
 
   -- Telescope
-  -- TelescopeSelectionBG = "#323232",
-  -- TelescopePromptBorderFG = "#d4d4d4",
-  -- TelescopeResultsBorderFG = "#d4d4d4",
-  -- TelescopePreviewBorderFG = "#d4d4d4",
+  --[[ TelescopeSelectionBG = "#323232",
+  TelescopePromptBorderFG = "#d4d4d4",
+  TelescopeResultsBorderFG = "#d4d4d4",
+  TelescopePreviewBorderFG = "#d4d4d4", ]]
 
   -- Floaterm
   FloatermBorder = "#1e1e1e",
@@ -83,10 +83,10 @@ M.init = function()
   vim.g.better_whitespace_guicolor = colors.Whitespace
 
   -- Telescope
-  -- hi("TelescopeSelection", { bg = colors.TelescopeSelectionBG, bold = true })
-  -- hi("TelescopePromptBorder", { fg = colors.TelescopePromptBorderFG })
-  -- hi("TelescopeResultsBorder", { fg = colors.TelescopeResultsBorderFG })
-  -- hi("TelescopePreviewBorder", { fg = colors.TelescopePreviewBorderFG })
+  --[[ hi("TelescopeSelection", { bg = colors.TelescopeSelectionBG, bold = true })
+  hi("TelescopePromptBorder", { fg = colors.TelescopePromptBorderFG })
+  hi("TelescopeResultsBorder", { fg = colors.TelescopeResultsBorderFG })
+  hi("TelescopePreviewBorder", { fg = colors.TelescopePreviewBorderFG }) ]]
 
   -- Floaterm
   hi("FloatermBorder", { bg = colors.FloatermBorder })

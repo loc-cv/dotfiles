@@ -230,40 +230,40 @@ M.setup = function()
     },
   }
 
-  -- gls.right[1] = {
-  --   DiffAdd = {
-  --     provider = function() return get_element_with_condition(vcs.diff_add()) end,
-  --     icon = ' ',
-  --     highlight = { active_fg, active_bg, 'bold' },
-  --     event = 'VimResized'
-  --   }
-  -- }
-  --
-  -- gls.right[2] = {
-  --   DiffModified = {
-  --     provider = function() return get_element_with_condition(vcs.diff_modified()) end,
-  --     icon = '柳',
-  --     highlight = { active_fg, active_bg, 'bold' },
-  --     event = 'VimResized'
-  --   }
-  -- }
-  --
-  -- gls.right[3] = {
-  --   DiffRemove = {
-  --     provider = function() return get_element_with_condition(vcs.diff_remove()) end,
-  --     icon = ' ',
-  --     highlight = { active_fg, active_bg, 'bold' },
-  --     event = 'VimResized'
-  --   }
-  -- }
+  --[[ gls.right[1] = {
+    DiffAdd = {
+      provider = function() return get_element_with_condition(vcs.diff_add()) end,
+      icon = ' ',
+      highlight = { active_fg, active_bg, 'bold' },
+      event = 'VimResized'
+    }
+  } ]]
 
-  -- gls.right[4] = {
-  --   GitSpaces = {
-  --     provider = function() return get_element_with_condition('  ') end,
-  --     highlight = { 'NONE', active_bg },
-  --     event = 'VimResized'
-  --   }
-  -- }
+  --[[ gls.right[2] = {
+    DiffModified = {
+      provider = function() return get_element_with_condition(vcs.diff_modified()) end,
+      icon = '柳',
+      highlight = { active_fg, active_bg, 'bold' },
+      event = 'VimResized'
+    }
+  } ]]
+
+  --[[ gls.right[3] = {
+    DiffRemove = {
+      provider = function() return get_element_with_condition(vcs.diff_remove()) end,
+      icon = ' ',
+      highlight = { active_fg, active_bg, 'bold' },
+      event = 'VimResized'
+    }
+  } ]]
+
+  --[[ gls.right[4] = {
+    GitSpaces = {
+      provider = function() return get_element_with_condition('  ') end,
+      highlight = { 'NONE', active_bg },
+      event = 'VimResized'
+    }
+  } ]]
 
   gls.right[1] = {
     LineInfo = {

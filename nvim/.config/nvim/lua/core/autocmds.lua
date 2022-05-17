@@ -42,10 +42,10 @@ local configs = {
     })
 
     -- Auto close coc-explorer when exit Neovim
-    -- vim.api.nvim_create_autocmd("BufEnter", {
-    --   pattern = "*",
-    --   command = "if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif",
-    -- })
+    --[[ vim.api.nvim_create_autocmd("BufEnter", {
+      pattern = "*",
+      command = "if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif",
+    }) ]]
 
     -- Highlight the symbol and its references when holding the cursor
     vim.api.nvim_create_autocmd("CursorHold", {
