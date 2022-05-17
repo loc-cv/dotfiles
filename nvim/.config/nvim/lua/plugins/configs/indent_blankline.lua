@@ -23,6 +23,7 @@ M.setup = function()
       "packer",
       "tutor",
       "startuptime",
+      "NeogitStatus",
     },
     buftype_exclude = { "terminal" },
   }
