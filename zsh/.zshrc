@@ -57,3 +57,7 @@ unset TMUX
 
 # Emacs
 export PATH=$PATH:/home/colcv/.emacs.d/bin
+
+# pnpm
+export PNPM_HOME="/home/colcv/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
