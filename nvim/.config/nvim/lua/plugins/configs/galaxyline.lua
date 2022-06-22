@@ -93,6 +93,7 @@ M.setup = function()
     "CHADTree",
     "coc-explorer",
     "DiffviewFiles",
+    "startuptime",
   }
 
   local function has_value(tab, val)
