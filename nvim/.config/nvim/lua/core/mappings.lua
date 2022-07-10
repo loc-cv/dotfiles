@@ -178,30 +178,30 @@ local configs = {
   end,
 
   -- Telescope
-  --[[ telescope = function()
-    map("n", "<C-p>t", function()
-      require("telescope.builtin").builtin()
-    end)
-    map("n", "<C-p>f", function()
-      require("telescope.builtin").find_files()
-    end)
-    map("n", "<C-p>b", function()
-      require("telescope.builtin").buffers()
-    end)
-    map("n", "<C-p>r", function()
-      require("telescope.builtin").live_grep()
-    end)
-    map("n", "<C-p>h", function()
-      require("telescope.builtin").help_tags()
-    end)
-    map("n", "<C-p>i", function()
-      local ok, telescope = pcall(require, "telescope")
-      if not ok then
-        return
-      end
-      telescope.extensions.media_files.media_files()
-    end)
-  end, ]]
+  -- telescope = function()
+  --   map("n", "<C-p>t", function()
+  --     require("telescope.builtin").builtin()
+  --   end)
+  --   map("n", "<C-p>f", function()
+  --     require("telescope.builtin").find_files()
+  --   end)
+  --   map("n", "<C-p>b", function()
+  --     require("telescope.builtin").buffers()
+  --   end)
+  --   map("n", "<C-p>r", function()
+  --     require("telescope.builtin").live_grep()
+  --   end)
+  --   map("n", "<C-p>h", function()
+  --     require("telescope.builtin").help_tags()
+  --   end)
+  --   map("n", "<C-p>i", function()
+  --     local ok, telescope = pcall(require, "telescope")
+  --     if not ok then
+  --       return
+  --     end
+  --     telescope.extensions.media_files.media_files()
+  --   end)
+  -- end,
 }
 
 M.init = function()

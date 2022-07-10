@@ -25,27 +25,27 @@ local configs = {
 
   -- CoC
   coc = function()
-    -- Setup formatexpr specified filetype(s)
-    -- and update signature help on jump placeholder
-    local augroup = vim.api.nvim_create_augroup("MyGroup", { clear = true })
+    local cocGrp = vim.api.nvim_create_augroup("CoCGrp", { clear = true })
 
+    -- Setup formatexpr specified filetype(s)
     vim.api.nvim_create_autocmd("FileType", {
-      group = augroup,
+      group = cocGrp,
       pattern = { "typescript", "json" },
       command = "setl formatexpr=CocAction('formatSelected')",
     })
 
+    -- Update signature help on jump placeholder
     vim.api.nvim_create_autocmd("User", {
-      group = augroup,
+      group = cocGrp,
       pattern = "CocJumpPlaceholder",
       command = "call CocActionAsync('showSignatureHelp')",
     })
 
     -- Auto close coc-explorer when exit Neovim
-    --[[ vim.api.nvim_create_autocmd("BufEnter", {
-      pattern = "*",
-      command = "if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif",
-    }) ]]
+    -- vim.api.nvim_create_autocmd("BufEnter", {
+    --   pattern = "*",
+    --   command = "if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif",
+    -- })
 
     -- Highlight the symbol and its references when holding the cursor
     vim.api.nvim_create_autocmd("CursorHold", {
@@ -74,15 +74,15 @@ M.init = function()
   })
 
   -- Better cursorline
-  local cursorGrp = vim.api.nvim_create_augroup("CursorLine", { clear = true })
+  local cursorGrp = vim.api.nvim_create_augroup("cursorGrp", { clear = true })
 
   vim.api.nvim_create_autocmd({ "WinLeave", "InsertEnter" }, {
     group = cursorGrp,
     pattern = "*",
     callback = function()
-      local filetypes_exclude = { "coc-explorer", "DiffviewFiles" }
-      for _, v in ipairs(filetypes_exclude) do
-        if vim.bo.filetype == v then
+      local excluded_filetypes = { "coc-explorer", "DiffviewFiles" }
+      for _, ft in ipairs(excluded_filetypes) do
+        if vim.bo.filetype == ft then
           return
         end
       end

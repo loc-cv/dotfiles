@@ -6,10 +6,10 @@ M.colors = {
   CursorLine = { bg = "#323232" },
 
   -- Telescope
-  --[[ TelescopeSelection = { bg = "#323232" },
-  TelescopePromptBorder = { fg = "#d4d4d4" },
-  TelescopeResultsBorder = { fg = "#d4d4d4" },
-  TelescopePreviewBorder = { fg = "#d4d4d4" }, ]]
+  -- TelescopeSelection = { bg = "#323232" },
+  -- TelescopePromptBorder = { fg = "#d4d4d4" },
+  -- TelescopeResultsBorder = { fg = "#d4d4d4" },
+  -- TelescopePreviewBorder = { fg = "#d4d4d4" },
 
   -- Floaterm
   FloatermBorder = { bg = "#1e1e1e" },
@@ -20,11 +20,11 @@ M.colors = {
   DiffDelete = { fg = "#db4b4b", bg = "NONE" },
 
   -- Neogit
-  --[[ NeogitDiffAddHighlight = { bg = "", fg = "" },
-  NeogitDiffDeleteHighlight = { bg = "", fg = "" },
-  NeogitDiffContextHighlight = { bg = "", fg = "" },
-  NeogitHunkHeader = { bg = "", fg = "" },
-  NeogitHunkHeaderHighlight = { bg = "", fg = "" }, ]]
+  -- NeogitDiffAddHighlight = { bg = "", fg = "" },
+  -- NeogitDiffDeleteHighlight = { bg = "", fg = "" },
+  -- NeogitDiffContextHighlight = { bg = "", fg = "" },
+  -- NeogitHunkHeader = { bg = "", fg = "" },
+  -- NeogitHunkHeaderHighlight = { bg = "", fg = "" },
 
   -- Yank region
   HighlightedyankRegion = { bg = "#4f4f4f" },
@@ -80,10 +80,10 @@ M.init = function()
   vim.g.better_whitespace_guicolor = colors.Whitespace.bg
 
   -- Telescope
-  --[[ hi("TelescopeSelection", { bg = colors.TelescopeSelection.bg, bold = true })
-  hi("TelescopePromptBorder", { fg = colors.TelescopePromptBorder.fg })
-  hi("TelescopeResultsBorder", { fg = colors.TelescopeResultsBorder.fg })
-  hi("TelescopePreviewBorder", { fg = colors.TelescopePreviewBorder.fg }) ]]
+  -- hi("TelescopeSelection", { bg = colors.TelescopeSelection.bg, bold = true })
+  -- hi("TelescopePromptBorder", { fg = colors.TelescopePromptBorder.fg })
+  -- hi("TelescopeResultsBorder", { fg = colors.TelescopeResultsBorder.fg })
+  -- hi("TelescopePreviewBorder", { fg = colors.TelescopePreviewBorder.fg })
 
   -- Floaterm
   hi("FloatermBorder", { bg = colors.FloatermBorder.bg })

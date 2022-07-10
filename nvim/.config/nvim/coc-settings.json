@@ -36,6 +36,7 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "html",
     "css",
+    "scss",
     "json",
     "jsonc",
     "javascript",
@@ -45,6 +46,7 @@
 
   // lua
   "sumneko-lua.enableNvimLuaDev": true,
+  "Lua.telemetry.enable": false,
 
   // coc-explorer
   "explorer.width": 40,
@@ -61,8 +63,6 @@
   "explorer.keyMappings.global": {
     "<C-v>": "open:vsplit",
     "<C-s>": "open:split"
-    // "v": "open:vsplit",
-    // "x": "open:split"
   },
   "explorer.focus": false,
 
@@ -78,6 +78,5 @@
   "css.lint.unknownAtRules": "ignore",
 
   // prettier
-  "prettier.singleQuote": true,
-  "Lua.telemetry.enable": false
+  "prettier.singleQuote": true
 }

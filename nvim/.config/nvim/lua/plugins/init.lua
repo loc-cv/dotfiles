@@ -172,9 +172,6 @@ return packer.startup {
     use {
       "machakann/vim-sandwich",
       event = { "BufRead", "BufNewFile" },
-      config = function()
-        require("plugins.configs.vim_sandwich").setup()
-      end,
     }
 
     -- Make the yanked region apparent
