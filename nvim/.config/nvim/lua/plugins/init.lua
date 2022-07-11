@@ -39,7 +39,6 @@ return packer.startup {
       end,
     }
     use "junegunn/fzf.vim"
-    use { "fatih/vim-go", ft = { "go" } }
 
     -- Snippet
     use {
@@ -50,23 +49,11 @@ return packer.startup {
     -- Fuzzy finder
     use {
       "ibhagwan/fzf-lua",
-      cmd = "FzfLua",
+      cmd = { "FzfLua" },
       config = function()
         require("plugins.configs.fzf_lua").setup()
       end,
     }
-    --[[ use {
-      "nvim-telescope/telescope.nvim",
-      module = "telescope",
-      requires = {
-        "nvim-lua/plenary.nvim",
-        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-        "nvim-telescope/telescope-media-files.nvim",
-      },
-      config = function()
-        require("plugins.configs.telescope").setup()
-      end,
-    } ]]
 
     -- Terminal
     use {
@@ -79,8 +66,8 @@ return packer.startup {
     -- Git
     use {
       "lewis6991/gitsigns.nvim",
-      event = { "BufRead", "BufNewFile" },
       requires = "nvim-lua/plenary.nvim",
+      event = { "BufRead", "BufNewFile" },
       config = function()
         require("plugins.configs.gitsigns").setup()
       end,
@@ -155,8 +142,8 @@ return packer.startup {
     -- Text objects for entire buffer
     use {
       "kana/vim-textobj-entire",
-      event = { "BufRead", "BufNewFile" },
       requires = "kana/vim-textobj-user",
+      event = { "BufRead", "BufNewFile" },
     }
 
     -- Indent guides for Neovim
@@ -245,7 +232,7 @@ return packer.startup {
     use "nathom/filetype.nvim"
     use {
       "dstein64/vim-startuptime",
-      cmd = "StartupTime",
+      cmd = { "StartupTime" },
     }
     use {
       "antoinemadec/FixCursorHold.nvim",
