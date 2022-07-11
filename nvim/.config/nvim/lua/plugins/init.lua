@@ -196,7 +196,7 @@ return packer.startup {
     -- Color highlighting
     use {
       "norcalli/nvim-colorizer.lua",
-      event = { "BufRead", "BufNewFile" },
+      -- event = { "BufRead", "BufNewFile" },
       config = function()
         require("plugins.configs.nvim_colorizer").setup()
       end,

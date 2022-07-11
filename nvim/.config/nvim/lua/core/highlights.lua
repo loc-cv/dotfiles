@@ -29,7 +29,7 @@ M.colors = {
 
   -- Statusline
   StatusLine = { bg = "#282828", fg = "#d4d4d4" },
-  StatusLineNC = { bg = "#272727", fg = "#c0c0c0" },
+  StatusLineNC = { bg = "#272727", fg = "#d4d4d4" },
 
   -- Tabline
   TabLineFill = { bg = "#282828", fg = "#d4d4d4" },
