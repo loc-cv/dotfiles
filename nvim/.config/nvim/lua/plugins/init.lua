@@ -51,7 +51,7 @@ return packer.startup {
       "ibhagwan/fzf-lua",
       cmd = { "FzfLua" },
       config = function()
-        require("plugins.configs.fzf_lua").setup()
+        require("plugins.configs.fzf-lua").setup()
       end,
     }
 
@@ -151,7 +151,7 @@ return packer.startup {
       "lukas-reineke/indent-blankline.nvim",
       event = { "BufRead", "BufNewFile" },
       config = function()
-        require("plugins.configs.indent_blankline").setup()
+        require("plugins.configs.indent-blankline").setup()
       end,
     }
 
@@ -179,7 +179,7 @@ return packer.startup {
       "https://gitlab.com/yorickpeterse/nvim-window.git",
       event = "VimEnter",
       config = function()
-        require("plugins.configs.nvim_window").setup()
+        require("plugins.configs.nvim-window").setup()
       end,
     }
 
@@ -198,7 +198,7 @@ return packer.startup {
       "norcalli/nvim-colorizer.lua",
       -- event = { "BufRead", "BufNewFile" },
       config = function()
-        require("plugins.configs.nvim_colorizer").setup()
+        require("plugins.configs.colorizer").setup()
       end,
     }
 
