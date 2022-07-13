@@ -133,7 +133,11 @@ local configs = {
   -- Nvim_window
   nvim_window = function()
     map("n", "<space>w", function()
-      require("nvim-window").pick()
+      local ok, nw = pcall(require, "nvim-window")
+      if not ok then
+        return
+      end
+      nw.pick()
     end)
   end,
 
