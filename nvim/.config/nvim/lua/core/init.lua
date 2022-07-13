@@ -1,5 +1,5 @@
 require("core.options").init()
 require("core.autocmds").init()
-require("core.user_cmds").init()
+require("core.user-cmds").init()
 require("core.mappings").init()
 require("core.highlights").init()
