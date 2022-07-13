@@ -2,7 +2,7 @@ local M = {}
 
 M.setup = function()
   -- for coc-fzf
-  vim.g.fzf_layout = { window = { height = 0.8, width = 0.8, border = "sharp" } }
+  vim.g.fzf_layout = { window = { height = 0.85, width = 0.90, border = "sharp" } }
   vim.g.coc_fzf_preview = "up:60%"
   vim.g.fzf_action = {
     ["ctrl-t"] = "tab split",
