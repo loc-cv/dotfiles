@@ -7,7 +7,7 @@ M.setup = function()
   end
 
   color_picker.setup {
-    icons = { "ﱢ", "" },
+    icons = { "■", "┄" },
     border = "single", -- none | single | double | rounded | solid | shadow
     keymap = {
       H = "<Plug>ColorPickerSlider0Percent",
