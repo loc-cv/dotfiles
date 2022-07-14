@@ -193,15 +193,6 @@ return packer.startup {
     use { "ellisonleao/glow.nvim", ft = { "markdown" } }
     use { "davidgranstrom/nvim-markdown-preview", ft = { "markdown" } }
 
-    -- Color highlighting
-    use {
-      "norcalli/nvim-colorizer.lua",
-      -- event = { "BufRead", "BufNewFile" },
-      config = function()
-        require("plugins.configs.colorizer").setup()
-      end,
-    }
-
     -- Move lines and selections
     use {
       "matze/vim-move",

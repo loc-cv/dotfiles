@@ -78,5 +78,8 @@
   "css.lint.unknownAtRules": "ignore",
 
   // prettier
-  "prettier.singleQuote": true
+  "prettier.singleQuote": true,
+
+  // highlights
+  "colors.filetypes": ["*"]
 }
