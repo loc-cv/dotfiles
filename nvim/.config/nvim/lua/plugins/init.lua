@@ -229,6 +229,15 @@ return packer.startup {
       "antoinemadec/FixCursorHold.nvim",
       event = { "BufRead", "BufNewFile" },
     }
+
+    -- Web dev
+    use {
+      "ziontee113/color-picker.nvim",
+      cmd = { "PickColor", "PickColorInsert" },
+      config = function()
+        require("plugins.configs.color-picker").setup()
+      end,
+    }
   end,
   config = {
     compile_path = vim.fn.stdpath "config" .. "/lua/plugins/packer_compiled.lua",
