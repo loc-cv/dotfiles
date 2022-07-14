@@ -1,41 +1,41 @@
 local M = {}
 
 M.setup = function()
-  local ok, gl = pcall(require, "galaxyline")
+  local ok, gl = pcall(require, 'galaxyline')
   if not ok then
     return
   end
 
-  local diagnostic = require "galaxyline.providers.diagnostic"
-  local vcs = require "galaxyline.providers.vcs"
-  local fileinfo = require "galaxyline.providers.fileinfo"
-  local buffer = require "galaxyline.providers.buffer"
-  local condition = require "galaxyline.condition"
+  local diagnostic = require('galaxyline.providers.diagnostic')
+  local vcs = require('galaxyline.providers.vcs')
+  local fileinfo = require('galaxyline.providers.fileinfo')
+  local buffer = require('galaxyline.providers.buffer')
+  local condition = require('galaxyline.condition')
   local gls = gl.section
 
-  local colors = require("core.highlights").colors
+  local colors = require('core.highlights').colors
   local active_bg = colors.GalaxylineActive.bg
   local inactive_bg = colors.GalaxylineInactive.bg
   local active_fg = colors.GalaxylineActive.fg
   local inactive_fg = colors.GalaxylineInactive.fg
 
-  gl.short_line_list = { " " }
+  gl.short_line_list = { ' ' }
 
   -- Show current line percent of all lines
   local function get_current_line_percent()
-    local current_line = vim.fn.line "."
-    local total_line = vim.fn.line "$"
+    local current_line = vim.fn.line('.')
+    local total_line = vim.fn.line('$')
     local result, _ = math.modf((current_line / total_line) * 100)
-    return " " .. result .. "% "
+    return ' ' .. result .. '% '
   end
 
   -- Render read-only file icon
   local function get_file_readonly_icon(readonly_icon)
-    if vim.bo.readonly == true and vim.bo.filetype ~= "help" then
-      local icon = readonly_icon or ""
-      return " " .. icon .. " "
+    if vim.bo.readonly == true and vim.bo.filetype ~= 'help' then
+      local icon = readonly_icon or ''
+      return ' ' .. icon .. ' '
     end
-    return ""
+    return ''
   end
 
   -- Get current file name dynamically
@@ -44,19 +44,19 @@ M.setup = function()
     local squeeze_width = vim.fn.winwidth(0) / 2
 
     if squeeze_width > 60 then
-      filename = vim.fn.fnamemodify(vim.fn.expand "%", ":~:.")
+      filename = vim.fn.fnamemodify(vim.fn.expand('%'), ':~:.')
     elseif squeeze_width > 40 then
-      filename = vim.fn.pathshorten(vim.fn.fnamemodify(vim.fn.expand "%", ":~:."))
+      filename = vim.fn.pathshorten(vim.fn.fnamemodify(vim.fn.expand('%'), ':~:.'))
     else
-      filename = vim.fn.expand "%:t"
+      filename = vim.fn.expand('%:t')
     end
 
     if vim.o.laststatus == 3 then
-      filename = vim.fn.fnamemodify(vim.fn.expand "%", ":~:.")
+      filename = vim.fn.fnamemodify(vim.fn.expand('%'), ':~:.')
     end
 
-    if vim.fn.empty(vim.fn.expand "%:t") == 1 then
-      filename = "Untitled"
+    if vim.fn.empty(vim.fn.expand('%:t')) == 1 then
+      filename = 'Untitled'
     end
 
     if string.len(get_file_readonly_icon(readonly_icon)) ~= 0 then
@@ -65,35 +65,35 @@ M.setup = function()
 
     if vim.bo.modifiable then
       if vim.bo.modified then
-        local trail = vim.fn.search("\\s$", "nw")
+        local trail = vim.fn.search('\\s$', 'nw')
         if trail ~= 0 then
-          return filename .. " " .. " " .. " " .. " " .. "  "
+          return filename .. ' ' .. ' ' .. ' ' .. ' ' .. '  '
         else
-          return filename .. " " .. " " .. "  "
+          return filename .. ' ' .. ' ' .. '  '
         end
       end
     end
 
-    return filename .. "  "
+    return filename .. '  '
   end
 
   -- Simple check for empty buffers
   local function is_buffer_not_empty()
-    if vim.fn.empty(vim.fn.expand "%:t") ~= 1 then
+    if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
       return true
     end
     return false
   end
 
   local special_file_types = {
-    "fugitive",
-    "packer",
-    "vim-plug",
-    "NvimTree",
-    "CHADTree",
-    "coc-explorer",
-    "DiffviewFiles",
-    "startuptime",
+    'fugitive',
+    'packer',
+    'vim-plug',
+    'NvimTree',
+    'CHADTree',
+    'coc-explorer',
+    'DiffviewFiles',
+    'startuptime',
   }
 
   local function has_value(tab, val)
@@ -107,14 +107,14 @@ M.setup = function()
 
   local function get_element(provider)
     if has_value(special_file_types, vim.bo.filetype) then
-      return ""
+      return ''
     end
     return provider
   end
 
   local function get_element_with_condition(provider)
     if has_value(special_file_types, vim.bo.filetype) then
-      return ""
+      return ''
     end
     if vim.o.laststatus == 3 then
       return provider
@@ -123,16 +123,16 @@ M.setup = function()
     if squeeze_width > 50 then
       return provider
     else
-      return ""
+      return ''
     end
   end
 
   gls.left[1] = {
     ActiveLine = {
       provider = function()
-        return " "
+        return ' '
       end,
-      highlight = { "NONE", active_bg },
+      highlight = { 'NONE', active_bg },
     },
   }
 
@@ -142,20 +142,20 @@ M.setup = function()
         if has_value(special_file_types, vim.bo.filetype) then
           return buffer.get_buffer_filetype()
         end
-        return ""
+        return ''
       end,
-      highlight = { active_fg, active_bg, "bold" },
+      highlight = { active_fg, active_bg, 'bold' },
     },
   }
 
   gls.left[3] = {
     GitIcon = {
       provider = function()
-        return get_element " "
+        return get_element(' ')
         -- return get_element " "
       end,
       condition = condition.check_git_workspace,
-      highlight = { active_fg, active_bg, "bold" },
+      highlight = { active_fg, active_bg, 'bold' },
     },
   }
 
@@ -164,10 +164,10 @@ M.setup = function()
       provider = function()
         return get_element(vcs.get_git_branch())
       end,
-      separator = "  ",
-      separator_highlight = { "NONE", active_bg },
+      separator = '  ',
+      separator_highlight = { 'NONE', active_bg },
       condition = condition.check_git_workspace,
-      highlight = { active_fg, active_bg, "bold" },
+      highlight = { active_fg, active_bg, 'bold' },
     },
   }
 
@@ -186,8 +186,8 @@ M.setup = function()
       provider = function()
         return get_element(get_current_file_name())
       end,
-      highlight = { active_fg, active_bg, "bold" },
-      event = "VimResized",
+      highlight = { active_fg, active_bg, 'bold' },
+      event = 'VimResized',
     },
   }
 
@@ -196,8 +196,8 @@ M.setup = function()
       provider = function()
         return get_element(diagnostic.get_diagnostic_error())
       end,
-      icon = "  ",
-      highlight = { active_fg, active_bg, "bold" },
+      icon = '  ',
+      highlight = { active_fg, active_bg, 'bold' },
     },
   }
 
@@ -206,8 +206,8 @@ M.setup = function()
       provider = function()
         return get_element(diagnostic.get_diagnostic_warn())
       end,
-      icon = "  ",
-      highlight = { active_fg, active_bg, "bold" },
+      icon = '  ',
+      highlight = { active_fg, active_bg, 'bold' },
     },
   }
 
@@ -216,8 +216,8 @@ M.setup = function()
       provider = function()
         return get_element(diagnostic.get_diagnostic_hint())
       end,
-      icon = "  ",
-      highlight = { active_fg, active_bg, "bold" },
+      icon = '  ',
+      highlight = { active_fg, active_bg, 'bold' },
     },
   }
 
@@ -226,8 +226,8 @@ M.setup = function()
       provider = function()
         return get_element(diagnostic.get_diagnostic_info())
       end,
-      icon = "  ",
-      highlight = { active_fg, active_bg, "bold" },
+      icon = '  ',
+      highlight = { active_fg, active_bg, 'bold' },
     },
   }
 
@@ -271,16 +271,16 @@ M.setup = function()
       provider = function()
         return get_element(fileinfo.line_column())
       end,
-      highlight = { active_fg, active_bg, "bold" },
+      highlight = { active_fg, active_bg, 'bold' },
     },
   }
 
   gls.right[2] = {
     LineInfoSpaces = {
       provider = function()
-        return get_element "  "
+        return get_element('  ')
       end,
-      highlight = { "NONE", active_bg },
+      highlight = { 'NONE', active_bg },
     },
   }
 
@@ -290,19 +290,19 @@ M.setup = function()
         return get_element_with_condition(buffer.get_buffer_filetype())
       end,
       condition = is_buffer_not_empty,
-      highlight = { active_fg, active_bg, "bold" },
-      event = "VimResized",
+      highlight = { active_fg, active_bg, 'bold' },
+      event = 'VimResized',
     },
   }
 
   gls.right[6] = {
     FileTypeNameSpaces = {
       provider = function()
-        return get_element_with_condition "   "
+        return get_element_with_condition('   ')
       end,
       condition = is_buffer_not_empty,
-      highlight = { "NONE", active_bg },
-      event = "VimResized",
+      highlight = { 'NONE', active_bg },
+      event = 'VimResized',
     },
   }
 
@@ -311,18 +311,18 @@ M.setup = function()
       provider = function()
         return get_element_with_condition(fileinfo.get_file_encode())
       end,
-      highlight = { active_fg, active_bg, "bold" },
-      event = "VimResized",
+      highlight = { active_fg, active_bg, 'bold' },
+      event = 'VimResized',
     },
   }
 
   gls.right[8] = {
     FileEncodeSpaces = {
       provider = function()
-        return get_element_with_condition "   "
+        return get_element_with_condition('   ')
       end,
-      highlight = { "NONE", active_bg },
-      event = "VimResized",
+      highlight = { 'NONE', active_bg },
+      event = 'VimResized',
     },
   }
 
@@ -331,16 +331,16 @@ M.setup = function()
       provider = function()
         return get_element(get_current_line_percent())
       end,
-      highlight = { active_fg, active_bg, "bold" },
+      highlight = { active_fg, active_bg, 'bold' },
     },
   }
 
   gls.short_line_left[1] = {
     InactiveLine = {
       provider = function()
-        return " "
+        return ' '
       end,
-      highlight = { "NONE", inactive_bg },
+      highlight = { 'NONE', inactive_bg },
     },
   }
 
@@ -350,9 +350,9 @@ M.setup = function()
         return buffer.get_buffer_filetype()
       end,
       condition = is_buffer_not_empty,
-      separator = " ",
-      separator_highlight = { "NONE", inactive_bg },
-      highlight = { inactive_fg, inactive_bg, "bold" },
+      separator = ' ',
+      separator_highlight = { 'NONE', inactive_bg },
+      highlight = { inactive_fg, inactive_bg, 'bold' },
     },
   }
 
@@ -360,12 +360,12 @@ M.setup = function()
     InactiveFileName = {
       provider = function()
         if has_value(special_file_types, vim.bo.filetype) then
-          return ""
+          return ''
         end
         return get_current_file_name()
       end,
-      highlight = { inactive_fg, inactive_bg, "bold" },
-      event = "VimResized",
+      highlight = { inactive_fg, inactive_bg, 'bold' },
+      event = 'VimResized',
     },
   }
 end

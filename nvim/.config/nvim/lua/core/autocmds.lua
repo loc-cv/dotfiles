@@ -4,12 +4,12 @@ local configs = {
   -- Packer
   packer = function()
     -- Auto compile/clean/install plugins with packer-nvim
-    vim.api.nvim_create_autocmd("BufWritePost", {
-      pattern = "*/lua/plugins/init.lua",
+    vim.api.nvim_create_autocmd('BufWritePost', {
+      pattern = '*/lua/plugins/init.lua',
       callback = function()
-        vim.cmd [[source <afile> | PackerClean]]
-        vim.cmd [[source <afile> | PackerInstall]]
-        vim.cmd [[source <afile> | PackerCompile]]
+        vim.cmd([[source <afile> | PackerClean]])
+        vim.cmd([[source <afile> | PackerInstall]])
+        vim.cmd([[source <afile> | PackerCompile]])
       end,
     })
   end,
@@ -17,27 +17,27 @@ local configs = {
   -- Floaterm
   floaterm = function()
     -- Make floaterm window transparent
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "floaterm",
-      command = "setlocal winblend=15",
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'floaterm',
+      command = 'setlocal winblend=15',
     })
   end,
 
   -- CoC
   coc = function()
-    local cocGrp = vim.api.nvim_create_augroup("CoCGrp", { clear = true })
+    local cocGrp = vim.api.nvim_create_augroup('CoCGrp', { clear = true })
 
     -- Setup formatexpr specified filetype(s)
-    vim.api.nvim_create_autocmd("FileType", {
+    vim.api.nvim_create_autocmd('FileType', {
       group = cocGrp,
-      pattern = { "typescript", "json" },
+      pattern = { 'typescript', 'json' },
       command = "setl formatexpr=CocAction('formatSelected')",
     })
 
     -- Update signature help on jump placeholder
-    vim.api.nvim_create_autocmd("User", {
+    vim.api.nvim_create_autocmd('User', {
       group = cocGrp,
-      pattern = "CocJumpPlaceholder",
+      pattern = 'CocJumpPlaceholder',
       command = "call CocActionAsync('showSignatureHelp')",
     })
 
@@ -48,10 +48,10 @@ local configs = {
     -- })
 
     -- Highlight the symbol and its references when holding the cursor
-    vim.api.nvim_create_autocmd("CursorHold", {
-      pattern = "*",
+    vim.api.nvim_create_autocmd('CursorHold', {
+      pattern = '*',
       callback = function()
-        vim.fn.CocActionAsync "highlight"
+        vim.fn.CocActionAsync('highlight')
       end,
     })
   end,
@@ -59,41 +59,41 @@ local configs = {
 
 M.init = function()
   -- Just making sure everything works as expected
-  vim.cmd [[filetype plugin indent on]]
+  vim.cmd([[filetype plugin indent on]])
 
   -- No line numbers in terminals
-  vim.api.nvim_create_autocmd("TermOpen", {
-    pattern = "*",
-    command = "setlocal nonumber norelativenumber",
+  vim.api.nvim_create_autocmd('TermOpen', {
+    pattern = '*',
+    command = 'setlocal nonumber norelativenumber',
   })
 
   -- Disable auto comment insertion
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = "*",
-    command = "setlocal formatoptions-=cro",
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = '*',
+    command = 'setlocal formatoptions-=cro',
   })
 
   -- Better cursorline
-  local cursorGrp = vim.api.nvim_create_augroup("cursorGrp", { clear = true })
+  local cursorGrp = vim.api.nvim_create_augroup('cursorGrp', { clear = true })
 
-  vim.api.nvim_create_autocmd({ "WinLeave", "InsertEnter" }, {
+  vim.api.nvim_create_autocmd({ 'WinLeave', 'InsertEnter' }, {
     group = cursorGrp,
-    pattern = "*",
+    pattern = '*',
     callback = function()
-      local excluded_filetypes = { "coc-explorer", "DiffviewFiles" }
+      local excluded_filetypes = { 'coc-explorer', 'DiffviewFiles' }
       for _, ft in ipairs(excluded_filetypes) do
         if vim.bo.filetype == ft then
           return
         end
       end
-      vim.cmd [[set nocursorline]]
+      vim.cmd([[set nocursorline]])
     end,
   })
 
-  vim.api.nvim_create_autocmd({ "WinEnter", "InsertLeave" }, {
+  vim.api.nvim_create_autocmd({ 'WinEnter', 'InsertLeave' }, {
     group = cursorGrp,
-    pattern = "*",
-    command = "set cursorline",
+    pattern = '*',
+    command = 'set cursorline',
   })
 
   -- Load plugins autocmds

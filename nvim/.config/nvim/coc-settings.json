@@ -41,12 +41,14 @@
     "jsonc",
     "javascript",
     "javascriptreact",
-    "typescript"
+    "typescript",
+    "lua"
   ],
 
   // lua
   "sumneko-lua.enableNvimLuaDev": true,
   "Lua.telemetry.enable": false,
+  "stylua.configPath": "/home/colcv/dotfiles/nvim/.config/nvim/stylua.toml",
 
   // coc-explorer
   "explorer.width": 40,
