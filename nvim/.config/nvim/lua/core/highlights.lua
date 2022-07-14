@@ -60,6 +60,9 @@ M.init = function()
   vim.g.vscode_style = "dark"
   vim.cmd [[colorscheme vscode]]
 
+  -- Fix weird border background colors around the popup
+  hi("FloatBorder", { bg = "NONE" })
+
   -- CursorLine
   hi("CursorLine", { bg = colors.CursorLine.bg })
 

@@ -24,7 +24,7 @@ M.setup = function()
     "coc-snippets",
     "coc-explorer",
     "coc-sumneko-lua",
-    -- 'coc-go',
+    "coc-highlight",
   }
 end
 
