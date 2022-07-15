@@ -24,8 +24,8 @@ M.setup = function()
       -- (i.e. when 'split' is not defined, default)
       height = 0.90, -- window height
       width = 0.90, -- window width
-      -- row = 0.50, -- window row position (0=top, 1=bottom)
-      -- col = 0.50, -- window col position (0=left, 1=right)
+      row = 0.20, -- window row position (0=top, 1=bottom)
+      col = 0.50, -- window col position (0=left, 1=right)
 
       -- border argument passthrough to nvim_open_win(), also used
       -- to manually draw the border characters around the preview
