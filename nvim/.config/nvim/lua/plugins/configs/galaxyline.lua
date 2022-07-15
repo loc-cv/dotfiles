@@ -14,10 +14,8 @@ M.setup = function()
   local gls = gl.section
 
   local colors = require('core.highlights').colors
-  local active_bg = colors.GalaxylineActive.bg
-  local inactive_bg = colors.GalaxylineInactive.bg
-  local active_fg = colors.GalaxylineActive.fg
-  local inactive_fg = colors.GalaxylineInactive.fg
+  local gl_active = { bg = colors.GalaxylineActive.bg, fg = colors.GalaxylineActive.fg }
+  local gl_inactive = { bg = colors.GalaxylineInactive.bg, fg = colors.GalaxylineInactive.fg }
 
   gl.short_line_list = { ' ' }
 
@@ -38,24 +36,31 @@ M.setup = function()
     return ''
   end
 
+  -- Simple check for empty buffers
+  local function is_buffer_not_empty()
+    if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
+      return true
+    end
+    return false
+  end
+
   -- Get current file name dynamically
   local function get_current_file_name(readonly_icon)
     local filename
+    local filename_full = vim.fn.fnamemodify(vim.fn.expand('%'), ':~:.')
+    local filename_short = vim.fn.pathshorten(vim.fn.fnamemodify(vim.fn.expand('%'), ':~:.'))
+    local filename_tail = vim.fn.expand('%:t')
+
     local squeeze_width = vim.fn.winwidth(0) / 2
-
     if squeeze_width > 60 then
-      filename = vim.fn.fnamemodify(vim.fn.expand('%'), ':~:.')
+      filename = filename_full
     elseif squeeze_width > 40 then
-      filename = vim.fn.pathshorten(vim.fn.fnamemodify(vim.fn.expand('%'), ':~:.'))
+      filename = filename_short
     else
-      filename = vim.fn.expand('%:t')
+      filename = filename_tail
     end
 
-    if vim.o.laststatus == 3 then
-      filename = vim.fn.fnamemodify(vim.fn.expand('%'), ':~:.')
-    end
-
-    if vim.fn.empty(vim.fn.expand('%:t')) == 1 then
+    if not is_buffer_not_empty() then
       filename = 'Untitled'
     end
 
@@ -77,23 +82,15 @@ M.setup = function()
     return filename .. '  '
   end
 
-  -- Simple check for empty buffers
-  local function is_buffer_not_empty()
-    if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
-      return true
-    end
-    return false
-  end
-
   local special_file_types = {
-    'fugitive',
     'packer',
     'vim-plug',
     'NvimTree',
     'CHADTree',
     'coc-explorer',
-    'DiffviewFiles',
     'startuptime',
+    'fugitive',
+    'DiffviewFiles',
   }
 
   local function has_value(tab, val)
@@ -105,19 +102,18 @@ M.setup = function()
     return false
   end
 
-  local function get_element(provider)
+  -- Get element for normal filetype (return nothing if filetype is in special_file_types table)
+  local function get_element_for_normal_ft(provider)
     if has_value(special_file_types, vim.bo.filetype) then
       return ''
     end
     return provider
   end
 
-  local function get_element_with_condition(provider)
+  -- Get element for normal filetype with width condition (return nothing if width is too small)
+  local function get_element_for_normal_ft_wc(provider)
     if has_value(special_file_types, vim.bo.filetype) then
       return ''
-    end
-    if vim.o.laststatus == 3 then
-      return provider
     end
     local squeeze_width = vim.fn.winwidth(0) / 2
     if squeeze_width > 50 then
@@ -127,66 +123,71 @@ M.setup = function()
     end
   end
 
+  -- Get element for special filetype (return provider only if filetype is in special_file_types table)
+  local function get_element_for_special_ft(provider)
+    if has_value(special_file_types, vim.bo.filetype) then
+      return provider
+    end
+    return ''
+  end
+
   gls.left[1] = {
     ActiveLine = {
       provider = function()
         return ' '
       end,
-      highlight = { 'NONE', active_bg },
+      highlight = { 'NONE', gl_active.bg },
     },
   }
 
   gls.left[2] = {
     SpecialFileTypeBuffer = {
       provider = function()
-        if has_value(special_file_types, vim.bo.filetype) then
-          return buffer.get_buffer_filetype()
-        end
-        return ''
+        return get_element_for_special_ft(buffer.get_buffer_filetype())
       end,
-      highlight = { active_fg, active_bg, 'bold' },
+      highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
 
   gls.left[3] = {
     GitIcon = {
       provider = function()
-        return get_element(' ')
+        return get_element_for_normal_ft(' ')
         -- return get_element " "
       end,
       condition = condition.check_git_workspace,
-      highlight = { active_fg, active_bg, 'bold' },
+      highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
 
   gls.left[4] = {
     GitBranch = {
       provider = function()
-        return get_element(vcs.get_git_branch())
+        return get_element_for_normal_ft(vcs.get_git_branch())
       end,
       separator = '  ',
-      separator_highlight = { 'NONE', active_bg },
+      separator_highlight = { 'NONE', gl_active.bg },
       condition = condition.check_git_workspace,
-      highlight = { active_fg, active_bg, 'bold' },
+      highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
 
   gls.left[5] = {
     FileIcon = {
       provider = function()
-        return get_element(fileinfo.get_file_icon())
+        return get_element_for_normal_ft(fileinfo.get_file_icon())
       end,
       condition = is_buffer_not_empty,
-      highlight = { active_fg, active_bg },
+      highlight = { gl_active.fg, gl_active.bg },
     },
   }
 
   gls.left[6] = {
     FileName = {
       provider = function()
-        return get_element(get_current_file_name())
+        return get_element_for_normal_ft(get_current_file_name())
       end,
-      highlight = { active_fg, active_bg, 'bold' },
+      highlight = { gl_active.fg, gl_active.bg, 'bold' },
       event = 'VimResized',
     },
   }
@@ -194,144 +195,109 @@ M.setup = function()
   gls.left[7] = {
     DiagnosticError = {
       provider = function()
-        return get_element(diagnostic.get_diagnostic_error())
+        return get_element_for_normal_ft(diagnostic.get_diagnostic_error())
       end,
       icon = '  ',
-      highlight = { active_fg, active_bg, 'bold' },
+      highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
 
   gls.left[8] = {
     DiagnosticWarn = {
       provider = function()
-        return get_element(diagnostic.get_diagnostic_warn())
+        return get_element_for_normal_ft(diagnostic.get_diagnostic_warn())
       end,
       icon = '  ',
-      highlight = { active_fg, active_bg, 'bold' },
+      highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
 
   gls.left[9] = {
     DiagnosticHint = {
       provider = function()
-        return get_element(diagnostic.get_diagnostic_hint())
+        return get_element_for_normal_ft(diagnostic.get_diagnostic_hint())
       end,
       icon = '  ',
-      highlight = { active_fg, active_bg, 'bold' },
+      highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
 
   gls.left[10] = {
     DiagnosticInfo = {
       provider = function()
-        return get_element(diagnostic.get_diagnostic_info())
+        return get_element_for_normal_ft(diagnostic.get_diagnostic_info())
       end,
       icon = '  ',
-      highlight = { active_fg, active_bg, 'bold' },
+      highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
-
-  --[[ gls.right[1] = {
-    DiffAdd = {
-      provider = function() return get_element_with_condition(vcs.diff_add()) end,
-      icon = ' ',
-      highlight = { active_fg, active_bg, 'bold' },
-      event = 'VimResized'
-    }
-  } ]]
-
-  --[[ gls.right[2] = {
-    DiffModified = {
-      provider = function() return get_element_with_condition(vcs.diff_modified()) end,
-      icon = '柳',
-      highlight = { active_fg, active_bg, 'bold' },
-      event = 'VimResized'
-    }
-  } ]]
-
-  --[[ gls.right[3] = {
-    DiffRemove = {
-      provider = function() return get_element_with_condition(vcs.diff_remove()) end,
-      icon = ' ',
-      highlight = { active_fg, active_bg, 'bold' },
-      event = 'VimResized'
-    }
-  } ]]
-
-  --[[ gls.right[4] = {
-    GitSpaces = {
-      provider = function() return get_element_with_condition('  ') end,
-      highlight = { 'NONE', active_bg },
-      event = 'VimResized'
-    }
-  } ]]
 
   gls.right[1] = {
     LineInfo = {
       provider = function()
-        return get_element(fileinfo.line_column())
+        return get_element_for_normal_ft(fileinfo.line_column())
       end,
-      highlight = { active_fg, active_bg, 'bold' },
+      highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
 
   gls.right[2] = {
     LineInfoSpaces = {
       provider = function()
-        return get_element('  ')
+        return get_element_for_normal_ft('  ')
       end,
-      highlight = { 'NONE', active_bg },
+      highlight = { 'NONE', gl_active.bg },
+    },
+  }
+
+  gls.right[3] = {
+    FileTypeName = {
+      provider = function()
+        return get_element_for_normal_ft_wc(buffer.get_buffer_filetype())
+      end,
+      condition = is_buffer_not_empty,
+      highlight = { gl_active.fg, gl_active.bg, 'bold' },
+      event = 'VimResized',
+    },
+  }
+
+  gls.right[4] = {
+    FileTypeNameSpaces = {
+      provider = function()
+        return get_element_for_normal_ft_wc('   ')
+      end,
+      condition = is_buffer_not_empty,
+      highlight = { 'NONE', gl_active.bg },
+      event = 'VimResized',
     },
   }
 
   gls.right[5] = {
-    FileTypeName = {
+    FileEncode = {
       provider = function()
-        return get_element_with_condition(buffer.get_buffer_filetype())
+        return get_element_for_normal_ft_wc(fileinfo.get_file_encode())
       end,
-      condition = is_buffer_not_empty,
-      highlight = { active_fg, active_bg, 'bold' },
+      highlight = { gl_active.fg, gl_active.bg, 'bold' },
       event = 'VimResized',
     },
   }
 
   gls.right[6] = {
-    FileTypeNameSpaces = {
+    FileEncodeSpaces = {
       provider = function()
-        return get_element_with_condition('   ')
+        return get_element_for_normal_ft_wc('   ')
       end,
-      condition = is_buffer_not_empty,
-      highlight = { 'NONE', active_bg },
+      highlight = { 'NONE', gl_active.bg },
       event = 'VimResized',
     },
   }
 
   gls.right[7] = {
-    FileEncode = {
-      provider = function()
-        return get_element_with_condition(fileinfo.get_file_encode())
-      end,
-      highlight = { active_fg, active_bg, 'bold' },
-      event = 'VimResized',
-    },
-  }
-
-  gls.right[8] = {
-    FileEncodeSpaces = {
-      provider = function()
-        return get_element_with_condition('   ')
-      end,
-      highlight = { 'NONE', active_bg },
-      event = 'VimResized',
-    },
-  }
-
-  gls.right[9] = {
     PerCent = {
       provider = function()
-        return get_element(get_current_line_percent())
+        return get_element_for_normal_ft(get_current_line_percent())
       end,
-      highlight = { active_fg, active_bg, 'bold' },
+      highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
 
@@ -340,7 +306,7 @@ M.setup = function()
       provider = function()
         return ' '
       end,
-      highlight = { 'NONE', inactive_bg },
+      highlight = { 'NONE', gl_inactive.bg },
     },
   }
 
@@ -351,20 +317,17 @@ M.setup = function()
       end,
       condition = is_buffer_not_empty,
       separator = ' ',
-      separator_highlight = { 'NONE', inactive_bg },
-      highlight = { inactive_fg, inactive_bg, 'bold' },
+      separator_highlight = { 'NONE', gl_inactive.bg },
+      highlight = { gl_inactive.fg, gl_inactive.bg, 'bold' },
     },
   }
 
   gls.short_line_left[3] = {
     InactiveFileName = {
       provider = function()
-        if has_value(special_file_types, vim.bo.filetype) then
-          return ''
-        end
-        return get_current_file_name()
+        return get_element_for_normal_ft(get_current_file_name())
       end,
-      highlight = { inactive_fg, inactive_bg, 'bold' },
+      highlight = { gl_inactive.fg, gl_inactive.bg, 'bold' },
       event = 'VimResized',
     },
   }
