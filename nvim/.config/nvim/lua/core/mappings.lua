@@ -77,16 +77,16 @@ local configs = {
     map({ 'x', 'o' }, 'ic', '<Plug>(coc-classobj-i)')
     map({ 'x', 'o' }, 'ac', '<Plug>(coc-classobj-a)')
 
-    -- Remap <C-d> and <C-u> for scroll float windows/popups
-    map({ 'n', 'v' }, '<C-d>', "coc#float#has_scroll() ? coc#float#scroll(1) : '<C-d>'", { expr = true, nowait = true })
-    map({ 'n', 'v' }, '<C-u>', "coc#float#has_scroll() ? coc#float#scroll(0) : '<C-u>'", { expr = true, nowait = true })
+    -- Remap <C-e> and <C-y> for scroll float windows/popups
+    map({ 'n', 'v' }, '<C-e>', "coc#float#has_scroll() ? coc#float#scroll(1) : '<C-e>'", { expr = true, nowait = true })
+    map({ 'n', 'v' }, '<C-y>', "coc#float#has_scroll() ? coc#float#scroll(0) : '<C-y>'", { expr = true, nowait = true })
     map(
       'i',
-      '<C-d>',
-      "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(1)<cr>' : '<C-d>'",
+      '<C-e>',
+      "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(1)<cr>' : '<C-e>'",
       { expr = true, nowait = true }
     )
-    map('i', '<C-u>', "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<cr>' : '<C-u>'", {
+    map('i', '<C-y>', "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<cr>' : '<C-y>'", {
       expr = true,
       nowait = true,
     })

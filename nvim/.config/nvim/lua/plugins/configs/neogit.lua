@@ -8,7 +8,7 @@ M.setup = function()
 
   neogit.setup({
     integrations = {
-      diffview = true,
+      diffview = false,
     },
   })
 end

@@ -119,8 +119,8 @@ M.setup = function()
         ['<C-n>'] = 'toggle-preview-cw',
         ['<C-p>'] = 'toggle-preview-ccw',
 
-        ['<C-d>'] = 'preview-page-down',
-        ['<C-u>'] = 'preview-page-up',
+        ['<C-e>'] = 'preview-page-down',
+        ['<C-y>'] = 'preview-page-up',
         ['<C-r>'] = 'preview-page-reset',
       },
 
@@ -417,7 +417,7 @@ M.setup = function()
       -- executed command priority is 'cmd' (if exists)
       -- otherwise auto-detect prioritizes `rg` over `grep`
       -- default options are controlled by 'rg|grep_opts'
-      cmd = 'rg --column --line-number --no-heading --color=always --smart-case --hidden --with-filename --glob=!.git/',
+      cmd = 'rg --column --line-number --no-heading --color=always --smart-case --hidden --with-filename --glob=!.git/ --trim',
       grep_opts = '--binary-files=without-match --line-number --recursive --color=auto --perl-regexp',
       rg_opts = '--column --line-number --no-heading --color=always --smart-case --max-columns=512',
 
