@@ -5,6 +5,9 @@ M.colors = {
   -- Cursorline
   CursorLine = { bg = '#323232' },
 
+  -- Search
+  IncSearch = { bg = '#adadad', fg = '#0a0a0a' },
+
   -- Floaterm
   FloatermBorder = { bg = '#1e1e1e' },
 
@@ -49,9 +52,6 @@ M.colors = {
 
   -- Vim-sandwich
   OperatorSandwichChange = { bg = '#d4d4d4', fg = '#1e1e1e' },
-
-  -- Vim-searchlight
-  Searchlight = { bg = '#adadad', fg = '#0a0a0a' },
 }
 
 local colors = M.colors
@@ -65,6 +65,9 @@ M.init = function()
 
   -- CursorLine
   hi('CursorLine', { bg = colors.CursorLine.bg })
+
+  -- Search
+  hi('IncSearch', { bg = colors.IncSearch.bg, fg = colors.IncSearch.fg, bold = true })
 
   -- Trailing whitespaces
   vim.g.better_whitespace_guicolor = colors.Whitespace.bg
@@ -117,9 +120,6 @@ M.init = function()
 
   -- Vim-sandwich
   hi('OperatorSandwichChange', { bg = colors.OperatorSandwichChange.bg, fg = colors.OperatorSandwichChange.fg })
-
-  -- Vim-searchlight
-  hi('Searchlight', { bg = colors.Searchlight.bg, fg = colors.Searchlight.fg, bold = true })
 end
 
 return M

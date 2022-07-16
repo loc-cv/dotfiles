@@ -201,11 +201,7 @@ return packer.startup({
 
     -- Search enhancements
     use({
-      'haya14busa/is.vim',
-      event = { 'BufRead', 'BufNewFile' },
-    })
-    use({
-      'PeterRincker/vim-searchlight',
+      'kevinhwang91/nvim-hlslens',
       event = { 'BufRead', 'BufNewFile' },
     })
 
