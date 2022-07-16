@@ -157,8 +157,11 @@ return packer.startup({
 
     -- Surround
     use({
-      'machakann/vim-sandwich',
+      'kylechui/nvim-surround',
       event = { 'BufRead', 'BufNewFile' },
+      config = function()
+        require('plugins.configs.surround').setup()
+      end,
     })
 
     -- Make the yanked region apparent
