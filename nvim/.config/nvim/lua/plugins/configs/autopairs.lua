@@ -12,7 +12,7 @@ M.setup = function()
     map_cr = false,
     map_c_h = true,
     map_c_w = true,
-    fast_wrap = {},
+    fast_wrap = {}, -- use <M-e> to fast wrap
   })
 
   -- Add spaces between parentheses
