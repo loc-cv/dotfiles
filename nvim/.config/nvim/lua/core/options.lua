@@ -51,7 +51,6 @@ M.init = function()
   g.loaded_2html_plugin = false
   g.loaded_getscript = false
   g.loaded_getscriptPlugin = false
-  g.loaded_gzip = false
   g.loaded_logipat = false
   g.loaded_netrwFileHandlers = false
   g.loaded_netrw = false
@@ -65,9 +64,6 @@ M.init = function()
   g.loaded_zipPlugin = false
   g.loaded_vimball = false
   g.loaded_vimballPlugin = false
-  g.zipPlugin = false
-  g.loaded_matchit = false
-  g.loaded_matchparen = false
   g.loaded_rrhelper = false
 
   -- Set options
