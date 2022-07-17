@@ -33,7 +33,7 @@ M.setup = function()
 
     highlight = {
       enable = true,
-      -- disable = { 'vim', 'html', 'css' },
+      disable = { 'vim', 'html' },
       additional_vim_regex_highlighting = false,
     },
 
