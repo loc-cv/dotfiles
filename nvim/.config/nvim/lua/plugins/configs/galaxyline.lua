@@ -61,7 +61,7 @@ M.setup = function()
     end
 
     if not is_buffer_not_empty() then
-      filename = 'Untitled'
+      filename = ' Untitled'
     end
 
     if string.len(get_file_readonly_icon(readonly_icon)) ~= 0 then
@@ -313,16 +313,24 @@ M.setup = function()
   gls.short_line_left[2] = {
     InactiveBufferType = {
       provider = function()
-        return buffer.get_buffer_filetype()
+        return get_element_for_special_ft(buffer.get_buffer_filetype())
       end,
       condition = is_buffer_not_empty,
-      separator = ' ',
-      separator_highlight = { 'NONE', gl_inactive.bg },
       highlight = { gl_inactive.fg, gl_inactive.bg, 'bold' },
     },
   }
 
   gls.short_line_left[3] = {
+    InactiveFileIcon = {
+      provider = function()
+        return get_element_for_normal_ft(fileinfo.get_file_icon())
+      end,
+      condition = is_buffer_not_empty,
+      highlight = { gl_inactive.fg, gl_inactive.bg },
+    },
+  }
+
+  gls.short_line_left[4] = {
     InactiveFileName = {
       provider = function()
         return get_element_for_normal_ft(get_current_file_name())
