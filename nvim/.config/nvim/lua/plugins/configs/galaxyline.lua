@@ -14,8 +14,8 @@ M.setup = function()
   local gls = gl.section
 
   local colors = require('core.highlights').colors
-  local gl_active = { bg = colors.GalaxylineActive.bg, fg = colors.GalaxylineActive.fg }
-  local gl_inactive = { bg = colors.GalaxylineInactive.bg, fg = colors.GalaxylineInactive.fg }
+  local gl_active = colors.GalaxylineActive
+  local gl_inactive = colors.GalaxylineInactive
 
   gl.short_line_list = { ' ' }
 

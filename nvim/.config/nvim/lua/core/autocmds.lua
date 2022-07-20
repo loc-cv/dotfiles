@@ -58,9 +58,6 @@ local configs = {
 }
 
 M.init = function()
-  -- Just making sure everything works as expected
-  vim.cmd([[filetype plugin indent on]])
-
   -- No line numbers in terminals
   vim.api.nvim_create_autocmd('TermOpen', {
     pattern = '*',

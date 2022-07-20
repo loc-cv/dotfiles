@@ -5,8 +5,11 @@ M.colors = {
   -- Cursorline
   CursorLine = { bg = '#323232' },
 
+  -- FloatBorder
+  FloatBorder = { bg = 'NONE' },
+
   -- Search
-  IncSearch = { bg = '#adadad', fg = '#0a0a0a' },
+  IncSearch = { bg = '#adadad', fg = '#0a0a0a', bold = true },
 
   -- Floaterm
   FloatermBorder = { bg = '#1e1e1e' },
@@ -17,14 +20,14 @@ M.colors = {
   DiffDelete = { fg = '#db4b4b', bg = 'NONE' },
 
   -- Yank region
-  HighlightedyankRegion = { bg = '#4f4f4f' },
+  HighlightedyankRegion = { bg = '#4f4f4f', bold = true },
 
   -- Indent_blankline
   IndentBlanklineContextChar = { fg = '#d4d4d4' },
-  IndentBlanklineContextStart = { fg = 'NONE', sp = '#d4d4d4' },
+  IndentBlanklineContextStart = { fg = 'NONE', sp = '#d4d4d4', underline = true },
 
   -- Trailing whitespaces
-  Whitespace = { bg = '#808080' },
+  ExtraWhitespace = { bg = '#808080' },
 
   -- Galaxyline
   GalaxylineActive = { bg = '#adadad', fg = '#0a0a0a' },
@@ -35,17 +38,29 @@ M.colors = {
   StatusLineNC = { bg = '#272727', fg = '#d4d4d4' },
 
   -- Tabline
-  TabLineFill = { bg = '#282828', fg = '#d4d4d4' },
-  TabLineSel = { bg = '#adadad', fg = '#0a0a0a' },
-  TabLine = { bg = '#323232', fg = '#c0c0c0' },
+  TabLineFill = { bg = '#282828', fg = '#d4d4d4', bold = true },
+  TabLineSel = { bg = '#adadad', fg = '#0a0a0a', bold = true },
+  TabLine = { bg = '#323232', fg = '#c0c0c0', bold = true },
 
   -- CoC
-  CocError = { fg = '#db4b4b' },
-  CocWarning = { fg = '#e0af68' },
-  CocInfo = { fg = '#0db9d7' },
-  CocHint = { fg = '#10b981' },
-  CocFadeOut = { fg = '#808080' },
-  CocHighlightText = { bg = '#282828' },
+  CocErrorSign = { fg = '#db4b4b' },
+  CocErrorVirtualText = { fg = '#db4b4b' },
+  CocErrorHighlight = { fg = '#db4b4b', underline = true },
+
+  CocWarningSign = { fg = '#e0af68' },
+  CocWarningVirtualText = { fg = '#e0af68' },
+  CocWarningHighlight = { fg = '#e0af68', underline = true },
+
+  CocInfoSign = { fg = '#0db9d7' },
+  CocInfoVirtualText = { fg = '#0db9d7' },
+  CocInfoHighlight = { fg = '#0db9d7', underline = true },
+
+  CocHintSign = { fg = '#10b981' },
+  CocHintVirtualText = { fg = '#10b981' },
+  CocHintHighlight = { fg = '#10b981', underline = true },
+
+  CocFadeOut = { fg = '#808080', underline = true },
+  CocHighlightText = { bg = '#282828', underline = true },
 
   -- Nvim_window
   NvimWindow = { bg = '#d4d4d4', fg = '#0a0a0a' },
@@ -60,66 +75,9 @@ M.init = function()
   vim.g.vscode_style = 'dark'
   vim.cmd([[colorscheme vscode]])
 
-  -- Fix weird border background colors around the popup
-  hi('FloatBorder', { bg = 'NONE' })
-
-  -- CursorLine
-  hi('CursorLine', { bg = colors.CursorLine.bg })
-
-  -- Search
-  hi('IncSearch', { bg = colors.IncSearch.bg, fg = colors.IncSearch.fg, bold = true })
-
-  -- Trailing whitespaces
-  vim.g.better_whitespace_guicolor = colors.Whitespace.bg
-
-  -- Floaterm
-  hi('FloatermBorder', { bg = colors.FloatermBorder.bg })
-
-  -- Statusline
-  hi('StatusLine', { bg = colors.StatusLine.bg, fg = colors.StatusLine.fg })
-  hi('StatusLineNC', { bg = colors.StatusLineNC.bg, fg = colors.StatusLineNC.fg })
-
-  -- Tabline
-  hi('TabLine', { bg = colors.TabLine.bg, fg = colors.TabLine.fg, bold = true })
-  hi('TabLineSel', { bg = colors.TabLineSel.bg, fg = colors.TabLineSel.fg, bold = true })
-  hi('TabLineFill', { bg = colors.TabLineFill.bg, fg = colors.TabLineFill.fg, bold = true })
-
-  -- Git
-  hi('DiffAdd', { fg = colors.DiffAdd.fg, bg = colors.DiffAdd.bg })
-  hi('DiffChange', { fg = colors.DiffChange.fg, bg = colors.DiffChange.bg })
-  hi('DiffDelete', { fg = colors.DiffDelete.fg, bg = colors.DiffDelete.bg })
-
-  -- Yank region
-  hi('HighlightedyankRegion', { bg = colors.HighlightedyankRegion.bg, bold = true })
-
-  -- Indent_blankline
-  hi('IndentBlanklineContextChar', { fg = colors.IndentBlanklineContextChar.fg })
-  hi(
-    'IndentBlanklineContextStart',
-    { fg = colors.IndentBlanklineContextStart.fg, sp = colors.IndentBlanklineContextStart.sp, underline = true }
-  )
-
-  -- CoC
-  hi('CocErrorSign', { fg = colors.CocError.fg })
-  hi('CocErrorVirtualText', { fg = colors.CocError.fg })
-  hi('CocErrorHighlight', { fg = colors.CocError.fg, underline = true })
-  hi('CocWarningSign', { fg = colors.CocWarning.fg })
-  hi('CocWarningVirtualText', { fg = colors.CocWarning.fg })
-  hi('CocWarningHighlight', { fg = colors.CocWarning.fg, underline = true })
-  hi('CocInfoSign', { fg = colors.CocInfo.fg })
-  hi('CocInfoVirtualText', { fg = colors.CocInfo.fg })
-  hi('CocInfoHighlight', { fg = colors.CocInfo.fg, underline = true })
-  hi('CocHintSign', { fg = colors.CocHint.fg })
-  hi('CocHintVirtualText', { fg = colors.CocHint.fg })
-  hi('CocHintHighlight', { fg = colors.CocHint.fg, underline = true })
-  hi('CocFadeOut', { fg = colors.CocFadeOut.fg, underline = true })
-  hi('CocHighlightText', { bg = colors.CocHighlightText.bg, underline = true })
-
-  -- Nvim-window
-  hi('NvimWindow', { fg = colors.NvimWindow.fg, bg = colors.NvimWindow.bg })
-
-  -- Vim-sandwich
-  hi('OperatorSandwichChange', { bg = colors.OperatorSandwichChange.bg, fg = colors.OperatorSandwichChange.fg })
+  for group, conf in pairs(colors) do
+    hi(group, conf)
+  end
 end
 
 return M
