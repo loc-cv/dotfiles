@@ -16,6 +16,7 @@ local options = {
   relativenumber = true, -- enable relative number lines
   signcolumn = 'yes', -- always show the signcolumn
   linebreak = true, -- prevent words from being split across two lines when line wraps
+  wrap = false, -- (don't) wrap lines
   cursorline = true, -- enable cursorline
   mouse = 'a', -- enable your mouse
   shortmess = opt.shortmess + { c = true }, -- don't give ins-completion-menu message
