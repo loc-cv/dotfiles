@@ -74,19 +74,7 @@ return packer.startup({
         require('plugins.configs.gitsigns').setup()
       end,
     })
-    use({
-      'sindrets/diffview.nvim',
-      requires = 'nvim-lua/plenary.nvim',
-      cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
-    })
-    use({
-      'TimUntersberger/neogit',
-      requires = 'nvim-lua/plenary.nvim',
-      cmd = { 'Neogit' },
-      config = function()
-        require('plugins.configs.neogit').setup()
-      end,
-    })
+    use('tpope/vim-fugitive')
 
     -- Commenting code
     use({
