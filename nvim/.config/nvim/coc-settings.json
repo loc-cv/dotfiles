@@ -58,6 +58,9 @@
   "explorer.icon.source": "nvim-web-devicons",
   "explorer.file.reveal.auto": true,
   "explorer.file.showHiddenFiles": true,
+  "explorer.file.reveal.filter": {
+    "literals": ["node_modules", ".git"]
+  },
   "explorer.file.column.indent.indentLine": true,
   "explorer.filename.colored.enable": true,
   "explorer.buffer.showHiddenBuffers": true,
