@@ -46,6 +46,9 @@ return packer.startup({
         'junegunn/fzf.vim',
       },
     })
+    use({
+      'neovim/nvim-lspconfig',
+    })
 
     -- Snippet
     use({
