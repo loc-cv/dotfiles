@@ -66,11 +66,15 @@
   "explorer.buffer.showHiddenBuffers": true,
   "explorer.previewAction.onHover": false,
   "explorer.keyMappings.global": {
-    "<C-v>": "open:vsplit.intelligent",
-    "<C-s>": "open:split.intelligent",
+    "<C-v>": "open:vsplit",
+    "<C-s>": "open:split",
     "<C-t>": "open:tab"
   },
   "explorer.focus": false,
+  // "explorer.position": "floating",
+  // "explorer.floating.height": -5,
+  // "explorer.floating.width": -20,
+  // "explorer.floating.border.title": "EXPLORER",
 
   // emmet
   "emmet.priority": 99,

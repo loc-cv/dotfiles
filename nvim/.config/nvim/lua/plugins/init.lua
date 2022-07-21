@@ -206,6 +206,12 @@ return packer.startup({
 
     -- Sessions
     use('tpope/vim-obsession')
+    use({
+      'rmagatti/auto-session',
+      config = function()
+        require('plugins.configs.session').setup()
+      end,
+    })
 
     -- Better performance for Neovim
     use('lewis6991/impatient.nvim')

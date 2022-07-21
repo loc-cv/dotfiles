@@ -5,6 +5,7 @@ local configs = {
   -- CoC
   coc = function()
     -- coc-explorer
+    -- map('n', '<C-n>', '<cmd>CocCommand explorer<cr>')
     map('n', '<C-n>', '<cmd>CocCommand explorer<cr><cmd>sleep 50ms<cr><C-w>=')
 
     -- coc-snippet
