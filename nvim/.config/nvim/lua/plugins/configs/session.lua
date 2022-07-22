@@ -1,12 +1,11 @@
 local M = {}
 
-local close_unwanted_wins = function()
+local function close_unwanted_wins()
   for _, win in ipairs(vim.api.nvim_list_wins()) do
     -- Close all floating windows before saving
     local config = vim.api.nvim_win_get_config(win)
     if config.relative ~= '' then
       vim.api.nvim_win_close(win, false)
-      goto continue
     end
 
     -- Close all special buffers before savings
@@ -16,10 +15,9 @@ local close_unwanted_wins = function()
     for _, ft in ipairs(excluded_filetypes) do
       if buf_ft == ft then
         vim.api.nvim_win_close(win, false)
-        goto continue
+        break
       end
     end
-    ::continue::
   end
 end
 
