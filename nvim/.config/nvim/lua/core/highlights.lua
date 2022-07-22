@@ -34,8 +34,10 @@ M.colors = {
   GalaxylineInactive = { bg = '#323232', fg = '#c0c0c0' },
 
   -- Statusline
-  StatusLine = { bg = '#282828', fg = '#d4d4d4' },
-  StatusLineNC = { bg = '#272727', fg = '#d4d4d4' },
+  -- StatusLine = { bg = '#282828', fg = '#d4d4d4' },
+  -- StatusLineNC = { bg = '#272727', fg = '#d4d4d4' },
+  -- StatusLine = { bg = '#adadad', fg = '#0a0a0a' },
+  -- StatusLineNC = { bg = '#323232', fg = '#c0c0c0' },
 
   -- Tabline
   TabLineFill = { bg = '#282828', fg = '#d4d4d4', bold = true },
