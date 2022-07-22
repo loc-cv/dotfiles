@@ -10,6 +10,7 @@ M.colors = {
 
   -- Search
   IncSearch = { bg = '#adadad', fg = '#0a0a0a', bold = true },
+  Searchlight = { link = 'IncSearch' },
 
   -- Floaterm
   FloatermBorder = { bg = '#1e1e1e' },

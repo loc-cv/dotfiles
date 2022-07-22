@@ -177,16 +177,6 @@ local configs = {
     map('n', '<C-p>r', [[<cmd>FzfLua live_grep_native<cr>]])
     map('n', '<C-p>h', [[<cmd>FzfLua help_tags<cr>]])
   end,
-
-  -- Nvim-hlslens
-  hlslens = function()
-    map('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]])
-    map('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]])
-    map('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]])
-    map('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]])
-    map('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]])
-    map('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]])
-  end,
 }
 
 M.init = function()
