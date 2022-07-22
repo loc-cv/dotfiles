@@ -187,11 +187,6 @@ local configs = {
     map('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]])
     map('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]])
   end,
-
-  ufo = function()
-    map('n', 'zR', require('ufo').openAllFolds)
-    map('n', 'zM', require('ufo').closeAllFolds)
-  end,
 }
 
 M.init = function()

@@ -53,16 +53,6 @@ return packer.startup({
       event = 'InsertEnter',
     })
 
-    -- Fold
-    use({
-      'kevinhwang91/nvim-ufo',
-      requires = 'kevinhwang91/promise-async',
-      event = { 'BufRead', 'BufNewFile' },
-      config = function()
-        require('plugins.configs.ufo').setup()
-      end,
-    })
-
     -- Fuzzy finder
     use({
       'ibhagwan/fzf-lua',
