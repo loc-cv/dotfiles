@@ -217,7 +217,7 @@ return packer.startup({
       event = { 'BufRead', 'BufNewFile' },
     })
 
-    -- Trailing white spaces
+    -- Trailing whitespaces
     use({
       'ntpeters/vim-better-whitespace',
       event = { 'BufRead', 'BufNewFile' },
