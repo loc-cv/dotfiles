@@ -205,7 +205,6 @@ return packer.startup({
     })
 
     -- Sessions
-    use('tpope/vim-obsession')
     use({
       'rmagatti/auto-session',
       config = function()
