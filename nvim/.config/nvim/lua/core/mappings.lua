@@ -134,11 +134,7 @@ local configs = {
   -- Nvim_window
   nvim_window = function()
     map('n', '<space>w', function()
-      local ok, nw = pcall(require, 'nvim-window')
-      if not ok then
-        return
-      end
-      nw.pick()
+      require('nvim-window').pick()
     end)
   end,
 
@@ -190,6 +186,11 @@ local configs = {
     map('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]])
     map('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]])
     map('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]])
+  end,
+
+  ufo = function()
+    map('n', 'zR', require('ufo').openAllFolds)
+    map('n', 'zM', require('ufo').closeAllFolds)
   end,
 }
 

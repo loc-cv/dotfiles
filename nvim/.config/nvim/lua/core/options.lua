@@ -16,11 +16,12 @@ local options = {
   relativenumber = true, -- enable relative number lines
   signcolumn = 'yes', -- always show the signcolumn
   linebreak = true, -- prevent words from being split across two lines when line wraps
-  wrap = false, -- (don't) wrap lines
+  wrap = true, -- (don't) wrap lines
   cursorline = true, -- enable cursorline
   mouse = 'a', -- enable your mouse
   shortmess = opt.shortmess + { c = true }, -- don't give ins-completion-menu message
-  fillchars = { eob = ' ' }, -- disable `~` on nonexistent lines
+  -- fillchars = { eob = ' ' }, -- disable `~` on nonexistent lines
+  fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
   ttimeout = false, -- fix delay <es>
   timeout = false, -- no waiting for key combination
   sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal', -- some session options that I don't understand :)
@@ -45,6 +46,12 @@ local options = {
   shiftwidth = 2, -- number of spaces to use for each step of (auto)indent
   tabstop = 2, -- number of spaces that a <Tab> counts for
   softtabstop = 2, -- number of spaces that a <Tab> counts for while performing editting eperations
+
+  -- Fold options
+  foldcolumn = '1',
+  foldlevel = 99,
+  foldlevelstart = 0,
+  foldenable = true,
 }
 
 M.init = function()

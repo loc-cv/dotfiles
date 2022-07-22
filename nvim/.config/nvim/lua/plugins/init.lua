@@ -20,6 +20,11 @@ return packer.startup({
       end,
     })
 
+    -- Better performance for Neovim
+    use('lewis6991/impatient.nvim')
+    use('nathom/filetype.nvim')
+    use('antoinemadec/FixCursorHold.nvim')
+
     -- Lsp and friends
     use({
       'neoclide/coc.nvim',
@@ -48,6 +53,16 @@ return packer.startup({
       event = 'InsertEnter',
     })
 
+    -- Fold
+    use({
+      'kevinhwang91/nvim-ufo',
+      requires = 'kevinhwang91/promise-async',
+      event = { 'BufRead', 'BufNewFile' },
+      config = function()
+        require('plugins.configs.ufo').setup()
+      end,
+    })
+
     -- Fuzzy finder
     use({
       'ibhagwan/fzf-lua',
@@ -60,6 +75,15 @@ return packer.startup({
     -- Terminal
     use({
       'voldikss/vim-floaterm',
+      cmd = {
+        'FloatermNew',
+        'FloatermPrev',
+        'FloatermNext',
+        'FloatermToggle',
+        'FloatermHide',
+        'FloatermKill',
+        'FloatermShow',
+      },
       config = function()
         require('plugins.configs.floaterm').setup()
       end,
@@ -89,6 +113,7 @@ return packer.startup({
     use({
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
+      event = { 'BufRead', 'BufNewFile' },
       config = function()
         require('plugins.configs.treesitter').setup()
       end,
@@ -170,9 +195,9 @@ return packer.startup({
     })
     use({
       'https://gitlab.com/yorickpeterse/nvim-window.git',
-      event = 'VimEnter',
+      module = 'nvim-window',
       config = function()
-        require('plugins.configs.nvim-window').setup()
+        require('plugins.configs.window').setup()
       end,
     })
 
@@ -212,16 +237,10 @@ return packer.startup({
       end,
     })
 
-    -- Better performance for Neovim
-    use('lewis6991/impatient.nvim')
-    use('nathom/filetype.nvim')
+    -- Startup time
     use({
       'dstein64/vim-startuptime',
       cmd = { 'StartupTime' },
-    })
-    use({
-      'antoinemadec/FixCursorHold.nvim',
-      event = { 'BufRead', 'BufNewFile' },
     })
 
     -- Web dev
