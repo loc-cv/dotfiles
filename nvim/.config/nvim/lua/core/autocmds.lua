@@ -22,39 +22,6 @@ local configs = {
       command = 'setlocal winblend=15',
     })
   end,
-
-  -- CoC
-  coc = function()
-    local cocGrp = vim.api.nvim_create_augroup('CoCGrp', { clear = true })
-
-    -- Setup formatexpr specified filetype(s)
-    vim.api.nvim_create_autocmd('FileType', {
-      group = cocGrp,
-      pattern = { 'typescript', 'json' },
-      command = "setl formatexpr=CocAction('formatSelected')",
-    })
-
-    -- Update signature help on jump placeholder
-    vim.api.nvim_create_autocmd('User', {
-      group = cocGrp,
-      pattern = 'CocJumpPlaceholder',
-      command = "call CocActionAsync('showSignatureHelp')",
-    })
-
-    -- Auto close coc-explorer when exit Neovim
-    -- vim.api.nvim_create_autocmd("BufEnter", {
-    --   pattern = "*",
-    --   command = "if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif",
-    -- })
-
-    -- Highlight the symbol and its references when holding the cursor
-    vim.api.nvim_create_autocmd('CursorHold', {
-      pattern = '*',
-      callback = function()
-        vim.fn.CocActionAsync('highlight')
-      end,
-    })
-  end,
 }
 
 M.init = function()

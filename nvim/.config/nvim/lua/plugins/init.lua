@@ -26,35 +26,21 @@ return packer.startup({
     use('antoinemadec/FixCursorHold.nvim')
 
     -- Lsp and friends
-    use({
-      'neoclide/coc.nvim',
-      branch = 'release',
-      config = function()
-        require('plugins.configs.coc').setup()
-      end,
-    })
-    use({
-      'antoinemadec/coc-fzf',
-      branch = 'release',
-      requires = {
-        {
-          'junegunn/fzf',
-          run = function()
-            vim.fn['fzf#install']()
-          end,
-        },
-        'junegunn/fzf.vim',
-      },
-    })
+    use('williamboman/nvim-lsp-installer')
     use({
       'neovim/nvim-lspconfig',
+      config = function()
+        require('lsp.configs').setup()
+      end,
     })
 
-    -- Snippet
     use({
-      'rafamadriz/friendly-snippets',
-      event = 'InsertEnter',
+      'hrsh7th/nvim-cmp',
     })
+    use('hrsh7th/cmp-nvim-lsp')
+    use('saadparwaiz1/cmp_luasnip')
+    use('L3MON4D3/LuaSnip')
+    use('onsails/lspkind.nvim')
 
     -- Fuzzy finder
     use({

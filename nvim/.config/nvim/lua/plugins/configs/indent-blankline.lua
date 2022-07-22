@@ -25,6 +25,8 @@ M.setup = function()
       'startuptime',
       'NeogitStatus',
       'DiffviewFiles',
+      'lsp-installer',
+      'lspinfo',
     },
     buftype_exclude = { 'terminal' },
   })
