@@ -3,7 +3,6 @@
 	name = loc-cv
 [core]
 	editor = nvim
-	pager = delta
 [init]
 	defaultBranch = main
 [push]
@@ -23,19 +22,4 @@
 	cob = checkout -b
 	br = branch
 	adog = log --all --decorate --oneline --graph
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-[diff]
-	tool = nvimdiff
-[difftool]
-	prompt = false
-[interactive]
-	diffFilter = delta --color-only
-[delta]
-	navigate = true
-	side-by-side = true
-	line-numbers = true
-[merge]
-	conflictstyle = diff3
-[diff]
-	colorMoved = default
-
+	lg = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
