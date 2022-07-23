@@ -36,10 +36,6 @@ M.setup = function()
   lspconfig.tsserver.setup({
     capabilities = capabilities,
   })
-
-  lspconfig.eslint.setup({
-    capabilities = capabilities,
-  })
 end
 
 return M

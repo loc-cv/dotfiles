@@ -4,10 +4,6 @@ local map = require('core.utils').map
 local configs = {
   -- lsp mappings
   lsp = function()
-    -- TODO
-    -- formating
-    -- outline
-
     map('n', '[d', vim.diagnostic.goto_prev)
     map('n', ']d', vim.diagnostic.goto_next)
     map('n', 'gf', vim.diagnostic.open_float)
@@ -24,9 +20,7 @@ local configs = {
     map('n', '<C-p>S', [[<cmd>FzfLua lsp_workspace_symbols<cr>]])
     map('n', '<C-p>d', [[<cmd>FzfLua diagnostics_document<cr>]])
     map('n', '<C-p>D', [[<cmd>FzfLua diagnostics_workspace<cr>]])
-    map('n', '<space>f', function()
-      vim.lsp.buf.format({ async = true })
-    end)
+    map('n', '<space>f', vim.lsp.buf.format)
   end,
 
   -- fzf-lua

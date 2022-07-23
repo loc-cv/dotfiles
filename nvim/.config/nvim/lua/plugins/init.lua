@@ -35,6 +35,13 @@ return packer.startup({
       end,
     })
     use({
+      'jose-elias-alvarez/null-ls.nvim',
+      requires = 'nvim-lua/plenary.nvim',
+      config = function()
+        require('lsp.null-ls').setup()
+      end,
+    })
+    use({
       'j-hui/fidget.nvim',
       config = function()
         require('lsp.fidget').setup()
@@ -109,7 +116,6 @@ return packer.startup({
     use({
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
-      event = { 'BufRead', 'BufNewFile' },
       config = function()
         require('plugins.configs.treesitter').setup()
       end,
@@ -122,7 +128,6 @@ return packer.startup({
     -- Set the comment string based on the cursor location in a file
     use({
       'JoosepAlviste/nvim-ts-context-commentstring',
-      requires = 'nvim-treesitter/nvim-treesitter',
       after = 'nvim-treesitter',
       event = { 'BufRead', 'BufNewFile' },
       config = function()
@@ -133,7 +138,6 @@ return packer.startup({
     -- Use treesitter to auto close and auto rename HTML tags
     use({
       'windwp/nvim-ts-autotag',
-      requires = 'nvim-treesitter/nvim-treesitter',
       after = 'nvim-treesitter',
       event = { 'BufRead', 'BufNewFile' },
       config = function()
@@ -144,12 +148,11 @@ return packer.startup({
     -- Syntax aware text-objects
     use({
       'nvim-treesitter/nvim-treesitter-textobjects',
-      requires = 'nvim-treesitter/nvim-treesitter',
       after = 'nvim-treesitter',
       event = { 'BufRead', 'BufNewFile' },
       config = function()
         require('plugins.configs.miscs').setup_textobjects()
-      end
+      end,
     })
 
     -- Autopairs

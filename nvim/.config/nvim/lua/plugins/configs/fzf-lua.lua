@@ -163,6 +163,9 @@ M.setup = function()
 
     lsp = {
       prompt_postfix = '❯ ', -- will be appended to the LSP label, to override use 'prompt' instead
+
+      -- make lsp requests synchronous so they work with null-ls
+      async_or_timeout = 3000,
     },
 
     diagnostics = {
