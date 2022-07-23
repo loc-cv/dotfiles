@@ -12,6 +12,7 @@ M.setup = function()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
+  -- Lsp configs
   lspconfig.sumneko_lua.setup({
     capabilities = capabilities,
     settings = {
@@ -32,8 +33,13 @@ M.setup = function()
     },
   })
 
-  lspconfig.tsserver.setup({})
-  lspconfig.eslint.setup({})
+  lspconfig.tsserver.setup({
+    capabilities = capabilities,
+  })
+
+  lspconfig.eslint.setup({
+    capabilities = capabilities,
+  })
 end
 
 return M

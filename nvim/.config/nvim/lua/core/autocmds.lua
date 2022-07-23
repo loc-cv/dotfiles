@@ -1,7 +1,7 @@
 local M = {}
 
 local configs = {
-  -- Packer
+  -- packer.nvim
   packer = function()
     -- Auto compile/clean/install plugins with packer-nvim
     vim.api.nvim_create_autocmd('BufWritePost', {
@@ -14,7 +14,7 @@ local configs = {
     })
   end,
 
-  -- Floaterm
+  -- vim-floaterm
   floaterm = function()
     -- Make floaterm window transparent
     vim.api.nvim_create_autocmd('FileType', {

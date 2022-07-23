@@ -91,6 +91,7 @@ M.setup = function()
     'startuptime',
     'fugitive',
     'DiffviewFiles',
+    'Trouble',
   }
 
   local function has_value(tab, val)

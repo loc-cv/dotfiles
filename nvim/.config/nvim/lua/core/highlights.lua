@@ -2,6 +2,9 @@ local M = {}
 local hi = require('core.utils').hi
 
 M.colors = {
+  -- LspSignatureActiveParameter
+  LspSignatureActiveParameter = { underline = true, bold = true },
+
   -- Cursorline
   CursorLine = { bg = '#282828' },
 
@@ -10,29 +13,12 @@ M.colors = {
 
   -- Search
   IncSearch = { bg = '#adadad', fg = '#0a0a0a', bold = true },
-  Searchlight = { link = 'IncSearch' },
-
-  -- Floaterm
-  FloatermBorder = { bg = '#1e1e1e' },
+  Searchlight = { link = 'IncSearch' }, -- vim-searchlight
 
   -- Git
   DiffAdd = { fg = '#458700', bg = 'NONE' },
   DiffChange = { fg = '#007c9f', bg = 'NONE' },
   DiffDelete = { fg = '#db4b4b', bg = 'NONE' },
-
-  -- Yank region
-  HighlightedyankRegion = { bg = '#4f4f4f', bold = true },
-
-  -- Indent_blankline
-  IndentBlanklineContextChar = { fg = '#d4d4d4' },
-  IndentBlanklineContextStart = { fg = 'NONE', sp = '#d4d4d4', underline = true },
-
-  -- Trailing whitespaces
-  ExtraWhitespace = { bg = '#808080' },
-
-  -- Galaxyline
-  GalaxylineActive = { bg = '#adadad', fg = '#0a0a0a' },
-  GalaxylineInactive = { bg = '#323232', fg = '#c0c0c0' },
 
   -- Statusline
   -- StatusLine = { bg = '#282828', fg = '#d4d4d4' },
@@ -45,7 +31,24 @@ M.colors = {
   TabLineSel = { bg = '#adadad', fg = '#0a0a0a', bold = true },
   TabLine = { bg = '#323232', fg = '#c0c0c0', bold = true },
 
-  -- Nvim_window
+  -- vim-floaterm
+  FloatermBorder = { bg = '#1e1e1e' },
+
+  -- vim-highlightedyank
+  HighlightedyankRegion = { bg = '#4f4f4f', bold = true },
+
+  -- indent-blankline.nvim
+  IndentBlanklineContextChar = { fg = '#d4d4d4' },
+  IndentBlanklineContextStart = { fg = 'NONE', sp = '#d4d4d4', underline = true },
+
+  -- vim-better-whitespace
+  ExtraWhitespace = { bg = '#808080' },
+
+  -- galaxyline.nvim
+  GalaxylineActive = { bg = '#adadad', fg = '#0a0a0a' },
+  GalaxylineInactive = { bg = '#323232', fg = '#c0c0c0' },
+
+  -- nvim-window
   NvimWindow = { bg = '#d4d4d4', fg = '#0a0a0a' },
 }
 

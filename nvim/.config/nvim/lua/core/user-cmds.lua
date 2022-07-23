@@ -1,7 +1,7 @@
 local M = {}
 
 local configs = {
-  -- Packer
+  -- packer.nvim
   packer = function()
     local ok, packer = pcall(require, 'packer')
     if not ok then

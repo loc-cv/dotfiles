@@ -33,6 +33,12 @@ return packer.startup({
         require('lsp.lspconfig').setup()
       end,
     })
+    use({
+      'j-hui/fidget.nvim',
+      config = function()
+        require('lsp.fidget').setup()
+      end,
+    })
 
     -- Completion
     use({

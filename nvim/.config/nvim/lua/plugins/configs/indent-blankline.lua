@@ -27,6 +27,7 @@ M.setup = function()
       'DiffviewFiles',
       'lsp-installer',
       'lspinfo',
+      'Trouble',
     },
     buftype_exclude = { 'terminal' },
   })
