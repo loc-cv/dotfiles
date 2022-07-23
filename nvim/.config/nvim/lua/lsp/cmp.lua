@@ -7,10 +7,65 @@ M.setup = function()
     return
   end
 
+  local mapping = cmp.mapping
+
+  local kind_icons = {
+    Text = '  ',
+    Method = '  ',
+    Function = '  ',
+    Constructor = '  ',
+    Field = '  ',
+    Variable = '  ',
+    Class = '  ',
+    Interface = '  ',
+    Module = '  ',
+    Property = '  ',
+    Unit = '  ',
+    Value = '  ',
+    Enum = '  ',
+    Keyword = '  ',
+    Snippet = '  ',
+    Color = '  ',
+    File = '  ',
+    Reference = '  ',
+    Folder = '  ',
+    EnumMember = '  ',
+    Constant = '  ',
+    Struct = '  ',
+    Event = '  ',
+    Operator = '  ',
+    TypeParameter = '  ',
+  }
+
   cmp.setup({
     window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
+      documentation = {
+        winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:Visual,Search:None',
+        border = 'single',
+      },
+      completion = {
+        winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:Visual,Search:None',
+        border = 'single',
+      },
+    },
+
+    formatting = {
+      fields = { 'kind', 'abbr', 'menu' },
+      format = function(entry, vim_item)
+        -- Kind icons
+        vim_item.kind = string.format('%s%s ', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+
+        -- Source
+        vim_item.menu = ({
+          buffer = '[Buffer]',
+          path = '[Path]',
+          nvim_lsp = '[LSP]',
+          luasnip = '[LuaSnip]',
+          nvim_lua = '[Lua]',
+        })[entry.source.name]
+
+        return vim_item
+      end,
     },
 
     snippet = {
@@ -20,24 +75,14 @@ M.setup = function()
     },
 
     mapping = {
-      ['<C-k>'] = cmp.mapping.select_prev_item(),
-      ['<C-j>'] = cmp.mapping.select_next_item(),
-      ['<C-y>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-e>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-q>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          local entry = cmp.get_selected_entry()
-          if not entry then
-            cmp.select_next_item()
-          end
-          cmp.confirm()
-        else
-          fallback()
-        end
-      end, { 'i', 's' }),
-      ['<Tab>'] = cmp.mapping(function(fallback)
+      ['<C-k>'] = mapping.select_prev_item(),
+      ['<C-j>'] = mapping.select_next_item(),
+      ['<C-y>'] = mapping.scroll_docs(-1),
+      ['<C-e>'] = mapping.scroll_docs(1),
+      ['<C-Space>'] = mapping.complete(),
+      ['<C-q>'] = mapping.close(),
+      ['<CR>'] = mapping.confirm({ select = true }),
+      ['<Tab>'] = mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
         elseif luasnip.expand_or_jumpable() then
@@ -46,7 +91,7 @@ M.setup = function()
           fallback()
         end
       end, { 'i', 's' }),
-      ['<S-Tab>'] = cmp.mapping(function(fallback)
+      ['<S-Tab>'] = mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
         elseif luasnip.jumpable(-1) then
