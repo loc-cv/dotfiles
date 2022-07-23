@@ -2,7 +2,7 @@ local M = {}
 local map = require('core.utils').map
 
 local configs = {
-  -- lsp mappings
+  -- Lsp related mappings
   lsp = function()
     map('n', '[d', vim.diagnostic.goto_prev)
     map('n', ']d', vim.diagnostic.goto_next)
