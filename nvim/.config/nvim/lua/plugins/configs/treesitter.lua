@@ -1,12 +1,12 @@
 local M = {}
 
 M.setup = function()
-  local ok, ts_config = pcall(require, 'nvim-treesitter.configs')
+  local ok, treesitter = pcall(require, 'nvim-treesitter.configs')
   if not ok then
     return
   end
 
-  ts_config.setup({
+  treesitter.setup({
     ensure_installed = {
       'lua',
       'html',

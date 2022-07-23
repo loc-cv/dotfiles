@@ -1,12 +1,12 @@
 local M = {}
 
-M.setup_context_commentstring = function()
-  local ok, ts_config = pcall(require, 'nvim-treesitter.configs')
-  if not ok then
-    return
-  end
+local ok, treesitter = pcall(require, 'nvim-treesitter.configs')
+if not ok then
+  return
+end
 
-  ts_config.setup({
+M.setup_context_commentstring = function()
+  treesitter.setup({
     context_commentstring = {
       enable = true,
       enable_autocmd = false,
@@ -15,14 +15,29 @@ M.setup_context_commentstring = function()
 end
 
 M.setup_autotag = function()
-  local ok, ts_config = pcall(require, 'nvim-treesitter.configs')
-  if not ok then
-    return
-  end
-
-  ts_config.setup({
+  treesitter.setup({
     autotag = {
       enable = true,
+    },
+  })
+end
+
+M.setup_textobjects = function()
+  treesitter.setup({
+    textobjects = {
+      select = {
+        enable = true,
+
+        -- Automatically jump forward to textobj, similar to targets.vim
+        lookahead = true,
+
+        keymaps = {
+          ['af'] = '@function.outer',
+          ['if'] = '@function.inner',
+          ['ac'] = '@class.outer',
+          ['ic'] = '@class.inner',
+        },
+      },
     },
   })
 end

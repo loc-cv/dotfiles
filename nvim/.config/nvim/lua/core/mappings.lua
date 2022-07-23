@@ -6,7 +6,6 @@ local configs = {
   lsp = function()
     -- TODO
     -- formating
-    -- text object
     -- outline
 
     map('n', '[d', vim.diagnostic.goto_prev)
@@ -25,6 +24,9 @@ local configs = {
     map('n', '<C-p>S', [[<cmd>FzfLua lsp_workspace_symbols<cr>]])
     map('n', '<C-p>d', [[<cmd>FzfLua diagnostics_document<cr>]])
     map('n', '<C-p>D', [[<cmd>FzfLua diagnostics_workspace<cr>]])
+    map('n', '<space>f', function()
+      vim.lsp.buf.format({ async = true })
+    end)
   end,
 
   -- fzf-lua

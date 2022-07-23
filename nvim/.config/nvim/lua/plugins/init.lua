@@ -29,6 +29,7 @@ return packer.startup({
     use('williamboman/nvim-lsp-installer')
     use({
       'neovim/nvim-lspconfig',
+      after = 'nvim-lsp-installer',
       config = function()
         require('lsp.lspconfig').setup()
       end,
@@ -138,6 +139,17 @@ return packer.startup({
       config = function()
         require('plugins.configs.miscs').setup_autotag()
       end,
+    })
+
+    -- Syntax aware text-objects
+    use({
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      requires = 'nvim-treesitter/nvim-treesitter',
+      after = 'nvim-treesitter',
+      event = { 'BufRead', 'BufNewFile' },
+      config = function()
+        require('plugins.configs.miscs').setup_textobjects()
+      end
     })
 
     -- Autopairs
