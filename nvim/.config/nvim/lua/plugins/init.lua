@@ -30,13 +30,11 @@ return packer.startup({
     use({
       'neovim/nvim-lspconfig',
       config = function()
-        require('lsp.configs').setup()
+        require('lsp.lspconfig').setup()
       end,
     })
 
-    use({ 'rafamadriz/friendly-snippets' })
-    use({ 'L3MON4D3/LuaSnip' })
-
+    -- Completion
     use({
       'hrsh7th/nvim-cmp',
       config = function()
@@ -50,7 +48,9 @@ return packer.startup({
     use('hrsh7th/cmp-buffer')
     use('hrsh7th/cmp-path')
 
-    use('onsails/lspkind.nvim')
+    -- Snippets
+    use({ 'rafamadriz/friendly-snippets' })
+    use({ 'L3MON4D3/LuaSnip' })
 
     -- Fuzzy finder
     use({
