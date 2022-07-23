@@ -2,7 +2,11 @@ local M = {}
 local hi = require('core.utils').hi
 
 M.colors = {
-  -- LspSignatureActiveParameter
+  -- Lsp related highlights
+  DiagnosticUnderlineHint = { underline = true },
+  DiagnosticUnderlineWarn = { underline = true },
+  DiagnosticUnderlineInfo = { underline = true },
+  DiagnosticUnderlineError = { underline = true },
   LspSignatureActiveParameter = { underline = true, bold = true },
 
   -- Cursorline
