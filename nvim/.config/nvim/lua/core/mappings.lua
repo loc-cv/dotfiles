@@ -71,6 +71,18 @@ local configs = {
     map('n', '<C-p>b', [[<cmd>FzfLua buffers<cr>]])
     map('n', '<C-p>r', [[<cmd>FzfLua live_grep_native<cr>]])
     map('n', '<C-p>h', [[<cmd>FzfLua help_tags<cr>]])
+
+    -- Lsp related
+    map('n', 'gr', [[<cmd>FzfLua lsp_references<cr>]])
+    map('n', 'gd', [[<cmd>FzfLua lsp_definitions<cr>]])
+    map('n', 'gD', [[<cmd>FzfLua lsp_declarations<cr>]])
+    map('n', 'gy', [[<cmd>FzfLua lsp_typedefs<cr>]])
+    map('n', 'gi', [[<cmd>FzfLua lsp_implementations<cr>]])
+    map('n', 'ga', [[<cmd>FzfLua lsp_code_actions<cr>]])
+    map('n', '<C-p>o', [[<cmd>FzfLua lsp_document_symbols<cr>]])
+    map('n', '<C-p>O', [[<cmd>FzfLua lsp_workspace_symbols<cr>]])
+    map('n', '<C-p>d', [[<cmd>FzfLua diagnostics_document<cr>]])
+    map('n', '<C-p>D', [[<cmd>FzfLua diagnostics_workspace<cr>]])
   end,
 }
 
