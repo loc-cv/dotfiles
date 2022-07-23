@@ -92,6 +92,8 @@ M.setup = function()
     'fugitive',
     'DiffviewFiles',
     'Trouble',
+    'neotree',
+    'neo-tree-popup',
   }
 
   local function has_value(tab, val)
@@ -316,7 +318,6 @@ M.setup = function()
       provider = function()
         return get_element_for_special_ft(buffer.get_buffer_filetype())
       end,
-      condition = is_buffer_not_empty,
       highlight = { gl_inactive.fg, gl_inactive.bg, 'bold' },
     },
   }

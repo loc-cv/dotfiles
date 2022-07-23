@@ -28,6 +28,8 @@ M.setup = function()
       'lsp-installer',
       'lspinfo',
       'Trouble',
+      'neo-tree',
+      'neo-tree-popup',
     },
     buftype_exclude = { 'terminal' },
   })

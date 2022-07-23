@@ -75,6 +75,19 @@ return packer.startup({
       end,
     })
 
+    -- Explorer
+    use({
+      'nvim-neo-tree/neo-tree.nvim',
+      branch = 'v2.x',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'MunifTanjim/nui.nvim',
+      },
+      config = function()
+        -- local j
+      end,
+    })
+
     -- Terminal
     use({
       'voldikss/vim-floaterm',
