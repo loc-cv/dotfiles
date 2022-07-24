@@ -87,6 +87,7 @@ M.setup = function()
     -- Provider setups
     files = {
       prompt = 'Files❯ ',
+      fd_opts = '--color=never --type f --hidden --follow --exclude .git --exclude node_modules',
     },
 
     helptags = {
