@@ -20,7 +20,7 @@ local options = {
   cursorline = true, -- enable cursorline
   mouse = 'a', -- enable your mouse
   shortmess = opt.shortmess + { c = true }, -- don't give ins-completion-menu message
-  fillchars = { eob = ' ', stl = ' ' }, -- disable `~` on nonexistent lines
+  fillchars = { eob = ' ' }, -- disable `~` on nonexistent lines
   ttimeout = false, -- fix delay <es>
   timeout = false, -- no waiting for key combination
   sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal', -- some session options that I don't understand :)
