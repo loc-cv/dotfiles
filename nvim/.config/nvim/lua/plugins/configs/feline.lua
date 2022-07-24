@@ -62,36 +62,29 @@ M.setup = function()
 
     file_name = function()
       local filename = vim.api.nvim_buf_get_name(0)
-      if filename == '' then
-        return ' Untitled'
-      end
 
-      local filename_full = vim.fn.fnamemodify(filename, ':~:.')
-      local filename_short = vim.fn.pathshorten(vim.fn.fnamemodify(filename, ':~:.'))
-      local filename_base = vim.fn.fnamemodify(filename, ':t')
-
-      local squeeze_width = vim.fn.winwidth(0) / 2
-      if squeeze_width > 60 then
-        filename = filename_full
-      elseif squeeze_width > 40 then
-        filename = filename_short
+      if filename ~= '' then
+        local squeeze_width = vim.fn.winwidth(0) / 2
+        if squeeze_width > 60 then
+          filename = vim.fn.fnamemodify(filename, ':~:.')
+        elseif squeeze_width > 40 then
+          filename = vim.fn.pathshorten(vim.fn.fnamemodify(filename, ':~:.'))
+        else
+          filename = vim.fn.fnamemodify(filename, ':t')
+        end
       else
-        filename = filename_base
+        filename = ' Untitled'
       end
 
       if vim.bo.readonly == true then
-        return filename .. ' '
+        filename = filename .. ' '
+      elseif vim.bo.modified then
+        filename = filename .. '  '
       end
 
-      if vim.bo.modifiable then
-        if vim.bo.modified then
-          local trail = vim.fn.search('\\s$', 'nw')
-          if trail ~= 0 then
-            return filename .. '    '
-          else
-            return filename .. '  '
-          end
-        end
+      local trail = vim.fn.search('\\s$', 'nw')
+      if trail ~= 0 then
+        filename = filename .. '  '
       end
 
       return filename
@@ -154,7 +147,7 @@ M.setup = function()
     },
     file_name = {
       provider = providers.file_name,
-      update = { 'VimResized' },
+      -- update = { 'VimResized' },
       enabled = conditions.normal_filetypes,
     },
     diagnostic_errors = {

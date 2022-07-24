@@ -25,8 +25,8 @@ M.colors = {
   DiffDelete = { fg = '#db4b4b', bg = 'NONE' },
 
   -- Statusline
-  StatusLine = { bg = '#282828', fg = '#d4d4d4' },
-  StatusLineNC = { bg = '#282828', fg = '#d4d4d4' },
+  StatusLine = { bg = '#1e1e1e', fg = '#d4d4d4' },
+  StatusLineNC = { bg = '#1e1e1e', fg = '#d4d4d4' },
 
   -- Tabline
   TabLineFill = { bg = '#282828', fg = '#d4d4d4', bold = true },
