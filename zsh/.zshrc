@@ -30,6 +30,9 @@ fi
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# Turn off annoying beep sound
+unsetopt BEEP
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -46,6 +49,3 @@ export PATH=$PATH:/home/colcv/.local/bin
 # pnpm
 export PNPM_HOME="/home/colcv/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-
-# nnn
-# export PATH=$PATH:$HOME/nnn
