@@ -52,6 +52,7 @@ return packer.startup({
         require('lsp.fidget').setup()
       end,
     })
+    use('RRethy/vim-illuminate')
 
     -- Completion
     use({
