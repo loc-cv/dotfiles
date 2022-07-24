@@ -12,9 +12,10 @@ M.setup = function()
     update_in_insert = true,
   })
 
-  -- Add additional capabilities supported by nvim-cmp
+  -- capabilities
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
 
   -- Lsp configs
   lspconfig.sumneko_lua.setup({
@@ -37,9 +38,14 @@ M.setup = function()
     },
   })
 
-  lspconfig.tsserver.setup({
+  lspconfig.emmet_ls.setup({
     capabilities = capabilities,
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact' },
   })
+
+  lspconfig.tsserver.setup({ capabilities = capabilities })
+  lspconfig.html.setup({ capabilities = capabilities })
+  lspconfig.cssls.setup({ capabilities = capabilities })
 end
 
 return M
