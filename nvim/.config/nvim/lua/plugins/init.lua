@@ -75,14 +75,6 @@ return packer.startup({
       end,
     })
 
-    -- Explorer
-    use({
-      'luukvbaal/nnn.nvim',
-      config = function()
-        require('nnn').setup()
-      end,
-    })
-
     -- Terminal
     use({
       'voldikss/vim-floaterm',
