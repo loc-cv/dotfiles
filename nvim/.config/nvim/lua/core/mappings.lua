@@ -96,8 +96,7 @@ local configs = {
 
   -- neo-tree.nvim
   neotree = function()
-    map('n', '<space>to', [[<cmd>Neotree show<cr>]])
-    map('n', '<space>tq', [[<cmd>Neotree close<cr>]])
+    map('n', '<space>t', [[<cmd>Neotree toggle show<cr>]])
   end,
 }
 

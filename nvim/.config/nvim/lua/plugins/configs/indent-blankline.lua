@@ -30,6 +30,7 @@ M.setup = function()
       'Trouble',
       'neo-tree',
       'neo-tree-popup',
+      'NvimTree',
     },
     buftype_exclude = { 'terminal' },
   })

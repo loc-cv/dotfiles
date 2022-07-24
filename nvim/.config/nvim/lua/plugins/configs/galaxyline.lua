@@ -92,7 +92,7 @@ M.setup = function()
     'fugitive',
     'DiffviewFiles',
     'Trouble',
-    'neotree',
+    'neo-tree',
     'neo-tree-popup',
   }
 

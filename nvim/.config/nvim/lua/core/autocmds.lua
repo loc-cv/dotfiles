@@ -44,7 +44,7 @@ M.init = function()
     group = cursorlineAuGrp,
     pattern = '*',
     callback = function()
-      local excluded_filetypes = { 'coc-explorer', 'DiffviewFiles' }
+      local excluded_filetypes = { 'coc-explorer', 'DiffviewFiles', 'NvimTree', 'neo-tree' }
       for _, ft in ipairs(excluded_filetypes) do
         if vim.bo.filetype == ft then
           return

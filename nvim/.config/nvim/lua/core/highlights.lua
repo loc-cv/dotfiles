@@ -10,7 +10,7 @@ M.colors = {
   LspSignatureActiveParameter = { underline = true, bold = true },
 
   -- Cursorline
-  CursorLine = { bg = '#282828' },
+  CursorLine = { bg = '#323232' },
 
   -- FloatBorder
   FloatBorder = { bg = 'NONE' },
@@ -27,8 +27,8 @@ M.colors = {
   -- Statusline
   -- StatusLine = { bg = '#282828', fg = '#d4d4d4' },
   -- StatusLineNC = { bg = '#272727', fg = '#d4d4d4' },
-  -- StatusLine = { bg = '#adadad', fg = '#0a0a0a' },
   -- StatusLineNC = { bg = '#323232', fg = '#c0c0c0' },
+  -- StatusLine = { bg = '#adadad', fg = '#0a0a0a' },
 
   -- Tabline
   TabLineFill = { bg = '#282828', fg = '#d4d4d4', bold = true },

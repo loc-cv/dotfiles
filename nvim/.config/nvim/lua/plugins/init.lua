@@ -84,7 +84,7 @@ return packer.startup({
         'MunifTanjim/nui.nvim',
       },
       config = function()
-        -- local j
+        require('plugins.configs.neotree').setup()
       end,
     })
 
@@ -257,12 +257,12 @@ return packer.startup({
     })
 
     -- Sessions
-    use({
-      'rmagatti/auto-session',
-      config = function()
-        require('plugins.configs.session').setup()
-      end,
-    })
+    -- use({
+    --   'rmagatti/auto-session',
+    --   -- config = function()
+    --   --   require('plugins.configs.session').setup()
+    --   -- end,
+    -- })
 
     -- Startup time
     use({
