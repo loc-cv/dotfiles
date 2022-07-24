@@ -10,7 +10,7 @@ M.colors = {
   LspSignatureActiveParameter = { underline = true, bold = true },
 
   -- Cursorline
-  CursorLine = { bg = '#323232' },
+  CursorLine = { bg = '#282828' },
 
   -- FloatBorder
   FloatBorder = { bg = 'NONE' },

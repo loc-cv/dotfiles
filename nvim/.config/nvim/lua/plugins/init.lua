@@ -26,10 +26,15 @@ return packer.startup({
     use('antoinemadec/FixCursorHold.nvim')
 
     -- Lsp and friends
-    use('williamboman/nvim-lsp-installer')
+    use({
+      'williamboman/mason.nvim',
+      config = function()
+        require('lsp.mason').setup()
+      end,
+    })
+    use('williamboman/mason-lspconfig.nvim')
     use({
       'neovim/nvim-lspconfig',
-      after = 'nvim-lsp-installer',
       config = function()
         require('lsp.lspconfig').setup()
       end,
@@ -117,7 +122,7 @@ return packer.startup({
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
       config = function()
-        require('plugins.configs.treesitter').setup()
+        require('plugins.configs.treesitter').setup_ts()
       end,
     })
     use({
@@ -131,7 +136,7 @@ return packer.startup({
       after = 'nvim-treesitter',
       event = { 'BufRead', 'BufNewFile' },
       config = function()
-        require('plugins.configs.miscs').setup_context_commentstring()
+        require('plugins.configs.treesitter').setup_context_commentstring()
       end,
     })
 
@@ -141,7 +146,7 @@ return packer.startup({
       after = 'nvim-treesitter',
       event = { 'BufRead', 'BufNewFile' },
       config = function()
-        require('plugins.configs.miscs').setup_autotag()
+        require('plugins.configs.treesitter').setup_autotag()
       end,
     })
 
@@ -151,7 +156,7 @@ return packer.startup({
       after = 'nvim-treesitter',
       event = { 'BufRead', 'BufNewFile' },
       config = function()
-        require('plugins.configs.miscs').setup_textobjects()
+        require('plugins.configs.treesitter').setup_textobjects()
       end,
     })
 
@@ -263,6 +268,13 @@ return packer.startup({
       cmd = { 'PickColor', 'PickColorInsert' },
       config = function()
         require('plugins.configs.color-picker').setup()
+      end,
+    })
+    use({
+      'rrethy/vim-hexokinase',
+      run = 'make hexokinase',
+      config = function()
+        require('plugins.configs.hexokinase').setup()
       end,
     })
   end,

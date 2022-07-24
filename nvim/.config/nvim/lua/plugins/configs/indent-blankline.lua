@@ -31,6 +31,7 @@ M.setup = function()
       'neo-tree',
       'neo-tree-popup',
       'NvimTree',
+      'mason.nvim',
     },
     buftype_exclude = { 'terminal' },
   })

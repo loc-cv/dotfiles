@@ -1,8 +1,6 @@
 local M = {}
 
 M.setup = function()
-  require('lsp.lsp-installer').setup()
-
   local ok, lspconfig = pcall(require, 'lspconfig')
   if not ok then
     return
