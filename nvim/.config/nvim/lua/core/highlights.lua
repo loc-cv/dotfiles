@@ -25,10 +25,8 @@ M.colors = {
   DiffDelete = { fg = '#db4b4b', bg = 'NONE' },
 
   -- Statusline
-  -- StatusLine = { bg = '#282828', fg = '#d4d4d4' },
-  -- StatusLineNC = { bg = '#272727', fg = '#d4d4d4' },
-  -- StatusLineNC = { bg = '#323232', fg = '#c0c0c0' },
-  -- StatusLine = { bg = '#adadad', fg = '#0a0a0a' },
+  StatusLine = { bg = '#282828', fg = '#d4d4d4' },
+  StatusLineNC = { bg = '#282828', fg = '#d4d4d4' },
 
   -- Tabline
   TabLineFill = { bg = '#282828', fg = '#d4d4d4', bold = true },
@@ -47,10 +45,6 @@ M.colors = {
 
   -- vim-better-whitespace
   ExtraWhitespace = { bg = '#808080' },
-
-  -- galaxyline.nvim
-  GalaxylineActive = { bg = '#adadad', fg = '#0a0a0a' },
-  GalaxylineInactive = { bg = '#323232', fg = '#c0c0c0' },
 
   -- nvim-window
   NvimWindow = { bg = '#d4d4d4', fg = '#0a0a0a' },
