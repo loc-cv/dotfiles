@@ -25,6 +25,7 @@ M.setup = function()
         wrap = 'nowrap', -- wrap|nowrap
         vertical = 'up:55%', -- up|down:size
         horizontal = 'right:55%', -- right|left:size
+        layout = 'vertical', -- horizontal|vertical|flex
         delay = 0, -- delay(ms) displaying the preview, prevents lag on fast scrolling
         scrollbar = 'float', -- float: in-window floating border
 
@@ -86,6 +87,7 @@ M.setup = function()
     -- Provider setups
     files = {
       prompt = 'Files❯ ',
+      fd_opts = '--color=never --type f --hidden --follow --exclude .git --exclude node_modules',
     },
 
     helptags = {
@@ -162,6 +164,9 @@ M.setup = function()
 
     lsp = {
       prompt_postfix = '❯ ', -- will be appended to the LSP label, to override use 'prompt' instead
+
+      -- make lsp requests synchronous so they work with null-ls
+      async_or_timeout = 3000,
     },
 
     diagnostics = {

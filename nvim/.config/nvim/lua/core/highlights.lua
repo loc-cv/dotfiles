@@ -12,40 +12,38 @@ M.colors = {
   IncSearch = { bg = '#adadad', fg = '#0a0a0a', bold = true },
   Searchlight = { link = 'IncSearch' },
 
-  -- Floaterm
-  FloatermBorder = { bg = '#1e1e1e' },
-
   -- Git
   DiffAdd = { fg = '#458700', bg = 'NONE' },
   DiffChange = { fg = '#007c9f', bg = 'NONE' },
   DiffDelete = { fg = '#db4b4b', bg = 'NONE' },
-
-  -- Yank region
-  HighlightedyankRegion = { bg = '#4f4f4f', bold = true },
-
-  -- Indent_blankline
-  IndentBlanklineContextChar = { fg = '#d4d4d4' },
-  IndentBlanklineContextStart = { fg = 'NONE', sp = '#d4d4d4', underline = true },
-
-  -- Trailing whitespaces
-  ExtraWhitespace = { bg = '#808080' },
-
-  -- Galaxyline
-  GalaxylineActive = { bg = '#adadad', fg = '#0a0a0a' },
-  GalaxylineInactive = { bg = '#323232', fg = '#c0c0c0' },
-
-  -- Statusline
-  -- StatusLine = { bg = '#282828', fg = '#d4d4d4' },
-  -- StatusLineNC = { bg = '#272727', fg = '#d4d4d4' },
-  -- StatusLine = { bg = '#adadad', fg = '#0a0a0a' },
-  -- StatusLineNC = { bg = '#323232', fg = '#c0c0c0' },
 
   -- Tabline
   TabLineFill = { bg = '#282828', fg = '#d4d4d4', bold = true },
   TabLineSel = { bg = '#adadad', fg = '#0a0a0a', bold = true },
   TabLine = { bg = '#323232', fg = '#c0c0c0', bold = true },
 
-  -- CoC
+  -- Statusline
+  -- StatusLine = { bg = '#1e1e1e', fg = '#d4d4d4' },
+  -- StatusLineNC = { bg = '#1e1e1e', fg = '#d4d4d4' },
+
+  -- galaxyline.nvim
+  GalaxylineActive = { bg = '#adadad', fg = '#0a0a0a' },
+  GalaxylineInactive = { bg = '#323232', fg = '#c0c0c0' },
+
+  -- vim-floaterm
+  FloatermBorder = { bg = '#1e1e1e' },
+
+  -- vim-highlightedyank
+  HighlightedyankRegion = { bg = '#4f4f4f', bold = true },
+
+  -- indent-blankline.nvim
+  IndentBlanklineContextChar = { fg = '#d4d4d4' },
+  IndentBlanklineContextStart = { fg = 'NONE', sp = '#d4d4d4', underline = true },
+
+  -- vim-better-whitespace
+  ExtraWhitespace = { bg = '#808080' },
+
+  -- coc.nvim
   CocErrorSign = { fg = '#db4b4b' },
   CocErrorVirtualText = { fg = '#db4b4b' },
   CocErrorHighlight = { fg = '#db4b4b', underline = true },
@@ -65,11 +63,8 @@ M.colors = {
   CocFadeOut = { fg = '#808080', underline = true },
   CocHighlightText = { bg = '#282828', underline = true },
 
-  -- Nvim_window
+  -- nvim-window
   NvimWindow = { bg = '#d4d4d4', fg = '#0a0a0a' },
-
-  -- Vim-sandwich
-  OperatorSandwichChange = { bg = '#d4d4d4', fg = '#1e1e1e' },
 }
 
 local colors = M.colors

@@ -25,6 +25,13 @@ M.setup = function()
       'startuptime',
       'NeogitStatus',
       'DiffviewFiles',
+      'lsp-installer',
+      'lspinfo',
+      'Trouble',
+      'neo-tree',
+      'neo-tree-popup',
+      'NvimTree',
+      'mason.nvim',
     },
     buftype_exclude = { 'terminal' },
   })

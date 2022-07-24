@@ -18,7 +18,6 @@ M.setup = function()
     'coc-explorer',
     'coc-sumneko-lua',
     'coc-stylua',
-    'coc-highlight',
     '@yaegassy/coc-tailwindcss3',
   }
 end

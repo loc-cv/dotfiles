@@ -66,7 +66,7 @@ local configs = {
     map('n', 'gA', '<Plug>(coc-codeaction)')
 
     -- Apply autofix to problem on the current line
-    map('n', 'gI', '<Plug>(coc-fix-current)')
+    map('n', 'gF', '<Plug>(coc-fix-current)')
 
     -- Run the Code Lens action on the current line
     map('n', 'gl', '<Plug>(coc-codelens-action)')
@@ -107,7 +107,7 @@ local configs = {
     map('n', '<space>cp', '<cmd>CocFzfListResume<cr>')
   end,
 
-  -- Floaterm
+  -- vim-floaterm
   floaterm = function()
     map('n', '<C-q>c', [[<cmd>FloatermNew<cr>]])
     map('t', '<C-q>c', [[<C-\><C-n><cmd>FloatermNew<cr>]])
@@ -131,14 +131,14 @@ local configs = {
     )
   end,
 
-  -- Nvim_window
+  -- nvim-window
   nvim_window = function()
     map('n', '<space>w', function()
       require('nvim-window').pick()
     end)
   end,
 
-  -- Smart-splits
+  -- smart-splits.nvim
   smart_splits = function()
     -- resizing splits
     map('n', '<A-H>', function()
@@ -169,7 +169,7 @@ local configs = {
     end)
   end,
 
-  -- Fzf-lua
+  -- fzf-lua
   fzf_lua = function()
     map('n', '<C-p>p', [[<cmd>FzfLua builtin<cr>]])
     map('n', '<C-p>f', [[<cmd>FzfLua files<cr>]])

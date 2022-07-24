@@ -105,7 +105,7 @@ return packer.startup({
       run = ':TSUpdate',
       event = { 'BufRead', 'BufNewFile' },
       config = function()
-        require('plugins.configs.treesitter').setup()
+        require('plugins.configs.treesitter').setup_ts()
       end,
     })
     use({
@@ -120,7 +120,7 @@ return packer.startup({
       after = 'nvim-treesitter',
       event = { 'BufRead', 'BufNewFile' },
       config = function()
-        require('plugins.configs.miscs').setup_context_commentstring()
+        require('plugins.configs.treesitter').setup_context_commentstring()
       end,
     })
 
@@ -131,7 +131,7 @@ return packer.startup({
       after = 'nvim-treesitter',
       event = { 'BufRead', 'BufNewFile' },
       config = function()
-        require('plugins.configs.miscs').setup_autotag()
+        require('plugins.configs.treesitter').setup_autotag()
       end,
     })
 
@@ -243,6 +243,13 @@ return packer.startup({
       cmd = { 'PickColor', 'PickColorInsert' },
       config = function()
         require('plugins.configs.color-picker').setup()
+      end,
+    })
+    use({
+      'rrethy/vim-hexokinase',
+      run = 'make hexokinase',
+      config = function()
+        require('plugins.configs.hexokinase').setup()
       end,
     })
   end,

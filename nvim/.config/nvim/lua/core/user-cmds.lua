@@ -1,7 +1,7 @@
 local M = {}
 
 local configs = {
-  -- CoC
+  -- coc.nvim
   coc = function()
     -- Add `:Format` command to format current buffer.
     vim.api.nvim_create_user_command('Format', "call CocAction('format')", { nargs = 0 })
@@ -20,7 +20,7 @@ local configs = {
     vim.api.nvim_create_user_command('Prettier', 'CocCommand prettier.formatFile', { nargs = 0 })
   end,
 
-  -- Packer
+  -- packer.nvim
   packer = function()
     local ok, packer = pcall(require, 'packer')
     if not ok then

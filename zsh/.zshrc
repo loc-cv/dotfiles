@@ -14,9 +14,6 @@ export TYPEWRITTEN_CURSOR="block"
 # Disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
 
-# Enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
 # Plugins
 plugins=(
   git
@@ -30,6 +27,12 @@ else
   export EDITOR='vim'
 fi
 
+# Load oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
+# Turn off annoying beep sound
+unsetopt BEEP
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -42,21 +45,6 @@ export PATH=$PATH:$GOPATH/bin
 
 # virtualenv
 export PATH=$PATH:/home/colcv/.local/bin
-
-# Neovim
-# export PATH=$HOME/tools/nvim-linux64/bin:$PATH
-
-# Lua
-alias luamake=/home/colcv/lua-language-server/3rd/luamake/luamake
-
-# Load oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
-# Tmux
-unset TMUX
-
-# Emacs
-export PATH=$PATH:/home/colcv/.emacs.d/bin
 
 # pnpm
 export PNPM_HOME="/home/colcv/.local/share/pnpm"
