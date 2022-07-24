@@ -77,14 +77,9 @@ return packer.startup({
 
     -- Explorer
     use({
-      'nvim-neo-tree/neo-tree.nvim',
-      branch = 'v2.x',
-      requires = {
-        'nvim-lua/plenary.nvim',
-        'MunifTanjim/nui.nvim',
-      },
+      'luukvbaal/nnn.nvim',
       config = function()
-        require('plugins.configs.neotree').setup()
+        require('nnn').setup()
       end,
     })
 

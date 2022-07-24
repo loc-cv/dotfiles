@@ -93,11 +93,6 @@ local configs = {
       require('smart-splits').move_cursor_right()
     end)
   end,
-
-  -- neo-tree.nvim
-  neotree = function()
-    map('n', '<space>t', [[<cmd>Neotree toggle show<cr>]])
-  end,
 }
 
 M.init = function()
