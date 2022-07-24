@@ -12,15 +12,25 @@ M.setup = function()
   local buffer = require('galaxyline.providers.buffer')
   local condition = require('galaxyline.condition')
   local gls = gl.section
+  gl.short_line_list = { ' ' }
+
+  local special_filetypes = {
+    'packer',
+    'vim-plug',
+    'NvimTree',
+    'CHADTree',
+    'coc-explorer',
+    'startuptime',
+    'fugitive',
+    'DiffviewFiles',
+  }
 
   local colors = require('core.highlights').colors
   local gl_active = colors.GalaxylineActive
   local gl_inactive = colors.GalaxylineInactive
 
-  gl.short_line_list = { ' ' }
-
   -- Show current line percent of all lines
-  local function get_current_line_percent()
+  local function get_line_percentage()
     local current_line = vim.fn.line('.')
     local total_line = vim.fn.line('$')
     local result, _ = math.modf((current_line / total_line) * 100)
@@ -37,7 +47,7 @@ M.setup = function()
   end
 
   -- Simple check for empty buffers
-  local function is_buffer_not_empty()
+  local function buffer_not_empty()
     if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
       return true
     end
@@ -45,7 +55,7 @@ M.setup = function()
   end
 
   -- Get current file name dynamically
-  local function get_current_file_name(readonly_icon)
+  local function get_file_name(readonly_icon)
     local filename
     local filename_full = vim.fn.fnamemodify(vim.fn.expand('%'), ':~:.')
     local filename_short = vim.fn.pathshorten(vim.fn.fnamemodify(vim.fn.expand('%'), ':~:.'))
@@ -60,7 +70,7 @@ M.setup = function()
       filename = filename_tail
     end
 
-    if not is_buffer_not_empty() then
+    if not buffer_not_empty() then
       filename = ' Untitled'
     end
 
@@ -82,17 +92,6 @@ M.setup = function()
     return filename .. '  '
   end
 
-  local special_file_types = {
-    'packer',
-    'vim-plug',
-    'NvimTree',
-    'CHADTree',
-    'coc-explorer',
-    'startuptime',
-    'fugitive',
-    'DiffviewFiles',
-  }
-
   local function has_value(tab, val)
     for _, v in ipairs(tab) do
       if v == val then
@@ -102,17 +101,17 @@ M.setup = function()
     return false
   end
 
-  -- Get element for normal filetype (return nothing if filetype is in special_file_types table)
-  local function get_element_for_normal_ft(provider)
-    if has_value(special_file_types, vim.bo.filetype) then
+  -- Render normal filetype components
+  local function render_nft_c(provider)
+    if has_value(special_filetypes, vim.bo.filetype) then
       return ''
     end
     return provider
   end
 
-  -- Get element for normal filetype with width condition (return nothing if width is too small)
-  local function get_element_for_normal_ft_wc(provider)
-    if has_value(special_file_types, vim.bo.filetype) then
+  -- Render normal filetype components by width
+  local function render_nft_c_by_width(provider)
+    if has_value(special_filetypes, vim.bo.filetype) then
       return ''
     end
     local squeeze_width = vim.fn.winwidth(0) / 2
@@ -123,16 +122,16 @@ M.setup = function()
     end
   end
 
-  -- Get element for special filetype (return provider only if filetype is in special_file_types table)
-  local function get_element_for_special_ft(provider)
-    if has_value(special_file_types, vim.bo.filetype) then
+  -- Render special filetype components
+  local function render_sft_c(provider)
+    if has_value(special_filetypes, vim.bo.filetype) then
       return provider
     end
     return ''
   end
 
   gls.left[1] = {
-    ActiveLine = {
+    c_blank_active = {
       provider = function()
         return ' '
       end,
@@ -141,18 +140,18 @@ M.setup = function()
   }
 
   gls.left[2] = {
-    SpecialFileTypeBuffer = {
+    s_filetype_active = {
       provider = function()
-        return get_element_for_special_ft(buffer.get_buffer_filetype())
+        return render_sft_c(buffer.get_buffer_filetype())
       end,
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
 
   gls.left[3] = {
-    GitIcon = {
+    n_git_icon = {
       provider = function()
-        return get_element_for_normal_ft(' ')
+        return render_nft_c(' ')
         -- return get_element " "
       end,
       condition = condition.check_git_workspace,
@@ -161,9 +160,9 @@ M.setup = function()
   }
 
   gls.left[4] = {
-    GitBranch = {
+    n_git_branch = {
       provider = function()
-        return get_element_for_normal_ft(vcs.get_git_branch())
+        return render_nft_c(vcs.get_git_branch())
       end,
       separator = '  ',
       separator_highlight = { 'NONE', gl_active.bg },
@@ -173,19 +172,19 @@ M.setup = function()
   }
 
   gls.left[5] = {
-    FileIcon = {
+    n_file_icon_active = {
       provider = function()
-        return get_element_for_normal_ft(fileinfo.get_file_icon())
+        return render_nft_c(fileinfo.get_file_icon())
       end,
-      condition = is_buffer_not_empty,
+      condition = buffer_not_empty,
       highlight = { gl_active.fg, gl_active.bg },
     },
   }
 
   gls.left[6] = {
-    FileName = {
+    n_file_name_active = {
       provider = function()
-        return get_element_for_normal_ft(get_current_file_name())
+        return render_nft_c(get_file_name())
       end,
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
       event = 'VimResized',
@@ -193,9 +192,9 @@ M.setup = function()
   }
 
   gls.left[7] = {
-    DiagnosticError = {
+    n_diag_errors = {
       provider = function()
-        return get_element_for_normal_ft(diagnostic.get_diagnostic_error())
+        return render_nft_c(diagnostic.get_diagnostic_error())
       end,
       icon = '  ',
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
@@ -203,9 +202,9 @@ M.setup = function()
   }
 
   gls.left[8] = {
-    DiagnosticWarn = {
+    n_diag_warns = {
       provider = function()
-        return get_element_for_normal_ft(diagnostic.get_diagnostic_warn())
+        return render_nft_c(diagnostic.get_diagnostic_warn())
       end,
       icon = '  ',
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
@@ -213,9 +212,9 @@ M.setup = function()
   }
 
   gls.left[9] = {
-    DiagnosticHint = {
+    n_diag_hints = {
       provider = function()
-        return get_element_for_normal_ft(diagnostic.get_diagnostic_hint())
+        return render_nft_c(diagnostic.get_diagnostic_hint())
       end,
       icon = '  ',
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
@@ -223,9 +222,9 @@ M.setup = function()
   }
 
   gls.left[10] = {
-    DiagnosticInfo = {
+    n_diag_info = {
       provider = function()
-        return get_element_for_normal_ft(diagnostic.get_diagnostic_info())
+        return render_nft_c(diagnostic.get_diagnostic_info())
       end,
       icon = '  ',
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
@@ -233,49 +232,49 @@ M.setup = function()
   }
 
   gls.right[1] = {
-    LineInfo = {
+    n_position = {
       provider = function()
-        return get_element_for_normal_ft(fileinfo.line_column())
+        return render_nft_c(fileinfo.line_column())
       end,
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
 
   gls.right[2] = {
-    LineInfoSpaces = {
+    n_position_right_sep = {
       provider = function()
-        return get_element_for_normal_ft('  ')
+        return render_nft_c('  ')
       end,
       highlight = { 'NONE', gl_active.bg },
     },
   }
 
   gls.right[3] = {
-    FileTypeName = {
+    n_filetype = {
       provider = function()
-        return get_element_for_normal_ft_wc(buffer.get_buffer_filetype())
+        return render_nft_c_by_width(buffer.get_buffer_filetype())
       end,
-      condition = is_buffer_not_empty,
+      condition = buffer_not_empty,
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
       event = 'VimResized',
     },
   }
 
   gls.right[4] = {
-    FileTypeNameSpaces = {
+    n_filetype_right_sep = {
       provider = function()
-        return get_element_for_normal_ft_wc('   ')
+        return render_nft_c_by_width('   ')
       end,
-      condition = is_buffer_not_empty,
+      condition = buffer_not_empty,
       highlight = { 'NONE', gl_active.bg },
       event = 'VimResized',
     },
   }
 
   gls.right[5] = {
-    FileEncode = {
+    n_file_encoding = {
       provider = function()
-        return get_element_for_normal_ft_wc(fileinfo.get_file_encode())
+        return render_nft_c_by_width(fileinfo.get_file_encode())
       end,
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
       event = 'VimResized',
@@ -283,9 +282,9 @@ M.setup = function()
   }
 
   gls.right[6] = {
-    FileEncodeSpaces = {
+    n_file_encoding_right_sep = {
       provider = function()
-        return get_element_for_normal_ft_wc('   ')
+        return render_nft_c_by_width('   ')
       end,
       highlight = { 'NONE', gl_active.bg },
       event = 'VimResized',
@@ -293,16 +292,16 @@ M.setup = function()
   }
 
   gls.right[7] = {
-    PerCent = {
+    n_file_percentage = {
       provider = function()
-        return get_element_for_normal_ft(get_current_line_percent())
+        return render_nft_c(get_line_percentage())
       end,
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
 
   gls.short_line_left[1] = {
-    InactiveLine = {
+    c_blank_inactive = {
       provider = function()
         return ' '
       end,
@@ -311,29 +310,29 @@ M.setup = function()
   }
 
   gls.short_line_left[2] = {
-    InactiveBufferType = {
+    s_filetype_inactive = {
       provider = function()
-        return get_element_for_special_ft(buffer.get_buffer_filetype())
+        return render_sft_c(buffer.get_buffer_filetype())
       end,
-      condition = is_buffer_not_empty,
+      condition = buffer_not_empty,
       highlight = { gl_inactive.fg, gl_inactive.bg, 'bold' },
     },
   }
 
   gls.short_line_left[3] = {
-    InactiveFileIcon = {
+    n_file_icon_inactive = {
       provider = function()
-        return get_element_for_normal_ft(fileinfo.get_file_icon())
+        return render_nft_c(fileinfo.get_file_icon())
       end,
-      condition = is_buffer_not_empty,
+      condition = buffer_not_empty,
       highlight = { gl_inactive.fg, gl_inactive.bg },
     },
   }
 
   gls.short_line_left[4] = {
-    InactiveFileName = {
+    n_file_name_inactive = {
       provider = function()
-        return get_element_for_normal_ft(get_current_file_name())
+        return render_nft_c(get_file_name())
       end,
       highlight = { gl_inactive.fg, gl_inactive.bg, 'bold' },
       event = 'VimResized',
