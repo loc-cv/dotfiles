@@ -178,7 +178,7 @@ return packer.startup({
       end,
     })
 
-    -- Easy motions
+    -- Easy motions / navigations
     use({
       'mrjones2014/smart-splits.nvim',
       module = 'smart-splits',
@@ -188,6 +188,12 @@ return packer.startup({
       module = 'nvim-window',
       config = function()
         require('plugins.configs.window').setup()
+      end,
+    })
+    use({
+      'aserowy/tmux.nvim',
+      config = function()
+        require('plugins.configs.tmux').setup()
       end,
     })
 
