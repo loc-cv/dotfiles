@@ -49,3 +49,7 @@ export PATH=$PATH:/home/colcv/.local/bin
 # pnpm
 export PNPM_HOME="/home/colcv/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+
+# nnn
+export NNN_FCOLORS='c1e2272e006033f7c6d6abc4'
+alias nnn="nnn -e -H"
