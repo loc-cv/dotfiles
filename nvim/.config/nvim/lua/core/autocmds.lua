@@ -5,6 +5,7 @@ local configs = {
   packer = function()
     -- Auto compile/clean/install plugins with packer-nvim
     vim.api.nvim_create_autocmd('BufWritePost', {
+      group = vim.api.nvim_create_augroup('auGrp', { clear = true }),
       pattern = '*/lua/plugins/init.lua',
       callback = function()
         vim.cmd([[source <afile> | PackerClean]])
