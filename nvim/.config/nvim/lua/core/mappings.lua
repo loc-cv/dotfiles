@@ -2,7 +2,7 @@ local M = {}
 local map = require('core.utils').map
 
 local configs = {
-  -- CoC
+  -- coc.nvim
   coc = function()
     -- coc-explorer
     map('n', '<space>t', '<cmd>CocCommand explorer<cr><cmd>sleep 50ms<cr><C-w>=')
