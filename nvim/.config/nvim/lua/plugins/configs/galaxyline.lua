@@ -37,6 +37,14 @@ M.setup = function()
     return ' ' .. result .. '% '
   end
 
+  -- Simple check for empty buffers
+  local function buffer_not_empty()
+    if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
+      return true
+    end
+    return false
+  end
+
   -- Render read-only file icon
   local function get_file_readonly_icon(readonly_icon)
     if vim.bo.readonly == true and vim.bo.filetype ~= 'help' then
@@ -44,14 +52,6 @@ M.setup = function()
       return ' ' .. icon .. ' '
     end
     return ''
-  end
-
-  -- Simple check for empty buffers
-  local function buffer_not_empty()
-    if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
-      return true
-    end
-    return false
   end
 
   -- Get current file name dynamically
