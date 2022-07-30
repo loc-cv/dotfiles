@@ -196,7 +196,8 @@ M.setup = function()
       provider = function()
         return render_nft_c(diagnostic.get_diagnostic_error())
       end,
-      icon = '  ',
+      -- icon = '  ',
+      icon = ' E',
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
@@ -206,7 +207,7 @@ M.setup = function()
       provider = function()
         return render_nft_c(diagnostic.get_diagnostic_warn())
       end,
-      icon = '  ',
+      icon = ' W',
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
@@ -216,7 +217,7 @@ M.setup = function()
       provider = function()
         return render_nft_c(diagnostic.get_diagnostic_hint())
       end,
-      icon = '  ',
+      icon = ' H',
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
@@ -226,7 +227,7 @@ M.setup = function()
       provider = function()
         return render_nft_c(diagnostic.get_diagnostic_info())
       end,
-      icon = '  ',
+      icon = ' I',
       highlight = { gl_active.fg, gl_active.bg, 'bold' },
     },
   }
