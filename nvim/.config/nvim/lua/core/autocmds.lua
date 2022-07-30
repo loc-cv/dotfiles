@@ -26,18 +26,18 @@ local configs = {
 
   -- coc.nvim
   coc = function()
-    local cocGrp = vim.api.nvim_create_augroup('CoCGrp', { clear = true })
+    local cocAuGrp = vim.api.nvim_create_augroup('CocAuGrp', { clear = true })
 
     -- Setup formatexpr specified filetype(s)
     vim.api.nvim_create_autocmd('FileType', {
-      group = cocGrp,
+      group = cocAuGrp,
       pattern = { 'typescript', 'json' },
       command = "setl formatexpr=CocAction('formatSelected')",
     })
 
     -- Update signature help on jump placeholder
     vim.api.nvim_create_autocmd('User', {
-      group = cocGrp,
+      group = cocAuGrp,
       pattern = 'CocJumpPlaceholder',
       command = "call CocActionAsync('showSignatureHelp')",
     })
