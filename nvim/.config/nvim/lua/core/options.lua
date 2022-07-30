@@ -15,13 +15,15 @@ local options = {
   number = true, -- enable number lines
   relativenumber = true, -- enable relative number lines
   signcolumn = 'yes', -- always show the signcolumn
-  linebreak = true, -- prevent words from being split across two lines when line wraps
   wrap = true, -- (don't) wrap lines
+  linebreak = true, -- prevent words from being split across two lines when line wraps
+  showbreak = '↳ ', -- string to put at the start of lines that have been wrapped
+  breakindent = true, -- wrapped line will continue visually indented (same amount of space as the beginning of that line)
   cursorline = true, -- enable cursorline
   mouse = 'a', -- enable your mouse
   shortmess = opt.shortmess + { c = true }, -- don't give ins-completion-menu message
   fillchars = { eob = ' ' }, -- disable `~` on nonexistent lines
-  ttimeout = false, -- fix delay <es>
+  ttimeout = false, -- fix delay <ESC>
   timeout = false, -- no waiting for key combination
   sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal', -- some session options that I don't understand :)
 

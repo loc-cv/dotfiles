@@ -191,7 +191,7 @@ return packer.startup({
       end,
     })
     use({
-      'aserowy/tmux.nvim',
+      'christoomey/vim-tmux-navigator',
       config = function()
         require('plugins.configs.tmux').setup()
       end,

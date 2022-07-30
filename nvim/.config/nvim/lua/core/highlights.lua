@@ -5,12 +5,12 @@ M.colors = {
   -- Cursorline
   CursorLine = { bg = '#282828' },
 
-  -- FloatBorder
+  -- Float / Popup
   FloatBorder = { bg = 'NONE' },
 
   -- Search
   IncSearch = { bg = '#adadad', fg = '#0a0a0a', bold = true },
-  Searchlight = { link = 'IncSearch' },
+  Searchlight = { link = 'IncSearch' }, -- vim-searchlight
 
   -- Git
   DiffAdd = { fg = '#458700', bg = 'NONE' },
@@ -21,10 +21,6 @@ M.colors = {
   TabLineFill = { bg = '#282828', fg = '#d4d4d4', bold = true },
   TabLineSel = { bg = '#adadad', fg = '#0a0a0a', bold = true },
   TabLine = { bg = '#323232', fg = '#c0c0c0', bold = true },
-
-  -- Statusline
-  -- StatusLine = { bg = '#1e1e1e', fg = '#d4d4d4' },
-  -- StatusLineNC = { bg = '#1e1e1e', fg = '#d4d4d4' },
 
   -- galaxyline.nvim
   GalaxylineActive = { bg = '#adadad', fg = '#0a0a0a' },

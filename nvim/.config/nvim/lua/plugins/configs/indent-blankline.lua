@@ -8,7 +8,8 @@ M.setup = function()
 
   indent_blankline.setup({
     char = '▏',
-    context_char = '▏',
+    -- context_char = '▏',
+    context_char = '▎',
     show_current_context = true,
     show_current_context_start = true,
     show_trailing_blankline_indent = false,
@@ -32,6 +33,7 @@ M.setup = function()
       'neo-tree-popup',
       'NvimTree',
       'mason.nvim',
+      '',
     },
     buftype_exclude = { 'terminal' },
   })

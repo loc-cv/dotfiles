@@ -51,5 +51,7 @@ export PNPM_HOME="/home/colcv/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
 # nnn
-export NNN_FCOLORS='c1e2272e006033f7c6d6abc4'
-alias nnn="nnn -e -H"
+# alias nnn="nnn -e -H -A -d -G -o -C"
+alias nnn="nnn -e -H -A -d -G -o"
+BLK="04" CHR="04" DIR="04" EXE="00" REG="00" HARDLINK="00" SYMLINK="06" MISSING="00" ORPHAN="01" FIFO="0F" SOCK="0F" OTHER="02"
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"

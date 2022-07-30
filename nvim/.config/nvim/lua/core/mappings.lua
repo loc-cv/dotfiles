@@ -5,7 +5,7 @@ local configs = {
   -- coc.nvim
   coc = function()
     -- coc-explorer
-    map('n', '<space>t', '<cmd>CocCommand explorer<cr><cmd>sleep 50ms<cr><C-w>=')
+    map('n', '<C-q>e', '<cmd>CocCommand explorer<cr><cmd>sleep 50ms<cr><C-w>=')
 
     -- coc-snippet
     vim.g.coc_snippet_next = '<Tab>'
@@ -123,11 +123,12 @@ local configs = {
     map('t', '<C-h>', [[<C-\><C-n><C-w>h]])
 
     -- Clear terminal (Only work for floaterm)
-    map(
-      't',
-      '<C-l>',
-      [[<C-\><C-n><cmd>set scrollback=1<cr><cmd>sleep 10ms<cr><cmd>set scrollback=10000<cr>i<C-l><C-\><C-n><cmd>FloatermHide<cr><cmd>FloatermShow<cr><C-l>]]
-    )
+    map('t', '<C-l>', function()
+      if vim.bo.filetype == 'floaterm' then
+        return [[<C-\><C-n><cmd>set scrollback=1<cr><cmd>sleep 10ms<cr><cmd>set scrollback=10000<cr>i<C-l><C-\><C-n><cmd>FloatermHide<cr><cmd>FloatermShow<cr><C-l>]]
+      end
+      return [[<C-\><C-n><C-w>l]]
+    end, { expr = true })
   end,
 
   -- nvim-window
@@ -139,7 +140,7 @@ local configs = {
 
   -- smart-splits.nvim
   smart_splits = function()
-    -- resizing splits
+    -- Resizing splits
     map('n', '<A-H>', function()
       require('smart-splits').resize_left()
     end)
@@ -170,7 +171,7 @@ M.init = function()
   map('v', '>', '>gv')
 
   -- Make <C-w> work as expected in prompt window
-  map('i', '<C-W>', '<C-S-W>')
+  -- map('i', '<C-W>', '<C-S-W>')
 
   -- Better movement between wrapped lines
   map('n', 'j', 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })

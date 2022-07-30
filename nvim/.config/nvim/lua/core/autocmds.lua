@@ -72,24 +72,21 @@ M.init = function()
   })
 
   -- Better cursorline
-  local cursorGrp = vim.api.nvim_create_augroup('cursorGrp', { clear = true })
-
+  local cursorlineAuGrp = vim.api.nvim_create_augroup('AutoCursorline', { clear = true })
+  local cursor_excluded_filetypes = { 'coc-explorer', 'DiffviewFiles' }
   vim.api.nvim_create_autocmd({ 'WinLeave', 'InsertEnter' }, {
-    group = cursorGrp,
+    group = cursorlineAuGrp,
     pattern = '*',
     callback = function()
-      local excluded_filetypes = { 'coc-explorer', 'DiffviewFiles' }
-      for _, ft in ipairs(excluded_filetypes) do
-        if vim.bo.filetype == ft then
-          return
-        end
+      if vim.tbl_contains(cursor_excluded_filetypes, vim.bo.filetype) then
+        return
       end
       vim.cmd([[set nocursorline]])
     end,
   })
 
   vim.api.nvim_create_autocmd({ 'WinEnter', 'InsertLeave' }, {
-    group = cursorGrp,
+    group = cursorlineAuGrp,
     pattern = '*',
     command = 'set cursorline',
   })
