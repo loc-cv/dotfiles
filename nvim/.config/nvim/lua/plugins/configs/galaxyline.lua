@@ -47,9 +47,9 @@ M.setup = function()
 
   -- Render read-only file icon
   local function get_file_readonly_icon(readonly_icon)
-    if vim.bo.readonly == true and vim.bo.filetype ~= 'help' then
+    if vim.bo.readonly == true then
       local icon = readonly_icon or ''
-      return ' ' .. icon .. ' '
+      return icon
     end
     return ''
   end
@@ -75,18 +75,16 @@ M.setup = function()
     end
 
     if string.len(get_file_readonly_icon(readonly_icon)) ~= 0 then
-      return filename .. get_file_readonly_icon(readonly_icon)
+      filename = filename .. ' ' .. get_file_readonly_icon(readonly_icon)
     end
 
-    if vim.bo.modifiable then
-      if vim.bo.modified then
-        local trail = vim.fn.search('\\s$', 'nw')
-        if trail ~= 0 then
-          return filename .. ' ' .. ' ' .. ' ' .. ' ' .. '  '
-        else
-          return filename .. ' ' .. ' ' .. '  '
-        end
-      end
+    if vim.bo.modified then
+      filename = filename .. ' ' .. ' '
+    end
+
+    local trail = vim.fn.search('\\s$', 'nw')
+    if trail ~= 0 then
+      filename = filename .. ' ' .. ' '
     end
 
     return filename .. '  '
