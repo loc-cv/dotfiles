@@ -50,7 +50,7 @@ return packer.startup({
     -- Snippet
     use({
       'rafamadriz/friendly-snippets',
-      event = 'InsertEnter',
+      -- event = 'InsertEnter',
     })
 
     -- Fuzzy finder

@@ -9,7 +9,7 @@ local function close_unwanted_wins()
     end
 
     -- Close all special buffers before savings
-    local excluded_filetypes = { 'coc-explorer' }
+    local excluded_filetypes = { 'coc-explorer', 'packer' }
     local buf = vim.api.nvim_win_get_buf(win)
     local buf_ft = vim.api.nvim_buf_get_option(buf, 'filetype')
     if vim.tbl_contains(excluded_filetypes, buf_ft) then
