@@ -1,25 +1,35 @@
 local M = {}
 local map = require('core.utils').map
 
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
+
 local configs = {
   -- coc.nvim
   coc = function()
     -- coc-explorer
-    map('n', '<C-q>e', '<cmd>CocCommand explorer<cr><cmd>sleep 50ms<cr><C-w>=')
+    map('n', '<C-q>e', function()
+      vim.cmd([[CocCommand explorer]])
+      vim.cmd([[sleep 10m]])
+      feedkey('<C-w>=', '')
+    end)
 
     -- coc-snippet
     vim.g.coc_snippet_next = '<Tab>'
     vim.g.coc_snippet_prev = '<S-Tab>'
 
     -- Use <C-space> to trigger completion
-    map('i', '<C-space>', 'coc#refresh()', { expr = true })
+    map('i', '<C-space>', function()
+      return vim.fn['coc#refresh']()
+    end, { expr = true })
 
     -- Make <CR> auto-select the first completion item and notify coc.nvim to ...
     -- ... format on enter, <CR> could be remapped by other vim plugin
     _G.CR = function()
       local _, autopairs = pcall(require, 'nvim-autopairs')
-      if vim.fn.pumvisible() ~= 0 then
-        return vim.fn['coc#_select_confirm']()
+      if vim.fn['coc#pum#visible']() ~= 0 then
+        return vim.fn['coc#pum#confirm']()
       else
         return autopairs.autopairs_cr()
       end
@@ -27,8 +37,8 @@ local configs = {
     map('i', '<cr>', 'v:lua.CR()', { expr = true })
 
     -- Use <C-j> and <C-k> to navigate the completion list
-    map('i', '<C-j>', 'pumvisible() ? "<C-n>" : "<Tab>"', { expr = true })
-    map('i', '<C-k>', 'pumvisible() ? "<C-p>" : "<S-Tab>"', { expr = true })
+    map('i', '<C-j>', 'coc#pum#visible() ? coc#pum#next(1) : "<C-j>"', { expr = true })
+    map('i', '<C-k>', 'coc#pum#visible() ? coc#pum#prev(1) : "<C-k>"', { expr = true })
 
     -- Use `[d` and `]d` to navigate diagnostics
     map('n', '[d', '<Plug>(coc-diagnostic-prev)')
@@ -40,15 +50,12 @@ local configs = {
     map('n', 'gi', '<Plug>(coc-implementation)')
     map('n', 'gr', '<Plug>(coc-references)')
 
-    -- Use gh to show documentation in preview window
-    map('n', 'gh', function()
-      local cw = vim.fn.expand('<cword>')
-      if vim.fn.index({ 'vim', 'help' }, vim.bo.filetype) >= 0 then
-        vim.cmd('h ' .. cw)
-      elseif vim.api.nvim_eval('coc#rpc#ready()') then
+    -- Use K to show documentation in preview window
+    map('n', 'K', function()
+      if vim.fn.CocAction('hasProvider', 'hover') then
         vim.fn.CocActionAsync('doHover')
       else
-        vim.cmd('!' .. vim.o.keywordprg .. ' ' .. cw)
+        vim.fn.feedkeys('K', 'in')
       end
     end)
 
@@ -80,12 +87,10 @@ local configs = {
     -- Remap <C-e> and <C-y> for scroll float windows/popups
     map({ 'n', 'v' }, '<C-e>', "coc#float#has_scroll() ? coc#float#scroll(1) : '<C-e>'", { expr = true, nowait = true })
     map({ 'n', 'v' }, '<C-y>', "coc#float#has_scroll() ? coc#float#scroll(0) : '<C-y>'", { expr = true, nowait = true })
-    map(
-      'i',
-      '<C-e>',
-      "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(1)<cr>' : '<C-e>'",
-      { expr = true, nowait = true }
-    )
+    map('i', '<C-e>', "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(1)<cr>' : '<C-e>'", {
+      expr = true,
+      nowait = true,
+    })
     map('i', '<C-y>', "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<cr>' : '<C-y>'", {
       expr = true,
       nowait = true,

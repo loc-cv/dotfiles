@@ -6,6 +6,7 @@ M.setup = function()
   vim.g.coc_fzf_preview = 'up:55%'
   vim.g.fzf_colors = { ['border'] = { 'fg', 'Normal' } }
 
+  vim.g.coc_max_treeview_width = 100
   vim.g.coc_global_extensions = {
     'coc-html',
     'coc-css',

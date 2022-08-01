@@ -34,6 +34,7 @@ M.setup = function()
       'NvimTree',
       'mason.nvim',
       '',
+      'coctree',
     },
     buftype_exclude = { 'terminal' },
   })

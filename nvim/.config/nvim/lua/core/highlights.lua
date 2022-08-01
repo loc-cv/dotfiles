@@ -3,10 +3,12 @@ local hi = require('core.utils').hi
 
 M.colors = {
   -- Cursorline
-  CursorLine = { bg = '#282828' },
+  -- CursorLine = { bg = '#282828' },
+  CursorLine = { bg = '#323232' },
 
   -- Float / Popup
   FloatBorder = { bg = 'NONE' },
+  Pmenu = { bg = 'NONE' },
 
   -- Search
   IncSearch = { bg = '#adadad', fg = '#0a0a0a', bold = true },
@@ -58,6 +60,8 @@ M.colors = {
 
   CocFadeOut = { fg = '#808080', underline = true },
   CocHighlightText = { bg = '#282828', underline = true },
+  CocMenuSel = { link = 'Visual' },
+  CocSearch = { fg = '#9CDCFE' },
 
   -- nvim-window
   NvimWindow = { bg = '#d4d4d4', fg = '#0a0a0a' },

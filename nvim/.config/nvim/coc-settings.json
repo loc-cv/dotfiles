@@ -5,33 +5,39 @@
   "diagnostic.hintSign": "H",
 
   "suggest.completionItemKindLabels": {
-    "keyword": "  Keyword",
-    "variable": "  Variable",
-    "value": "  Value",
-    "operator": "  Operator",
-    "constructor": "  Constructor",
-    "function": "  Function",
-    "reference": "  Reference",
-    "constant": "  Constant",
-    "method": "  Method",
-    "struct": "  Struct",
-    "class": "  Class",
-    "interface": "  Interface",
-    "text": "  Text",
-    "enum": "  Enum",
-    "enumMember": "  EnumMember",
-    "module": "  Module",
-    "color": "  Color",
-    "property": "  Property",
-    "field": "  Field",
-    "unit": "  Unit",
-    "event": "  Event",
-    "file": "  File",
-    "folder": "  Folder",
-    "snippet": "  Snippet",
-    "typeParameter": "  TypeParameter",
-    "default": "  Auto"
+    "keyword": " Keyword ",
+    "variable": " Variable ",
+    "value": " Value ",
+    "operator": " Operator ",
+    "constructor": " Constructor ",
+    "function": " Function ",
+    "reference": " Reference ",
+    "constant": " Constant ",
+    "method": " Method ",
+    "struct": " Struct ",
+    "class": " Class ",
+    "interface": " Interface ",
+    "text": " Text ",
+    "enum": " Enum ",
+    "enumMember": " EnumMember ",
+    "module": " Module ",
+    "color": " Color ",
+    "property": " Property ",
+    "field": " Field ",
+    "unit": " Unit ",
+    "event": " Event ",
+    "file": " File ",
+    "folder": " Folder ",
+    "snippet": " Snippet ",
+    "typeParameter": " TypeParameter ",
+    "default": " Auto "
   },
+
+  "tree.openedIcon": "",
+  "tree.closedIcon": "",
+  "outline.detailAsDescription": false,
+  "outline.showLineNumber": false,
+  "outline.autoWidth": true,
 
   "coc.preferences.formatOnSaveFiletypes": [
     "html",
@@ -45,18 +51,10 @@
     "lua"
   ],
 
-  // "suggest.floatConfig": {
-  //   "border": true
-  // },
-  // "diagnostic.floatConfig": {
-  //   "border": true
-  // },
-  // "signature.floatConfig": {
-  //   "border": true
-  // },
-  // "hover.floatConfig": {
-  //   "border": true
-  // },
+  "suggest.floatConfig": { "border": true },
+  "diagnostic.floatConfig": { "border": true },
+  "signature.floatConfig": { "border": true },
+  "hover.floatConfig": { "border": true },
 
   // lua
   "sumneko-lua.enableNvimLuaDev": true,
@@ -84,10 +82,6 @@
     "<C-t>": "open:tab"
   },
   "explorer.focus": false,
-  // "explorer.position": "floating",
-  // "explorer.floating.height": -5,
-  // "explorer.floating.width": -20,
-  // "explorer.floating.border.title": "EXPLORER",
 
   // emmet
   "emmet.priority": 99,

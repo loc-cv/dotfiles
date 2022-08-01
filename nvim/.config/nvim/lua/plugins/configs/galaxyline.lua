@@ -23,6 +23,7 @@ M.setup = function()
     'startuptime',
     'fugitive',
     'DiffviewFiles',
+    'coctree',
   }
 
   local colors = require('core.highlights').colors

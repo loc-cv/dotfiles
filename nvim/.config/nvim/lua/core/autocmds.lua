@@ -39,7 +39,9 @@ local configs = {
     vim.api.nvim_create_autocmd('User', {
       group = cocAuGrp,
       pattern = 'CocJumpPlaceholder',
-      command = "call CocActionAsync('showSignatureHelp')",
+      callback = function()
+        vim.fn.CocActionAsync('showSignatureHelp')
+      end,
     })
 
     -- Auto close coc-explorer when exit Neovim
@@ -73,7 +75,7 @@ M.init = function()
 
   -- Better cursorline
   local cursorlineAuGrp = vim.api.nvim_create_augroup('AutoCursorline', { clear = true })
-  local cursor_excluded_filetypes = { 'coc-explorer', 'DiffviewFiles' }
+  local cursor_excluded_filetypes = { 'coc-explorer', 'DiffviewFiles', 'coctree' }
   vim.api.nvim_create_autocmd({ 'WinLeave', 'InsertEnter' }, {
     group = cursorlineAuGrp,
     pattern = '*',
