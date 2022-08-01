@@ -11,7 +11,7 @@ local configs = {
     -- coc-explorer
     map('n', '<C-q>e', function()
       vim.cmd([[CocCommand explorer]])
-      vim.cmd([[sleep 10m]])
+      vim.cmd([[sleep 20m]])
       feedkey('<C-w>=', '')
     end)
 

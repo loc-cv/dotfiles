@@ -60,8 +60,8 @@ M.colors = {
 
   CocFadeOut = { fg = '#808080', underline = true },
   CocHighlightText = { bg = '#282828', underline = true },
-  CocMenuSel = { link = 'Visual' },
-  CocSearch = { fg = '#9CDCFE' },
+  CocMenuSel = { bg = '#454545' },
+  CocSearch = { fg = '#18a2fe' },
 
   -- nvim-window
   NvimWindow = { bg = '#d4d4d4', fg = '#0a0a0a' },
