@@ -38,6 +38,7 @@
   "outline.detailAsDescription": false,
   "outline.showLineNumber": false,
   "outline.autoWidth": true,
+  "diagnostic.virtualText": true,
 
   "coc.preferences.formatOnSaveFiletypes": [
     "html",

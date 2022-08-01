@@ -60,6 +60,7 @@ M.colors = {
 
   CocFadeOut = { fg = '#808080', underline = true },
   CocHighlightText = { bg = '#282828', underline = true },
+  -- CocMenuSel = { link = 'Visual' },
   CocMenuSel = { bg = '#454545' },
   CocSearch = { fg = '#18a2fe' },
 
