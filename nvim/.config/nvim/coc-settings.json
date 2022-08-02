@@ -39,7 +39,7 @@
   "tree.closedIcon": "",
   "outline.detailAsDescription": false,
   "outline.showLineNumber": false,
-  "outline.autoWidth": false,
+  "outline.autoWidth": true,
 
   "suggest.floatConfig": { "border": true },
   "diagnostic.floatConfig": { "border": true },
