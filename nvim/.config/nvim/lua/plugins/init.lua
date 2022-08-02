@@ -12,8 +12,7 @@ return packer.startup({
 
     -- Make Neovim look good
     use('kyazdani42/nvim-web-devicons')
-    -- use('Mofiqul/vscode.nvim')
-    use('tomasiser/vim-code-dark')
+    use('Mofiqul/vscode.nvim')
     use({
       'feline-nvim/feline.nvim',
       config = function()
@@ -218,12 +217,12 @@ return packer.startup({
     })
 
     -- Sessions
-    use({
-      'rmagatti/auto-session',
-      config = function()
-        require('plugins.configs.session').setup()
-      end,
-    })
+    -- use({
+    --   'rmagatti/auto-session',
+    --   config = function()
+    --     require('plugins.configs.session').setup()
+    --   end,
+    -- })
 
     -- Startup time
     use({

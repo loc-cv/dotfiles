@@ -52,7 +52,6 @@ M.colors = {
   CocFadeOut = { fg = '#808080', underline = true },
   CocHighlightText = { bg = '#282828', underline = true },
   CocSearch = { fg = '#18a2fe' },
-  -- CocMenuSel = { link = 'Visual' },
 
   -- nvim-window
   NvimWindow = { bg = '#d4d4d4', fg = '#0a0a0a' },
@@ -61,9 +60,8 @@ M.colors = {
 local colors = M.colors
 
 M.init = function()
-  -- vim.g.vscode_style = 'dark'
-  -- vim.cmd([[colorscheme vscode]])
-  vim.cmd([[colorscheme codedark]])
+  vim.g.vscode_style = 'dark'
+  vim.cmd([[colorscheme vscode]])
 
   for group, conf in pairs(colors) do
     hi(group, conf)
