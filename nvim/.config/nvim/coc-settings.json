@@ -40,6 +40,7 @@
   "outline.detailAsDescription": false,
   "outline.showLineNumber": false,
   "outline.autoWidth": true,
+  "outline.keepWindow": true,
 
   "suggest.floatConfig": { "border": true },
   "diagnostic.floatConfig": { "border": true },

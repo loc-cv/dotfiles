@@ -107,7 +107,20 @@ local configs = {
     map('n', '<C-i>c', '<CMD>CocList commands<CR>')
     map('n', '<C-i>l', '<CMD>CocList location<CR>')
     map('n', '<C-i>s', '<CMD>CocList -I symbols<CR>')
-    map('n', '<C-i>o', '<CMD>CocList outline<CR>')
+    map('n', '<C-i>o', '<CMD>CocOutline<CR>')
+
+    local toggleOutline = function()
+      for _, win in ipairs(vim.api.nvim_list_wins()) do
+        local buf = vim.api.nvim_win_get_buf(win)
+        local buf_ft = vim.api.nvim_buf_get_option(buf, 'filetype')
+        if buf_ft == 'coctree' then
+          vim.fn.CocAction('hideOutline')
+          return
+        end
+      end
+      vim.fn.CocAction('showOutline')
+    end
+    map('n', '<C-i>o', toggleOutline)
   end,
 
   -- vim-floaterm

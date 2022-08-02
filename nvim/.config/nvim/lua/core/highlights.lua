@@ -7,7 +7,7 @@ M.colors = {
 
   -- Float / Popup
   FloatBorder = { bg = 'NONE' },
-  Pmenu = { bg = 'NONE' },
+  -- Pmenu = { bg = 'NONE' },
 
   -- Search
   IncSearch = { bg = '#adadad', fg = '#0a0a0a', bold = true },
@@ -51,7 +51,8 @@ M.colors = {
   CocHintHighlight = { fg = '#10b981', underline = true },
   CocFadeOut = { fg = '#808080', underline = true },
   CocHighlightText = { bg = '#282828', underline = true },
-  CocMenuSel = { bg = '#454545' },
+  -- CocMenuSel = { bg = '#454545' },
+  CocMenuSel = { link = 'Visual' },
   CocSearch = { fg = '#18a2fe' },
 
   -- nvim-window

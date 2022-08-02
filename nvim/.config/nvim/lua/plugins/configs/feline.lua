@@ -27,6 +27,7 @@ M.setup = function()
     'DiffviewFiles',
     'nnn',
     'floaterm',
+    'coctree',
   }
 
   local get_coc_diagnostic = function(diag_type)
