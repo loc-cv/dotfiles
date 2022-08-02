@@ -13,12 +13,6 @@ return packer.startup({
     -- Make Neovim look good
     use('kyazdani42/nvim-web-devicons')
     use('Mofiqul/vscode.nvim')
-    -- use({
-    --   'NTBBloodbath/galaxyline.nvim',
-    --   config = function()
-    --     require('plugins.configs.galaxyline').setup()
-    --   end,
-    -- })
     use({
       'feline-nvim/feline.nvim',
       config = function()
