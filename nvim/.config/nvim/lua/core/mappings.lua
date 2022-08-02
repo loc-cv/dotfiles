@@ -100,15 +100,14 @@ local configs = {
     map({ 'n', 'x' }, '<C-s>', '<Plug>(coc-range-select)')
 
     -- Mappings for CoCList
-    map('n', '<C-p>L', '<CMD>CocFzfList<CR>')
-    map('n', '<C-p>e', '<CMD>CocFzfList extensions<CR>')
-    map('n', '<C-p>D', '<CMD>CocFzfList diagnostics<CR>')
-    map('n', '<C-p>d', '<CMD>CocFzfList diagnostics --current-buf<CR>')
-    map('n', '<C-p>c', '<CMD>CocFzfList commands<CR>')
-    map('n', '<C-p>l', '<CMD>CocFzfList location<CR>')
-    map('n', '<C-p>s', '<CMD>CocFzfList symbols<CR>')
-    map('n', '<C-p>o', '<CMD>CocFzfList outline<CR>')
-    -- map('n', '<space>cp', '<CMD>CocFzfListResume<CR>')
+    map('n', '<C-m>L', '<CMD>CocList<CR>')
+    map('n', '<C-m>q', '<CMD>CocListCancel<CR>')
+    map('n', '<C-m>e', '<CMD>CocList extensions<CR>')
+    map('n', '<C-m>d', '<CMD>CocList diagnostics<CR>')
+    map('n', '<C-m>c', '<CMD>CocList commands<CR>')
+    map('n', '<C-m>l', '<CMD>CocList location<CR>')
+    map('n', '<C-m>s', '<CMD>CocList -I symbols<CR>')
+    map('n', '<C-m>o', '<CMD>CocList outline<CR>')
   end,
 
   -- vim-floaterm

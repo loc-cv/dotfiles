@@ -33,19 +33,6 @@ return packer.startup({
         require('plugins.configs.coc').setup()
       end,
     })
-    use({
-      'antoinemadec/coc-fzf',
-      branch = 'release',
-      requires = {
-        {
-          'junegunn/fzf',
-          run = function()
-            vim.fn['fzf#install']()
-          end,
-        },
-        'junegunn/fzf.vim',
-      },
-    })
 
     -- Snippet
     use({

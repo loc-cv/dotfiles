@@ -314,7 +314,7 @@ M.setup = function()
       provider = function()
         return render_sft_c(buffer.get_buffer_filetype())
       end,
-      condition = buffer_not_empty,
+      -- condition = buffer_not_empty,
       highlight = { gl_inactive.fg, gl_inactive.bg, 'bold' },
     },
   }

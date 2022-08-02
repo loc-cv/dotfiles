@@ -33,12 +33,18 @@
     "default": " Auto "
   },
 
+  "diagnostic.virtualText": true,
+
   "tree.openedIcon": "",
   "tree.closedIcon": "",
   "outline.detailAsDescription": false,
   "outline.showLineNumber": false,
-  "outline.autoWidth": true,
-  "diagnostic.virtualText": true,
+  "outline.autoWidth": false,
+
+  "suggest.floatConfig": { "border": true },
+  "diagnostic.floatConfig": { "border": true },
+  "signature.floatConfig": { "border": true },
+  "hover.floatConfig": { "border": true },
 
   "coc.preferences.formatOnSaveFiletypes": [
     "html",
@@ -51,11 +57,6 @@
     "typescript",
     "lua"
   ],
-
-  "suggest.floatConfig": { "border": true },
-  "diagnostic.floatConfig": { "border": true },
-  "signature.floatConfig": { "border": true },
-  "hover.floatConfig": { "border": true },
 
   // lua
   "sumneko-lua.enableNvimLuaDev": true,
@@ -96,8 +97,5 @@
   "css.lint.unknownAtRules": "ignore",
 
   // prettier
-  "prettier.singleQuote": true,
-
-  // highlights
-  "colors.filetypes": ["*"]
+  "prettier.singleQuote": true
 }

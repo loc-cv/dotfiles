@@ -3,8 +3,8 @@ local hi = require('core.utils').hi
 
 M.colors = {
   -- Cursorline
-  -- CursorLine = { bg = '#282828' },
-  CursorLine = { bg = '#323232' },
+  CursorLine = { bg = '#282828' },
+  -- CursorLine = { bg = '#323232' },
 
   -- Float / Popup
   FloatBorder = { bg = 'NONE' },
@@ -23,6 +23,10 @@ M.colors = {
   TabLineFill = { bg = '#282828', fg = '#d4d4d4', bold = true },
   TabLineSel = { bg = '#adadad', fg = '#0a0a0a', bold = true },
   TabLine = { bg = '#323232', fg = '#c0c0c0', bold = true },
+
+  -- Statusline
+  StatusLine = { bg = '#adadad', fg = '#0a0a0a' },
+  StatusLineNC = { bg = '#323232', fg = '#c0c0c0' },
 
   -- galaxyline.nvim
   GalaxylineActive = { bg = '#adadad', fg = '#0a0a0a' },
