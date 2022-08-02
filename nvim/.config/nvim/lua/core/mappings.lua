@@ -100,37 +100,37 @@ local configs = {
     map({ 'n', 'x' }, '<C-s>', '<Plug>(coc-range-select)')
 
     -- Mappings for CoCList
-    map('n', '<C-p>L', '<cmd>CocFzfList<cr>')
-    map('n', '<C-p>e', '<cmd>CocFzfList extensions<cr>')
-    map('n', '<C-p>D', '<cmd>CocFzfList diagnostics<cr>')
-    map('n', '<C-p>d', '<cmd>CocFzfList diagnostics --current-buf<cr>')
-    map('n', '<C-p>c', '<cmd>CocFzfList commands<cr>')
-    map('n', '<C-p>l', '<cmd>CocFzfList location<cr>')
-    map('n', '<C-p>s', '<cmd>CocFzfList symbols<cr>')
-    map('n', '<C-p>o', '<cmd>CocFzfList outline<cr>')
-    -- map('n', '<space>cp', '<cmd>CocFzfListResume<cr>')
+    map('n', '<C-p>L', '<CMD>CocFzfList<CR>')
+    map('n', '<C-p>e', '<CMD>CocFzfList extensions<CR>')
+    map('n', '<C-p>D', '<CMD>CocFzfList diagnostics<CR>')
+    map('n', '<C-p>d', '<CMD>CocFzfList diagnostics --current-buf<CR>')
+    map('n', '<C-p>c', '<CMD>CocFzfList commands<CR>')
+    map('n', '<C-p>l', '<CMD>CocFzfList location<CR>')
+    map('n', '<C-p>s', '<CMD>CocFzfList symbols<CR>')
+    map('n', '<C-p>o', '<CMD>CocFzfList outline<CR>')
+    -- map('n', '<space>cp', '<CMD>CocFzfListResume<CR>')
   end,
 
   -- vim-floaterm
   floaterm = function()
-    map('n', '<C-q>c', [[<cmd>FloatermNew<cr>]])
-    map('t', '<C-q>c', [[<C-\><C-n><cmd>FloatermNew<cr>]])
-    map('n', '<C-q>p', [[<cmd>FloatermPrev<cr>]])
-    map('t', '<C-q>p', [[<C-\><C-n><cmd>FloatermPrev<cr>]])
-    map('n', '<C-q>n', [[<cmd>FloatermNext<cr>]])
-    map('t', '<C-q>n', [[<C-\><C-n><cmd>FloatermNext<cr>]])
-    map('n', '<C-q>t', [[<cmd>FloatermToggle<cr>]])
-    map('t', '<C-q>t', [[<C-\><C-n><cmd>FloatermToggle<cr>]])
-    map('n', '<C-q>h', [[<cmd>FloatermHide!<cr>]])
-    map('t', '<C-q>h', [[<C-\><C-n><cmd>FloatermHide!<cr>]])
-    map('n', '<C-q>k', [[<cmd>FloatermKill<cr><cmd>FloatermShow!<cr>]])
-    map('t', '<C-q>k', [[<C-\><C-n><cmd>FloatermKill<cr><cmd>FloatermShow!<cr>]])
+    map('n', '<C-q>c', [[<CMD>FloatermNew<CR>]])
+    map('t', '<C-q>c', [[<C-\><C-n><cmd>FloatermNew<CR>]])
+    map('n', '<C-q>p', [[<cmd>FloatermPrev<CR>]])
+    map('t', '<C-q>p', [[<C-\><C-n><CMD>FloatermPrev<CR>]])
+    map('n', '<C-q>n', [[<CMD>FloatermNext<CR>]])
+    map('t', '<C-q>n', [[<C-\><C-n><CMD>FloatermNext<CR>]])
+    map('n', '<C-q>t', [[<CMD>FloatermToggle<CR>]])
+    map('t', '<C-q>t', [[<C-\><C-n><CMD>FloatermToggle<CR>]])
+    map('n', '<C-q>h', [[<CMD>FloatermHide!<CR>]])
+    map('t', '<C-q>h', [[<C-\><C-n><CMD>FloatermHide!<CR>]])
+    map('n', '<C-q>k', [[<CMD>FloatermKill<CR><CMD>FloatermShow!<CR>]])
+    map('t', '<C-q>k', [[<C-\><C-n><CMD>FloatermKill<CR><CMD>FloatermShow!<CR>]])
     map('t', '<C-h>', [[<C-\><C-n><C-w>h]])
 
     -- Clear terminal (Only work for floaterm)
     map('t', '<C-l>', function()
       if vim.bo.filetype == 'floaterm' then
-        return [[<C-\><C-n><cmd>set scrollback=1<cr><cmd>sleep 10ms<cr><cmd>set scrollback=10000<cr>i<C-l><C-\><C-n><cmd>FloatermHide<cr><cmd>FloatermShow<cr><C-l>]]
+        return [[<C-\><C-n><CMD>set scrollback=1<CR><CMD>sleep 10ms<CR><CMD>set scrollback=10000<CR>i<C-l><C-\><C-n><CMD>FloatermHide<CR><CMD>FloatermShow<CR><C-l>]]
       end
       return [[<C-\><C-n><C-w>l]]
     end, { expr = true })
@@ -162,11 +162,11 @@ local configs = {
 
   -- fzf-lua
   fzf_lua = function()
-    map('n', '<C-p>p', [[<cmd>FzfLua builtin<cr>]])
-    map('n', '<C-p>f', [[<cmd>FzfLua files<cr>]])
-    map('n', '<C-p>b', [[<cmd>FzfLua buffers<cr>]])
-    map('n', '<C-p>r', [[<cmd>FzfLua live_grep_native<cr>]])
-    map('n', '<C-p>h', [[<cmd>FzfLua help_tags<cr>]])
+    map('n', '<C-p>p', [[<CMD>FzfLua builtin<CR>]])
+    map('n', '<C-p>f', [[<CMD>FzfLua files<CR>]])
+    map('n', '<C-p>b', [[<CMD>FzfLua buffers<CR>]])
+    map('n', '<C-p>r', [[<CMD>FzfLua live_grep_native<CR>]])
+    map('n', '<C-p>h', [[<CMD>FzfLua help_tags<CR>]])
   end,
 }
 
