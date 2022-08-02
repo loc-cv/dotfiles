@@ -87,7 +87,7 @@ M.init = function()
     end,
   })
 
-  vim.api.nvim_create_autocmd({ 'WinEnter', 'InsertLeave' }, {
+  vim.api.nvim_create_autocmd({ 'WinEnter', 'InsertLeave', 'WinNew', 'BufNew' }, {
     group = cursorlineAuGrp,
     pattern = '*',
     command = 'set cursorline',

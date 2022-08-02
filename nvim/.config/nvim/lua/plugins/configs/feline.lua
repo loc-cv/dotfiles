@@ -8,7 +8,7 @@ M.setup = function()
 
   local colors_statusline = {
     active = { fg = '#0a0a0a', bg = '#adadad', style = 'bold' },
-    inactive = { fg = '#c0c0c0', bg = '#323232', style = 'bold' },
+    inactive = { fg = '#d4d4d4', bg = '#373737', style = 'bold' },
   }
 
   local colors_winbar = {
@@ -203,7 +203,7 @@ M.setup = function()
     },
     args = {
       provider = function()
-        return string.upper(providers.coclist_status('args'))
+        return providers.coclist_status('args')
       end,
       enabled = conditions.filetype_list,
     },

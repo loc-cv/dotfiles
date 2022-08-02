@@ -4,6 +4,7 @@ local hi = require('core.utils').hi
 M.colors = {
   -- Cursorline
   CursorLine = { bg = '#303030' },
+  -- CursorLine = { bg = '#3b3b3b' },
 
   -- Float / Popup
   FloatBorder = { bg = 'NONE' },
@@ -21,7 +22,7 @@ M.colors = {
   -- Tabline
   TabLineFill = { bg = '#282828', fg = '#d4d4d4', bold = true },
   TabLineSel = { bg = '#adadad', fg = '#0a0a0a', bold = true },
-  TabLine = { bg = '#323232', fg = '#c0c0c0', bold = true },
+  TabLine = { bg = '#373737', fg = '#d4d4d4', bold = true },
 
   -- vim-floaterm
   FloatermBorder = { bg = '#1e1e1e' },
