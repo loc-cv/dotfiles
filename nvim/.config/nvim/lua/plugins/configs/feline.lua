@@ -28,6 +28,7 @@ M.setup = function()
     'nnn',
     'floaterm',
     'coctree',
+    'list',
   }
 
   local get_coc_diagnostic = function(diag_type)
@@ -50,11 +51,28 @@ M.setup = function()
       return false
     end,
 
-    normal_filetypes = function()
+    filetype_normal = function()
       if vim.tbl_contains(special_filetypes, vim.bo.filetype) then
         return false
       end
       return true
+    end,
+
+    filetype_special = function()
+      local filetype = vim.bo.filetype
+      if vim.tbl_contains(special_filetypes, filetype) then
+        if filetype ~= 'list' then
+          return true
+        end
+      end
+      return false
+    end,
+
+    filetype_list = function()
+      if vim.bo.filetype == 'list' then
+        return true
+      end
+      return false
     end,
 
     hide_by_width = function()
@@ -123,6 +141,10 @@ M.setup = function()
       end
       return ''
     end,
+
+    coclist_status = function(segment)
+      return vim.fn['coc#list#status'](segment)
+    end,
   }
 
   -- utils: render component
@@ -162,6 +184,44 @@ M.setup = function()
     return component
   end
 
+  local coclist_c = {
+    mode = {
+      provider = function()
+        return providers.coclist_status('mode') .. ' |'
+      end,
+      enabled = conditions.filetype_list,
+    },
+    title = {
+      provider = 'CocList',
+      enabled = conditions.filetype_list,
+    },
+    loading = {
+      provider = function()
+        return providers.coclist_status('loading')
+      end,
+      enabled = conditions.filetype_list,
+    },
+    args = {
+      provider = function()
+        return string.upper(providers.coclist_status('args'))
+      end,
+      enabled = conditions.filetype_list,
+    },
+    total = {
+      provider = function()
+        local total_line = tostring(vim.fn.line('$'))
+        return '(' .. total_line .. '/' .. tostring(providers.coclist_status('total')) .. ')'
+      end,
+      enabled = conditions.filetype_list,
+    },
+    path = {
+      provider = function()
+        return providers.coclist_status('cwd')
+      end,
+      enabled = conditions.filetype_list,
+    },
+  }
+
   local c_c = { -- common components
     blank = {
       provider = ' ',
@@ -171,9 +231,7 @@ M.setup = function()
   local sft_c = { -- special filetype components
     filetype = {
       provider = 'file_type',
-      enabled = function()
-        return not conditions.normal_filetypes()
-      end,
+      enabled = conditions.filetype_special,
     },
   }
 
@@ -182,88 +240,88 @@ M.setup = function()
       provider = 'git_branch',
       icon = ' ',
       enabled = function()
-        return require('feline.providers.git').git_info_exists() and conditions.normal_filetypes()
+        return require('feline.providers.git').git_info_exists() and conditions.filetype_normal()
       end,
     },
     file_icon = {
       provider = providers.file_icon,
       enabled = function()
-        return conditions.buffer_not_empty() and conditions.normal_filetypes()
+        return conditions.buffer_not_empty() and conditions.filetype_normal()
       end,
     },
     smart_file_name = {
       provider = providers.smart_file_name,
       -- update = { 'VimResized' },
-      enabled = conditions.normal_filetypes,
+      enabled = conditions.filetype_normal,
     },
     diagnostic_errors = {
       provider = function()
         return providers.coc_diagnostic('error')
       end,
       icon = 'E',
-      enabled = conditions.normal_filetypes,
+      enabled = conditions.filetype_normal,
     },
     diagnostic_warnings = {
       provider = function()
         return providers.coc_diagnostic('warning')
       end,
       icon = 'W',
-      enabled = conditions.normal_filetypes,
+      enabled = conditions.filetype_normal,
     },
     diagnostic_hints = {
       provider = function()
         return providers.coc_diagnostic('hint')
       end,
       icon = 'H',
-      enabled = conditions.normal_filetypes,
+      enabled = conditions.filetype_normal,
     },
     diagnostic_info = {
       provider = function()
         return providers.coc_diagnostic('information')
       end,
       icon = 'I',
-      enabled = conditions.normal_filetypes,
+      enabled = conditions.filetype_normal,
     },
     git_diff_added = {
       provider = 'git_diff_added',
       icon = '+',
       enabled = function()
-        return require('feline.providers.git').git_info_exists() and conditions.normal_filetypes()
+        return require('feline.providers.git').git_info_exists() and conditions.filetype_normal()
       end,
     },
     git_diff_removed = {
       provider = 'git_diff_removed',
       icon = '-',
       enabled = function()
-        return require('feline.providers.git').git_info_exists() and conditions.normal_filetypes()
+        return require('feline.providers.git').git_info_exists() and conditions.filetype_normal()
       end,
     },
     git_diff_changed = {
       provider = 'git_diff_changed',
       icon = '~',
       enabled = function()
-        return require('feline.providers.git').git_info_exists() and conditions.normal_filetypes()
+        return require('feline.providers.git').git_info_exists() and conditions.filetype_normal()
       end,
     },
     position = {
       provider = 'position',
-      enabled = conditions.normal_filetypes,
+      enabled = conditions.filetype_normal,
     },
     filetype = {
       provider = 'file_type',
       enabled = function()
-        return conditions.hide_by_width() and conditions.normal_filetypes()
+        return conditions.hide_by_width() and conditions.filetype_normal()
       end,
     },
     file_encoding = {
       provider = 'file_encoding',
       enabled = function()
-        return conditions.hide_by_width() and conditions.normal_filetypes()
+        return conditions.hide_by_width() and conditions.filetype_normal()
       end,
     },
     line_percentage = {
       provider = 'line_percentage',
-      enabled = conditions.normal_filetypes,
+      enabled = conditions.filetype_normal,
     },
   }
 
@@ -271,6 +329,11 @@ M.setup = function()
     active = {
       { -- left
         render_c(c_c.blank, { sep = { position = 'none' } }),
+        render_c(coclist_c.mode),
+        render_c(coclist_c.title),
+        render_c(coclist_c.loading),
+        render_c(coclist_c.args),
+        render_c(coclist_c.total),
         render_c(sft_c.filetype),
         render_c(nft_c.git_branch, { sep = { str = '  ' } }),
         render_c(nft_c.file_icon),
@@ -288,17 +351,25 @@ M.setup = function()
         render_c(nft_c.filetype, { sep = { position = 'left', str = '  ' } }),
         render_c(nft_c.position, { sep = { position = 'left', str = '  ' } }),
         render_c(nft_c.line_percentage, { sep = { position = 'left', str = '  ' } }),
+        render_c(coclist_c.path, { sep = { position = 'left', str = '  ' } }),
         render_c(c_c.blank, { sep = { position = 'none' } }),
       },
     },
     inactive = {
       { -- left
         render_c(c_c.blank, { status = 'inactive', sep = { position = 'none' } }),
+        render_c(coclist_c.mode, { status = 'inactive' }),
+        render_c(coclist_c.title, { status = 'inactive' }),
+        render_c(coclist_c.loading, { status = 'inactive' }),
+        render_c(coclist_c.args, { status = 'inactive' }),
+        render_c(coclist_c.total, { status = 'inactive' }),
         render_c(sft_c.filetype, { status = 'inactive' }),
         render_c(nft_c.file_icon, { status = 'inactive' }),
         render_c(nft_c.smart_file_name, { status = 'inactive' }),
       },
-      {}, -- right
+      { -- right
+        render_c(coclist_c.path, { status = 'inactive', sep = { position = 'left', str = '  ' } }),
+      },
     },
   }
 

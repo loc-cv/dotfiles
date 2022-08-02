@@ -103,11 +103,11 @@ local configs = {
     map('n', '<C-i>L', '<CMD>CocList<CR>')
     map('n', '<C-i>q', '<CMD>CocListCancel<CR>')
     map('n', '<C-i>e', '<CMD>CocList extensions<CR>')
-    map('n', '<C-i>d', '<CMD>CocList diagnostics<CR>')
+    map('n', '<C-i>d', '<CMD>CocList -A diagnostics<CR>')
     map('n', '<C-i>c', '<CMD>CocList commands<CR>')
-    map('n', '<C-i>l', '<CMD>CocList location<CR>')
-    map('n', '<C-i>s', '<CMD>CocList -I symbols<CR>')
-    map('n', '<C-i>o', '<CMD>CocOutline<CR>')
+    map('n', '<C-i>l', '<CMD>CocList -A location<CR>')
+    map('n', '<C-i>s', '<CMD>CocList -I -A symbols<CR>')
+    map('n', '<C-i>o', '<CMD>CocList -A outline<CR>')
 
     local toggleOutline = function()
       for _, win in ipairs(vim.api.nvim_list_wins()) do
@@ -120,7 +120,7 @@ local configs = {
       end
       vim.fn.CocAction('showOutline')
     end
-    map('n', '<C-i>o', toggleOutline)
+    map('n', '<C-i>t', toggleOutline)
   end,
 
   -- vim-floaterm
