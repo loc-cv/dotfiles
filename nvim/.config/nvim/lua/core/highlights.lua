@@ -4,7 +4,6 @@ local hi = require('core.utils').hi
 M.colors = {
   -- Cursorline
   CursorLine = { bg = '#303030' },
-  -- CursorLine = { bg = '#3b3b3b' },
 
   -- Float / Popup
   FloatBorder = { bg = 'NONE' },
@@ -52,9 +51,8 @@ M.colors = {
   CocHintHighlight = { fg = '#10b981', underline = true },
   CocFadeOut = { fg = '#808080', underline = true },
   CocHighlightText = { bg = '#282828', underline = true },
-  -- CocMenuSel = { bg = '#454545' },
-  CocMenuSel = { link = 'Visual' },
   CocSearch = { fg = '#18a2fe' },
+  -- CocMenuSel = { link = 'Visual' },
 
   -- nvim-window
   NvimWindow = { bg = '#d4d4d4', fg = '#0a0a0a' },
@@ -63,8 +61,9 @@ M.colors = {
 local colors = M.colors
 
 M.init = function()
-  vim.g.vscode_style = 'dark'
-  vim.cmd([[colorscheme vscode]])
+  -- vim.g.vscode_style = 'dark'
+  -- vim.cmd([[colorscheme vscode]])
+  vim.cmd([[colorscheme codedark]])
 
   for group, conf in pairs(colors) do
     hi(group, conf)
