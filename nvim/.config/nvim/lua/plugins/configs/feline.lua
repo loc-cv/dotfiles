@@ -369,6 +369,7 @@ M.setup = function()
       },
       { -- right
         render_c(coclist_c.path, { status = 'inactive', sep = { position = 'left', str = '  ' } }),
+        render_c(c_c.blank, { status = 'inactive', sep = { position = 'none' } }),
       },
     },
   }
