@@ -9,7 +9,7 @@ local configs = {
   -- coc.nvim
   coc = function()
     -- coc-explorer
-    map('n', '<C-q>e', function()
+    map('n', '<C-i>f', function()
       vim.cmd([[CocCommand explorer]])
       vim.cmd([[sleep 20m]])
       feedkey('<C-w>=', '')
@@ -100,14 +100,14 @@ local configs = {
     map({ 'n', 'x' }, '<C-s>', '<Plug>(coc-range-select)')
 
     -- Mappings for CoCList
-    map('n', '<C-m>L', '<CMD>CocList<CR>')
-    map('n', '<C-m>q', '<CMD>CocListCancel<CR>')
-    map('n', '<C-m>e', '<CMD>CocList extensions<CR>')
-    map('n', '<C-m>d', '<CMD>CocList diagnostics<CR>')
-    map('n', '<C-m>c', '<CMD>CocList commands<CR>')
-    map('n', '<C-m>l', '<CMD>CocList location<CR>')
-    map('n', '<C-m>s', '<CMD>CocList -I symbols<CR>')
-    map('n', '<C-m>o', '<CMD>CocList outline<CR>')
+    map('n', '<C-i>L', '<CMD>CocList<CR>')
+    map('n', '<C-i>q', '<CMD>CocListCancel<CR>')
+    map('n', '<C-i>e', '<CMD>CocList extensions<CR>')
+    map('n', '<C-i>d', '<CMD>CocList diagnostics<CR>')
+    map('n', '<C-i>c', '<CMD>CocList commands<CR>')
+    map('n', '<C-i>l', '<CMD>CocList location<CR>')
+    map('n', '<C-i>s', '<CMD>CocList -I symbols<CR>')
+    map('n', '<C-i>o', '<CMD>CocList outline<CR>')
   end,
 
   -- vim-floaterm
