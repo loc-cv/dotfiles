@@ -3,7 +3,7 @@ local hi = require('core.utils').hi
 
 M.colors = {
   -- Cursorline
-  CursorLine = { bg = '#303030' },
+  CursorLine = { bg = '#292929' },
 
   -- Float / Popup
   FloatBorder = { bg = 'NONE' },
