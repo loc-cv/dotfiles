@@ -95,6 +95,13 @@
   "javascript.suggest.completeFunctionCalls": false,
   "javascript.suggestionActions.enabled": false,
   "javascript.showUnused": false,
+  // "javascript.inlayHints.variableTypes.enabled": true,
+  // "javascript.inlayHints.parameterNames.enabled": "all",
+  // "javascript.inlayHints.parameterTypes.enabled": true,
+  // "javascript.inlayHints.enumMemberValues.enabled": true,
+  // "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  // "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  // "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
 
   // css
   "css.lint.unknownAtRules": "ignore",

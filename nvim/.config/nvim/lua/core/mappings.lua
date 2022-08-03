@@ -1,19 +1,11 @@
 local M = {}
 local map = require('core.utils').map
 
-local feedkey = function(key, mode)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
-
 local configs = {
   -- coc.nvim
   coc = function()
     -- coc-explorer
-    map('n', '<C-i>f', function()
-      vim.cmd([[CocCommand explorer]])
-      vim.cmd([[sleep 20m]])
-      feedkey('<C-w>=', '')
-    end)
+    map('n', '<C-i>f', [[<CMD>CocCommand explorer<CR><CMD>sleep 20m<CR><C-w>=]])
 
     -- coc-snippet
     vim.g.coc_snippet_next = '<Tab>'
