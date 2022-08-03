@@ -60,8 +60,9 @@ M.colors = {
 local colors = M.colors
 
 M.init = function()
-  vim.g.vscode_style = 'dark'
-  vim.cmd([[colorscheme vscode]])
+  -- vim.g.vscode_style = 'dark'
+  -- vim.cmd([[colorscheme vscode]])
+  vim.cmd([[colorscheme codedark]])
 
   for group, conf in pairs(colors) do
     hi(group, conf)

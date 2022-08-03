@@ -12,7 +12,8 @@ return packer.startup({
 
     -- Make Neovim look good
     use('kyazdani42/nvim-web-devicons')
-    use('Mofiqul/vscode.nvim')
+    -- use('Mofiqul/vscode.nvim')
+    use('tomasiser/vim-code-dark')
     use({
       'feline-nvim/feline.nvim',
       config = function()
