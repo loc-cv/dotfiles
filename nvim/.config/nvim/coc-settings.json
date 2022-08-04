@@ -48,6 +48,18 @@
   // "hover.floatConfig": { "border": true },
 
   "list.statusLineSegments": [],
+  "list.normalMappings": {
+    "<C-v>": "action:vsplit",
+    "<C-s>": "action:split",
+    "<C-t>": "action:tabe",
+    "<C-j>": "normal:j",
+    "<C-k>": "normal:k"
+  },
+  "list.insertMappings": {
+    "<C-v>": "action:vsplit",
+    "<C-s>": "action:split",
+    "<C-t>": "action:tabe"
+  },
 
   "coc.preferences.formatOnSaveFiletypes": [
     "html",
