@@ -33,7 +33,7 @@
     "default": " Auto "
   },
 
-  "diagnostic.virtualText": true,
+  // "diagnostic.virtualText": true,
 
   "tree.openedIcon": "",
   "tree.closedIcon": "",
