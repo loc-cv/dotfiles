@@ -70,7 +70,6 @@ return packer.startup({
     -- Git
     use({
       'lewis6991/gitsigns.nvim',
-      requires = 'nvim-lua/plenary.nvim',
       event = { 'BufRead', 'BufNewFile' },
       config = function()
         require('plugins.configs.gitsigns').setup()
@@ -134,8 +133,12 @@ return packer.startup({
 
     -- Text objects for entire buffer
     use({
+      'kana/vim-textobj-user',
+      event = { 'BufRead', 'BufNewFile' },
+    })
+    use({
       'kana/vim-textobj-entire',
-      requires = 'kana/vim-textobj-user',
+      after = 'vim-textobj-user',
       event = { 'BufRead', 'BufNewFile' },
     })
 
