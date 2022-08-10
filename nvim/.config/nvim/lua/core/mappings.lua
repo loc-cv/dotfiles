@@ -5,7 +5,7 @@ local configs = {
   -- coc.nvim
   coc = function()
     -- coc-explorer
-    map('n', '<C-i>f', [[<CMD>CocCommand explorer<CR><CMD>sleep 20m<CR><C-w>=]])
+    map('n', '<C-n>', [[<CMD>CocCommand explorer<CR><CMD>sleep 20m<CR><C-w>=]])
 
     -- coc-snippet
     vim.g.coc_snippet_next = '<Tab>'
@@ -26,11 +26,11 @@ local configs = {
         return autopairs.autopairs_cr()
       end
     end
-    map('i', '<cr>', 'v:lua.CR()', { expr = true })
+    map('i', '<CR>', 'v:lua.CR()', { expr = true })
 
     -- Use <C-j> and <C-k> to navigate the completion list
-    map('i', '<C-j>', 'coc#pum#visible() ? coc#pum#next(1) : "<C-j>"', { expr = true })
-    map('i', '<C-k>', 'coc#pum#visible() ? coc#pum#prev(1) : "<C-k>"', { expr = true })
+    map('i', '<C-j>', "coc#pum#visible() ? coc#pum#next(1) : '<C-j>'", { expr = true })
+    map('i', '<C-k>', "coc#pum#visible() ? coc#pum#prev(1) : '<C-k>'", { expr = true })
 
     -- Use `[d` and `]d` to navigate diagnostics
     map('n', '[d', '<Plug>(coc-diagnostic-prev)')
@@ -42,12 +42,12 @@ local configs = {
     map('n', 'gi', '<Plug>(coc-implementation)')
     map('n', 'gr', '<Plug>(coc-references)')
 
-    -- Use K to show documentation in preview window
-    map('n', 'K', function()
+    -- Use gh to show documentation in preview window
+    map('n', 'gh', function()
       if vim.fn.CocAction('hasProvider', 'hover') then
         vim.fn.CocActionAsync('doHover')
       else
-        vim.fn.feedkeys('K', 'in')
+        vim.fn.feedkeys('gh', 'in')
       end
     end)
 
@@ -92,13 +92,13 @@ local configs = {
     map({ 'n', 'x' }, '<C-s>', '<Plug>(coc-range-select)')
 
     -- Mappings for CoCList
-    map('n', '<C-i>L', '<CMD>CocList<CR>')
-    map('n', '<C-i>c', '<CMD>CocList commands<CR>')
-    map('n', '<C-i>e', '<CMD>CocList extensions<CR>')
-    map('n', '<C-i>d', '<CMD>CocList -A diagnostics<CR>')
-    map('n', '<C-i>l', '<CMD>CocList -A location<CR>')
-    map('n', '<C-i>s', '<CMD>CocList -A -I symbols<CR>')
-    map('n', '<C-i>o', '<CMD>CocList -A outline<CR>')
+    map('n', '<M-q>L', '<CMD>CocList<CR>')
+    map('n', '<M-q>c', '<CMD>CocList commands<CR>')
+    map('n', '<M-q>e', '<CMD>CocList extensions<CR>')
+    map('n', '<M-q>d', '<CMD>CocList -A diagnostics<CR>')
+    map('n', '<M-q>l', '<CMD>CocList -A location<CR>')
+    map('n', '<M-q>s', '<CMD>CocList -A -I symbols<CR>')
+    map('n', '<M-q>o', '<CMD>CocList -A outline<CR>')
 
     local toggleOutline = function()
       for _, win in ipairs(vim.api.nvim_list_wins()) do
@@ -111,7 +111,7 @@ local configs = {
       end
       vim.fn.CocAction('showOutline')
     end
-    map('n', '<C-i>t', toggleOutline)
+    map('n', '<M-q>t', toggleOutline)
   end,
 
   -- vim-floaterm

@@ -90,7 +90,6 @@ return packer.startup({
     use({
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
-      event = { 'BufRead', 'BufNewFile' },
       config = function()
         require('plugins.configs.treesitter').setup_ts()
       end,

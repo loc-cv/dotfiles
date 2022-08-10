@@ -32,7 +32,8 @@
     "typeParameter": " TypeParameter ",
     "default": " Auto "
   },
-
+  "suggest.noselect": false,
+  "suggest.enablePreselect": false,
   // "diagnostic.virtualText": true,
 
   "tree.openedIcon": "",
