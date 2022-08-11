@@ -92,13 +92,13 @@ local configs = {
     map({ 'n', 'x' }, '<C-s>', '<Plug>(coc-range-select)')
 
     -- Mappings for CoCList
-    map('n', '<M-q>L', '<CMD>CocList<CR>')
-    map('n', '<M-q>c', '<CMD>CocList commands<CR>')
-    map('n', '<M-q>e', '<CMD>CocList extensions<CR>')
-    map('n', '<M-q>d', '<CMD>CocList -A diagnostics<CR>')
-    map('n', '<M-q>l', '<CMD>CocList -A location<CR>')
-    map('n', '<M-q>s', '<CMD>CocList -A -I symbols<CR>')
-    map('n', '<M-q>o', '<CMD>CocList -A outline<CR>')
+    map('n', '<M-q>L', '<CMD>CocList<CR>', { nowait = true })
+    map('n', '<M-q>c', '<CMD>CocList commands<CR>', { nowait = true })
+    map('n', '<M-q>e', '<CMD>CocList extensions<CR>', { nowait = true })
+    map('n', '<M-q>d', '<CMD>CocList -A diagnostics<CR>', { nowait = true })
+    map('n', '<M-q>l', '<CMD>CocList -A location<CR>', { nowait = true })
+    map('n', '<M-q>s', '<CMD>CocList -A -I symbols<CR>', { nowait = true })
+    map('n', '<M-q>o', '<CMD>CocList -A outline<CR>', { nowait = true })
 
     local toggleOutline = function()
       for _, win in ipairs(vim.api.nvim_list_wins()) do
