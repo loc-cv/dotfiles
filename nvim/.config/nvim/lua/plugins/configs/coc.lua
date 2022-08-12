@@ -15,6 +15,7 @@ M.setup = function()
     'coc-sumneko-lua',
     'coc-stylua',
     '@yaegassy/coc-tailwindcss3',
+    'coc-styled-components',
   }
 end
 
