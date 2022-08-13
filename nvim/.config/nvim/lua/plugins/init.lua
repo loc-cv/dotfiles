@@ -10,6 +10,11 @@ return packer.startup({
     -- Packer himself
     use('wbthomason/packer.nvim')
 
+    -- Better performance for Neovim
+    use('lewis6991/impatient.nvim')
+    use('nathom/filetype.nvim')
+    use('antoinemadec/FixCursorHold.nvim')
+
     -- Make Neovim look good
     use('kyazdani42/nvim-web-devicons')
     -- use('Mofiqul/vscode.nvim')
@@ -21,11 +26,6 @@ return packer.startup({
       end,
     })
 
-    -- Better performance for Neovim
-    use('lewis6991/impatient.nvim')
-    use('nathom/filetype.nvim')
-    use('antoinemadec/FixCursorHold.nvim')
-
     -- Lsp and friends
     use({
       'neoclide/coc.nvim',
@@ -36,10 +36,7 @@ return packer.startup({
     })
 
     -- Snippet
-    use({
-      'rafamadriz/friendly-snippets',
-      -- event = 'InsertEnter',
-    })
+    use('rafamadriz/friendly-snippets')
 
     -- Fuzzy finder
     use({
@@ -70,7 +67,6 @@ return packer.startup({
     -- Git
     use({
       'lewis6991/gitsigns.nvim',
-      event = { 'BufRead', 'BufNewFile' },
       config = function()
         require('plugins.configs.gitsigns').setup()
       end,
@@ -80,7 +76,6 @@ return packer.startup({
     -- Commenting code
     use({
       'numToStr/Comment.nvim',
-      event = { 'BufRead', 'BufNewFile' },
       config = function()
         require('plugins.configs.comment').setup()
       end,
@@ -104,7 +99,6 @@ return packer.startup({
       'JoosepAlviste/nvim-ts-context-commentstring',
       requires = 'nvim-treesitter/nvim-treesitter',
       after = 'nvim-treesitter',
-      event = { 'BufRead', 'BufNewFile' },
       config = function()
         require('plugins.configs.treesitter').setup_context_commentstring()
       end,
@@ -115,7 +109,6 @@ return packer.startup({
       'windwp/nvim-ts-autotag',
       requires = 'nvim-treesitter/nvim-treesitter',
       after = 'nvim-treesitter',
-      event = { 'BufRead', 'BufNewFile' },
       config = function()
         require('plugins.configs.treesitter').setup_autotag()
       end,
@@ -133,18 +126,16 @@ return packer.startup({
     -- Text objects for entire buffer
     use({
       'kana/vim-textobj-user',
-      event = { 'BufRead', 'BufNewFile' },
+      keys = { 'ie', 'ae' },
     })
     use({
       'kana/vim-textobj-entire',
       after = 'vim-textobj-user',
-      event = { 'BufRead', 'BufNewFile' },
     })
 
     -- Indent guides for Neovim
     use({
       'lukas-reineke/indent-blankline.nvim',
-      event = { 'BufRead', 'BufNewFile' },
       config = function()
         require('plugins.configs.indent-blankline').setup()
       end,
@@ -153,7 +144,6 @@ return packer.startup({
     -- Surround
     use({
       'kylechui/nvim-surround',
-      event = { 'BufRead', 'BufNewFile' },
       config = function()
         require('plugins.configs.surround').setup()
       end,
@@ -162,7 +152,6 @@ return packer.startup({
     -- Make the yanked region apparent
     use({
       'machakann/vim-highlightedyank',
-      event = { 'BufRead', 'BufNewFile' },
       config = function()
         require('plugins.configs.highlightedyank').setup()
       end,
@@ -198,26 +187,14 @@ return packer.startup({
     use({ 'davidgranstrom/nvim-markdown-preview', ft = { 'markdown' } })
 
     -- Move lines and selections
-    use({
-      'matze/vim-move',
-      event = { 'BufRead', 'BufNewFile' },
-    })
+    use('matze/vim-move')
 
     -- Search enhancements
-    use({
-      'haya14busa/is.vim',
-      event = { 'BufRead', 'BufNewFile' },
-    })
-    use({
-      'PeterRincker/vim-searchlight',
-      event = { 'BufRead', 'BufNewFile' },
-    })
+    use('haya14busa/is.vim')
+    use('PeterRincker/vim-searchlight')
 
     -- Trailing whitespaces
-    use({
-      'ntpeters/vim-better-whitespace',
-      event = { 'BufRead', 'BufNewFile' },
-    })
+    use('ntpeters/vim-better-whitespace')
 
     -- Sessions
     use({
