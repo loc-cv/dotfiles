@@ -25,7 +25,7 @@ M.setup = function()
         wrap = 'nowrap', -- wrap|nowrap
         vertical = 'up:55%', -- up|down:size
         horizontal = 'right:55%', -- right|left:size
-        layout = 'vertical', -- horizontal|vertical|flex
+        layout = 'flex', -- horizontal|vertical|flex
         delay = 0, -- delay(ms) displaying the preview, prevents lag on fast scrolling
         scrollbar = 'float', -- float: in-window floating border
 

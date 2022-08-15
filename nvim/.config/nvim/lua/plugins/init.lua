@@ -124,10 +124,7 @@ return packer.startup({
     })
 
     -- Text objects for entire buffer
-    use({
-      'kana/vim-textobj-user',
-      keys = { 'ie', 'ae' },
-    })
+    use('kana/vim-textobj-user')
     use({
       'kana/vim-textobj-entire',
       after = 'vim-textobj-user',
