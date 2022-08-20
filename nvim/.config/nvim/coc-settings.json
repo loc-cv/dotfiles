@@ -43,10 +43,10 @@
   "outline.autoWidth": true,
   "outline.keepWindow": true,
 
-  "suggest.floatConfig": { "border": true },
-  "diagnostic.floatConfig": { "border": true },
-  "signature.floatConfig": { "border": true },
-  "hover.floatConfig": { "border": true },
+  // "suggest.floatConfig": { "border": true },
+  // "diagnostic.floatConfig": { "border": true },
+  // "signature.floatConfig": { "border": true },
+  // "hover.floatConfig": { "border": true },
 
   "list.statusLineSegments": [],
   "list.normalMappings": {
@@ -72,7 +72,8 @@
     "javascriptreact",
     "typescript",
     "typescriptreact",
-    "lua"
+    "lua",
+    "vue"
   ],
 
   // lua

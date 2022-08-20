@@ -80,7 +80,7 @@ M.setup = function()
         -- set the default image scaler, possible scalers:
         --   false (none), "crop", "distort", "fit_contain", "contain", "forced_cover", "cover"
         -- https://github.com/seebye/ueberzug
-        ueberzug_scaler = 'cover',
+        ueberzug_scaler = 'contain',
       },
     },
 

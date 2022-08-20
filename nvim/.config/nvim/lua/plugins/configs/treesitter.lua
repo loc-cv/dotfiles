@@ -7,29 +7,7 @@ end
 
 M.setup_ts = function()
   treesitter.setup({
-    ensure_installed = {
-      'lua',
-      'html',
-      'css',
-      'scss',
-      'javascript',
-      'typescript',
-      'tsx',
-      'json',
-      'jsonc',
-      'c',
-      'cpp',
-      'go',
-      'gomod',
-      'php',
-      'python',
-      'regex',
-      'bash',
-      'jsdoc',
-      'dot',
-      'graphql',
-      'rust',
-    },
+    ensure_installed = 'all',
 
     highlight = {
       enable = true,

@@ -7,7 +7,7 @@ M.colors = {
 
   -- Float / Popup
   FloatBorder = { bg = 'NONE' },
-  Pmenu = { bg = 'NONE' },
+  -- Pmenu = { bg = 'NONE' },
 
   -- Search
   IncSearch = { bg = '#adadad', fg = '#0a0a0a', bold = true },
