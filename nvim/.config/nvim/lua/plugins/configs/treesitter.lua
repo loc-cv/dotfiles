@@ -7,7 +7,19 @@ end
 
 M.setup_ts = function()
   treesitter.setup({
-    ensure_installed = 'all',
+    ensure_installed = {
+      'lua',
+      'javascript',
+      'typescript',
+      'tsx',
+      'html',
+      'css',
+      'scss',
+      'jsdoc',
+      'json',
+      'jsonc',
+      'markdown',
+    },
 
     highlight = {
       enable = true,
