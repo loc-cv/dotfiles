@@ -14,9 +14,9 @@ M.setup = function()
     'coc-explorer',
     'coc-sumneko-lua',
     'coc-stylua',
-    '@yaegassy/coc-tailwindcss3',
-    'coc-styled-components',
-    '@yaegassy/coc-volar',
+    -- '@yaegassy/coc-tailwindcss3',
+    -- 'coc-styled-components',
+    -- '@yaegassy/coc-volar',
   }
 end
 

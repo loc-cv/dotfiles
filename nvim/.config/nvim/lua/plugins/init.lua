@@ -76,6 +76,7 @@ return packer.startup({
     -- Commenting code
     use({
       'numToStr/Comment.nvim',
+      after = 'nvim-ts-context-commentstring',
       config = function()
         require('plugins.configs.comment').setup()
       end,

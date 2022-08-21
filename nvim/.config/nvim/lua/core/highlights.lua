@@ -23,6 +23,10 @@ M.colors = {
   TabLineSel = { bg = '#adadad', fg = '#0a0a0a', bold = true },
   TabLine = { bg = '#373737', fg = '#d4d4d4', bold = true },
 
+  -- Statusline
+  StatusLine = { bg = '#1e1e1e' },
+  StatusLineNC = { bg = '#1e1e1e' },
+
   -- vim-floaterm
   FloatermBorder = { bg = '#1e1e1e' },
 
