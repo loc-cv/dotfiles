@@ -17,7 +17,6 @@ return packer.startup({
 
     -- Make Neovim look good
     use('kyazdani42/nvim-web-devicons')
-    -- use('Mofiqul/vscode.nvim')
     use('tomasiser/vim-code-dark')
     use({
       'feline-nvim/feline.nvim',
@@ -90,10 +89,7 @@ return packer.startup({
         require('plugins.configs.treesitter').setup_ts()
       end,
     })
-    use({
-      'sheerun/vim-polyglot',
-      event = { 'BufRead', 'BufNewFile' },
-    })
+    use('sheerun/vim-polyglot')
 
     -- Set the comment string based on the cursor location in a file
     use({
