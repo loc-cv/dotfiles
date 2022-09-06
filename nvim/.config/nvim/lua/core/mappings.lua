@@ -91,14 +91,17 @@ local configs = {
     -- Use ctrl-s for selections ranges
     map({ 'n', 'x' }, '<C-s>', '<Plug>(coc-range-select)')
 
+    -- Use ctrl-s in insert mode to trigger signature help
+    map('i', '<C-s>', "<C-r>=CocActionAsync('showSignatureHelp')<CR>")
+
     -- Mappings for CoCList
-    map('n', '<M-o>L', '<CMD>CocList<CR>', { nowait = true })
-    map('n', '<M-o>c', '<CMD>CocList commands<CR>', { nowait = true })
-    map('n', '<M-o>e', '<CMD>CocList extensions<CR>', { nowait = true })
-    map('n', '<M-o>d', '<CMD>CocList -A diagnostics<CR>', { nowait = true })
-    map('n', '<M-o>l', '<CMD>CocList -A location<CR>', { nowait = true })
-    map('n', '<M-o>s', '<CMD>CocList -A -I symbols<CR>', { nowait = true })
-    map('n', '<M-o>o', '<CMD>CocList -A outline<CR>', { nowait = true })
+    map('n', '<C-p>L', '<CMD>CocList<CR>', { nowait = true })
+    map('n', '<C-p>c', '<CMD>CocList commands<CR>', { nowait = true })
+    map('n', '<C-p>e', '<CMD>CocList extensions<CR>', { nowait = true })
+    map('n', '<C-p>d', '<CMD>CocList -A diagnostics<CR>', { nowait = true })
+    map('n', '<C-p>l', '<CMD>CocList -A location<CR>', { nowait = true })
+    map('n', '<C-p>s', '<CMD>CocList -A -I symbols<CR>', { nowait = true })
+    map('n', '<C-p>o', '<CMD>CocList -A outline<CR>', { nowait = true })
 
     local toggleOutline = function()
       for _, win in ipairs(vim.api.nvim_list_wins()) do
@@ -111,7 +114,7 @@ local configs = {
       end
       vim.fn.CocAction('showOutline')
     end
-    map('n', '<M-o>t', toggleOutline, { nowait = true })
+    map('n', '<C-p>t', toggleOutline, { nowait = true })
   end,
 
   -- vim-floaterm

@@ -111,6 +111,12 @@ return packer.startup({
       end,
     })
 
+    use({
+      'nvim-treesitter/nvim-treesitter-context',
+      requires = 'nvim-treesitter/nvim-treesitter',
+      after = 'nvim-treesitter',
+    })
+
     -- Autopairs
     use({
       'windwp/nvim-autopairs',
@@ -211,6 +217,13 @@ return packer.startup({
         require('plugins.configs.color-picker').setup()
       end,
     })
+    -- use({
+    --   'max397574/colortils.nvim',
+    --   cmd = 'Colortils',
+    --   config = function()
+    --     require('colortils').setup()
+    --   end,
+    -- })
     use({
       'rrethy/vim-hexokinase',
       run = 'make hexokinase',

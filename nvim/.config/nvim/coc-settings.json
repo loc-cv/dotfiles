@@ -3,6 +3,7 @@
   "diagnostic.warningSign": "W",
   "diagnostic.infoSign": "I",
   "diagnostic.hintSign": "H",
+  "diagnostic.refreshOnInsertMode": true,
 
   "suggest.completionItemKindLabels": {
     "keyword": " Keyword ",
@@ -111,6 +112,7 @@
   "javascript.suggest.completeFunctionCalls": false,
   "javascript.suggestionActions.enabled": false,
   "javascript.showUnused": false,
+  "tsserver.disableAutomaticTypeAcquisition": true,
   // "javascript.inlayHints.variableTypes.enabled": true,
   // "javascript.inlayHints.parameterNames.enabled": "all",
   // "javascript.inlayHints.parameterTypes.enabled": true,
