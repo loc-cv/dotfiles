@@ -111,6 +111,7 @@ return packer.startup({
       end,
     })
 
+    -- Show code context
     use({
       'nvim-treesitter/nvim-treesitter-context',
       requires = 'nvim-treesitter/nvim-treesitter',
@@ -142,9 +143,9 @@ return packer.startup({
 
     -- Surround
     use({
-      'kylechui/nvim-surround',
+      'machakann/vim-sandwich',
       config = function()
-        require('plugins.configs.surround').setup()
+        vim.cmd('runtime macros/sandwich/keymap/surround.vim')
       end,
     })
 
@@ -174,6 +175,12 @@ return packer.startup({
         require('plugins.configs.tmux').setup()
       end,
     })
+    use({
+      'teranex/jk-jumps.vim',
+      config = function()
+        vim.g.jk_jumps_minimum_lines = 2
+      end,
+    })
 
     -- Buffers management
     use({
@@ -187,10 +194,6 @@ return packer.startup({
 
     -- Move lines and selections
     use('matze/vim-move')
-
-    -- Search enhancements
-    use('haya14busa/is.vim')
-    use('PeterRincker/vim-searchlight')
 
     -- Trailing whitespaces
     use('ntpeters/vim-better-whitespace')
@@ -209,21 +212,7 @@ return packer.startup({
       cmd = { 'StartupTime' },
     })
 
-    -- Web dev
-    use({
-      'ziontee113/color-picker.nvim',
-      cmd = { 'PickColor', 'PickColorInsert' },
-      config = function()
-        require('plugins.configs.color-picker').setup()
-      end,
-    })
-    -- use({
-    --   'max397574/colortils.nvim',
-    --   cmd = 'Colortils',
-    --   config = function()
-    --     require('colortils').setup()
-    --   end,
-    -- })
+    -- Colors related stuff
     use({
       'rrethy/vim-hexokinase',
       run = 'make hexokinase',
@@ -231,6 +220,9 @@ return packer.startup({
         require('plugins.configs.hexokinase').setup()
       end,
     })
+
+    -- Miscs
+    use({ 'lambdalisue/suda.vim' })
   end,
   config = {
     compile_path = vim.fn.stdpath('config') .. '/lua/plugins/packer_compiled.lua',

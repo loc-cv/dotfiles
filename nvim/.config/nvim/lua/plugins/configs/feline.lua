@@ -123,7 +123,9 @@ M.setup = function()
 
       if vim.bo.readonly == true then
         file_name = file_name .. ' '
-      elseif vim.bo.modified then
+      end
+
+      if vim.bo.modified then
         file_name = file_name .. '  '
       end
 
@@ -184,7 +186,7 @@ M.setup = function()
     return component
   end
 
-  local coclist_c = {
+  local coclist_c = { -- coclist components
     mode = {
       provider = function()
         return providers.coclist_status('mode') .. ' |'

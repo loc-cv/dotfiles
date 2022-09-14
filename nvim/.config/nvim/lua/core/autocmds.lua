@@ -26,18 +26,18 @@ local configs = {
 
   -- coc.nvim
   coc = function()
-    local cocAuGrp = vim.api.nvim_create_augroup('CocAuGrp', { clear = true })
+    local cocAuGroup = vim.api.nvim_create_augroup('CoC', { clear = true })
 
     -- Setup formatexpr specified filetype(s)
     vim.api.nvim_create_autocmd('FileType', {
-      group = cocAuGrp,
+      group = cocAuGroup,
       pattern = { 'typescript', 'json' },
       command = "setl formatexpr=CocAction('formatSelected')",
     })
 
     -- Update signature help on jump placeholder
     vim.api.nvim_create_autocmd('User', {
-      group = cocAuGrp,
+      group = cocAuGroup,
       pattern = 'CocJumpPlaceholder',
       callback = function()
         vim.fn.CocActionAsync('showSignatureHelp')
@@ -73,11 +73,11 @@ M.init = function()
     command = 'setlocal formatoptions-=cro',
   })
 
-  -- Better cursorline
-  local cursorlineAuGrp = vim.api.nvim_create_augroup('AutoCursorline', { clear = true })
+  -- Better cursorline (Somehow it's not consistent)
+  local cursorlineAuGroup = vim.api.nvim_create_augroup('CursorLine', { clear = true })
   local cursor_excluded_filetypes = { 'coc-explorer', 'DiffviewFiles', 'coctree' }
   vim.api.nvim_create_autocmd({ 'WinLeave', 'InsertEnter' }, {
-    group = cursorlineAuGrp,
+    group = cursorlineAuGroup,
     pattern = '*',
     callback = function()
       if vim.tbl_contains(cursor_excluded_filetypes, vim.bo.filetype) then
@@ -86,11 +86,23 @@ M.init = function()
       vim.cmd([[set nocursorline]])
     end,
   })
-
   vim.api.nvim_create_autocmd({ 'WinEnter', 'InsertLeave', 'WinNew', 'BufNew' }, {
-    group = cursorlineAuGrp,
+    group = cursorlineAuGroup,
     pattern = '*',
     command = 'set cursorline',
+  })
+
+  -- Better search
+  local incsearchHighlightAuGroup = vim.api.nvim_create_augroup('IncSearchHighlight', { clear = true })
+  vim.api.nvim_create_autocmd({ 'CmdlineEnter' }, {
+    group = incsearchHighlightAuGroup,
+    pattern = '/,\\?',
+    command = 'set hlsearch',
+  })
+  vim.api.nvim_create_autocmd({ 'CmdlineLeave' }, {
+    group = incsearchHighlightAuGroup,
+    pattern = '/,\\?',
+    command = 'set nohlsearch',
   })
 
   -- Load plugins autocmds

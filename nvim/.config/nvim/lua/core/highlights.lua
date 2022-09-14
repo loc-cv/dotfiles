@@ -3,7 +3,7 @@ local hi = require('core.utils').hi
 
 M.colors = {
   -- Cursorline
-  CursorLine = { bg = '#292929' },
+  CursorLine = { bg = '#303030' },
 
   -- Float / Popup
   FloatBorder = { bg = 'NONE' },
@@ -11,7 +11,6 @@ M.colors = {
 
   -- Search
   IncSearch = { bg = '#adadad', fg = '#0a0a0a', bold = true },
-  Searchlight = { link = 'IncSearch' }, -- vim-searchlight
 
   -- Git
   DiffAdd = { fg = '#458700', bg = 'NONE' },
@@ -59,6 +58,11 @@ M.colors = {
 
   -- nvim-window
   NvimWindow = { bg = '#d4d4d4', fg = '#0a0a0a' },
+
+  -- vim-sandwich
+  OperatorSandwichChange = { link = 'Visual' },
+  OperatorSandwichAdd = { link = 'Visual' },
+  OperatorSandwichDelete = { link = 'Visual' },
 }
 
 local colors = M.colors

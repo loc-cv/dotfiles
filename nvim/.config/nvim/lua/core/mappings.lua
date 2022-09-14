@@ -144,7 +144,7 @@ local configs = {
 
   -- nvim-window
   nvim_window = function()
-    map('n', '<space>w', function()
+    map('n', '<C-w>w', function()
       require('nvim-window').pick()
     end)
   end,
@@ -189,7 +189,7 @@ M.init = function()
   map('n', 'k', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 
   -- Don't copy the replaced text after pasting in visual mode
-  map('v', 'p', '"_dP')
+  -- map('v', 'p', '"_dP')
 
   -- Load plugins mappings
   for _, config in pairs(configs) do

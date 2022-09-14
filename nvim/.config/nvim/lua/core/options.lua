@@ -3,19 +3,17 @@ local opt = vim.opt
 
 local options = {
   -- General options
-  clipboard = 'unnamed,unnamedplus', -- copy-paste between vim and everything else
   showmode = false, -- don't show things like -- INSERT -- anymore
   pumheight = 10, -- set popup menu height
   splitright = true, -- vertical splits will automatically be to the right
   splitbelow = true, -- horizontal splits will automatically be below
   updatetime = 50, -- long updatetime leads to poor user experience
   termguicolors = true, -- enable true color
-  scrolloff = 1, -- minimal number of lines above and below cursor
-  conceallevel = 0, -- so that I can see `` in Markdown files
+  scrolloff = 2, -- minimal number of lines above and below cursor
   number = true, -- enable number lines
   relativenumber = true, -- enable relative number lines
   signcolumn = 'yes', -- always show the signcolumn
-  wrap = true, -- (don't) wrap lines
+  wrap = true, -- enable lines wrapping
   linebreak = true, -- prevent words from being split across two lines when line wraps
   showbreak = '↳ ', -- string to put at the start of lines that have been wrapped
   breakindent = true, -- wrapped line will continue visually indented (same amount of space as the beginning of that line)
@@ -26,6 +24,7 @@ local options = {
   ttimeout = false, -- fix delay <ESC>
   timeout = false, -- no waiting for key combination
   sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal', -- some session options that I don't understand :)
+  cpoptions = opt.cpoptions - { '_' }, -- make sense of 'cw'
 
   -- Disable swapfiles & backup files
   backup = false, -- prevent making a backup before overwriting a file
@@ -34,7 +33,7 @@ local options = {
 
   -- Searching options
   incsearch = true, -- find the next match as we type the search
-  hlsearch = true, -- highlight searches by default
+  hlsearch = false, -- disable highlight searches
   ignorecase = true, -- ignore case when searching...
   smartcase = true, -- ...unless we type a capital
 
