@@ -8,9 +8,9 @@ local configs = {
       group = vim.api.nvim_create_augroup('auGrp', { clear = true }),
       pattern = '*/lua/plugins/init.lua',
       callback = function()
-        vim.cmd([[source <afile> | PackerClean]])
-        vim.cmd([[source <afile> | PackerInstall]])
-        vim.cmd([[source <afile> | PackerCompile]])
+        vim.cmd('source <afile> | PackerClean')
+        vim.cmd('source <afile> | PackerInstall')
+        vim.cmd('source <afile> | PackerCompile')
       end,
     })
   end,
@@ -73,7 +73,7 @@ M.init = function()
     command = 'setlocal formatoptions-=cro',
   })
 
-  -- Better cursorline (Somehow it's not consistent)
+  -- Better cursorline (somehow it's not consistent)
   local cursorlineAuGroup = vim.api.nvim_create_augroup('CursorLine', { clear = true })
   local cursor_excluded_filetypes = { 'coc-explorer', 'DiffviewFiles', 'coctree' }
   vim.api.nvim_create_autocmd({ 'WinLeave', 'InsertEnter' }, {
@@ -83,13 +83,15 @@ M.init = function()
       if vim.tbl_contains(cursor_excluded_filetypes, vim.bo.filetype) then
         return
       end
-      vim.cmd([[set nocursorline]])
+      vim.cmd('set nocursorline')
     end,
   })
-  vim.api.nvim_create_autocmd({ 'WinEnter', 'InsertLeave', 'WinNew', 'BufNew' }, {
+  vim.api.nvim_create_autocmd({ 'WinEnter', 'InsertLeave' }, {
     group = cursorlineAuGroup,
     pattern = '*',
-    command = 'set cursorline',
+    callback = function()
+      vim.cmd('set cursorline')
+    end,
   })
 
   -- Better search

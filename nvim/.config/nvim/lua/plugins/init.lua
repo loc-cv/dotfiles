@@ -220,6 +220,7 @@ return packer.startup({
         require('plugins.configs.hexokinase').setup()
       end,
     })
+    -- use({ 'uga-rosa/ccc.nvim' })
 
     -- Miscs
     use({ 'lambdalisue/suda.vim' })

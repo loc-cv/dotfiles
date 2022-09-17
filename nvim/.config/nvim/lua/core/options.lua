@@ -32,10 +32,10 @@ local options = {
   swapfile = false, -- disable swapfiles
 
   -- Searching options
-  incsearch = true, -- find the next match as we type the search
   hlsearch = false, -- disable highlight searches
-  ignorecase = true, -- ignore case when searching...
-  smartcase = true, -- ...unless we type a capital
+  incsearch = true, -- show the next match as we type the search
+  ignorecase = true, -- ignore case when searching ...
+  smartcase = true, -- ... unless we type a capital
 
   -- Indent options
   expandtab = true, -- expand tabs to spaces

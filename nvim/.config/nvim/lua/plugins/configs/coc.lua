@@ -16,7 +16,6 @@ M.setup = function()
     'coc-stylua',
     -- '@yaegassy/coc-tailwindcss3',
     -- 'coc-styled-components',
-    -- '@yaegassy/coc-volar',
   }
 end
 

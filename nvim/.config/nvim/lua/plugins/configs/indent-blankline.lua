@@ -35,6 +35,7 @@ M.setup = function()
       'mason.nvim',
       '',
       'coctree',
+      'ccc-ui',
     },
     buftype_exclude = { 'terminal' },
   })
