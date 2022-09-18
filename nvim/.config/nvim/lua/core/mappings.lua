@@ -5,7 +5,7 @@ local configs = {
   -- coc.nvim
   coc = function()
     -- coc-explorer
-    map('n', '<leader>ce', [[<CMD>CocCommand explorer<CR><CMD>sleep 20m<CR><C-w>=]])
+    map('n', '<leader>e', [[<CMD>CocCommand explorer<CR><CMD>sleep 20m<CR><C-w>=]])
 
     -- coc-snippet
     vim.g.coc_snippet_next = '<Tab>'
@@ -37,25 +37,25 @@ local configs = {
     map('n', ']d', '<Plug>(coc-diagnostic-next)')
 
     -- GOTO code navigation
-    map('n', '<leader>cd', '<Plug>(coc-definition)')
-    map('n', '<leader>cy', '<Plug>(coc-type-definition)')
-    map('n', '<leader>ci', '<Plug>(coc-implementation)')
-    map('n', '<leader>cr', '<Plug>(coc-references)')
+    map('n', 'gd', '<Plug>(coc-definition)')
+    map('n', 'gy', '<Plug>(coc-type-definition)')
+    map('n', 'gi', '<Plug>(coc-implementation)')
+    map('n', 'gr', '<Plug>(coc-references)')
 
-    -- Use gh to show documentation in preview window
-    map('n', '<leader>ch', function()
+    -- Use K to show documentation in preview window
+    map('n', 'K', function()
       if vim.fn.CocAction('hasProvider', 'hover') then
         vim.fn.CocActionAsync('doHover')
       else
-        vim.fn.feedkeys('gh', 'in')
+        vim.fn.feedkeys('K', 'in')
       end
     end)
 
     -- Symbol renaming
-    map('n', '<leader>cn', '<Plug>(coc-rename)')
+    map('n', '<leader>rn', '<Plug>(coc-rename)')
 
     -- Formatting selected code
-    map({ 'x', 'n' }, '<leader>cf', '<Plug>(coc-format-selected)')
+    map({ 'x', 'n' }, '<leader>fm', '<Plug>(coc-format-selected)')
 
     -- Applying code action to the selected region
     map({ 'x', 'n' }, '<leader>ca', '<Plug>(coc-codeaction-selected)')
@@ -64,7 +64,7 @@ local configs = {
     map('n', '<leader>cA', '<Plug>(coc-codeaction)')
 
     -- Apply autofix to problem on the current line
-    map('n', '<leader>cF', '<Plug>(coc-fix-current)')
+    map('n', '<leader>qf', '<Plug>(coc-fix-current)')
 
     -- Run the Code Lens action on the current line
     map('n', '<leader>cl', '<Plug>(coc-codelens-action)')
@@ -144,7 +144,7 @@ local configs = {
 
   -- nvim-window
   nvim_window = function()
-    map('n', '<C-w>w', function()
+    map('n', '<leader>w', function()
       require('nvim-window').pick()
     end)
   end,

@@ -175,18 +175,15 @@ return packer.startup({
         require('plugins.configs.tmux').setup()
       end,
     })
-    use({
-      'teranex/jk-jumps.vim',
-      config = function()
-        vim.g.jk_jumps_minimum_lines = 2
-      end,
-    })
 
     -- Buffers management
     use({
       'Asheq/close-buffers.vim',
       cmd = { 'Bdelete', 'Bwipeout' },
     })
+
+    -- Search
+    use('nelstrom/vim-visual-star-search')
 
     -- Markdown
     use({ 'ellisonleao/glow.nvim', ft = { 'markdown' } })
@@ -220,7 +217,13 @@ return packer.startup({
         require('plugins.configs.hexokinase').setup()
       end,
     })
-    -- use({ 'uga-rosa/ccc.nvim' })
+    use({
+      'uga-rosa/ccc.nvim',
+      branch = '0.7.2',
+      config = function()
+        require('plugins.configs.ccc').setup()
+      end,
+    })
 
     -- Miscs
     use({ 'lambdalisue/suda.vim' })
