@@ -217,13 +217,15 @@ return packer.startup({
         require('plugins.configs.hexokinase').setup()
       end,
     })
-    use({
-      'uga-rosa/ccc.nvim',
-      branch = '0.7.2',
-      config = function()
-        require('plugins.configs.ccc').setup()
-      end,
-    })
+    -- use({
+    --   'uga-rosa/ccc.nvim',
+    --   config = function()
+    --     require('plugins.configs.ccc').setup()
+    --   end,
+    -- })
+
+    -- Scrolling
+    use('psliwka/vim-smoothie')
 
     -- Miscs
     use({ 'lambdalisue/suda.vim' })

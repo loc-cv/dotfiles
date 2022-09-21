@@ -3,13 +3,14 @@ local opt = vim.opt
 
 local options = {
   -- General options
+  clipboard = 'unnamed,unnamedplus', -- copy-paste between vim and everything else
   showmode = false, -- don't show things like -- INSERT -- anymore
   pumheight = 10, -- set popup menu height
   splitright = true, -- vertical splits will automatically be to the right
   splitbelow = true, -- horizontal splits will automatically be below
   updatetime = 50, -- long updatetime leads to poor user experience
   termguicolors = true, -- enable true color
-  scrolloff = 2, -- minimal number of lines above and below cursor
+  scrolloff = 1, -- minimal number of lines above and below cursor
   number = true, -- enable number lines
   relativenumber = true, -- enable relative number lines
   signcolumn = 'yes', -- always show the signcolumn

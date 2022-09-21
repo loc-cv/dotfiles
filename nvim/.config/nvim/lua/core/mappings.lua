@@ -114,7 +114,7 @@ local configs = {
       end
       vim.fn.CocAction('showOutline')
     end
-    map('n', '<C-p>t', toggleOutline, { nowait = true })
+    map('n', '<leader>t', toggleOutline, { nowait = true })
   end,
 
   -- vim-floaterm
