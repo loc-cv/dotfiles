@@ -28,7 +28,22 @@ return packer.startup({
       'neoclide/coc.nvim',
       branch = 'release',
       config = function()
-        require('plugins.configs.coc').setup()
+        vim.g.coc_max_treeview_width = 100
+        vim.g.coc_global_extensions = {
+          'coc-html',
+          'coc-css',
+          'coc-emmet',
+          'coc-tsserver',
+          'coc-json',
+          'coc-prettier',
+          'coc-eslint',
+          'coc-snippets',
+          'coc-explorer',
+          'coc-sumneko-lua',
+          'coc-stylua',
+          -- '@yaegassy/coc-tailwindcss3',
+          -- 'coc-styled-components',
+        }
       end,
     })
 
@@ -36,6 +51,18 @@ return packer.startup({
     use({
       'rafamadriz/friendly-snippets',
       after = 'coc.nvim',
+    })
+
+    -- Document generator
+    use({
+      'kkoomen/vim-doge',
+      run = ':call doge#install()',
+      config = function()
+        vim.g.doge_javascript_settings = {
+          destructuring_props = 1,
+          omit_redundant_param_types = 1,
+        }
+      end,
     })
 
     -- Fuzzy finder
@@ -60,7 +87,11 @@ return packer.startup({
         'FloatermShow',
       },
       config = function()
-        require('plugins.configs.floaterm').setup()
+        vim.g.floaterm_wintype = 'float'
+        vim.g.floaterm_position = 'topright'
+        vim.g.floaterm_title = ' TERMINAL: $1/$2 '
+        vim.g.floaterm_width = 0.5
+        vim.g.floaterm_height = 0.99
       end,
     })
 
@@ -154,7 +185,7 @@ return packer.startup({
     use({
       'machakann/vim-highlightedyank',
       config = function()
-        require('plugins.configs.highlightedyank').setup()
+        vim.g.highlightedyank_highlight_duration = 300
       end,
     })
 
@@ -173,7 +204,7 @@ return packer.startup({
     use({
       'christoomey/vim-tmux-navigator',
       config = function()
-        require('plugins.configs.tmux').setup()
+        vim.g.tmux_navigator_disable_when_zoomed = 1
       end,
     })
 
@@ -221,7 +252,7 @@ return packer.startup({
       'rrethy/vim-hexokinase',
       run = 'make hexokinase',
       config = function()
-        require('plugins.configs.hexokinase').setup()
+        vim.g.Hexokinase_highlighters = { 'backgroundfull' }
       end,
     })
 
