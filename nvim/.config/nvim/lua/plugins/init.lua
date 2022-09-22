@@ -187,8 +187,14 @@ return packer.startup({
     use('nelstrom/vim-visual-star-search')
 
     -- Markdown
-    use({ 'ellisonleao/glow.nvim', ft = { 'markdown' } })
-    use({ 'davidgranstrom/nvim-markdown-preview', ft = { 'markdown' } })
+    use({
+      'iamcco/markdown-preview.nvim',
+      run = 'cd app && npm install',
+      setup = function()
+        vim.g.mkdp_filetypes = { 'markdown' }
+      end,
+      ft = { 'markdown' },
+    })
 
     -- Move lines and selections
     use('matze/vim-move')
@@ -218,12 +224,6 @@ return packer.startup({
         require('plugins.configs.hexokinase').setup()
       end,
     })
-    -- use({
-    --   'uga-rosa/ccc.nvim',
-    --   config = function()
-    --     require('plugins.configs.ccc').setup()
-    --   end,
-    -- })
 
     -- Scrolling
     use('psliwka/vim-smoothie')
