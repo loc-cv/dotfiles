@@ -26,11 +26,11 @@ local configs = {
         return autopairs.autopairs_cr()
       end
     end
-    map('i', '<CR>', 'v:lua.CR()', { expr = true })
+    map('i', '<CR>', 'v:lua.CR()', { expr = true, replace_keycodes = false })
 
     -- Use <C-j> and <C-k> to navigate the completion list
-    map('i', '<C-j>', "coc#pum#visible() ? coc#pum#next(1) : '<C-j>'", { expr = true })
-    map('i', '<C-k>', "coc#pum#visible() ? coc#pum#prev(1) : '<C-k>'", { expr = true })
+    map('i', '<C-j>', "coc#pum#visible() ? coc#pum#next(1) : '<C-j>'", { expr = true, replace_keycodes = false })
+    map('i', '<C-k>', "coc#pum#visible() ? coc#pum#prev(1) : '<C-k>'", { expr = true, replace_keycodes = false })
 
     -- Use `[d` and `]d` to navigate diagnostics
     map('n', '[d', '<Plug>(coc-diagnostic-prev)')

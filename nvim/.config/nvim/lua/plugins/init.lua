@@ -12,8 +12,6 @@ return packer.startup({
 
     -- Better performance for Neovim
     use('lewis6991/impatient.nvim')
-    use('nathom/filetype.nvim')
-    use('antoinemadec/FixCursorHold.nvim')
 
     -- Make Neovim look good
     use('kyazdani42/nvim-web-devicons')
@@ -35,7 +33,10 @@ return packer.startup({
     })
 
     -- Snippet
-    use('rafamadriz/friendly-snippets')
+    use({
+      'rafamadriz/friendly-snippets',
+      after = 'coc.nvim',
+    })
 
     -- Fuzzy finder
     use({
@@ -228,7 +229,7 @@ return packer.startup({
     use('psliwka/vim-smoothie')
 
     -- Miscs
-    use({ 'lambdalisue/suda.vim' })
+    use('lambdalisue/suda.vim')
   end,
   config = {
     compile_path = vim.fn.stdpath('config') .. '/lua/plugins/packer_compiled.lua',
