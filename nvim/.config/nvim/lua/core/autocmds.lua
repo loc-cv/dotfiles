@@ -5,7 +5,7 @@ local configs = {
   packer = function()
     -- Auto compile/clean/install plugins with packer-nvim
     vim.api.nvim_create_autocmd('BufWritePost', {
-      group = vim.api.nvim_create_augroup('auGrp', { clear = true }),
+      group = vim.api.nvim_create_augroup('Packer', { clear = true }),
       pattern = '*/lua/plugins/init.lua',
       callback = function()
         vim.cmd('source <afile> | PackerClean')
@@ -19,6 +19,7 @@ local configs = {
   floaterm = function()
     -- Make floaterm window transparent
     vim.api.nvim_create_autocmd('FileType', {
+      group = vim.api.nvim_create_augroup('Floaterm', { clear = true }),
       pattern = 'floaterm',
       command = 'setlocal winblend=15',
     })
@@ -44,14 +45,9 @@ local configs = {
       end,
     })
 
-    -- Auto close coc-explorer when exit Neovim
-    -- vim.api.nvim_create_autocmd("BufEnter", {
-    --   pattern = "*",
-    --   command = "if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif",
-    -- })
-
     -- Highlight the symbol and its references when holding the cursor
     vim.api.nvim_create_autocmd('CursorHold', {
+      group = cocAuGroup,
       pattern = '*',
       callback = function()
         vim.fn.CocActionAsync('highlight')
@@ -74,10 +70,10 @@ M.init = function()
   })
 
   -- Better cursorline (somehow it's not consistent)
-  local cursorlineAuGroup = vim.api.nvim_create_augroup('CursorLine', { clear = true })
+  local cursorAuGroup = vim.api.nvim_create_augroup('Cursor', { clear = true })
   local cursor_excluded_filetypes = { 'coc-explorer', 'DiffviewFiles', 'coctree' }
   vim.api.nvim_create_autocmd({ 'WinLeave', 'InsertEnter' }, {
-    group = cursorlineAuGroup,
+    group = cursorAuGroup,
     pattern = '*',
     callback = function()
       if vim.tbl_contains(cursor_excluded_filetypes, vim.bo.filetype) then
@@ -86,12 +82,10 @@ M.init = function()
       vim.cmd('set nocursorline')
     end,
   })
-  vim.api.nvim_create_autocmd({ 'WinEnter', 'InsertLeave' }, {
-    group = cursorlineAuGroup,
+  vim.api.nvim_create_autocmd({ 'WinEnter', 'InsertLeave', 'BufWinEnter', 'BufEnter' }, {
+    group = cursorAuGroup,
     pattern = '*',
-    callback = function()
-      vim.cmd('set cursorline')
-    end,
+    command = 'set cursorline',
   })
 
   -- Better search

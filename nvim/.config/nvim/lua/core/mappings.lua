@@ -43,13 +43,17 @@ local configs = {
     map('n', 'gr', '<Plug>(coc-references)')
 
     -- Use K to show documentation in preview window
-    map('n', 'K', function()
-      if vim.fn.CocAction('hasProvider', 'hover') then
+    function _G.show_docs()
+      local cw = vim.fn.expand('<cword>')
+      if vim.fn.index({ 'vim', 'help' }, vim.bo.filetype) >= 0 then
+        vim.api.nvim_command('h ' .. cw)
+      elseif vim.api.nvim_eval('coc#rpc#ready()') then
         vim.fn.CocActionAsync('doHover')
       else
-        vim.fn.feedkeys('K', 'in')
+        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
       end
-    end)
+    end
+    map('n', 'K', '<CMD>lua _G.show_docs()<CR>')
 
     -- Symbol renaming
     map('n', '<leader>rn', '<Plug>(coc-rename)')
@@ -95,13 +99,13 @@ local configs = {
     map('i', '<C-s>', "<C-r>=CocActionAsync('showSignatureHelp')<CR>")
 
     -- Mappings for CoCList
-    map('n', '<C-p>L', '<CMD>CocList<CR>', { nowait = true })
-    map('n', '<C-p>c', '<CMD>CocList commands<CR>', { nowait = true })
-    map('n', '<C-p>e', '<CMD>CocList extensions<CR>', { nowait = true })
-    map('n', '<C-p>d', '<CMD>CocList -A diagnostics<CR>', { nowait = true })
-    map('n', '<C-p>l', '<CMD>CocList -A location<CR>', { nowait = true })
-    map('n', '<C-p>s', '<CMD>CocList -A -I symbols<CR>', { nowait = true })
-    map('n', '<C-p>o', '<CMD>CocList -A outline<CR>', { nowait = true })
+    map('n', '<C-m>L', '<CMD>CocList<CR>', { nowait = true })
+    map('n', '<C-m>c', '<CMD>CocList commands<CR>', { nowait = true })
+    map('n', '<C-m>e', '<CMD>CocList extensions<CR>', { nowait = true })
+    map('n', '<C-m>d', '<CMD>CocList -A diagnostics<CR>', { nowait = true })
+    map('n', '<C-m>l', '<CMD>CocList -A location<CR>', { nowait = true })
+    map('n', '<C-m>s', '<CMD>CocList -A -I symbols<CR>', { nowait = true })
+    map('n', '<C-m>o', '<CMD>CocList -A outline<CR>', { nowait = true })
 
     local toggleOutline = function()
       for _, win in ipairs(vim.api.nvim_list_wins()) do
@@ -190,9 +194,9 @@ M.init = function()
   -- Don't copy the replaced text after pasting in visual mode
   -- map('v', 'p', '"_dP')
 
-  -- Better movement between wrapped lines
-  map('n', 'j', 'v:count == 0 ? "gj" : "j"', { expr = true })
-  map('n', 'k', 'v:count == 0 ? "gk" : "k"', { expr = true })
+  -- Better vertical movements
+  map('n', 'j', [[v:count ? (v:count > 1 ? "m'" . v:count : '') . 'j' : 'gj']], { expr = true })
+  map('n', 'k', [[v:count ? (v:count > 1 ? "m'" . v:count : '') . 'k' : 'gk']], { expr = true })
 
   -- Use <C-j> and <C-k> to navigate the completion list in command-line
   map('c', '<C-j>', '<C-n>', { silent = false })
