@@ -23,6 +23,14 @@ return packer.startup({
       end,
     })
 
+    -- Sessions
+    use({
+      'rmagatti/auto-session',
+      config = function()
+        require('plugins.configs.session').setup()
+      end,
+    })
+
     -- Lsp and friends
     use({
       'neoclide/coc.nvim',
@@ -108,6 +116,7 @@ return packer.startup({
     use({
       'numToStr/Comment.nvim',
       after = 'nvim-ts-context-commentstring',
+      keys = { 'gc', 'gb' },
       config = function()
         require('plugins.configs.comment').setup()
       end,
@@ -121,7 +130,10 @@ return packer.startup({
         require('plugins.configs.treesitter').setup_ts()
       end,
     })
-    use('sheerun/vim-polyglot')
+    use({
+      'sheerun/vim-polyglot',
+      event = { 'BufNewFile', 'BufRead' },
+    })
 
     -- Set the comment string based on the cursor location in a file
     use({
@@ -233,14 +245,6 @@ return packer.startup({
     -- Trailing whitespaces
     use('ntpeters/vim-better-whitespace')
 
-    -- Sessions
-    use({
-      'rmagatti/auto-session',
-      config = function()
-        require('plugins.configs.session').setup()
-      end,
-    })
-
     -- Startup time
     use({
       'dstein64/vim-startuptime',
@@ -260,7 +264,10 @@ return packer.startup({
     use('psliwka/vim-smoothie')
 
     -- Miscs
-    use('lambdalisue/suda.vim')
+    use({
+      'lambdalisue/suda.vim',
+      cmd = { 'SudaRead', 'SudaWrite' },
+    })
   end,
   config = {
     compile_path = vim.fn.stdpath('config') .. '/lua/plugins/packer_compiled.lua',

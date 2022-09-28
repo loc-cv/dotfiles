@@ -7,6 +7,10 @@ M.setup = function()
   end
 
   comment.setup({
+    ignore = '^$',
+    toggler = {
+      block = 'gbb',
+    },
     pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
   })
 end

@@ -192,7 +192,7 @@ M.init = function()
   -- map('i', '<C-W>', '<C-S-W>')
 
   -- Don't copy the replaced text after pasting in visual mode
-  -- map('v', 'p', '"_dP')
+  map('v', 'p', '"_dP')
 
   -- Better vertical movements
   map('n', 'j', [[v:count ? (v:count > 1 ? "m'" . v:count : '') . 'j' : 'gj']], { expr = true })
