@@ -2,8 +2,9 @@ local M = {}
 
 M.setup = function()
   local feline_ok, feline = pcall(require, 'feline')
-  local navic_ok, navic = pcall(require, 'nvim-navic')
-  if not (feline_ok and navic_ok) then
+  -- local navic_ok, navic = pcall(require, 'nvim-navic')
+  -- if not (feline_ok and navic_ok) then
+  if not feline_ok then
     return
   end
 
@@ -268,48 +269,48 @@ M.setup = function()
       enabled = conditions.filetype_normal,
     },
     diagnostic_errors = {
-      -- provider = function()
-      --   return providers.coc_diagnostic('error')
-      -- end,
-      provider = 'diagnostic_errors',
-      icon = 'E',
-      -- enabled = conditions.filetype_normal,
-      enabled = function()
-        return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      provider = function()
+        return providers.coc_diagnostic('error')
       end,
+      -- provider = 'diagnostic_errors',
+      icon = 'E',
+      enabled = conditions.filetype_normal,
+      -- enabled = function()
+      --   return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      -- end,
     },
     diagnostic_warnings = {
-      -- provider = function()
-      --   return providers.coc_diagnostic('warning')
-      -- end,
-      provider = 'diagnostic_warnings',
-      icon = 'W',
-      -- enabled = conditions.filetype_normal,
-      enabled = function()
-        return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      provider = function()
+        return providers.coc_diagnostic('warning')
       end,
+      -- provider = 'diagnostic_warnings',
+      icon = 'W',
+      enabled = conditions.filetype_normal,
+      -- enabled = function()
+      --   return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      -- end,
     },
     diagnostic_hints = {
-      -- provider = function()
-      --   return providers.coc_diagnostic('hint')
-      -- end,
-      provider = 'diagnostic_hints',
-      icon = 'H',
-      -- enabled = conditions.filetype_normal,
-      enabled = function()
-        return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      provider = function()
+        return providers.coc_diagnostic('hint')
       end,
+      -- provider = 'diagnostic_hints',
+      icon = 'H',
+      enabled = conditions.filetype_normal,
+      -- enabled = function()
+      --   return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      -- end,
     },
     diagnostic_info = {
-      -- provider = function()
-      --   return providers.coc_diagnostic('information')
-      -- end,
-      provider = 'diagnostic_info',
-      icon = 'I',
-      -- enabled = conditions.filetype_normal,
-      enabled = function()
-        return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      provider = function()
+        return providers.coc_diagnostic('information')
       end,
+      -- provider = 'diagnostic_info',
+      icon = 'I',
+      enabled = conditions.filetype_normal,
+      -- enabled = function()
+      --   return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      -- end,
     },
     lsp_client_names = {
       provider = 'lsp_client_names',
@@ -456,28 +457,26 @@ M.setup = function()
   -- })
 
   -- Custom winbar
-  vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
-    pattern = '*',
-    callback = function()
-      if vim.bo.buftype == '' then -- if current buffer is normal buffer
-        local ok, nvim_navic = pcall(require, 'nvim-navic')
-        if not ok then
-          return
-        end
-
-        local nvim_navic_data = nvim_navic.get_data()
-        if nvim_navic_data == nil or next(nvim_navic_data) == nil then
-          local file_icon = providers.file_icon()
-          vim.opt_local.winbar = ' ' .. file_icon .. ' %f'
-          return
-        end
-
-        vim.opt_local.winbar = " %{%v:lua.require'nvim-navic'.get_location()%}"
-      else
-        vim.opt_local.winbar = ''
-      end
-    end,
-  })
+  -- vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
+  --   pattern = '*',
+  --   callback = function()
+  --     if vim.bo.buftype == '' then -- if current buffer is normal buffer
+  --       local ok, nvim_navic = pcall(require, 'nvim-navic')
+  --       if not ok then
+  --         return
+  --       end
+  --       local nvim_navic_data = nvim_navic.get_data()
+  --       if nvim_navic_data == nil or next(nvim_navic_data) == nil then
+  --         local file_icon = providers.file_icon()
+  --         vim.opt_local.winbar = ' ' .. file_icon .. ' %f'
+  --         return
+  --       end
+  --       vim.opt_local.winbar = " %{%v:lua.require'nvim-navic'.get_location()%}"
+  --     else
+  --       vim.opt_local.winbar = ''
+  --     end
+  --   end,
+  -- })
 end
 
 return M

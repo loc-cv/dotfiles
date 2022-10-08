@@ -24,7 +24,7 @@ local options = {
   fillchars = { eob = ' ', stl = ' ' }, -- disable `~` on nonexistent lines
   ttimeout = false, -- fix delay <ESC>
   timeout = false, -- no waiting for key combination
-  sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,globals', -- some session options that I don't understand :)
+  sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal', -- some session options that I don't understand :)
   cpoptions = opt.cpoptions - { '_' }, -- make sense of 'cw'
   splitkeep = 'screen',
   -- showtabline = 0,

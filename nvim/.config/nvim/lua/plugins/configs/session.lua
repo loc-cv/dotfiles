@@ -1,7 +1,7 @@
 local M = {}
 
 local function close_unwanted_wins()
-  vim.cmd('TSContextDisable')
+  -- vim.cmd('TSContextDisable')
   for _, win in ipairs(vim.api.nvim_list_wins()) do
     -- Close all floating windows before saving
     local config = vim.api.nvim_win_get_config(win)

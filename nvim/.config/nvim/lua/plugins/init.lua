@@ -15,8 +15,8 @@ return packer.startup({
 
     -- Make Neovim look good
     use('kyazdani42/nvim-web-devicons')
-    -- use('tomasiser/vim-code-dark')
-    use('Mofiqul/vscode.nvim')
+    use('tomasiser/vim-code-dark')
+    -- use('Mofiqul/vscode.nvim')
     use({
       'feline-nvim/feline.nvim',
       config = function()
@@ -33,41 +33,41 @@ return packer.startup({
     })
 
     -- Lsp and friends
+    use({
+      'neoclide/coc.nvim',
+      branch = 'release',
+      config = function()
+        require('plugins.configs.coc').setup()
+      end,
+    })
     -- use({
-    --   'neoclide/coc.nvim',
-    --   branch = 'release',
+    --   'williamboman/mason.nvim',
     --   config = function()
-    --     require('plugins.configs.coc').setup()
+    --     require('lsp.mason').setup()
     --   end,
     -- })
-    use({
-      'williamboman/mason.nvim',
-      config = function()
-        require('lsp.mason').setup()
-      end,
-    })
-    use('WhoIsSethDaniel/mason-tool-installer.nvim')
-    use({
-      'neovim/nvim-lspconfig',
-      config = function()
-        require('lsp.lsp-config').setup()
-      end,
-    })
-    use({
-      'jose-elias-alvarez/null-ls.nvim',
-      requires = 'nvim-lua/plenary.nvim',
-      config = function()
-        require('lsp.null-ls').setup()
-      end,
-    })
-    use({
-      'ray-x/lsp_signature.nvim',
-      config = function()
-        require('lsp.lsp-signature').setup()
-      end,
-    })
-    use('RRethy/vim-illuminate')
-    use('SmiteshP/nvim-navic')
+    -- use('WhoIsSethDaniel/mason-tool-installer.nvim')
+    -- use({
+    --   'neovim/nvim-lspconfig',
+    --   config = function()
+    --     require('lsp.lsp-config').setup()
+    --   end,
+    -- })
+    -- use({
+    --   'jose-elias-alvarez/null-ls.nvim',
+    --   requires = 'nvim-lua/plenary.nvim',
+    --   config = function()
+    --     require('lsp.null-ls').setup()
+    --   end,
+    -- })
+    -- use({
+    --   'ray-x/lsp_signature.nvim',
+    --   config = function()
+    --     require('lsp.lsp-signature').setup()
+    --   end,
+    -- })
+    -- use('RRethy/vim-illuminate')
+    -- use('SmiteshP/nvim-navic')
     -- use({
     --   'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     --   config = function()
@@ -76,32 +76,32 @@ return packer.startup({
     -- })
 
     -- Completion
-    use({
-      'hrsh7th/nvim-cmp',
-      config = function()
-        require('lsp.cmp').setup()
-      end,
-    })
-    use('hrsh7th/cmp-nvim-lsp')
-    use('hrsh7th/cmp-nvim-lua')
-    use('saadparwaiz1/cmp_luasnip')
-    use('hrsh7th/cmp-buffer')
-    use('hrsh7th/cmp-path')
+    -- use({
+    --   'hrsh7th/nvim-cmp',
+    --   config = function()
+    --     require('lsp.cmp').setup()
+    --   end,
+    -- })
+    -- use('hrsh7th/cmp-nvim-lsp')
+    -- use('hrsh7th/cmp-nvim-lua')
+    -- use('saadparwaiz1/cmp_luasnip')
+    -- use('hrsh7th/cmp-buffer')
+    -- use('hrsh7th/cmp-path')
 
     -- Explorer
-    use({
-      'kyazdani42/nvim-tree.lua',
-      config = function()
-        require('plugins.configs.nvim-tree').setup()
-      end,
-    })
+    -- use({
+    --   'kyazdani42/nvim-tree.lua',
+    --   config = function()
+    --     require('plugins.configs.nvim-tree').setup()
+    --   end,
+    -- })
 
     -- Snippet
     use({
       'rafamadriz/friendly-snippets',
-      -- after = 'coc.nvim',
+      after = 'coc.nvim',
     })
-    use({ 'L3MON4D3/LuaSnip' })
+    -- use({ 'L3MON4D3/LuaSnip' })
 
     -- Document generator
     use({
