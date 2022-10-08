@@ -27,7 +27,7 @@ M.setup = function()
     { key = 'yp', action = 'copy_path' },
     { key = 'yP', action = 'copy_absolute_path' },
     { key = 'p', action = 'paste' },
-    { key = '-', action = 'dir_up' },
+    { key = '<BS>', action = 'dir_up' },
     { key = 's', action = 'system_open' },
     { key = 'f', action = 'live_filter' },
     { key = 'F', action = 'clear_live_filter' },
@@ -81,6 +81,7 @@ M.setup = function()
     },
     update_focused_file = {
       enable = true,
+      update_root = true,
     },
   })
 end

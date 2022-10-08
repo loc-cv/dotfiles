@@ -79,7 +79,7 @@ M.init = function()
 
   -- Better cursorline (somehow it's not consistent)
   local cursorAuGroup = vim.api.nvim_create_augroup('Cursor', { clear = true })
-  local cursor_excluded_filetypes = { 'coc-explorer', 'DiffviewFiles', 'coctree' }
+  local cursor_excluded_filetypes = { 'coc-explorer', 'DiffviewFiles', 'coctree', 'NvimTree' }
   vim.api.nvim_create_autocmd({ 'WinLeave', 'InsertEnter' }, {
     group = cursorAuGroup,
     pattern = '*',

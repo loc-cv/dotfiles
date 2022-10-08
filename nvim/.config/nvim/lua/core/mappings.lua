@@ -24,6 +24,11 @@ local configs = {
     map('n', '<C-p>S', [[<cmd>Telescope lsp_workspace_symbols<cr>]])
   end,
 
+  -- nvim-tree
+  nvimtree = function()
+    map('n', '<leader>e', [[<cmd>NvimTreeToggle<cr>]])
+  end,
+
   -- coc.nvim
   -- coc = function()
   --   -- coc-explorer
@@ -208,12 +213,13 @@ local configs = {
     map('n', '<C-p>b', [[<CMD>Telescope buffers<CR>]])
     map('n', '<C-p>r', [[<CMD>Telescope live_grep<CR>]])
     map('n', '<C-p>h', [[<CMD>Telescope help_tags<CR>]])
+    map('n', '<C-p>t', [[<cmd>Telescope telescope-tabs list_tabs<cr>]])
   end,
 }
 
 M.init = function()
   -- Change mapleader
-  vim.g.mapleader = '-'
+  vim.g.mapleader = ' '
 
   -- Better indenting in visual mode
   map('v', '<', '<gv')

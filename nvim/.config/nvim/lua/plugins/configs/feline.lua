@@ -451,9 +451,9 @@ M.setup = function()
     components = sl_components,
   })
 
-  feline.winbar.setup({
-    components = wb_components,
-  })
+  -- feline.winbar.setup({
+  --   components = wb_components,
+  -- })
 end
 
 return M

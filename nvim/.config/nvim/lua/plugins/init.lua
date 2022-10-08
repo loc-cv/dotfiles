@@ -133,6 +133,14 @@ return packer.startup({
     })
     use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
     use({ 'nvim-telescope/telescope-media-files.nvim' })
+    use({
+      'LukasPietzschmann/telescope-tabs',
+      config = function()
+        require('telescope-tabs').setup({
+          show_preview = false,
+        })
+      end,
+    })
 
     -- Terminal
     use({
@@ -162,7 +170,14 @@ return packer.startup({
         require('plugins.configs.gitsigns').setup()
       end,
     })
-    use('tpope/vim-fugitive')
+    use({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' })
+    use({
+      'TimUntersberger/neogit',
+      requires = 'nvim-lua/plenary.nvim',
+      config = function()
+        require('plugins.configs.neogit').setup()
+      end,
+    })
 
     -- Commenting code
     use({
@@ -345,6 +360,7 @@ return packer.startup({
         require('fold-preview').setup()
       end,
     })
+    use('gcmt/taboo.vim')
   end,
   config = {
     compile_path = vim.fn.stdpath('config') .. '/lua/plugins/packer_compiled.lua',
