@@ -15,7 +15,8 @@ return packer.startup({
 
     -- Make Neovim look good
     use('kyazdani42/nvim-web-devicons')
-    use('tomasiser/vim-code-dark')
+    -- use('tomasiser/vim-code-dark')
+    use('Mofiqul/vscode.nvim')
     use({
       'feline-nvim/feline.nvim',
       config = function()
@@ -32,34 +33,67 @@ return packer.startup({
     })
 
     -- Lsp and friends
+    -- use({
+    --   'neoclide/coc.nvim',
+    --   branch = 'release',
+    --   config = function()
+    --     require('plugins.configs.coc').setup()
+    --   end,
+    -- })
     use({
-      'neoclide/coc.nvim',
-      branch = 'release',
+      'williamboman/mason.nvim',
       config = function()
-        vim.g.coc_max_treeview_width = 100
-        vim.g.coc_global_extensions = {
-          'coc-html',
-          'coc-css',
-          'coc-emmet',
-          'coc-tsserver',
-          'coc-json',
-          'coc-prettier',
-          'coc-eslint',
-          'coc-snippets',
-          'coc-explorer',
-          'coc-sumneko-lua',
-          'coc-stylua',
-          -- '@yaegassy/coc-tailwindcss3',
-          -- 'coc-styled-components',
-        }
+        require('lsp.mason').setup()
       end,
     })
+    use('WhoIsSethDaniel/mason-tool-installer.nvim')
+    use({
+      'neovim/nvim-lspconfig',
+      config = function()
+        require('lsp.lsp-config').setup()
+      end,
+    })
+    use({
+      'jose-elias-alvarez/null-ls.nvim',
+      requires = 'nvim-lua/plenary.nvim',
+      config = function()
+        require('lsp.null-ls').setup()
+      end,
+    })
+    use({
+      'ray-x/lsp_signature.nvim',
+      config = function()
+        require('lsp.lsp-signature').setup()
+      end,
+    })
+    use('RRethy/vim-illuminate')
+    use('SmiteshP/nvim-navic')
+    -- use({
+    --   'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    --   config = function()
+    --     require('lsp_lines').setup()
+    --   end,
+    -- })
+
+    -- Completion
+    use({
+      'hrsh7th/nvim-cmp',
+      config = function()
+        require('lsp.cmp').setup()
+      end,
+    })
+    use('hrsh7th/cmp-nvim-lsp')
+    use('hrsh7th/cmp-nvim-lua')
+    use('saadparwaiz1/cmp_luasnip')
+    use('hrsh7th/cmp-buffer')
+    use('hrsh7th/cmp-path')
 
     -- Snippet
     use({
       'rafamadriz/friendly-snippets',
-      after = 'coc.nvim',
+      -- after = 'coc.nvim',
     })
+    use({ 'L3MON4D3/LuaSnip' })
 
     -- Document generator
     use({
@@ -74,13 +108,23 @@ return packer.startup({
     })
 
     -- Fuzzy finder
+    -- use({
+    --   'ibhagwan/fzf-lua',
+    --   cmd = { 'FzfLua' },
+    --   config = function()
+    --     require('plugins.configs.fzf-lua').setup()
+    --   end,
+    -- })
     use({
-      'ibhagwan/fzf-lua',
-      cmd = { 'FzfLua' },
+      'nvim-telescope/telescope.nvim',
+      tag = '0.1.0',
+      requires = 'nvim-lua/plenary.nvim',
       config = function()
-        require('plugins.configs.fzf-lua').setup()
+        require('plugins.configs.telescope').setup()
       end,
     })
+    use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
+    use({ 'nvim-telescope/telescope-media-files.nvim' })
 
     -- Terminal
     use({
@@ -155,12 +199,22 @@ return packer.startup({
       end,
     })
 
-    -- Show code context
+    -- Syntax aware text-objects
     use({
-      'nvim-treesitter/nvim-treesitter-context',
+      'nvim-treesitter/nvim-treesitter-textobjects',
       requires = 'nvim-treesitter/nvim-treesitter',
       after = 'nvim-treesitter',
+      config = function()
+        require('plugins.configs.treesitter').setup_textobjects()
+      end,
     })
+
+    -- Show code context
+    -- use({
+    --   'nvim-treesitter/nvim-treesitter-context',
+    --   requires = 'nvim-treesitter/nvim-treesitter',
+    --   after = 'nvim-treesitter',
+    -- })
 
     -- Autopairs
     use({
@@ -226,9 +280,6 @@ return packer.startup({
       cmd = { 'Bdelete', 'Bwipeout' },
     })
 
-    -- Search
-    use('nelstrom/vim-visual-star-search')
-
     -- Markdown
     use({
       'iamcco/markdown-preview.nvim',
@@ -260,13 +311,31 @@ return packer.startup({
       end,
     })
 
-    -- Scrolling
-    use('psliwka/vim-smoothie')
-
     -- Miscs
     use({
       'lambdalisue/suda.vim',
       cmd = { 'SudaRead', 'SudaWrite' },
+    })
+    use({
+      'declancm/cinnamon.nvim',
+      config = function()
+        require('cinnamon').setup({
+          centered = false,
+        })
+      end,
+    })
+    use({
+      'anuvyklack/pretty-fold.nvim',
+      config = function()
+        require('plugins.configs.pretty-fold').setup()
+      end,
+    })
+    use({
+      'anuvyklack/fold-preview.nvim',
+      requires = 'anuvyklack/keymap-amend.nvim',
+      config = function()
+        require('fold-preview').setup()
+      end,
     })
   end,
   config = {

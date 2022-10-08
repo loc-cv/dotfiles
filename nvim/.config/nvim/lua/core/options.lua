@@ -10,7 +10,7 @@ local options = {
   splitbelow = true, -- horizontal splits will automatically be below
   updatetime = 50, -- long updatetime leads to poor user experience
   termguicolors = true, -- enable true color
-  scrolloff = 1, -- minimal number of lines above and below cursor
+  -- scrolloff = 1, -- minimal number of lines above and below cursor
   number = true, -- enable number lines
   relativenumber = true, -- enable relative number lines
   signcolumn = 'yes', -- always show the signcolumn
@@ -26,6 +26,7 @@ local options = {
   timeout = false, -- no waiting for key combination
   sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal', -- some session options that I don't understand :)
   cpoptions = opt.cpoptions - { '_' }, -- make sense of 'cw'
+  splitkeep = 'screen',
 
   -- Disable swapfiles & backup files
   backup = false, -- prevent making a backup before overwriting a file

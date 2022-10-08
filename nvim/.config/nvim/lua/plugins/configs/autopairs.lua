@@ -9,7 +9,7 @@ M.setup = function()
   local Rule = require('nvim-autopairs.rule')
 
   npairs.setup({
-    map_cr = false,
+    map_cr = true,
     map_c_h = true,
     map_c_w = true,
     fast_wrap = {}, -- use <M-e> to fast wrap

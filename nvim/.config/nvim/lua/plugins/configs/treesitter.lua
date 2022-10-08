@@ -50,4 +50,24 @@ M.setup_autotag = function()
   })
 end
 
+M.setup_textobjects = function()
+  treesitter.setup({
+    textobjects = {
+      select = {
+        enable = true,
+
+        -- Automatically jump forward to textobj, similar to targets.vim
+        lookahead = true,
+
+        keymaps = {
+          ['af'] = '@function.outer',
+          ['if'] = '@function.inner',
+          ['ac'] = '@class.outer',
+          ['ic'] = '@class.inner',
+        },
+      },
+    },
+  })
+end
+
 return M

@@ -6,32 +6,33 @@
   "diagnostic.refreshOnInsertMode": true,
 
   "suggest.completionItemKindLabels": {
-    "keyword": " Keyword ",
-    "variable": " Variable ",
-    "value": " Value ",
-    "operator": " Operator ",
-    "constructor": " Constructor ",
-    "function": " Function ",
-    "reference": " Reference ",
-    "constant": " Constant ",
-    "method": " Method ",
-    "struct": " Struct ",
-    "class": " Class ",
-    "interface": " Interface ",
-    "text": " Text ",
-    "enum": " Enum ",
-    "enumMember": " EnumMember ",
-    "module": " Module ",
-    "color": " Color ",
-    "property": " Property ",
-    "field": " Field ",
-    "unit": " Unit ",
-    "event": " Event ",
-    "file": " File ",
-    "folder": " Folder ",
-    "snippet": " Snippet ",
-    "typeParameter": " TypeParameter ",
-    "default": " Auto "
+    "keyword": " Keyword",
+    "variable": " Variable",
+    "value": " Value",
+    "operator": " Operator",
+    "constructor": " Constructor",
+    "function": " Function",
+    "reference": " Reference",
+    "constant": " Constant",
+    "method": " Method",
+    "struct": " Struct",
+    "class": " Class",
+    "interface": " Interface",
+    "text": " Text",
+    "enum": " Enum",
+    "enumMember": " EnumMember",
+    "module": " Module",
+    "color": " Color",
+    "property": " Property",
+    "field": " Field",
+    "unit": " Unit",
+    "event": " Event",
+    "file": " File",
+    "folder": " Folder",
+    "snippet": " Snippet",
+    "typeParameter": " TypeParameter",
+    // "default": ""
+    "default": ""
   },
   "suggest.noselect": false,
   "suggest.enablePreselect": false,
@@ -44,10 +45,10 @@
   "outline.autoWidth": true,
   "outline.keepWindow": true,
 
-  "suggest.floatConfig": { "border": true },
-  "diagnostic.floatConfig": { "border": true },
-  "signature.floatConfig": { "border": true },
-  "hover.floatConfig": { "border": true },
+  // "suggest.floatConfig": { "border": true },
+  // "diagnostic.floatConfig": { "border": true },
+  // "signature.floatConfig": { "border": true },
+  // "hover.floatConfig": { "border": true },
 
   "list.statusLineSegments": [],
   "list.normalMappings": {
@@ -111,13 +112,14 @@
   // tsserver
   "javascript.suggest.completeFunctionCalls": false,
   "typescript.suggest.completeFunctionCalls": false,
-  // "javascript.showUnused": false,
-  // "javascript.suggestionActions.enabled": false,
-  // "tsserver.disableAutomaticTypeAcquisition": true,
+  "tsserver.disableAutomaticTypeAcquisition": true,
 
   // css
   "css.lint.unknownAtRules": "ignore",
 
   // prettier
-  "prettier.singleQuote": true
+  "prettier.singleQuote": true,
+
+  // symbol-line
+  "symbol-line.separator": " ❯ "
 }

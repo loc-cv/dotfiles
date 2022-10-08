@@ -2,7 +2,8 @@ local M = {}
 
 M.setup = function()
   local feline_ok, feline = pcall(require, 'feline')
-  if not feline_ok then
+  local navic_ok, navic = pcall(require, 'nvim-navic')
+  if not (feline_ok and navic_ok) then
     return
   end
 
@@ -29,6 +30,7 @@ M.setup = function()
     'floaterm',
     'coctree',
     'list',
+    'Trouble',
   }
 
   local get_coc_diagnostic = function(diag_type)
@@ -135,6 +137,15 @@ M.setup = function()
       end
 
       return file_name
+    end,
+
+    static_file_name = function()
+      local file_name = vim.api.nvim_buf_get_name(0)
+      if file_name ~= '' then
+        file_name = vim.fn.fnamemodify(file_name, ':t')
+        return file_name
+      end
+      return ' Untitled'
     end,
 
     coc_diagnostic = function(diag_type)
@@ -257,31 +268,51 @@ M.setup = function()
       enabled = conditions.filetype_normal,
     },
     diagnostic_errors = {
-      provider = function()
-        return providers.coc_diagnostic('error')
-      end,
+      -- provider = function()
+      --   return providers.coc_diagnostic('error')
+      -- end,
+      provider = 'diagnostic_errors',
       icon = 'E',
-      enabled = conditions.filetype_normal,
+      -- enabled = conditions.filetype_normal,
+      enabled = function()
+        return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      end,
     },
     diagnostic_warnings = {
-      provider = function()
-        return providers.coc_diagnostic('warning')
-      end,
+      -- provider = function()
+      --   return providers.coc_diagnostic('warning')
+      -- end,
+      provider = 'diagnostic_warnings',
       icon = 'W',
-      enabled = conditions.filetype_normal,
+      -- enabled = conditions.filetype_normal,
+      enabled = function()
+        return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      end,
     },
     diagnostic_hints = {
-      provider = function()
-        return providers.coc_diagnostic('hint')
-      end,
+      -- provider = function()
+      --   return providers.coc_diagnostic('hint')
+      -- end,
+      provider = 'diagnostic_hints',
       icon = 'H',
-      enabled = conditions.filetype_normal,
+      -- enabled = conditions.filetype_normal,
+      enabled = function()
+        return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      end,
     },
     diagnostic_info = {
-      provider = function()
-        return providers.coc_diagnostic('information')
-      end,
+      -- provider = function()
+      --   return providers.coc_diagnostic('information')
+      -- end,
+      provider = 'diagnostic_info',
       icon = 'I',
+      -- enabled = conditions.filetype_normal,
+      enabled = function()
+        return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      end,
+    },
+    lsp_client_names = {
+      provider = 'lsp_client_names',
       enabled = conditions.filetype_normal,
     },
     git_diff_added = {
@@ -324,6 +355,18 @@ M.setup = function()
     line_percentage = {
       provider = 'line_percentage',
       enabled = conditions.filetype_normal,
+    },
+    static_file_name = {
+      provider = providers.static_file_name,
+      enabled = conditions.filetype_normal,
+    },
+    navic = {
+      provider = function()
+        return navic.get_location()
+      end,
+      enabled = function()
+        return conditions.filetype_normal() and navic.is_available()
+      end,
     },
   }
 
@@ -376,12 +419,40 @@ M.setup = function()
     },
   }
 
+  local wb_components = { -- winbar components
+    active = {
+      { -- left
+        render_c(c_c.blank, { type = 'winbar', sep = { position = 'none' } }),
+        render_c(nft_c.file_icon, { type = 'winbar' }),
+        render_c(nft_c.static_file_name, { type = 'winbar' }),
+        render_c(nft_c.navic, { type = 'winbar', sep = { position = 'left', str = '❯ ' } }),
+        render_c(sft_c.filetype, { type = 'winbar' }),
+      },
+      -- {
+      --   render_c(nft_c.lsp_client_names, { type = 'winbar' }),
+      -- }, --right
+    },
+    inactive = {
+      { -- left
+        render_c(c_c.blank, { status = 'inactive', type = 'winbar', sep = { position = 'none' } }),
+        render_c(nft_c.file_icon, { status = 'inactive', type = 'winbar' }),
+        render_c(nft_c.static_file_name, { status = 'inactive', type = 'winbar' }),
+        render_c(sft_c.filetype, { status = 'inactive', type = 'winbar' }),
+      },
+      {}, -- right
+    },
+  }
+
   feline.setup({
     force_inactive = {
       filetypes = {},
       buftypes = {},
     },
     components = sl_components,
+  })
+
+  feline.winbar.setup({
+    components = wb_components,
   })
 end
 

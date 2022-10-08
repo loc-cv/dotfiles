@@ -32,10 +32,11 @@ M.setup = function()
       'neo-tree',
       'neo-tree-popup',
       'NvimTree',
-      'mason.nvim',
+      'mason',
       '',
       'coctree',
       'ccc-ui',
+      'git',
     },
     buftype_exclude = { 'terminal' },
   })

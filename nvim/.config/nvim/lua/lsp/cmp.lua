@@ -1,0 +1,98 @@
+local M = {}
+
+M.setup = function()
+  local cmp_ok, cmp = pcall(require, 'cmp')
+  local luasnip_ok, luasnip = pcall(require, 'luasnip')
+  local cmp_autopairs_ok, cmp_autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
+  if not (cmp_ok and luasnip_ok and cmp_autopairs_ok) then
+    return
+  end
+
+  cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+
+  local mapping = cmp.mapping
+  local kind_icons = require('lsp.icons').kind_icons
+
+  cmp.setup({
+    window = {
+      documentation = {
+        winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:Visual,Search:None',
+        border = 'single',
+      },
+      completion = {
+        winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:Visual,Search:None',
+        border = 'single',
+      },
+    },
+
+    formatting = {
+      fields = { 'abbr', 'kind', 'menu' },
+      format = function(entry, vim_item)
+        -- Kind icons
+        vim_item.kind = string.format(' %s%s ', kind_icons[vim_item.kind], vim_item.kind)
+
+        -- Source
+        vim_item.menu = ({
+          buffer = '[Buffer]',
+          path = '[Path]',
+          nvim_lsp = '[LSP]',
+          luasnip = '[LuaSnip]',
+          nvim_lua = '[Lua]',
+        })[entry.source.name]
+
+        return vim_item
+      end,
+    },
+
+    snippet = {
+      expand = function(args)
+        luasnip.lsp_expand(args.body)
+      end,
+    },
+
+    mapping = {
+      ['<C-k>'] = mapping.select_prev_item(),
+      ['<C-j>'] = mapping.select_next_item(),
+      ['<C-y>'] = mapping.scroll_docs(-1),
+      ['<C-e>'] = mapping.scroll_docs(1),
+      ['<C-Space>'] = mapping.complete(),
+      ['<C-q>'] = mapping.close(),
+      ['<CR>'] = mapping.confirm({ select = true }),
+      ['<Tab>'] = mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        else
+          fallback()
+        end
+      end, { 'i', 's' }),
+      ['<S-Tab>'] = mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        elseif luasnip.jumpable(-1) then
+          luasnip.jump(-1)
+        else
+          fallback()
+        end
+      end, { 'i', 's' }),
+    },
+
+    sources = {
+      { name = 'nvim_lsp' },
+      { name = 'nvim_lua' },
+      { name = 'luasnip' },
+      { name = 'path' },
+      {
+        name = 'buffer',
+        option = {
+          get_bufnrs = function()
+            return vim.api.nvim_list_bufs()
+          end,
+        },
+      },
+    },
+  })
+end
+
+return M
