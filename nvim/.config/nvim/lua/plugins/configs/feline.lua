@@ -419,29 +419,29 @@ M.setup = function()
     },
   }
 
-  local wb_components = { -- winbar components
-    active = {
-      { -- left
-        render_c(c_c.blank, { type = 'winbar', sep = { position = 'none' } }),
-        render_c(nft_c.file_icon, { type = 'winbar' }),
-        render_c(nft_c.static_file_name, { type = 'winbar' }),
-        render_c(nft_c.navic, { type = 'winbar', sep = { position = 'left', str = '❯ ' } }),
-        render_c(sft_c.filetype, { type = 'winbar' }),
-      },
-      -- {
-      --   render_c(nft_c.lsp_client_names, { type = 'winbar' }),
-      -- }, --right
-    },
-    inactive = {
-      { -- left
-        render_c(c_c.blank, { status = 'inactive', type = 'winbar', sep = { position = 'none' } }),
-        render_c(nft_c.file_icon, { status = 'inactive', type = 'winbar' }),
-        render_c(nft_c.static_file_name, { status = 'inactive', type = 'winbar' }),
-        render_c(sft_c.filetype, { status = 'inactive', type = 'winbar' }),
-      },
-      {}, -- right
-    },
-  }
+  -- local wb_components = { -- winbar components
+  --   active = {
+  --     { -- left
+  --       render_c(c_c.blank, { type = 'winbar', sep = { position = 'none' } }),
+  --       render_c(nft_c.file_icon, { type = 'winbar' }),
+  --       render_c(nft_c.static_file_name, { type = 'winbar' }),
+  --       render_c(nft_c.navic, { type = 'winbar', sep = { position = 'left', str = '❯ ' } }),
+  --       render_c(sft_c.filetype, { type = 'winbar' }),
+  --     },
+  --     {
+  --       render_c(nft_c.lsp_client_names, { type = 'winbar' }),
+  --     }, --right
+  --   },
+  --   inactive = {
+  --     { -- left
+  --       render_c(c_c.blank, { status = 'inactive', type = 'winbar', sep = { position = 'none' } }),
+  --       render_c(nft_c.file_icon, { status = 'inactive', type = 'winbar' }),
+  --       render_c(nft_c.static_file_name, { status = 'inactive', type = 'winbar' }),
+  --       render_c(sft_c.filetype, { status = 'inactive', type = 'winbar' }),
+  --     },
+  --     {}, -- right
+  --   },
+  -- }
 
   feline.setup({
     force_inactive = {
@@ -454,6 +454,30 @@ M.setup = function()
   -- feline.winbar.setup({
   --   components = wb_components,
   -- })
+
+  -- Custom winbar
+  vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
+    pattern = '*',
+    callback = function()
+      if vim.bo.buftype == '' then -- if current buffer is normal buffer
+        local ok, nvim_navic = pcall(require, 'nvim-navic')
+        if not ok then
+          return
+        end
+
+        local nvim_navic_data = nvim_navic.get_data()
+        if nvim_navic_data == nil or next(nvim_navic_data) == nil then
+          local file_icon = providers.file_icon()
+          vim.opt_local.winbar = ' ' .. file_icon .. ' %f'
+          return
+        end
+
+        vim.opt_local.winbar = " %{%v:lua.require'nvim-navic'.get_location()%}"
+      else
+        vim.opt_local.winbar = ''
+      end
+    end,
+  })
 end
 
 return M

@@ -137,7 +137,7 @@ return packer.startup({
       'LukasPietzschmann/telescope-tabs',
       config = function()
         require('telescope-tabs').setup({
-          show_preview = false,
+          show_preview = true,
         })
       end,
     })
