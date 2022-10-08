@@ -88,6 +88,14 @@ return packer.startup({
     use('hrsh7th/cmp-buffer')
     use('hrsh7th/cmp-path')
 
+    -- Explorer
+    use({
+      'kyazdani42/nvim-tree.lua',
+      config = function()
+        require('plugins.configs.nvim-tree').setup()
+      end,
+    })
+
     -- Snippet
     use({
       'rafamadriz/friendly-snippets',
