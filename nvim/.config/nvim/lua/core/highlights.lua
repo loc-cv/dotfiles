@@ -1,15 +1,7 @@
 local M = {}
 local hi = require('core.utils').hi
--- local c = require('vscode.colors')
 
 M.colors = {
-  -- Lsp related highlights
-  -- LspSignatureActiveParameter = { underline = true, bold = true },
-  -- DiagnosticUnderlineError = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscRed },
-  -- DiagnosticUnderlineWarn = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscYellow },
-  -- DiagnosticUnderlineInfo = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscBlue },
-  -- DiagnosticUnderlineHint = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscBlue },
-
   -- Cursorline
   CursorLine = { bg = '#303030' },
 
@@ -77,8 +69,6 @@ local colors = M.colors
 
 M.init = function()
   vim.cmd([[colorscheme codedark]])
-  -- vim.cmd([[colorscheme vscode]])
-  -- vim.o.background = 'dark'
 
   for group, conf in pairs(colors) do
     hi(group, conf)

@@ -16,7 +16,6 @@ return packer.startup({
     -- Make Neovim look good
     use('kyazdani42/nvim-web-devicons')
     use('tomasiser/vim-code-dark')
-    -- use('Mofiqul/vscode.nvim')
     use({
       'feline-nvim/feline.nvim',
       config = function()
@@ -40,68 +39,12 @@ return packer.startup({
         require('plugins.configs.coc').setup()
       end,
     })
-    -- use({
-    --   'williamboman/mason.nvim',
-    --   config = function()
-    --     require('lsp.mason').setup()
-    --   end,
-    -- })
-    -- use('WhoIsSethDaniel/mason-tool-installer.nvim')
-    -- use({
-    --   'neovim/nvim-lspconfig',
-    --   config = function()
-    --     require('lsp.lsp-config').setup()
-    --   end,
-    -- })
-    -- use({
-    --   'jose-elias-alvarez/null-ls.nvim',
-    --   requires = 'nvim-lua/plenary.nvim',
-    --   config = function()
-    --     require('lsp.null-ls').setup()
-    --   end,
-    -- })
-    -- use({
-    --   'ray-x/lsp_signature.nvim',
-    --   config = function()
-    --     require('lsp.lsp-signature').setup()
-    --   end,
-    -- })
-    -- use('RRethy/vim-illuminate')
-    -- use('SmiteshP/nvim-navic')
-    -- use({
-    --   'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    --   config = function()
-    --     require('lsp_lines').setup()
-    --   end,
-    -- })
-
-    -- Completion
-    -- use({
-    --   'hrsh7th/nvim-cmp',
-    --   config = function()
-    --     require('lsp.cmp').setup()
-    --   end,
-    -- })
-    -- use('hrsh7th/cmp-nvim-lsp')
-    -- use('hrsh7th/cmp-nvim-lua')
-    -- use('saadparwaiz1/cmp_luasnip')
-    -- use('hrsh7th/cmp-buffer')
-    -- use('hrsh7th/cmp-path')
-
-    -- Explorer
-    -- use({
-    --   'kyazdani42/nvim-tree.lua',
-    --   config = function()
-    --     require('plugins.configs.nvim-tree').setup()
-    --   end,
-    -- })
 
     -- Snippet
     use({
       'rafamadriz/friendly-snippets',
       after = 'coc.nvim',
     })
-    -- use({ 'L3MON4D3/LuaSnip' })
 
     -- Document generator
     use({
@@ -116,13 +59,6 @@ return packer.startup({
     })
 
     -- Fuzzy finder
-    -- use({
-    --   'ibhagwan/fzf-lua',
-    --   cmd = { 'FzfLua' },
-    --   config = function()
-    --     require('plugins.configs.fzf-lua').setup()
-    --   end,
-    -- })
     use({
       'nvim-telescope/telescope.nvim',
       tag = '0.1.0',
@@ -133,14 +69,6 @@ return packer.startup({
     })
     use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
     use({ 'nvim-telescope/telescope-media-files.nvim' })
-    use({
-      'LukasPietzschmann/telescope-tabs',
-      config = function()
-        require('telescope-tabs').setup({
-          show_preview = true,
-        })
-      end,
-    })
 
     -- Terminal
     use({

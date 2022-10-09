@@ -2,33 +2,6 @@ local M = {}
 local map = require('core.utils').map
 
 local configs = {
-  -- Lsp related mappings
-  -- lsp = function()
-  --   map('n', '[d', vim.diagnostic.goto_prev)
-  --   map('n', ']d', vim.diagnostic.goto_next)
-  --   map('n', 'gf', vim.diagnostic.open_float)
-  --   map('n', 'K', vim.lsp.buf.hover)
-  --   map('n', 'gs', vim.lsp.buf.signature_help)
-  --   map('n', '<leader>ca', vim.lsp.buf.code_action)
-  --   map('n', '<leader>rn', vim.lsp.buf.rename)
-  --   map('n', '<leader>fm', function()
-  --     vim.lsp.buf.format({ async = true })
-  --   end)
-  --   map('n', 'gr', [[<cmd>Telescope lsp_references<cr>]])
-  --   map('n', 'gi', [[<cmd>Telescope lsp_implementations<cr>]])
-  --   map('n', 'gy', [[<cmd>Telescope lsp_type_definitions<cr>]])
-  --   map('n', 'gd', [[<cmd>Telescope lsp_definitions<cr>]])
-  --   map('n', '<C-p>d', [[<cmd>Telescope diagnostics bufnr=0<cr>]])
-  --   map('n', '<C-p>D', [[<cmd>Telescope diagnostics<cr>]])
-  --   map('n', '<C-p>s', [[<cmd>Telescope lsp_document_symbols<cr>]])
-  --   map('n', '<C-p>S', [[<cmd>Telescope lsp_workspace_symbols<cr>]])
-  -- end,
-
-  -- nvim-tree
-  -- nvimtree = function()
-  --   map('n', '<leader>e', [[<cmd>NvimTreeToggle<cr>]])
-  -- end,
-
   -- coc.nvim
   coc = function()
     -- coc-explorer
@@ -197,15 +170,6 @@ local configs = {
     end)
   end,
 
-  -- fzf-lua
-  -- fzf_lua = function()
-  --   map('n', '<C-p>p', [[<CMD>FzfLua builtin<CR>]])
-  --   map('n', '<C-p>f', [[<CMD>FzfLua files<CR>]])
-  --   map('n', '<C-p>b', [[<CMD>FzfLua buffers<CR>]])
-  --   map('n', '<C-p>r', [[<CMD>FzfLua live_grep_native<CR>]])
-  --   map('n', '<C-p>h', [[<CMD>FzfLua help_tags<CR>]])
-  -- end,
-
   -- telescope.nvim
   telescope = function()
     map('n', '<C-p>p', [[<CMD>Telescope builtin<CR>]])
@@ -224,9 +188,6 @@ M.init = function()
   -- Better indenting in visual mode
   map('v', '<', '<gv')
   map('v', '>', '>gv')
-
-  -- Make <C-w> work as expected in prompt window
-  -- map('i', '<C-W>', '<C-S-W>')
 
   -- Don't copy the replaced text after pasting in visual mode
   map('v', 'p', '"_dP')
