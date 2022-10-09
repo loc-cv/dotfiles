@@ -3,149 +3,30 @@ local map = require('core.utils').map
 
 local configs = {
   -- Lsp related mappings
-  -- lsp = function()
-  --   map('n', '[d', vim.diagnostic.goto_prev)
-  --   map('n', ']d', vim.diagnostic.goto_next)
-  --   map('n', 'gf', vim.diagnostic.open_float)
-  --   map('n', 'K', vim.lsp.buf.hover)
-  --   map('n', 'gs', vim.lsp.buf.signature_help)
-  --   map('n', '<leader>ca', vim.lsp.buf.code_action)
-  --   map('n', '<leader>rn', vim.lsp.buf.rename)
-  --   map('n', '<leader>fm', function()
-  --     vim.lsp.buf.format({ async = true })
-  --   end)
-  --   map('n', 'gr', [[<cmd>Telescope lsp_references<cr>]])
-  --   map('n', 'gi', [[<cmd>Telescope lsp_implementations<cr>]])
-  --   map('n', 'gy', [[<cmd>Telescope lsp_type_definitions<cr>]])
-  --   map('n', 'gd', [[<cmd>Telescope lsp_definitions<cr>]])
-  --   map('n', '<C-p>d', [[<cmd>Telescope diagnostics bufnr=0<cr>]])
-  --   map('n', '<C-p>D', [[<cmd>Telescope diagnostics<cr>]])
-  --   map('n', '<C-p>s', [[<cmd>Telescope lsp_document_symbols<cr>]])
-  --   map('n', '<C-p>S', [[<cmd>Telescope lsp_workspace_symbols<cr>]])
-  -- end,
+  lsp = function()
+    map('n', '[d', vim.diagnostic.goto_prev)
+    map('n', ']d', vim.diagnostic.goto_next)
+    map('n', 'gf', vim.diagnostic.open_float)
+    map('n', 'K', vim.lsp.buf.hover)
+    map('n', 'gs', vim.lsp.buf.signature_help)
+    map('n', '<leader>ca', vim.lsp.buf.code_action)
+    map('n', '<leader>rn', vim.lsp.buf.rename)
+    map('n', '<leader>fm', function()
+      vim.lsp.buf.format({ async = true })
+    end)
+    map('n', 'gr', [[<cmd>Telescope lsp_references<cr>]])
+    map('n', 'gi', [[<cmd>Telescope lsp_implementations<cr>]])
+    map('n', 'gy', [[<cmd>Telescope lsp_type_definitions<cr>]])
+    map('n', 'gd', [[<cmd>Telescope lsp_definitions<cr>]])
+    map('n', '<C-p>d', [[<cmd>Telescope diagnostics bufnr=0<cr>]])
+    map('n', '<C-p>D', [[<cmd>Telescope diagnostics<cr>]])
+    map('n', '<C-p>s', [[<cmd>Telescope lsp_document_symbols<cr>]])
+    map('n', '<C-p>S', [[<cmd>Telescope lsp_workspace_symbols<cr>]])
+  end,
 
   -- nvim-tree
-  -- nvimtree = function()
-  --   map('n', '<leader>e', [[<cmd>NvimTreeToggle<cr>]])
-  -- end,
-
-  -- coc.nvim
-  coc = function()
-    -- coc-explorer
-    map('n', '<leader>e', [[<CMD>CocCommand explorer<CR><CMD>sleep 20m<CR><C-w>=]])
-
-    -- coc-snippet
-    vim.g.coc_snippet_next = '<Tab>'
-    vim.g.coc_snippet_prev = '<S-Tab>'
-
-    -- Use <C-space> to trigger completion
-    map('i', '<C-space>', function()
-      return vim.fn['coc#refresh']()
-    end, { expr = true })
-
-    -- Make <CR> auto-select the first completion item and notify coc.nvim to ...
-    -- ... format on enter, <CR> could be remapped by other vim plugin
-    _G.CR = function()
-      local _, autopairs = pcall(require, 'nvim-autopairs')
-      if vim.fn['coc#pum#visible']() ~= 0 then
-        return vim.fn['coc#pum#confirm']()
-      else
-        return autopairs.autopairs_cr()
-      end
-    end
-    map('i', '<CR>', 'v:lua.CR()', { expr = true, replace_keycodes = false })
-
-    -- Use <C-j> and <C-k> to navigate the completion list
-    map('i', '<C-j>', "coc#pum#visible() ? coc#pum#next(1) : '<C-j>'", { expr = true, replace_keycodes = false })
-    map('i', '<C-k>', "coc#pum#visible() ? coc#pum#prev(1) : '<C-k>'", { expr = true, replace_keycodes = false })
-
-    -- Use `[d` and `]d` to navigate diagnostics
-    map('n', '[d', '<Plug>(coc-diagnostic-prev)')
-    map('n', ']d', '<Plug>(coc-diagnostic-next)')
-
-    -- GOTO code navigation
-    map('n', 'gd', '<Plug>(coc-definition)')
-    map('n', 'gy', '<Plug>(coc-type-definition)')
-    map('n', 'gi', '<Plug>(coc-implementation)')
-    map('n', 'gr', '<Plug>(coc-references)')
-
-    -- Use K to show documentation in preview window
-    function _G.show_docs()
-      local cw = vim.fn.expand('<cword>')
-      if vim.fn.index({ 'vim', 'help' }, vim.bo.filetype) >= 0 then
-        vim.api.nvim_command('h ' .. cw)
-      elseif vim.api.nvim_eval('coc#rpc#ready()') then
-        vim.fn.CocActionAsync('doHover')
-      else
-        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
-      end
-    end
-    map('n', 'K', '<CMD>lua _G.show_docs()<CR>')
-
-    -- Symbol renaming
-    map('n', '<leader>rn', '<Plug>(coc-rename)')
-
-    -- Formatting selected code
-    map({ 'x', 'n' }, '<leader>fm', '<Plug>(coc-format-selected)')
-
-    -- Applying code action to the selected region
-    map({ 'x', 'n' }, '<leader>ca', '<Plug>(coc-codeaction-selected)')
-
-    -- Applying code action to the current buffer
-    map('n', '<leader>cA', '<Plug>(coc-codeaction)')
-
-    -- Apply autofix to problem on the current line
-    map('n', '<leader>qf', '<Plug>(coc-fix-current)')
-
-    -- Run the Code Lens action on the current line
-    map('n', '<leader>cl', '<Plug>(coc-codelens-action)')
-
-    -- Map function and class text objects
-    -- NOTE: Requires 'textDocument.documentSymbol' support from the language server
-    -- map({ 'x', 'o' }, 'if', '<Plug>(coc-funcobj-i)')
-    -- map({ 'x', 'o' }, 'af', '<Plug>(coc-funcobj-a)')
-    -- map({ 'x', 'o' }, 'ic', '<Plug>(coc-classobj-i)')
-    -- map({ 'x', 'o' }, 'ac', '<Plug>(coc-classobj-a)')
-
-    -- Remap <C-e> and <C-y> for scroll float windows/popups
-    map({ 'n', 'v' }, '<C-e>', "coc#float#has_scroll() ? coc#float#scroll(1) : '<C-e>'", { expr = true, nowait = true })
-    map({ 'n', 'v' }, '<C-y>', "coc#float#has_scroll() ? coc#float#scroll(0) : '<C-y>'", { expr = true, nowait = true })
-    map('i', '<C-e>', "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(1)<cr>' : '<C-e>'", {
-      expr = true,
-      nowait = true,
-    })
-    map('i', '<C-y>', "coc#float#has_scroll() ? '<C-r>=coc#float#scroll(0)<cr>' : '<C-y>'", {
-      expr = true,
-      nowait = true,
-    })
-
-    -- Use ctrl-s for selections ranges
-    map({ 'n', 'x' }, '<C-s>', '<Plug>(coc-range-select)')
-
-    -- Use ctrl-s in insert mode to trigger signature help
-    map('i', '<C-s>', "<C-r>=CocActionAsync('showSignatureHelp')<CR>")
-
-    -- Mappings for CoCList
-    map('n', '<C-m>L', '<CMD>CocList<CR>', { nowait = true })
-    map('n', '<C-m>c', '<CMD>CocList commands<CR>', { nowait = true })
-    map('n', '<C-m>e', '<CMD>CocList extensions<CR>', { nowait = true })
-    map('n', '<C-m>d', '<CMD>CocList -A diagnostics<CR>', { nowait = true })
-    map('n', '<C-m>l', '<CMD>CocList -A location<CR>', { nowait = true })
-    map('n', '<C-m>s', '<CMD>CocList -A -I symbols<CR>', { nowait = true })
-    map('n', '<C-m>o', '<CMD>CocList -A outline<CR>', { nowait = true })
-
-    local toggleOutline = function()
-      for _, win in ipairs(vim.api.nvim_list_wins()) do
-        local buf = vim.api.nvim_win_get_buf(win)
-        local buf_ft = vim.api.nvim_buf_get_option(buf, 'filetype')
-        if buf_ft == 'coctree' then
-          vim.fn.CocAction('hideOutline')
-          return
-        end
-      end
-      vim.fn.CocAction('showOutline')
-    end
-    map('n', '<leader>t', toggleOutline, { nowait = true })
+  nvimtree = function()
+    map('n', '<leader>e', [[<cmd>NvimTreeToggle<cr>]])
   end,
 
   -- vim-floaterm
@@ -197,15 +78,6 @@ local configs = {
     end)
   end,
 
-  -- fzf-lua
-  -- fzf_lua = function()
-  --   map('n', '<C-p>p', [[<CMD>FzfLua builtin<CR>]])
-  --   map('n', '<C-p>f', [[<CMD>FzfLua files<CR>]])
-  --   map('n', '<C-p>b', [[<CMD>FzfLua buffers<CR>]])
-  --   map('n', '<C-p>r', [[<CMD>FzfLua live_grep_native<CR>]])
-  --   map('n', '<C-p>h', [[<CMD>FzfLua help_tags<CR>]])
-  -- end,
-
   -- telescope.nvim
   telescope = function()
     map('n', '<C-p>p', [[<CMD>Telescope builtin<CR>]])
@@ -224,9 +96,6 @@ M.init = function()
   -- Better indenting in visual mode
   map('v', '<', '<gv')
   map('v', '>', '>gv')
-
-  -- Make <C-w> work as expected in prompt window
-  -- map('i', '<C-W>', '<C-S-W>')
 
   -- Don't copy the replaced text after pasting in visual mode
   map('v', 'p', '"_dP')

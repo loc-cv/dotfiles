@@ -1,14 +1,14 @@
 local M = {}
 local hi = require('core.utils').hi
--- local c = require('vscode.colors')
+local c = require('vscode.colors')
 
 M.colors = {
   -- Lsp related highlights
-  -- LspSignatureActiveParameter = { underline = true, bold = true },
-  -- DiagnosticUnderlineError = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscRed },
-  -- DiagnosticUnderlineWarn = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscYellow },
-  -- DiagnosticUnderlineInfo = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscBlue },
-  -- DiagnosticUnderlineHint = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscBlue },
+  LspSignatureActiveParameter = { underline = true, bold = true },
+  DiagnosticUnderlineError = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscRed },
+  DiagnosticUnderlineWarn = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscYellow },
+  DiagnosticUnderlineInfo = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscBlue },
+  DiagnosticUnderlineHint = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscBlue },
 
   -- Cursorline
   CursorLine = { bg = '#303030' },
@@ -46,24 +46,6 @@ M.colors = {
   -- vim-better-whitespace
   ExtraWhitespace = { bg = '#808080' },
 
-  -- coc.nvim
-  CocErrorSign = { fg = '#db4b4b' },
-  CocErrorVirtualText = { fg = '#db4b4b' },
-  CocErrorHighlight = { fg = '#db4b4b', underline = true },
-  CocWarningSign = { fg = '#e0af68' },
-  CocWarningVirtualText = { fg = '#e0af68' },
-  CocWarningHighlight = { fg = '#e0af68', underline = true },
-  CocInfoSign = { fg = '#0db9d7' },
-  CocInfoVirtualText = { fg = '#0db9d7' },
-  CocInfoHighlight = { fg = '#0db9d7', underline = true },
-  CocHintSign = { fg = '#10b981' },
-  CocHintVirtualText = { fg = '#10b981' },
-  CocHintHighlight = { fg = '#10b981', underline = true },
-  CocFadeOut = { fg = '#808080', underline = true },
-  CocHighlightText = { bg = '#282828', underline = true },
-  CocSearch = { fg = '#18a2fe' },
-  CocSymbolLineSeparator = { link = 'Normal' },
-
   -- nvim-window
   NvimWindow = { bg = '#d4d4d4', fg = '#0a0a0a' },
 
@@ -76,9 +58,8 @@ M.colors = {
 local colors = M.colors
 
 M.init = function()
-  vim.cmd([[colorscheme codedark]])
-  -- vim.cmd([[colorscheme vscode]])
-  -- vim.o.background = 'dark'
+  vim.cmd([[colorscheme vscode]])
+  vim.o.background = 'dark'
 
   for group, conf in pairs(colors) do
     hi(group, conf)

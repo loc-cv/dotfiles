@@ -2,8 +2,6 @@ local M = {}
 
 M.setup = function()
   local feline_ok, feline = pcall(require, 'feline')
-  -- local navic_ok, navic = pcall(require, 'nvim-navic')
-  -- if not (feline_ok and navic_ok) then
   if not feline_ok then
     return
   end
@@ -11,11 +9,6 @@ M.setup = function()
   local colors_statusline = {
     active = { fg = '#0a0a0a', bg = '#adadad', style = 'bold' },
     inactive = { fg = '#d4d4d4', bg = '#373737', style = 'bold' },
-  }
-
-  local colors_winbar = {
-    active = { fb = '#d4d4d4', bg = '#1e1e1e', style = 'bold' },
-    inactive = { fb = '#d4d4d4', bg = '#1e1e1e', style = 'bold' },
   }
 
   local special_filetypes = {
@@ -34,17 +27,6 @@ M.setup = function()
     'Trouble',
   }
 
-  local get_coc_diagnostic = function(diag_type)
-    local has_info, info = pcall(vim.api.nvim_buf_get_var, 0, 'coc_diagnostic_info')
-    if not has_info then
-      return ''
-    end
-    if info[diag_type] > 0 then
-      return tostring(info[diag_type])
-    end
-    return ''
-  end
-
   -- Custom conditons
   local conditions = {
     buffer_not_empty = function()
@@ -55,7 +37,7 @@ M.setup = function()
     end,
 
     filetype_normal = function()
-      if vim.tbl_contains(special_filetypes, vim.bo.filetype) then
+      if vim.tbl_contains(special_filetypes, vim.bo.filetype) or vim.bo.buftype ~= '' then
         return false
       end
       return true
@@ -63,17 +45,10 @@ M.setup = function()
 
     filetype_special = function()
       local filetype = vim.bo.filetype
-      if vim.tbl_contains(special_filetypes, filetype) then
+      if vim.tbl_contains(special_filetypes, filetype) or vim.bo.buftype ~= '' then
         if filetype ~= 'list' then
           return true
         end
-      end
-      return false
-    end,
-
-    filetype_list = function()
-      if vim.bo.filetype == 'list' then
-        return true
       end
       return false
     end,
@@ -148,28 +123,13 @@ M.setup = function()
       end
       return ' Untitled'
     end,
-
-    coc_diagnostic = function(diag_type)
-      if vim.fn.exists('*coc#rpc#start_server') == 1 then
-        return get_coc_diagnostic(diag_type)
-      end
-      return ''
-    end,
-
-    coclist_status = function(segment)
-      return vim.fn['coc#list#status'](segment)
-    end,
   }
 
   -- utils: render component
   local render_c = function(component, opts)
     opts = opts or {}
-    local type = opts.type
     local sep = opts.sep
     local status = opts.status
-
-    -- Default type: 'statusline' ('statusline'|'winbar')
-    type = type or 'statusline'
 
     -- Default status: 'active' ('active'|'inactive')
     status = status or 'active'
@@ -179,12 +139,7 @@ M.setup = function()
     sep.position = sep.position or 'right'
     sep.str = sep.str or ' '
 
-    local colors
-    if type == 'statusline' then
-      colors = colors_statusline
-    elseif type == 'winbar' then
-      colors = colors_winbar
-    end
+    local colors = colors_statusline
 
     if sep.position ~= 'none' then
       sep = vim.tbl_extend('keep', sep, { hl = colors[status] })
@@ -197,44 +152,6 @@ M.setup = function()
     end
     return component
   end
-
-  local coclist_c = { -- coclist components
-    mode = {
-      provider = function()
-        return providers.coclist_status('mode') .. ' |'
-      end,
-      enabled = conditions.filetype_list,
-    },
-    title = {
-      provider = 'CocList',
-      enabled = conditions.filetype_list,
-    },
-    loading = {
-      provider = function()
-        return providers.coclist_status('loading')
-      end,
-      enabled = conditions.filetype_list,
-    },
-    args = {
-      provider = function()
-        return providers.coclist_status('args')
-      end,
-      enabled = conditions.filetype_list,
-    },
-    total = {
-      provider = function()
-        local total_line = tostring(vim.fn.line('$'))
-        return '(' .. total_line .. '/' .. tostring(providers.coclist_status('total')) .. ')'
-      end,
-      enabled = conditions.filetype_list,
-    },
-    path = {
-      provider = function()
-        return providers.coclist_status('cwd')
-      end,
-      enabled = conditions.filetype_list,
-    },
-  }
 
   local c_c = { -- common components
     blank = {
@@ -269,48 +186,32 @@ M.setup = function()
       enabled = conditions.filetype_normal,
     },
     diagnostic_errors = {
-      provider = function()
-        return providers.coc_diagnostic('error')
-      end,
-      -- provider = 'diagnostic_errors',
+      provider = 'diagnostic_errors',
       icon = 'E',
-      enabled = conditions.filetype_normal,
-      -- enabled = function()
-      --   return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
-      -- end,
+      enabled = function()
+        return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      end,
     },
     diagnostic_warnings = {
-      provider = function()
-        return providers.coc_diagnostic('warning')
-      end,
-      -- provider = 'diagnostic_warnings',
+      provider = 'diagnostic_warnings',
       icon = 'W',
-      enabled = conditions.filetype_normal,
-      -- enabled = function()
-      --   return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
-      -- end,
+      enabled = function()
+        return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      end,
     },
     diagnostic_hints = {
-      provider = function()
-        return providers.coc_diagnostic('hint')
-      end,
-      -- provider = 'diagnostic_hints',
+      provider = 'diagnostic_hints',
       icon = 'H',
-      enabled = conditions.filetype_normal,
-      -- enabled = function()
-      --   return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
-      -- end,
+      enabled = function()
+        return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      end,
     },
     diagnostic_info = {
-      provider = function()
-        return providers.coc_diagnostic('information')
-      end,
-      -- provider = 'diagnostic_info',
+      provider = 'diagnostic_info',
       icon = 'I',
-      enabled = conditions.filetype_normal,
-      -- enabled = function()
-      --   return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
-      -- end,
+      enabled = function()
+        return require('feline.providers.lsp').diagnostics_exist() and conditions.filetype_normal()
+      end,
     },
     lsp_client_names = {
       provider = 'lsp_client_names',
@@ -357,29 +258,12 @@ M.setup = function()
       provider = 'line_percentage',
       enabled = conditions.filetype_normal,
     },
-    static_file_name = {
-      provider = providers.static_file_name,
-      enabled = conditions.filetype_normal,
-    },
-    navic = {
-      provider = function()
-        return navic.get_location()
-      end,
-      enabled = function()
-        return conditions.filetype_normal() and navic.is_available()
-      end,
-    },
   }
 
   local sl_components = { -- statusline components
     active = {
       { -- left
         render_c(c_c.blank, { sep = { position = 'none' } }),
-        render_c(coclist_c.mode),
-        render_c(coclist_c.title),
-        render_c(coclist_c.loading),
-        render_c(coclist_c.args),
-        render_c(coclist_c.total),
         render_c(sft_c.filetype),
         render_c(nft_c.git_branch, { sep = { str = '  ' } }),
         render_c(nft_c.file_icon),
@@ -397,52 +281,19 @@ M.setup = function()
         render_c(nft_c.file_encoding, { sep = { position = 'left', str = '  ' } }),
         render_c(nft_c.position, { sep = { position = 'left', str = '  ' } }),
         render_c(nft_c.line_percentage, { sep = { position = 'left', str = '  ' } }),
-        render_c(coclist_c.path, { sep = { position = 'left', str = '  ' } }),
         render_c(c_c.blank, { sep = { position = 'none' } }),
       },
     },
     inactive = {
       { -- left
         render_c(c_c.blank, { status = 'inactive', sep = { position = 'none' } }),
-        render_c(coclist_c.mode, { status = 'inactive' }),
-        render_c(coclist_c.title, { status = 'inactive' }),
-        render_c(coclist_c.loading, { status = 'inactive' }),
-        render_c(coclist_c.args, { status = 'inactive' }),
-        render_c(coclist_c.total, { status = 'inactive' }),
         render_c(sft_c.filetype, { status = 'inactive' }),
         render_c(nft_c.file_icon, { status = 'inactive' }),
         render_c(nft_c.smart_file_name, { status = 'inactive' }),
       },
-      { -- right
-        render_c(coclist_c.path, { status = 'inactive', sep = { position = 'left', str = '  ' } }),
-        render_c(c_c.blank, { status = 'inactive', sep = { position = 'none' } }),
-      },
+      {}, -- right
     },
   }
-
-  -- local wb_components = { -- winbar components
-  --   active = {
-  --     { -- left
-  --       render_c(c_c.blank, { type = 'winbar', sep = { position = 'none' } }),
-  --       render_c(nft_c.file_icon, { type = 'winbar' }),
-  --       render_c(nft_c.static_file_name, { type = 'winbar' }),
-  --       render_c(nft_c.navic, { type = 'winbar', sep = { position = 'left', str = '❯ ' } }),
-  --       render_c(sft_c.filetype, { type = 'winbar' }),
-  --     },
-  --     {
-  --       render_c(nft_c.lsp_client_names, { type = 'winbar' }),
-  --     }, --right
-  --   },
-  --   inactive = {
-  --     { -- left
-  --       render_c(c_c.blank, { status = 'inactive', type = 'winbar', sep = { position = 'none' } }),
-  --       render_c(nft_c.file_icon, { status = 'inactive', type = 'winbar' }),
-  --       render_c(nft_c.static_file_name, { status = 'inactive', type = 'winbar' }),
-  --       render_c(sft_c.filetype, { status = 'inactive', type = 'winbar' }),
-  --     },
-  --     {}, -- right
-  --   },
-  -- }
 
   feline.setup({
     force_inactive = {
@@ -452,31 +303,32 @@ M.setup = function()
     components = sl_components,
   })
 
-  -- feline.winbar.setup({
-  --   components = wb_components,
-  -- })
-
   -- Custom winbar
-  -- vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
-  --   pattern = '*',
-  --   callback = function()
-  --     if vim.bo.buftype == '' then -- if current buffer is normal buffer
-  --       local ok, nvim_navic = pcall(require, 'nvim-navic')
-  --       if not ok then
-  --         return
-  --       end
-  --       local nvim_navic_data = nvim_navic.get_data()
-  --       if nvim_navic_data == nil or next(nvim_navic_data) == nil then
-  --         local file_icon = providers.file_icon()
-  --         vim.opt_local.winbar = ' ' .. file_icon .. ' %f'
-  --         return
-  --       end
-  --       vim.opt_local.winbar = " %{%v:lua.require'nvim-navic'.get_location()%}"
-  --     else
-  --       vim.opt_local.winbar = ''
-  --     end
-  --   end,
-  -- })
+  local navic_ok, navic = pcall(require, 'nvim-navic')
+  if not navic_ok then
+    return
+  end
+  vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
+    pattern = '*',
+    callback = function()
+      if vim.bo.buftype == '' then -- if current buffer is normal buffer
+        local navic_data = navic.get_data()
+        if navic_data == nil or next(navic_data) == nil then
+          local file_icon = providers.file_icon()
+          local file_name = providers.static_file_name()
+          if conditions.buffer_not_empty() then
+            vim.opt_local.winbar = ' ' .. file_icon .. ' ' .. file_name
+          else
+            vim.opt_local.winbar = ''
+          end
+          return
+        end
+        vim.opt_local.winbar = " %{%v:lua.require'nvim-navic'.get_location()%}"
+      else
+        vim.opt_local.winbar = ''
+      end
+    end,
+  })
 end
 
 return M
