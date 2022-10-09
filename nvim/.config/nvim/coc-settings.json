@@ -112,7 +112,7 @@
   // tsserver
   "javascript.suggest.completeFunctionCalls": false,
   "typescript.suggest.completeFunctionCalls": false,
-  "tsserver.disableAutomaticTypeAcquisition": true,
+  // "tsserver.disableAutomaticTypeAcquisition": true,
 
   // css
   "css.lint.unknownAtRules": "ignore",
