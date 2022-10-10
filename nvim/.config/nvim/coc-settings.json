@@ -3,7 +3,7 @@
   "diagnostic.warningSign": "W",
   "diagnostic.infoSign": "I",
   "diagnostic.hintSign": "H",
-  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.refreshOnInsertMode": false,
 
   "suggest.completionItemKindLabels": {
     "keyword": " Keyword",
@@ -40,6 +40,9 @@
 
   "tree.openedIcon": "",
   "tree.closedIcon": "",
+  "tree.key.activeFilter": "/",
+  "tree.key.toggle": "o",
+  "tree.key.collapseAll": "zM",
   "outline.detailAsDescription": false,
   "outline.showLineNumber": false,
   "outline.autoWidth": true,
