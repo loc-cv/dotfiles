@@ -84,13 +84,12 @@ M.init = function()
     group = cursorAuGroup,
     pattern = '*',
     callback = function()
-      if vim.tbl_contains(cursor_excluded_filetypes, vim.bo.filetype) then
-        return
+      if not vim.tbl_contains(cursor_excluded_filetypes, vim.bo.filetype) then
+        vim.cmd('set nocursorline')
       end
-      vim.cmd('set nocursorline')
     end,
   })
-  vim.api.nvim_create_autocmd({ 'WinEnter', 'InsertLeave', 'BufWinEnter', 'BufEnter' }, {
+  vim.api.nvim_create_autocmd({ 'WinEnter', 'InsertLeave' }, {
     group = cursorAuGroup,
     pattern = '*',
     command = 'set cursorline',

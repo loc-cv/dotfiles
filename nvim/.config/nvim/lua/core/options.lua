@@ -18,7 +18,7 @@ local options = {
   linebreak = true, -- prevent words from being split across two lines when line wraps
   showbreak = '↳ ', -- string to put at the start of lines that have been wrapped
   breakindent = true, -- wrapped line will continue visually indented (same amount of space as the beginning of that line)
-  cursorline = true, -- enable cursorline
+  -- cursorline = true, -- enable cursorline
   mouse = 'a', -- enable your mouse
   shortmess = opt.shortmess + { c = true }, -- don't give ins-completion-menu message
   fillchars = { eob = ' ', stl = ' ' }, -- disable `~` on nonexistent lines

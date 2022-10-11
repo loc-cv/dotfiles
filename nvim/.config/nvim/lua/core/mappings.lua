@@ -153,23 +153,6 @@ local configs = {
     end)
   end,
 
-  -- smart-splits.nvim
-  smart_splits = function()
-    -- Resizing splits
-    map('n', '<A-H>', function()
-      require('smart-splits').resize_left()
-    end)
-    map('n', '<A-J>', function()
-      require('smart-splits').resize_down()
-    end)
-    map('n', '<A-K>', function()
-      require('smart-splits').resize_up()
-    end)
-    map('n', '<A-L>', function()
-      require('smart-splits').resize_right()
-    end)
-  end,
-
   -- telescope.nvim
   telescope = function()
     map('n', '<C-p>p', [[<CMD>Telescope builtin<CR>]])
@@ -182,7 +165,7 @@ local configs = {
 
 M.init = function()
   -- Change mapleader
-  vim.g.mapleader = '-'
+  vim.g.mapleader = ' '
 
   -- Better indenting in visual mode
   map('v', '<', '<gv')
