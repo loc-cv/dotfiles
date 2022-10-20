@@ -80,7 +80,7 @@ M.init = function()
   -- Better cursorline (somehow it's not consistent)
   local cursorAuGroup = vim.api.nvim_create_augroup('Cursor', { clear = true })
   local cursor_excluded_filetypes = { 'coc-explorer', 'DiffviewFiles', 'coctree', 'NvimTree' }
-  vim.api.nvim_create_autocmd({ 'WinLeave', 'InsertEnter' }, {
+  vim.api.nvim_create_autocmd({ 'WinLeave', 'InsertEnter', 'BufLeave' }, {
     group = cursorAuGroup,
     pattern = '*',
     callback = function()
@@ -89,7 +89,7 @@ M.init = function()
       end
     end,
   })
-  vim.api.nvim_create_autocmd({ 'WinEnter', 'InsertLeave' }, {
+  vim.api.nvim_create_autocmd({ 'WinEnter', 'InsertLeave', 'BufEnter' }, {
     group = cursorAuGroup,
     pattern = '*',
     command = 'set cursorline',
@@ -109,17 +109,17 @@ M.init = function()
   })
 
   -- Remember folds
-  local rememberFoldAuGroup = vim.api.nvim_create_augroup('RememberFold', { clear = true })
-  vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
-    group = rememberFoldAuGroup,
-    pattern = '?*',
-    command = 'mkview',
-  })
-  vim.api.nvim_create_autocmd({ 'BufWinEnter' }, {
-    group = rememberFoldAuGroup,
-    pattern = '?*',
-    command = 'silent! loadview',
-  })
+  -- local rememberFoldAuGroup = vim.api.nvim_create_augroup('RememberFold', { clear = true })
+  -- vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
+  --   group = rememberFoldAuGroup,
+  --   pattern = '?*',
+  --   command = 'mkview',
+  -- })
+  -- vim.api.nvim_create_autocmd({ 'BufWinEnter' }, {
+  --   group = rememberFoldAuGroup,
+  --   pattern = '?*',
+  --   command = 'silent! loadview',
+  -- })
 
   -- Load plugins autocmds
   for _, config in pairs(configs) do

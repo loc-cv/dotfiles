@@ -15,8 +15,8 @@ M.setup = function()
     'coc-sumneko-lua',
     'coc-stylua',
     'coc-symbol-line',
-    -- '@yaegassy/coc-tailwindcss3',
-    -- 'coc-styled-components',
+    'coc-styled-components',
+    '@yaegassy/coc-tailwindcss3',
   }
 
   function _G.symbol_line()

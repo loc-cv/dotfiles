@@ -68,7 +68,8 @@ return packer.startup({
       end,
     })
     use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
-    use({ 'nvim-telescope/telescope-media-files.nvim' })
+    use('nvim-telescope/telescope-media-files.nvim')
+    use('fannheyward/telescope-coc.nvim')
 
     -- Terminal
     use({
@@ -115,6 +116,7 @@ return packer.startup({
     use({
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
+      commit = '4cccb6f494eb255b32a290d37c35ca12584c74d0',
       config = function()
         require('plugins.configs.treesitter').setup_ts()
       end,
@@ -200,7 +202,7 @@ return packer.startup({
       end,
     })
 
-    -- Easy motions / navigations
+    -- Windows / Split
     use({
       'simeji/winresizer',
       config = function()
@@ -267,7 +269,11 @@ return packer.startup({
       'declancm/cinnamon.nvim',
       config = function()
         require('cinnamon').setup({
-          centered = false,
+          always_scroll = true,
+          centered = true,
+          extra_keymaps = true,
+          extended_keymaps = true,
+          default_delay = 2,
         })
       end,
     })

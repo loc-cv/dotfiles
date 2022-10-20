@@ -362,7 +362,11 @@ M.setup = function()
         render_c(coclist_c.total, { status = 'inactive' }),
         render_c(sft_c.filetype, { status = 'inactive' }),
         render_c(nft_c.file_icon, { status = 'inactive' }),
-        render_c(nft_c.smart_file_name, { status = 'inactive' }),
+        render_c(nft_c.smart_file_name, { status = 'inactive', sep = { str = '  ' } }),
+        render_c(nft_c.diagnostic_errors, { status = 'inactive' }),
+        render_c(nft_c.diagnostic_warnings, { status = 'inactive' }),
+        render_c(nft_c.diagnostic_hints, { status = 'inactive' }),
+        render_c(nft_c.diagnostic_info, { status = 'inactive' }),
       },
       { -- right
         render_c(coclist_c.path, { status = 'inactive', sep = { position = 'left', str = '  ' } }),

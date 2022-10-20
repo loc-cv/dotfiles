@@ -7,7 +7,7 @@ M.setup = function()
   end
 
   -- Loading extensions
-  local extensions = { 'fzf', 'media_files' }
+  local extensions = { 'fzf', 'media_files', 'coc' }
   for _, ext in ipairs(extensions) do
     telescope.load_extension(ext)
   end
@@ -64,6 +64,9 @@ M.setup = function()
     extensions = {
       media_files = {
         filetypes = { 'png', 'webp', 'jpg', 'jpeg', 'webm', 'pdf', 'mp4' },
+      },
+      coc = {
+        prefer_locations = true,
       },
     },
   })

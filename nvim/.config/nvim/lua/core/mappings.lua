@@ -37,10 +37,10 @@ local configs = {
     map('n', ']d', '<Plug>(coc-diagnostic-next)')
 
     -- GOTO code navigation
-    map('n', 'gd', '<Plug>(coc-definition)')
-    map('n', 'gy', '<Plug>(coc-type-definition)')
-    map('n', 'gi', '<Plug>(coc-implementation)')
-    map('n', 'gr', '<Plug>(coc-references)')
+    -- map('n', 'gd', '<Plug>(coc-definition)')
+    -- map('n', 'gy', '<Plug>(coc-type-definition)')
+    -- map('n', 'gi', '<Plug>(coc-implementation)')
+    -- map('n', 'gr', '<Plug>(coc-references)')
 
     -- Use K to show documentation in preview window
     function _G.show_docs()
@@ -100,12 +100,12 @@ local configs = {
 
     -- Mappings for CoCList
     map('n', '<C-m>L', '<CMD>CocList<CR>', { nowait = true })
-    map('n', '<C-m>c', '<CMD>CocList commands<CR>', { nowait = true })
     map('n', '<C-m>e', '<CMD>CocList extensions<CR>', { nowait = true })
-    map('n', '<C-m>d', '<CMD>CocList -A diagnostics<CR>', { nowait = true })
-    map('n', '<C-m>l', '<CMD>CocList -A location<CR>', { nowait = true })
-    map('n', '<C-m>s', '<CMD>CocList -A -I symbols<CR>', { nowait = true })
     map('n', '<C-m>o', '<CMD>CocList -A outline<CR>', { nowait = true })
+    -- map('n', '<C-m>c', '<CMD>CocList commands<CR>', { nowait = true })
+    -- map('n', '<C-m>d', '<CMD>CocList -A diagnostics<CR>', { nowait = true })
+    -- map('n', '<C-m>l', '<CMD>CocList -A location<CR>', { nowait = true })
+    -- map('n', '<C-m>s', '<CMD>CocList -A -I symbols<CR>', { nowait = true })
 
     local toggleOutline = function()
       for _, win in ipairs(vim.api.nvim_list_wins()) do
@@ -160,6 +160,21 @@ local configs = {
     map('n', '<C-p>b', [[<CMD>Telescope buffers<CR>]])
     map('n', '<C-p>r', [[<CMD>Telescope live_grep<CR>]])
     map('n', '<C-p>h', [[<CMD>Telescope help_tags<CR>]])
+  end,
+
+  -- telescope-coc.nvim
+  telescope_coc = function()
+    map('n', 'gd', [[<Cmd>Telescope coc definitions<cr>]])
+    map('n', 'gy', [[<cmd>Telescope coc type_definitions<cr>]])
+    map('n', 'gi', [[<cmd>Telescope coc implementations<cr>]])
+    map('n', 'gr', [[<CMD>Telescope coc references<CR>]])
+    map('n', 'gD', [[<cmd>Telescope coc declarations<cr>]])
+    map('n', '<C-m>c', [[<cmd>Telescope coc commands<cr>]])
+    map('n', '<C-m>d', [[<cmd>Telescope coc diagnostics<cr>]])
+    map('n', '<C-m>D', [[<cmd>Telescope coc workspace_diagnostics<cr>]])
+    map('n', '<C-m>l', [[<cmd>Telescope coc locations<cr>]])
+    map('n', '<C-m>s', [[<cmd>Telescope coc document_symbols<cr>]])
+    map('n', '<C-m>S', [[<cmd>Telescope coc workspace_symbols<cr>]])
   end,
 }
 
