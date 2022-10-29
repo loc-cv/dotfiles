@@ -39,6 +39,7 @@ return packer.startup({
         require('plugins.configs.coc').setup()
       end,
     })
+    use('xiyaowong/coc-symbol-line')
 
     -- Snippet
     use({

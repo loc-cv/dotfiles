@@ -14,9 +14,10 @@ M.setup = function()
     'coc-explorer',
     'coc-sumneko-lua',
     'coc-stylua',
-    'coc-symbol-line',
-    'coc-styled-components',
     '@yaegassy/coc-tailwindcss3',
+    'coc-symbol-line',
+    'coc-docker',
+    -- 'coc-styled-components',
   }
 
   function _G.symbol_line()
@@ -25,18 +26,20 @@ M.setup = function()
     return ok and '%#CocSymbolLine# ' .. line or ''
   end
 
-  vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
-    pattern = '*',
-    callback = function()
-      if vim.b.coc_symbol_line and vim.bo.buftype == '' then
-        if vim.opt_local.winbar:get() == '' then
-          vim.opt_local.winbar = '%!v:lua.symbol_line()'
+  if vim.fn.exists('&winbar') then
+    vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
+      pattern = '*',
+      callback = function()
+        if vim.b.coc_symbol_line and vim.bo.buftype == '' then
+          if vim.opt_local.winbar:get() == '' then
+            vim.opt_local.winbar = '%!v:lua.symbol_line()'
+          end
+        else
+          vim.opt_local.winbar = ''
         end
-      else
-        vim.opt_local.winbar = ''
-      end
-    end,
-  })
+      end,
+    })
+  end
 end
 
 return M
