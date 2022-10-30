@@ -195,13 +195,14 @@ return packer.startup({
       end,
     })
 
-    -- Make the yanked region apparent
+    -- Make yank better
     use({
       'machakann/vim-highlightedyank',
       config = function()
         vim.g.highlightedyank_highlight_duration = 300
       end,
     })
+    use('svban/YankAssassin.vim')
 
     -- Windows / Split
     use({
