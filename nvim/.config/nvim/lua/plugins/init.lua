@@ -225,6 +225,14 @@ return packer.startup({
       end,
     })
 
+    -- Easy motion
+    use({
+      'loc-cv/pounce.nvim',
+      config = function()
+        vim.keymap.set('', 'z/', '<cmd>Pounce<CR>')
+      end,
+    })
+
     -- Buffers management
     use({
       'Asheq/close-buffers.vim',

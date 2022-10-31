@@ -63,6 +63,11 @@ M.colors = {
   OperatorSandwichChange = { link = 'Visual' },
   OperatorSandwichAdd = { link = 'Visual' },
   OperatorSandwichDelete = { link = 'Visual' },
+
+  -- Pounce.nvim
+  PounceMatch = { fg = '#0a0a0a', bg = '#808080' },
+  PounceGap = { fg = '#0a0a0a', bg = '#454545' },
+  PounceAccept = { fg = '#1e1e1e', bg = '#d4d4d4' },
 }
 
 local colors = M.colors
