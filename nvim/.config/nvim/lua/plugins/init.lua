@@ -226,12 +226,12 @@ return packer.startup({
     })
 
     -- Easy motion
-    use({
-      'loc-cv/pounce.nvim',
-      config = function()
-        vim.keymap.set('', 'z/', '<cmd>Pounce<CR>')
-      end,
-    })
+    -- use({
+    --   'loc-cv/pounce.nvim',
+    --   config = function()
+    --     vim.keymap.set('', 'z/', '<cmd>Pounce<CR>')
+    --   end,
+    -- })
 
     -- Buffers management
     use({
@@ -281,8 +281,6 @@ return packer.startup({
         require('cinnamon').setup({
           always_scroll = true,
           centered = true,
-          extra_keymaps = true,
-          extended_keymaps = true,
           default_delay = 2,
         })
       end,

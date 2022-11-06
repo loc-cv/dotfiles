@@ -3,7 +3,7 @@
   "diagnostic.warningSign": "W",
   "diagnostic.infoSign": "I",
   "diagnostic.hintSign": "H",
-  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.refreshOnInsertMode": false,
 
   // "suggest.completionItemKindLabels": {
   //   "keyword": " Keyword",
@@ -147,8 +147,9 @@
   // tsserver
   "javascript.suggest.completeFunctionCalls": false,
   "typescript.suggest.completeFunctionCalls": false,
-  // "tsserver.disableAutomaticTypeAcquisition": true,
+  "tsserver.disableAutomaticTypeAcquisition": false,
   "typescript.showUnused": false,
+  "tsserver.useLocalTsdk": true,
 
   // css
   "css.lint.unknownAtRules": "ignore",
