@@ -61,23 +61,6 @@ local configs = {
     end)
   end,
 
-  -- smart-splits.nvim
-  smart_splits = function()
-    -- Resizing splits
-    map('n', '<A-H>', function()
-      require('smart-splits').resize_left()
-    end)
-    map('n', '<A-J>', function()
-      require('smart-splits').resize_down()
-    end)
-    map('n', '<A-K>', function()
-      require('smart-splits').resize_up()
-    end)
-    map('n', '<A-L>', function()
-      require('smart-splits').resize_right()
-    end)
-  end,
-
   -- telescope.nvim
   telescope = function()
     map('n', '<C-p>p', [[<CMD>Telescope builtin<CR>]])
@@ -85,7 +68,6 @@ local configs = {
     map('n', '<C-p>b', [[<CMD>Telescope buffers<CR>]])
     map('n', '<C-p>r', [[<CMD>Telescope live_grep<CR>]])
     map('n', '<C-p>h', [[<CMD>Telescope help_tags<CR>]])
-    map('n', '<C-p>t', [[<cmd>Telescope telescope-tabs list_tabs<cr>]])
   end,
 }
 

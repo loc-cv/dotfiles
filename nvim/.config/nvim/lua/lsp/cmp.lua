@@ -4,7 +4,7 @@ M.setup = function()
   local cmp_ok, cmp = pcall(require, 'cmp')
   local luasnip_ok, luasnip = pcall(require, 'luasnip')
   local cmp_autopairs_ok, cmp_autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
-  if not (cmp_ok and luasnip_ok and cmp_autopairs_ok) then
+  if not (cmp and cmp_ok and luasnip_ok and cmp_autopairs_ok) then
     return
   end
 
@@ -16,14 +16,16 @@ M.setup = function()
   cmp.setup({
     window = {
       documentation = {
-        winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:Visual,Search:None',
-        border = 'single',
+        winhighlight = 'Normal:NormalFloat,FloatBorder:WinSeparator,CursorLine:Visual,Search:None',
+        border = 'none',
       },
       completion = {
-        winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:Visual,Search:None',
-        border = 'single',
+        winhighlight = 'Normal:NormalFloat,FloatBorder:WinSeparator,CursorLine:Visual,Search:None',
+        border = 'none',
       },
     },
+
+    preselect = cmp.PreselectMode.Item,
 
     formatting = {
       fields = { 'abbr', 'kind', 'menu' },

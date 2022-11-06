@@ -13,13 +13,12 @@ M.setup = function()
     update_in_insert = false,
     severity_sort = true,
     float = {
-      border = 'single',
       source = 'always',
     },
   })
 
-  vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' })
-  vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'single' })
+  -- vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover)
+  -- vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help)
   vim.lsp.handlers['textDocument/publishDiagnostics'] = function(_, result, ctx, ...)
     local client = vim.lsp.get_client_by_id(ctx.client_id)
     if client and client.name == 'tsserver' then
@@ -53,9 +52,8 @@ M.setup = function()
   end
 
   -- Capabilities
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
   -- Lsp configs
   lspconfig.sumneko_lua.setup({
@@ -79,9 +77,25 @@ M.setup = function()
     },
   })
 
-  lspconfig.tsserver.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
+  -- lspconfig.tsserver.setup({
+  --   capabilities = capabilities,
+  --   on_attach = on_attach,
+  -- })
+
+  local typescript_ok, typescript = pcall(require, 'typescript')
+  if not typescript_ok then
+    return
+  end
+  typescript.setup({
+    disable_commands = false,
+    debug = false,
+    go_to_source_definition = {
+      fallback = true,
+    },
+    server = {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    },
   })
 
   lspconfig.emmet_ls.setup({

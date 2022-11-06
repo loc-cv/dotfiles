@@ -10,8 +10,10 @@ M.colors = {
   DiagnosticUnderlineInfo = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscBlue },
   DiagnosticUnderlineHint = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscBlue },
 
+  NormalFloat = { bg = '#303030' },
+
   -- Cursorline
-  CursorLine = { bg = '#303030' },
+  CursorLine = { bg = '#282828' },
 
   -- Search
   IncSearch = { bg = '#adadad', fg = '#0a0a0a', bold = true },

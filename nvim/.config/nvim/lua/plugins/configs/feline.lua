@@ -37,7 +37,7 @@ M.setup = function()
     end,
 
     filetype_normal = function()
-      if vim.tbl_contains(special_filetypes, vim.bo.filetype) or vim.bo.buftype ~= '' then
+      if vim.tbl_contains(special_filetypes, vim.bo.filetype) then
         return false
       end
       return true
@@ -45,7 +45,7 @@ M.setup = function()
 
     filetype_special = function()
       local filetype = vim.bo.filetype
-      if vim.tbl_contains(special_filetypes, filetype) or vim.bo.buftype ~= '' then
+      if vim.tbl_contains(special_filetypes, filetype) then
         if filetype ~= 'list' then
           return true
         end

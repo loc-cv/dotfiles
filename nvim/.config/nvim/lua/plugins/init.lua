@@ -66,6 +66,7 @@ return packer.startup({
     --     require('lsp_lines').setup()
     --   end,
     -- })
+    use('jose-elias-alvarez/typescript.nvim')
 
     -- Completion
     use({
@@ -145,13 +146,7 @@ return packer.startup({
       end,
     })
     use({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' })
-    use({
-      'TimUntersberger/neogit',
-      requires = 'nvim-lua/plenary.nvim',
-      config = function()
-        require('plugins.configs.neogit').setup()
-      end,
-    })
+    use('tpope/vim-fugitive')
 
     -- Commenting code
     use({
@@ -244,18 +239,21 @@ return packer.startup({
       end,
     })
 
-    -- Make the yanked region apparent
+    -- Make yank better
     use({
       'machakann/vim-highlightedyank',
       config = function()
         vim.g.highlightedyank_highlight_duration = 300
       end,
     })
+    use('svban/YankAssassin.vim')
 
-    -- Easy motions / navigations
+    -- Windows / splits
     use({
-      'mrjones2014/smart-splits.nvim',
-      module = 'smart-splits',
+      'simeji/winresizer',
+      config = function()
+        vim.g.winresizer_start_key = '<M-e>'
+      end,
     })
     use({
       'https://gitlab.com/yorickpeterse/nvim-window.git',
@@ -317,7 +315,8 @@ return packer.startup({
       'declancm/cinnamon.nvim',
       config = function()
         require('cinnamon').setup({
-          centered = false,
+          centered = true,
+          default_delay = 2,
         })
       end,
     })
@@ -335,6 +334,7 @@ return packer.startup({
       end,
     })
     use('gcmt/taboo.vim')
+    use('jeffkreeftmeijer/vim-numbertoggle')
   end,
   config = {
     compile_path = vim.fn.stdpath('config') .. '/lua/plugins/packer_compiled.lua',

@@ -8,7 +8,7 @@ M.setup = function()
 
   lsp_signature.setup({
     hint_enable = false,
-    handler_opts = { border = 'single' },
+    handler_opts = { border = 'none' },
   })
 end
 

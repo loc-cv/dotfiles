@@ -26,8 +26,7 @@ local options = {
   timeout = false, -- no waiting for key combination
   sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal', -- some session options that I don't understand :)
   cpoptions = opt.cpoptions - { '_' }, -- make sense of 'cw'
-  splitkeep = 'screen',
-  -- showtabline = 0,
+  splitkeep = 'screen', -- keep the screen stable when opening, closing ore resizing horizontal splits
 
   -- Disable swapfiles & backup files
   backup = false, -- prevent making a backup before overwriting a file
