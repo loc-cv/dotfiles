@@ -69,6 +69,11 @@ local configs = {
     map('n', '<C-p>r', [[<CMD>Telescope live_grep<CR>]])
     map('n', '<C-p>h', [[<CMD>Telescope help_tags<CR>]])
   end,
+
+  -- svart.nvim
+  svart = function()
+    map({ 'n', 'x', 'o' }, 'z/', '<Cmd>Svart<CR>')
+  end,
 }
 
 M.init = function()

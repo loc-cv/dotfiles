@@ -335,11 +335,17 @@ return packer.startup({
       'anuvyklack/fold-preview.nvim',
       requires = 'anuvyklack/keymap-amend.nvim',
       config = function()
-        require('fold-preview').setup()
+        require('fold-preview').setup({})
       end,
     })
     use('gcmt/taboo.vim')
     use('jeffkreeftmeijer/vim-numbertoggle')
+    use({
+      'https://gitlab.com/madyanov/svart.nvim',
+      config = function()
+        require('svart').setup({})
+      end,
+    })
   end,
   config = {
     compile_path = vim.fn.stdpath('config') .. '/lua/plugins/packer_compiled.lua',

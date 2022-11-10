@@ -10,7 +10,7 @@ M.setup = function()
     virtual_text = true,
     signs = true,
     underline = true,
-    update_in_insert = false,
+    update_in_insert = true,
     severity_sort = true,
     float = {
       source = 'always',
@@ -95,6 +95,10 @@ M.setup = function()
     server = {
       on_attach = on_attach,
       capabilities = capabilities,
+      init_options = {
+        hostInfo = 'neovim',
+        disableAutomaticTypingAcquisition = false,
+      },
     },
   })
 
