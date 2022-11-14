@@ -67,7 +67,7 @@
 
   "suggest.noselect": false,
   "suggest.enablePreselect": true,
-  // "diagnostic.virtualText": true,
+  "diagnostic.virtualText": true,
 
   "tree.openedIcon": "",
   "tree.closedIcon": "",

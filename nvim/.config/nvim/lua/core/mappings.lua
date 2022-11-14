@@ -99,9 +99,9 @@ local configs = {
     map('i', '<C-s>', "<C-r>=CocActionAsync('showSignatureHelp')<CR>")
 
     -- Mappings for CoCList
-    map('n', '<C-m>L', '<CMD>CocList<CR>', { nowait = true })
-    map('n', '<C-m>e', '<CMD>CocList extensions<CR>', { nowait = true })
-    map('n', '<C-m>o', '<CMD>CocList -A outline<CR>', { nowait = true })
+    map('n', '<C-p>L', '<CMD>CocList<CR>', { nowait = true })
+    map('n', '<C-p>e', '<CMD>CocList extensions<CR>', { nowait = true })
+    map('n', '<C-p>o', '<CMD>CocList -A outline<CR>', { nowait = true })
     -- map('n', '<C-m>c', '<CMD>CocList commands<CR>', { nowait = true })
     -- map('n', '<C-m>d', '<CMD>CocList -A diagnostics<CR>', { nowait = true })
     -- map('n', '<C-m>l', '<CMD>CocList -A location<CR>', { nowait = true })
@@ -169,12 +169,12 @@ local configs = {
     map('n', 'gi', [[<cmd>Telescope coc implementations<cr>]])
     map('n', 'gr', [[<CMD>Telescope coc references<CR>]])
     map('n', 'gD', [[<cmd>Telescope coc declarations<cr>]])
-    map('n', '<C-m>c', [[<cmd>Telescope coc commands<cr>]])
-    map('n', '<C-m>d', [[<cmd>Telescope coc diagnostics<cr>]])
-    map('n', '<C-m>D', [[<cmd>Telescope coc workspace_diagnostics<cr>]])
-    map('n', '<C-m>l', [[<cmd>Telescope coc locations<cr>]])
-    map('n', '<C-m>s', [[<cmd>Telescope coc document_symbols<cr>]])
-    map('n', '<C-m>S', [[<cmd>Telescope coc workspace_symbols<cr>]])
+    map('n', '<C-p>c', [[<cmd>Telescope coc commands<cr>]])
+    map('n', '<C-p>d', [[<cmd>Telescope coc diagnostics<cr>]])
+    map('n', '<C-p>D', [[<cmd>Telescope coc workspace_diagnostics<cr>]])
+    map('n', '<C-p>l', [[<cmd>Telescope coc locations<cr>]])
+    map('n', '<C-p>s', [[<cmd>Telescope coc document_symbols<cr>]])
+    map('n', '<C-p>S', [[<cmd>Telescope coc workspace_symbols<cr>]])
   end,
 }
 

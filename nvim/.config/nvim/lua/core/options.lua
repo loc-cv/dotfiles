@@ -8,7 +8,7 @@ local options = {
   pumheight = 10, -- set popup menu height
   splitright = true, -- vertical splits will automatically be to the right
   splitbelow = true, -- horizontal splits will automatically be below
-  updatetime = 100, -- long updatetime leads to poor user experience
+  updatetime = 50, -- long updatetime leads to poor user experience
   termguicolors = true, -- enable true color
   -- scrolloff = 1, -- minimal number of lines above and below cursor
   number = true, -- enable number lines
@@ -26,7 +26,7 @@ local options = {
   timeout = false, -- no waiting for key combination
   sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal', -- some session options that I don't understand :)
   cpoptions = opt.cpoptions - { '_' }, -- make sense of 'cw'
-  -- splitkeep = 'screen',
+  splitkeep = 'screen', -- Keep the text on the same screen line when opening, closing or resizing horizontal splits
 
   -- Disable swapfiles & backup files
   backup = false, -- prevent making a backup before overwriting a file

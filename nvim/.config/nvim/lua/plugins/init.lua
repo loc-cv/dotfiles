@@ -15,7 +15,8 @@ return packer.startup({
 
     -- Make Neovim look good
     use('kyazdani42/nvim-web-devicons')
-    use('tomasiser/vim-code-dark')
+    -- use('tomasiser/vim-code-dark')
+    use('Mofiqul/vscode.nvim')
     use({
       'feline-nvim/feline.nvim',
       config = function()
@@ -117,15 +118,14 @@ return packer.startup({
     use({
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
-      commit = '4cccb6f494eb255b32a290d37c35ca12584c74d0',
       config = function()
         require('plugins.configs.treesitter').setup_ts()
       end,
     })
-    use({
-      'sheerun/vim-polyglot',
-      event = { 'BufNewFile', 'BufRead' },
-    })
+    -- use({
+    --   'sheerun/vim-polyglot',
+    --   event = { 'BufNewFile', 'BufRead' },
+    -- })
 
     -- Set the comment string based on the cursor location in a file
     use({
@@ -226,12 +226,12 @@ return packer.startup({
     })
 
     -- Easy motion
-    -- use({
-    --   'loc-cv/pounce.nvim',
-    --   config = function()
-    --     vim.keymap.set('', 'z/', '<cmd>Pounce<CR>')
-    --   end,
-    -- })
+    use({
+      'https://gitlab.com/madyanov/svart.nvim',
+      config = function()
+        vim.keymap.set('', 'z/', '<cmd>Svart<CR>')
+      end,
+    })
 
     -- Buffers management
     use({
@@ -300,6 +300,12 @@ return packer.startup({
     })
     use('gcmt/taboo.vim')
     use('jeffkreeftmeijer/vim-numbertoggle')
+    use({
+      'abecodes/tabout.nvim',
+      config = function()
+        require('tabout').setup()
+      end,
+    })
   end,
   config = {
     compile_path = vim.fn.stdpath('config') .. '/lua/plugins/packer_compiled.lua',
