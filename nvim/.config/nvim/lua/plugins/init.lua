@@ -306,6 +306,7 @@ return packer.startup({
         require('tabout').setup()
       end,
     })
+    use('dhruvasagar/vim-zoom')
   end,
   config = {
     compile_path = vim.fn.stdpath('config') .. '/lua/plugins/packer_compiled.lua',

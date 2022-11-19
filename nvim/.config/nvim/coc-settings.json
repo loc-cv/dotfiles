@@ -1,4 +1,12 @@
 {
+  "languageserver": {
+    "csharp-ls": {
+      "command": "csharp-ls",
+      "filetypes": ["cs"],
+      "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
+    }
+  },
+
   "diagnostic.errorSign": "E",
   "diagnostic.warningSign": "W",
   "diagnostic.infoSign": "I",

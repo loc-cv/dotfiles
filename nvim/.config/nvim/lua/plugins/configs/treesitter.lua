@@ -19,6 +19,7 @@ M.setup_ts = function()
       'json',
       'jsonc',
       'markdown',
+      'c_sharp',
     },
 
     highlight = {
