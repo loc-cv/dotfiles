@@ -157,7 +157,6 @@
   "typescript.suggest.completeFunctionCalls": false,
   "tsserver.disableAutomaticTypeAcquisition": false,
   "typescript.showUnused": false,
-  "tsserver.useLocalTsdk": true,
 
   // css
   "css.lint.unknownAtRules": "ignore",

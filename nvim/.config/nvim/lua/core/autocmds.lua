@@ -110,12 +110,12 @@ M.init = function()
 
   -- Remember folds
   -- local rememberFoldAuGroup = vim.api.nvim_create_augroup('RememberFold', { clear = true })
-  -- vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
+  -- vim.api.nvim_create_autocmd({ 'BufWrite', 'VimLeave' }, {
   --   group = rememberFoldAuGroup,
   --   pattern = '?*',
   --   command = 'mkview',
   -- })
-  -- vim.api.nvim_create_autocmd({ 'BufWinEnter' }, {
+  -- vim.api.nvim_create_autocmd({ 'BufRead' }, {
   --   group = rememberFoldAuGroup,
   --   pattern = '?*',
   --   command = 'silent! loadview',

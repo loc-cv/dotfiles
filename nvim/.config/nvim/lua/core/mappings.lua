@@ -21,6 +21,7 @@ local configs = {
     _G.CR = function()
       local _, autopairs = pcall(require, 'nvim-autopairs')
       if vim.fn['coc#pum#visible']() ~= 0 then
+        -- return vim.fn['coc#pum#confirm']()
         return vim.fn['coc#pum#confirm']()
       else
         return autopairs.autopairs_cr()
@@ -160,6 +161,7 @@ local configs = {
     map('n', '<C-p>b', [[<CMD>Telescope buffers<CR>]])
     map('n', '<C-p>r', [[<CMD>Telescope live_grep<CR>]])
     map('n', '<C-p>h', [[<CMD>Telescope help_tags<CR>]])
+    map('n', '<C-p>t', [[<CMD>Telescope tailiscope<CR>]])
   end,
 
   -- telescope-coc.nvim

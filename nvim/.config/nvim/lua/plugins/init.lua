@@ -72,6 +72,7 @@ return packer.startup({
     use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
     use('nvim-telescope/telescope-media-files.nvim')
     use('fannheyward/telescope-coc.nvim')
+    -- use('danielvolchek/tailiscope.nvim')
 
     -- Terminal
     use({
@@ -122,10 +123,6 @@ return packer.startup({
         require('plugins.configs.treesitter').setup_ts()
       end,
     })
-    -- use({
-    --   'sheerun/vim-polyglot',
-    --   event = { 'BufNewFile', 'BufRead' },
-    -- })
 
     -- Set the comment string based on the cursor location in a file
     use({
@@ -307,6 +304,7 @@ return packer.startup({
       end,
     })
     use('dhruvasagar/vim-zoom')
+    -- use('nullchilly/fsread.nvim')
   end,
   config = {
     compile_path = vim.fn.stdpath('config') .. '/lua/plugins/packer_compiled.lua',

@@ -7,7 +7,12 @@ M.setup = function()
   end
 
   -- Loading extensions
-  local extensions = { 'fzf', 'media_files', 'coc' }
+  local extensions = {
+    'fzf',
+    'media_files',
+    'coc',
+    -- 'tailiscope',
+  }
   for _, ext in ipairs(extensions) do
     telescope.load_extension(ext)
   end
@@ -68,6 +73,24 @@ M.setup = function()
       coc = {
         prefer_locations = true,
       },
+      -- tailiscope = {
+      --   register = 'a', -- register to copy classes to on selection
+      --   -- can be any file inside of docs dir but most useful opts are
+      --   default = 'base', -- all, base, categories, classes
+      --   doc_icon = ' ', -- icon or false
+      --   no_dot = true, -- if you would prefer to copy with/without class selector
+      --   -- dot is maintained in display to differentiate class from other pickers
+      --   maps = {
+      --     i = {
+      --       back = '<C-h>',
+      --       open_doc = '<C-o>',
+      --     },
+      --     n = {
+      --       back = 'b',
+      --       open_doc = 'od',
+      --     },
+      --   },
+      -- },
     },
   })
 end
