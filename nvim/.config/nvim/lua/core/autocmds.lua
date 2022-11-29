@@ -25,6 +25,7 @@ local configs = {
     })
   end,
 
+  -- telescope.nvim
   telescope = function()
     vim.api.nvim_create_autocmd('User', {
       group = vim.api.nvim_create_augroup('Telescope', { clear = true }),
@@ -77,19 +78,6 @@ M.init = function()
     pattern = '/,\\?',
     command = 'set nohlsearch',
   })
-
-  -- Remember folds
-  -- local rememberFoldAuGroup = vim.api.nvim_create_augroup('RememberFold', { clear = true })
-  -- vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
-  --   group = rememberFoldAuGroup,
-  --   pattern = '?*',
-  --   command = 'mkview',
-  -- })
-  -- vim.api.nvim_create_autocmd({ 'BufWinEnter' }, {
-  --   group = rememberFoldAuGroup,
-  --   pattern = '?*',
-  --   command = 'silent! loadview',
-  -- })
 
   -- Load plugins autocmds
   for _, config in pairs(configs) do

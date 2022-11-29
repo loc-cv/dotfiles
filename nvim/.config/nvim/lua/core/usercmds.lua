@@ -18,6 +18,7 @@ local configs = {
     end
   end,
 
+  -- vim-fugitive
   fugitive = function()
     vim.api.nvim_create_user_command('V', 'vertical G', {})
   end,

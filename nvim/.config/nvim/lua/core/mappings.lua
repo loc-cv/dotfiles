@@ -78,7 +78,7 @@ local configs = {
 
 M.init = function()
   -- Change mapleader
-  vim.g.mapleader = ' '
+  -- vim.g.mapleader = ' '
 
   -- Better indenting in visual mode
   map('v', '<', '<gv')

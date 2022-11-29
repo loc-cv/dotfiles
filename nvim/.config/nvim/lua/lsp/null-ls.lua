@@ -1,22 +1,21 @@
 local M = {}
 
+local lsp_formatting = function(bufnr)
+  vim.lsp.buf.format({
+    bufnr = bufnr,
+    filter = function(client)
+      return client.name == 'null-ls'
+    end,
+  })
+end
+
+local lspFormattingAuGroup = vim.api.nvim_create_augroup('LspFormatting', {})
+
 M.setup = function()
   local ok, null_ls = pcall(require, 'null-ls')
   if not ok then
     return
   end
-
-  -- Avoid LSP formatting conflicts & format on save
-  local lsp_formatting = function(bufnr)
-    vim.lsp.buf.format({
-      bufnr = bufnr,
-      filter = function(client)
-        return client.name == 'null-ls'
-      end,
-    })
-  end
-
-  local lspFormattingAuGroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
   null_ls.setup({
     on_attach = function(client, bufnr)
@@ -40,6 +39,8 @@ M.setup = function()
       null_ls.builtins.formatting.prettierd,
       null_ls.builtins.diagnostics.eslint_d,
       null_ls.builtins.code_actions.eslint_d,
+
+      require('typescript.extensions.null-ls.code-actions'),
     },
   })
 end

@@ -11,6 +11,7 @@ M.setup = function()
   cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
   local mapping = cmp.mapping
+  local types = require('cmp.types')
   local kind_icons = require('lsp.icons').kind_icons
 
   cmp.setup({
@@ -80,8 +81,22 @@ M.setup = function()
       end, { 'i', 's' }),
     },
 
+    sorting = {
+      comparators = {
+        cmp.config.compare.scopes,
+        -- cmp.config.compare.kind,
+        -- cmp.config.compare.offset,
+        -- cmp.config.compare.exact,
+        -- cmp.config.compare.score,
+        -- cmp.config.compare.recently_used,
+        -- cmp.config.compare.sort_text,
+        -- cmp.config.compare.length,
+        -- cmp.config.compare.order,
+        -- cmp.config.compare.locality,
+      },
+    },
+
     sources = {
-      { name = 'luasnip' },
       { name = 'nvim_lsp' },
       { name = 'nvim_lua' },
       { name = 'path' },
@@ -93,6 +108,7 @@ M.setup = function()
           end,
         },
       },
+      { name = 'luasnip' },
     },
   })
 end

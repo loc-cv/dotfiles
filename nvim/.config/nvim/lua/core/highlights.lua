@@ -10,6 +10,7 @@ M.colors = {
   DiagnosticUnderlineInfo = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscBlue },
   DiagnosticUnderlineHint = { fg = 'NONE', bg = 'NONE', underline = true, sp = c.vscBlue },
 
+  -- Floating windows
   NormalFloat = { bg = '#303030' },
 
   -- Cursorline
@@ -62,6 +63,7 @@ local colors = M.colors
 M.init = function()
   vim.cmd([[colorscheme vscode]])
   vim.o.background = 'dark'
+  -- vim.cmd([[colorscheme codedark]])
 
   for group, conf in pairs(colors) do
     hi(group, conf)

@@ -17,8 +17,6 @@ M.setup = function()
     },
   })
 
-  -- vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover)
-  -- vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help)
   vim.lsp.handlers['textDocument/publishDiagnostics'] = function(_, result, ctx, ...)
     local client = vim.lsp.get_client_by_id(ctx.client_id)
     if client and client.name == 'tsserver' then
@@ -42,8 +40,8 @@ M.setup = function()
     icons = kind_icons,
     separator = ' ❯ ',
   })
-
   local navic_clients = { 'sumneko_lua', 'tsserver' }
+
   local on_attach = function(client, bufnr)
     illuminate.on_attach(client)
     if vim.tbl_contains(navic_clients, client.name) then
@@ -76,11 +74,6 @@ M.setup = function()
       },
     },
   })
-
-  -- lspconfig.tsserver.setup({
-  --   capabilities = capabilities,
-  --   on_attach = on_attach,
-  -- })
 
   local typescript_ok, typescript = pcall(require, 'typescript')
   if not typescript_ok then

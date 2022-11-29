@@ -16,6 +16,7 @@ return packer.startup({
     -- Make Neovim look good
     use('kyazdani42/nvim-web-devicons')
     use('Mofiqul/vscode.nvim')
+    -- use('tomasiser/vim-code-dark')
     use({
       'feline-nvim/feline.nvim',
       config = function()
@@ -60,6 +61,12 @@ return packer.startup({
     })
     use('RRethy/vim-illuminate')
     use('SmiteshP/nvim-navic')
+    -- use({
+    --   'utilyre/barbecue.nvim',
+    --   config = function()
+    --     require('barbecue').setup()
+    --   end,
+    -- })
     -- use({
     --   'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     --   config = function()
@@ -171,10 +178,10 @@ return packer.startup({
         require('plugins.configs.treesitter').setup_ts()
       end,
     })
-    use({
-      'sheerun/vim-polyglot',
-      event = { 'BufNewFile', 'BufRead' },
-    })
+    -- use({
+    --   'sheerun/vim-polyglot',
+    --   event = { 'BufNewFile', 'BufRead' },
+    -- })
 
     -- Set the comment string based on the cursor location in a file
     use({
@@ -340,12 +347,7 @@ return packer.startup({
     })
     use('gcmt/taboo.vim')
     use('jeffkreeftmeijer/vim-numbertoggle')
-    use({
-      'https://gitlab.com/madyanov/svart.nvim',
-      config = function()
-        require('svart').setup({})
-      end,
-    })
+    use('https://gitlab.com/madyanov/svart.nvim')
   end,
   config = {
     compile_path = vim.fn.stdpath('config') .. '/lua/plugins/packer_compiled.lua',
