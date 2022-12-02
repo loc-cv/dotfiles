@@ -6,8 +6,6 @@ M.setup = function()
     return
   end
 
-  local Rule = require('nvim-autopairs.rule')
-
   npairs.setup({
     map_cr = false,
     map_c_h = true,
@@ -16,6 +14,7 @@ M.setup = function()
     break_undo = false,
   })
 
+  -- local Rule = require('nvim-autopairs.rule')
   -- Add spaces between parentheses
   -- npairs.add_rules({
   --   Rule(' ', ' '):with_pair(function(opts)

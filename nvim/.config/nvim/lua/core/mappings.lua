@@ -21,7 +21,6 @@ local configs = {
     _G.CR = function()
       local _, autopairs = pcall(require, 'nvim-autopairs')
       if vim.fn['coc#pum#visible']() ~= 0 then
-        -- return vim.fn['coc#pum#confirm']()
         return vim.fn['coc#pum#confirm']()
       else
         return autopairs.autopairs_cr()
@@ -59,20 +58,24 @@ local configs = {
     -- Symbol renaming
     map('n', '<leader>rn', '<Plug>(coc-rename)')
 
-    -- Formatting selected code
+    -- Format selected code
     map({ 'x', 'n' }, '<leader>fm', '<Plug>(coc-format-selected)')
 
-    -- Applying code action to the selected region
+    -- Apply code action to the selected region
     map({ 'x', 'n' }, '<leader>ca', '<Plug>(coc-codeaction-selected)')
 
-    -- Applying code action to the current buffer
-    map('n', '<leader>cA', '<Plug>(coc-codeaction)')
+    -- Apply code action to the current buffer
+    map('n', '<leader>cA', '<Plug>(coc-codeaction-source)')
 
     -- Apply autofix to problem on the current line
     map('n', '<leader>qf', '<Plug>(coc-fix-current)')
 
     -- Run the Code Lens action on the current line
     map('n', '<leader>cl', '<Plug>(coc-codelens-action)')
+
+    -- Apply refactor code actions
+    map('n', '<leader>rF', '<Plug>(coc-codeaction-refactor)')
+    map({ 'x', 'n' }, '<leader>rf', '<Plug>(coc-codeaction-refactor-selected)')
 
     -- Map function and class text objects
     -- NOTE: Requires 'textDocument.documentSymbol' support from the language server
@@ -92,6 +95,14 @@ local configs = {
       expr = true,
       nowait = true,
     })
+
+    -- Use <C-q> to close coc floating window/popup in insert mode
+    map(
+      'i',
+      '<C-q>',
+      "coc#float#has_float() ? '<C-r>=coc#float#close_all()<BS><cr>' : '<C-q>'",
+      { expr = true, nowait = true }
+    )
 
     -- Use ctrl-s for selections ranges
     map({ 'n', 'x' }, '<C-s>', '<Plug>(coc-range-select)')
@@ -120,6 +131,31 @@ local configs = {
       vim.fn.CocAction('showOutline')
     end
     map('n', '<leader>t', toggleOutline, { nowait = true })
+  end,
+
+  -- telescope-coc.nvim
+  telescope_coc = function()
+    map('n', 'gd', [[<Cmd>Telescope coc definitions<cr>]])
+    map('n', 'gy', [[<cmd>Telescope coc type_definitions<cr>]])
+    map('n', 'gi', [[<cmd>Telescope coc implementations<cr>]])
+    map('n', 'gr', [[<CMD>Telescope coc references<CR>]])
+    map('n', 'gD', [[<cmd>Telescope coc declarations<cr>]])
+    map('n', '<C-p>c', [[<cmd>Telescope coc commands<cr>]])
+    map('n', '<C-p>d', [[<cmd>Telescope coc diagnostics<cr>]])
+    map('n', '<C-p>D', [[<cmd>Telescope coc workspace_diagnostics<cr>]])
+    map('n', '<C-p>l', [[<cmd>Telescope coc locations<cr>]])
+    map('n', '<C-p>s', [[<cmd>Telescope coc document_symbols<cr>]])
+    map('n', '<C-p>S', [[<cmd>Telescope coc workspace_symbols<cr>]])
+  end,
+
+  -- telescope.nvim
+  telescope = function()
+    map('n', '<C-p>p', [[<CMD>Telescope builtin<CR>]])
+    map('n', '<C-p>f', [[<CMD>Telescope find_files<CR>]])
+    map('n', '<C-p>b', [[<CMD>Telescope buffers<CR>]])
+    map('n', '<C-p>r', [[<CMD>Telescope live_grep<CR>]])
+    map('n', '<C-p>h', [[<CMD>Telescope help_tags<CR>]])
+    map('n', '<C-p>t', [[<CMD>Telescope tailiscope<CR>]])
   end,
 
   -- vim-floaterm
@@ -152,31 +188,6 @@ local configs = {
     map('n', '<leader>w', function()
       require('nvim-window').pick()
     end)
-  end,
-
-  -- telescope.nvim
-  telescope = function()
-    map('n', '<C-p>p', [[<CMD>Telescope builtin<CR>]])
-    map('n', '<C-p>f', [[<CMD>Telescope find_files<CR>]])
-    map('n', '<C-p>b', [[<CMD>Telescope buffers<CR>]])
-    map('n', '<C-p>r', [[<CMD>Telescope live_grep<CR>]])
-    map('n', '<C-p>h', [[<CMD>Telescope help_tags<CR>]])
-    map('n', '<C-p>t', [[<CMD>Telescope tailiscope<CR>]])
-  end,
-
-  -- telescope-coc.nvim
-  telescope_coc = function()
-    map('n', 'gd', [[<Cmd>Telescope coc definitions<cr>]])
-    map('n', 'gy', [[<cmd>Telescope coc type_definitions<cr>]])
-    map('n', 'gi', [[<cmd>Telescope coc implementations<cr>]])
-    map('n', 'gr', [[<CMD>Telescope coc references<CR>]])
-    map('n', 'gD', [[<cmd>Telescope coc declarations<cr>]])
-    map('n', '<C-p>c', [[<cmd>Telescope coc commands<cr>]])
-    map('n', '<C-p>d', [[<cmd>Telescope coc diagnostics<cr>]])
-    map('n', '<C-p>D', [[<cmd>Telescope coc workspace_diagnostics<cr>]])
-    map('n', '<C-p>l', [[<cmd>Telescope coc locations<cr>]])
-    map('n', '<C-p>s', [[<cmd>Telescope coc document_symbols<cr>]])
-    map('n', '<C-p>S', [[<cmd>Telescope coc workspace_symbols<cr>]])
   end,
 }
 

@@ -74,6 +74,7 @@
   },
 
   "suggest.noselect": false,
+  "suggest.selection": "recentlyUsed",
   "suggest.enablePreselect": true,
   "diagnostic.virtualText": false,
 
@@ -87,10 +88,10 @@
   "outline.autoWidth": true,
   "outline.keepWindow": true,
 
-  // "suggest.floatConfig": { "border": true },
-  // "diagnostic.floatConfig": { "border": true },
-  // "signature.floatConfig": { "border": true },
-  // "hover.floatConfig": { "border": true },
+  "suggest.floatConfig": { "border": true },
+  "diagnostic.floatConfig": { "border": true },
+  "signature.floatConfig": { "border": true },
+  "hover.floatConfig": { "border": true },
 
   "list.statusLineSegments": [],
   "list.normalMappings": {
@@ -155,8 +156,10 @@
   // tsserver
   "javascript.suggest.completeFunctionCalls": false,
   "typescript.suggest.completeFunctionCalls": false,
-  "tsserver.disableAutomaticTypeAcquisition": false,
+  "tsserver.disableAutomaticTypeAcquisition": true,
   "typescript.showUnused": false,
+  "tsserver.useLocalTsdk": true,
+  "tsserver.log": "normal",
 
   // css
   "css.lint.unknownAtRules": "ignore",

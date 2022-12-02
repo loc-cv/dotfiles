@@ -34,24 +34,22 @@ local configs = {
       group = cocAuGroup,
       pattern = { 'typescript', 'json' },
       command = "setl formatexpr=CocAction('formatSelected')",
+      desc = 'Setup formatexpr specified filetype(s)',
     })
 
     -- Update signature help on jump placeholder
     vim.api.nvim_create_autocmd('User', {
       group = cocAuGroup,
       pattern = 'CocJumpPlaceholder',
-      callback = function()
-        vim.fn.CocActionAsync('showSignatureHelp')
-      end,
+      command = "call CocActionAsync('showSignatureHelp')",
+      desc = 'Update signature help on jump placeholder',
     })
 
     -- Highlight the symbol and its references when holding the cursor
     vim.api.nvim_create_autocmd('CursorHold', {
       group = cocAuGroup,
-      pattern = '*',
-      callback = function()
-        vim.fn.CocActionAsync('highlight')
-      end,
+      command = "silent call CocActionAsync('highlight')",
+      desc = 'Highlight symbol under cursor on CursorHold',
     })
   end,
 
@@ -107,19 +105,6 @@ M.init = function()
     pattern = '/,\\?',
     command = 'set nohlsearch',
   })
-
-  -- Remember folds
-  -- local rememberFoldAuGroup = vim.api.nvim_create_augroup('RememberFold', { clear = true })
-  -- vim.api.nvim_create_autocmd({ 'BufWrite', 'VimLeave' }, {
-  --   group = rememberFoldAuGroup,
-  --   pattern = '?*',
-  --   command = 'mkview',
-  -- })
-  -- vim.api.nvim_create_autocmd({ 'BufRead' }, {
-  --   group = rememberFoldAuGroup,
-  --   pattern = '?*',
-  --   command = 'silent! loadview',
-  -- })
 
   -- Load plugins autocmds
   for _, config in pairs(configs) do
