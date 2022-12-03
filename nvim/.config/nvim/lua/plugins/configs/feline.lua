@@ -1,4 +1,5 @@
 local M = {}
+local colorscheme = require('colorschemes')
 
 M.setup = function()
   local feline_ok, feline = pcall(require, 'feline')
@@ -6,10 +7,7 @@ M.setup = function()
     return
   end
 
-  local colors_statusline = {
-    active = { fg = '#0a0a0a', bg = '#adadad', style = 'bold' },
-    inactive = { fg = '#d4d4d4', bg = '#373737', style = 'bold' },
-  }
+  local colors_statusline = colorscheme.colors_statusline
 
   local special_filetypes = {
     'packer',

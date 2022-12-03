@@ -7,9 +7,9 @@ M.setup = function()
   end
 
   nw.setup({
-    normal_hl = 'NvimWindow',
+    -- normal_hl = 'NvimWindow',
     hint_hl = 'Bold',
-    border = 'none',
+    border = 'single',
   })
 end
 

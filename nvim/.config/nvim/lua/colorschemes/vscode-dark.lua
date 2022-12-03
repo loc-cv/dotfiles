@@ -1,7 +1,7 @@
 local M = {}
 local hi = require('core.utils').hi
 
-M.colors = {
+local colors = {
   -- Cursorline
   CursorLine = { bg = '#303030' },
 
@@ -65,11 +65,12 @@ M.colors = {
   OperatorSandwichDelete = { link = 'Visual' },
 }
 
-local colors = M.colors
+M.colors_statusline = {
+  active = { fg = '#0a0a0a', bg = '#adadad', style = 'bold' },
+  inactive = { fg = '#d4d4d4', bg = '#373737', style = 'bold' },
+}
 
-M.init = function()
-  -- vim.cmd([[colorscheme codedark]])
-  -- vim.o.background = 'light'
+M.setup = function()
   vim.o.background = 'dark'
   vim.cmd([[colorscheme vscode]])
 
