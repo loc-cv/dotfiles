@@ -17,7 +17,7 @@ return packer.startup({
     use('kyazdani42/nvim-web-devicons')
     use('Mofiqul/vscode.nvim')
     use('projekt0n/github-nvim-theme')
-    use('mcchrish/zenbones.nvim')
+    use('rebelot/kanagawa.nvim')
     use({
       'feline-nvim/feline.nvim',
       config = function()
