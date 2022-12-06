@@ -261,10 +261,13 @@ return packer.startup({
 
     -- Colors related stuff
     use({
-      'rrethy/vim-hexokinase',
-      run = 'make hexokinase',
+      'brenoprata10/nvim-highlight-colors',
       config = function()
-        vim.g.Hexokinase_highlighters = { 'backgroundfull' }
+        require('nvim-highlight-colors').setup({
+          render = 'background',
+          enable_named_color = true,
+          enable_tailwind = true,
+        })
       end,
     })
 
