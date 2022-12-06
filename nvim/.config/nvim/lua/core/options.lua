@@ -70,8 +70,9 @@ M.init = function()
   vim.g.loaded_netrwFileHandlers = 1
 
   -- colorscheme
-  -- vim.g.colorscheme = 'vscode_dark'
-  vim.g.colorscheme = 'kanagawa'
+  vim.g.colorscheme = 'vscode_dark'
+  -- vim.g.colorscheme = 'github_light'
+  -- vim.g.colorscheme = 'kanagawa'
 
   -- Just making sure everything works as expected
   vim.cmd([[filetype plugin indent on]])

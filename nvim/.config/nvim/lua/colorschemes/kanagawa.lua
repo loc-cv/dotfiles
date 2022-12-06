@@ -1,10 +1,34 @@
 local M = {}
 local hi = require('core.utils').hi
 
-local colors = {}
+local colors = {
+  -- vim-sandwich
+  OperatorSandwichChange = { link = 'Visual' },
+  OperatorSandwichAdd = { link = 'Visual' },
+  OperatorSandwichDelete = { link = 'Visual' },
+
+  -- vim-better-whitespace
+  ExtraWhitespace = { bg = '#727169' },
+
+  -- coc.nvim
+  CocErrorSign = { fg = '#E82424' },
+  CocErrorVirtualText = { fg = '#E82424' },
+  CocErrorHighlight = { fg = '#E82424', underline = true },
+  CocWarningSign = { fg = '#FF9E3B' },
+  CocWarningVirtualText = { fg = '#FF9E3B' },
+  CocWarningHighlight = { fg = '#FF9E3B', underline = true },
+  CocInfoSign = { fg = '#6A9589' },
+  CocInfoVirtualText = { fg = '#6A9589' },
+  CocInfoHighlight = { fg = '#6A9589', underline = true },
+  CocHintSign = { fg = '#658594' },
+  CocHintVirtualText = { fg = '#658594' },
+  CocHintHighlight = { fg = '#658594', underline = true },
+  CocFadeOut = { fg = '#727169', underline = true },
+  CocSymbolLineSeparator = { link = 'Normal' },
+}
 
 M.colors_statusline = {
-  active = { fg = '#16161D', bg = '#A3D4D5', style = 'bold' },
+  active = { fg = '#16161D', bg = '#7FB4CA', style = 'bold' },
   inactive = { fg = '#7E9CD8', bg = '#2A2A37', style = 'bold' },
 }
 
@@ -31,8 +55,8 @@ M.setup = function()
     terminalColors = true, -- define vim.g.terminal_color_{0,17}
     colors = {},
     overrides = {
-      DiffAdd = { fg = default_colors.autumnGreen, bg = 'NONE' },
-      DiffChange = { fg = default_colors.autumnYellow, bg = 'NONE' },
+      DiffAdd = { fg = default_colors.springGreen, bg = 'NONE' },
+      DiffChange = { fg = default_colors.crystalBlue, bg = 'NONE' },
       DiffDelete = { fg = default_colors.autumnRed, bg = 'NONE' },
     },
     theme = 'default', -- Load "default" theme or the experimental "light" theme

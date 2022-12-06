@@ -14,10 +14,10 @@ return packer.startup({
     use('lewis6991/impatient.nvim')
 
     -- Make Neovim look good
-    use('kyazdani42/nvim-web-devicons')
     use('Mofiqul/vscode.nvim')
-    use('projekt0n/github-nvim-theme')
-    use('rebelot/kanagawa.nvim')
+    -- use('projekt0n/github-nvim-theme')
+    -- use('rebelot/kanagawa.nvim')
+    use('kyazdani42/nvim-web-devicons')
     use({
       'feline-nvim/feline.nvim',
       config = function()
@@ -73,7 +73,7 @@ return packer.startup({
     use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
     use('nvim-telescope/telescope-media-files.nvim')
     use('fannheyward/telescope-coc.nvim')
-    -- use('danielvolchek/tailiscope.nvim')
+    use('danielvolchek/tailiscope.nvim')
 
     -- Terminal
     use({
