@@ -17,6 +17,9 @@ DISABLE_AUTO_TITLE="true"
 # Plugins
 plugins=(
   git
+  rails
+  rbenv
+  ruby
   # vi-mode
 )
 
@@ -63,6 +66,9 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 fpath=(~/.zsh $fpath)
 autoload -Uz compinit
 compinit -u
+
+# rbenv
+eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
 # alias
 alias cl="clear"

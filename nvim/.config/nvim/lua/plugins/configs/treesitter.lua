@@ -20,6 +20,7 @@ M.setup_ts = function()
       'jsonc',
       'markdown',
       'c_sharp',
+      'ruby',
     },
 
     highlight = {
@@ -29,8 +30,12 @@ M.setup_ts = function()
     },
 
     indent = {
-      enable = true,
+      enable = false,
     },
+
+    -- endwise = {
+    --   enable = true,
+    -- },
   })
 end
 

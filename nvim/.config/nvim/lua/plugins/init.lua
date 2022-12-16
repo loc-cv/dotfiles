@@ -15,7 +15,7 @@ return packer.startup({
 
     -- Make Neovim look good
     use('Mofiqul/vscode.nvim')
-    -- use('projekt0n/github-nvim-theme')
+    use('projekt0n/github-nvim-theme')
     -- use('rebelot/kanagawa.nvim')
     use('kyazdani42/nvim-web-devicons')
     use({
@@ -42,6 +42,9 @@ return packer.startup({
       end,
     })
     use('xiyaowong/coc-symbol-line')
+
+    -- Languages
+    use('tpope/vim-rails')
 
     -- Snippet
     use({
@@ -73,7 +76,6 @@ return packer.startup({
     use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
     use('nvim-telescope/telescope-media-files.nvim')
     use('fannheyward/telescope-coc.nvim')
-    use('danielvolchek/tailiscope.nvim')
 
     -- Terminal
     use({
@@ -154,6 +156,13 @@ return packer.startup({
         require('plugins.configs.treesitter').setup_textobjects()
       end,
     })
+
+    -- Endwise with treesitter
+    -- use({
+    --   'RRethy/nvim-treesitter-endwise',
+    --   requires = 'nvim-treesitter/nvim-treesitter',
+    --   after = 'nvim-treesitter',
+    -- })
 
     -- Show code context
     -- use({

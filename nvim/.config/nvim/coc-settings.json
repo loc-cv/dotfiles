@@ -107,20 +107,9 @@
     "<C-t>": "action:tabe"
   },
 
-  "coc.preferences.formatOnSaveFiletypes": [
-    "html",
-    "css",
-    "scss",
-    "json",
-    "jsonc",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "lua",
-    "vue",
-    "yaml"
-  ],
+  "[html][css][scss][json][jconc][javascript][javascriptreact][typescript][typescriptreact][lua][yaml][ruby]": {
+    "coc.preferences.formatOnSave": true
+  },
 
   // lua
   "Lua.telemetry.enable": false,
@@ -168,5 +157,12 @@
   "prettier.singleQuote": true,
 
   // symbol-line
-  "symbol-line.separator": " ❯ "
+  "symbol-line.separator": " ❯ ",
+  "java.format.settings.url": "/home/colcv/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
+
+  // solargraph
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
+  // "solargraph.autoformat": true,
+  "solargraph.hover": true,
 }

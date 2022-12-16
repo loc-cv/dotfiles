@@ -71,6 +71,7 @@ M.init = function()
 
   -- colorscheme
   vim.g.colorscheme = 'vscode_dark'
+  -- vim.g.colorscheme = 'vscode_light'
   -- vim.g.colorscheme = 'github_light'
   -- vim.g.colorscheme = 'kanagawa'
 

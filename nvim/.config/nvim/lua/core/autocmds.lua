@@ -106,6 +106,12 @@ M.init = function()
     command = 'set nohlsearch',
   })
 
+  -- Enable comment in json filetype (make it jsonc)
+  vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+    pattern = '*.json',
+    command = 'set filetype=jsonc',
+  })
+
   -- Load plugins autocmds
   for _, config in pairs(configs) do
     config()

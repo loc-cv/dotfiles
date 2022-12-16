@@ -17,7 +17,8 @@ M.setup = function()
     '@yaegassy/coc-tailwindcss3',
     'coc-symbol-line',
     'coc-docker',
-    -- 'coc-deno',
+    'coc-deno',
+    'coc-solargraph',
     -- 'coc-styled-components',
   }
 
