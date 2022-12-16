@@ -3,7 +3,7 @@ local hi = require('core.utils').hi
 
 local colors = {
   -- Cursorline
-  CursorLine = { bg = '#303030' },
+  -- CursorLine = { bg = '#303030' },
 
   -- Search
   IncSearch = { bg = '#adadad', fg = '#0a0a0a', bold = true },
@@ -66,8 +66,8 @@ local colors = {
 }
 
 M.colors_statusline = {
-  active = { fg = '#0a0a0a', bg = '#adadad', style = 'bold' },
-  inactive = { fg = '#d4d4d4', bg = '#373737', style = 'bold' },
+  active = { fg = '#ffffff', bg = '#0a7aca', style = 'NONE' },
+  inactive = { fg = '#ffffff', bg = '#373737', style = 'NONE' },
 }
 
 M.setup = function()
