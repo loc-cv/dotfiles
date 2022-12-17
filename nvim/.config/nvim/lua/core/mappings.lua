@@ -214,6 +214,8 @@ M.init = function()
   map('c', '<M-g>', '<C-g>', { silent = false })
   map('c', '<M-t>', '<C-t>', { silent = false })
 
+  -- map('t', '<C-[><C-[>', '<C-\\><C-n>')
+
   -- Load plugins mappings
   for _, config in pairs(configs) do
     config()

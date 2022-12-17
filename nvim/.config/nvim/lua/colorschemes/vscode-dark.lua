@@ -3,7 +3,7 @@ local hi = require('core.utils').hi
 
 local colors = {
   -- Cursorline
-  -- CursorLine = { bg = '#303030' },
+  CursorLine = { bg = '#282828' },
 
   -- Search
   IncSearch = { bg = '#adadad', fg = '#0a0a0a', bold = true },
@@ -72,7 +72,7 @@ M.colors_statusline = {
 
 M.setup = function()
   vim.o.background = 'dark'
-  vim.cmd([[colorscheme vscode]])
+  vim.cmd('colorscheme vscode')
 
   for group, conf in pairs(colors) do
     hi(group, conf)

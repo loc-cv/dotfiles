@@ -67,7 +67,7 @@ return packer.startup({
     -- Fuzzy finder
     use({
       'nvim-telescope/telescope.nvim',
-      tag = '0.1.0',
+      -- tag = '0.1.0',
       requires = 'nvim-lua/plenary.nvim',
       config = function()
         require('plugins.configs.telescope').setup()
@@ -317,6 +317,18 @@ return packer.startup({
       end,
     })
     use('dhruvasagar/vim-zoom')
+    -- use({
+    --   'sunjon/Shade.nvim',
+    --   config = function()
+    --     require('shade').setup({
+    --       overlay_opacity = 70,
+    --       opacity_step = 1,
+    --       keys = {
+    --         toggle = '<Leader>s',
+    --       },
+    --     })
+    --   end,
+    -- })
     -- use('nullchilly/fsread.nvim')
   end,
   config = {
