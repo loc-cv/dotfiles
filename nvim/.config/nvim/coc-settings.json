@@ -88,10 +88,10 @@
   "outline.autoWidth": true,
   "outline.keepWindow": true,
 
-  "suggest.floatConfig": { "border": true },
-  "diagnostic.floatConfig": { "border": true },
-  "signature.floatConfig": { "border": true },
-  "hover.floatConfig": { "border": true },
+  "suggest.floatConfig": { "border": false },
+  "diagnostic.floatConfig": { "border": false },
+  "signature.floatConfig": { "border": false },
+  "hover.floatConfig": { "border": false },
 
   "list.statusLineSegments": [],
   "list.normalMappings": {
@@ -170,11 +170,9 @@
 
   // symbol-line
   "symbol-line.separator": " ❯ ",
-  // "java.format.settings.url": "/home/colcv/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
 
   // solargraph
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
-  // "solargraph.autoformat": true,
   "solargraph.hover": true
 }

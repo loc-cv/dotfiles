@@ -15,7 +15,7 @@ return packer.startup({
 
     -- Make Neovim look good
     use('Mofiqul/vscode.nvim')
-    use('projekt0n/github-nvim-theme')
+    -- use('projekt0n/github-nvim-theme')
     -- use('rebelot/kanagawa.nvim')
     use('kyazdani42/nvim-web-devicons')
     use({
@@ -44,7 +44,7 @@ return packer.startup({
     use('xiyaowong/coc-symbol-line')
 
     -- Languages
-    use('tpope/vim-rails')
+    -- use('tpope/vim-rails')
 
     -- Snippet
     use({
@@ -233,12 +233,12 @@ return packer.startup({
     })
 
     -- Easy motion
-    use({
-      'https://gitlab.com/madyanov/svart.nvim',
-      config = function()
-        vim.keymap.set('', 'z/', '<cmd>Svart<CR>')
-      end,
-    })
+    -- use({
+    --   'https://gitlab.com/madyanov/svart.nvim',
+    --   config = function()
+    --     vim.keymap.set('', 'z/', '<cmd>Svart<CR>')
+    --   end,
+    -- })
 
     -- Buffers management
     use({
@@ -316,19 +316,8 @@ return packer.startup({
         require('tabout').setup()
       end,
     })
-    use('dhruvasagar/vim-zoom')
-    -- use({
-    --   'sunjon/Shade.nvim',
-    --   config = function()
-    --     require('shade').setup({
-    --       overlay_opacity = 70,
-    --       opacity_step = 1,
-    --       keys = {
-    --         toggle = '<Leader>s',
-    --       },
-    --     })
-    --   end,
-    -- })
+    use('tpope/vim-sleuth')
+    -- use('dhruvasagar/vim-zoom')
     -- use('nullchilly/fsread.nvim')
   end,
   config = {

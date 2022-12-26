@@ -5,9 +5,6 @@ local colors = {
   -- Cursorline
   CursorLine = { bg = '#282828' },
 
-  -- Search
-  IncSearch = { bg = '#adadad', fg = '#0a0a0a', bold = true },
-
   -- Fold
   Folded = { bg = '#252526', fg = '#3F3F46', underline = false },
 
@@ -17,9 +14,9 @@ local colors = {
   DiffDelete = { fg = '#db4b4b', bg = 'NONE' },
 
   -- Tabline
-  TabLineFill = { bg = '#282828', fg = '#d4d4d4', bold = true },
-  TabLineSel = { bg = '#adadad', fg = '#0a0a0a', bold = true },
-  TabLine = { bg = '#373737', fg = '#d4d4d4', bold = true },
+  TabLineFill = { bg = '#282828', fg = '#d4d4d4' },
+  TabLineSel = { bg = '#f5f5f5', fg = '#343434', bold = true },
+  TabLine = { bg = '#373737', fg = '#ffffff', bold = true },
 
   -- Statusline
   StatusLine = { bg = '#1e1e1e' },
@@ -29,7 +26,7 @@ local colors = {
   FloatermBorder = { bg = '#1e1e1e' },
 
   -- vim-highlightedyank
-  HighlightedyankRegion = { bg = '#4f4f4f', bold = true },
+  HighlightedyankRegion = { bg = '#4f4f4f' },
 
   -- indent-blankline.nvim
   IndentBlanklineContextChar = { fg = '#d4d4d4' },
@@ -55,9 +52,6 @@ local colors = {
   CocHighlightText = { bg = '#282828', underline = true },
   CocSearch = { fg = '#18a2fe' },
   CocSymbolLineSeparator = { link = 'Normal' },
-
-  -- nvim-window
-  NvimWindow = { bg = '#d4d4d4', fg = '#0a0a0a' },
 
   -- vim-sandwich
   OperatorSandwichChange = { link = 'Visual' },
