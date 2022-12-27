@@ -5,7 +5,7 @@ local configs = {
   -- coc.nvim
   coc = function()
     -- coc-explorer
-    map('n', '<leader>e', [[<CMD>CocCommand explorer<CR><CMD>sleep 20m<CR><C-w>=]])
+    map('n', '<leader>e', [[<CMD>CocCommand explorer<CR><CMD>sleep 10m<CR><C-w>=]])
 
     -- coc-snippet
     vim.g.coc_snippet_next = '<Tab>'

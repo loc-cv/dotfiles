@@ -295,19 +295,19 @@ return packer.startup({
         })
       end,
     })
-    use({
-      'anuvyklack/pretty-fold.nvim',
-      config = function()
-        require('plugins.configs.pretty-fold').setup()
-      end,
-    })
-    use({
-      'anuvyklack/fold-preview.nvim',
-      requires = 'anuvyklack/keymap-amend.nvim',
-      config = function()
-        require('fold-preview').setup()
-      end,
-    })
+    -- use({
+    --   'anuvyklack/pretty-fold.nvim',
+    --   config = function()
+    --     require('plugins.configs.pretty-fold').setup()
+    --   end,
+    -- })
+    -- use({
+    --   'anuvyklack/fold-preview.nvim',
+    --   requires = 'anuvyklack/keymap-amend.nvim',
+    --   config = function()
+    --     require('fold-preview').setup()
+    --   end,
+    -- })
     use('gcmt/taboo.vim')
     use('jeffkreeftmeijer/vim-numbertoggle')
     use({
