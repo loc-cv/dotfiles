@@ -44,7 +44,7 @@ return packer.startup({
     use('xiyaowong/coc-symbol-line')
 
     -- Languages
-    -- use('tpope/vim-rails')
+    use('tpope/vim-rails')
 
     -- Snippet
     use({
@@ -317,6 +317,7 @@ return packer.startup({
       end,
     })
     use('tpope/vim-sleuth')
+    use('tpope/vim-unimpaired')
     -- use('dhruvasagar/vim-zoom')
     -- use('nullchilly/fsread.nvim')
   end,

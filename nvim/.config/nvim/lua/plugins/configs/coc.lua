@@ -15,10 +15,11 @@ M.setup = function()
     'coc-sumneko-lua',
     'coc-stylua',
     '@yaegassy/coc-tailwindcss3',
-    'coc-symbol-line',
     'coc-docker',
     'coc-deno',
     'coc-solargraph',
+    'coc-symbol-line',
+    'coc-markdownlint',
     -- 'coc-styled-components',
   }
 
