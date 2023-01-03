@@ -66,7 +66,7 @@ M.colors_statusline = {
 
 M.setup = function()
   vim.o.background = 'dark'
-  vim.cmd('colorscheme vscode')
+  vim.cmd({ cmd = 'colorscheme', args = { 'vscode' } })
 
   for group, conf in pairs(colors) do
     hi(group, conf)

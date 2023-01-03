@@ -62,7 +62,7 @@ M.setup = function()
     theme = 'default', -- Load "default" theme or the experimental "light" theme
   })
 
-  vim.cmd('colorscheme kanagawa')
+  vim.cmd({ cmd = 'colorscheme', args = { 'kanagawa' } })
 
   for group, conf in pairs(colors) do
     hi(group, conf)
