@@ -8,9 +8,9 @@ local configs = {
       group = vim.api.nvim_create_augroup('Packer', { clear = true }),
       pattern = '*/lua/plugins/init.lua',
       callback = function()
-        vim.cmd('source <afile> | PackerClean')
-        vim.cmd('source <afile> | PackerInstall')
-        vim.cmd('source <afile> | PackerCompile')
+        vim.cmd({ cmd = 'source', args = { '<afile> | PackerClean' } })
+        vim.cmd({ cmd = 'source', args = { '<afile> | PackerInstall' } })
+        vim.cmd({ cmd = 'source', args = { '<afile> | PackerCompile' } })
       end,
     })
   end,
@@ -83,7 +83,7 @@ M.init = function()
     pattern = '*',
     callback = function()
       if not vim.tbl_contains(cursor_excluded_filetypes, vim.bo.filetype) then
-        vim.cmd('set nocursorline')
+        vim.cmd({ cmd = 'set', args = { 'nocursorline' } })
       end
     end,
   })
