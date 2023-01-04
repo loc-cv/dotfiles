@@ -78,23 +78,30 @@ return packer.startup({
     use('fannheyward/telescope-coc.nvim')
 
     -- Terminal
+    -- use({
+    --   'voldikss/vim-floaterm',
+    --   cmd = {
+    --     'FloatermNew',
+    --     'FloatermPrev',
+    --     'FloatermNext',
+    --     'FloatermToggle',
+    --     'FloatermHide',
+    --     'FloatermKill',
+    --     'FloatermShow',
+    --   },
+    --   config = function()
+    --     vim.g.floaterm_wintype = 'float'
+    --     vim.g.floaterm_position = 'topright'
+    --     vim.g.floaterm_title = ' TERMINAL: $1/$2 '
+    --     vim.g.floaterm_width = 0.5
+    --     vim.g.floaterm_height = 0.99
+    --   end,
+    -- })
     use({
-      'voldikss/vim-floaterm',
-      cmd = {
-        'FloatermNew',
-        'FloatermPrev',
-        'FloatermNext',
-        'FloatermToggle',
-        'FloatermHide',
-        'FloatermKill',
-        'FloatermShow',
-      },
+      'akinsho/toggleterm.nvim',
+      tag = '*',
       config = function()
-        vim.g.floaterm_wintype = 'float'
-        vim.g.floaterm_position = 'topright'
-        vim.g.floaterm_title = ' TERMINAL: $1/$2 '
-        vim.g.floaterm_width = 0.5
-        vim.g.floaterm_height = 0.99
+        require('plugins.configs.toggleterm').setup()
       end,
     })
 
@@ -251,7 +258,22 @@ return packer.startup({
     use('matze/vim-move')
 
     -- Trailing whitespaces
-    use('ntpeters/vim-better-whitespace')
+    use({
+      'ntpeters/vim-better-whitespace',
+      config = function()
+        vim.g.better_whitespace_filetypes_blacklist = {
+          'toggleterm',
+          'diff',
+          'git',
+          'gitcommit',
+          'unite',
+          'qf',
+          'help',
+          'markdown',
+          'fugitive',
+        }
+      end,
+    })
 
     -- Startup time
     use({

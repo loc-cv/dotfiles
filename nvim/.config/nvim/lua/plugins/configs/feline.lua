@@ -23,6 +23,7 @@ M.setup = function()
     'coctree',
     'list',
     'Trouble',
+    'toggleterm',
   }
 
   local get_coc_diagnostic = function(diag_type)
