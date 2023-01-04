@@ -70,5 +70,8 @@ compinit -u
 # rbenv
 eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
+# diff-so-fancy
+export PATH="$HOME/diff-so-fancy:$PATH"
+
 # alias
 alias cl="clear"
