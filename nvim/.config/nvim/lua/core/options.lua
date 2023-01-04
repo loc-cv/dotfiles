@@ -75,9 +75,6 @@ M.init = function()
   -- vim.g.colorscheme = 'github_light'
   -- vim.g.colorscheme = 'kanagawa'
 
-  -- Just making sure everything works as expected
-  -- vim.cmd([[filetype plugin indent on]])
-
   -- Set options
   for k, v in pairs(options) do
     opt[k] = v

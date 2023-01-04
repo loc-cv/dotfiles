@@ -105,7 +105,6 @@ return packer.startup({
         require('plugins.configs.gitsigns').setup()
       end,
     })
-    use({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' })
     use('tpope/vim-fugitive')
 
     -- Commenting code
@@ -198,7 +197,7 @@ return packer.startup({
     use({
       'machakann/vim-sandwich',
       config = function()
-        vim.cmd('runtime macros/sandwich/keymap/surround.vim')
+        vim.cmd({ cmd = 'runtime', args = { 'macros/sandwich/keymap/surround.vim' } })
       end,
     })
 
@@ -231,14 +230,6 @@ return packer.startup({
         vim.g.tmux_navigator_disable_when_zoomed = 1
       end,
     })
-
-    -- Easy motion
-    -- use({
-    --   'https://gitlab.com/madyanov/svart.nvim',
-    --   config = function()
-    --     vim.keymap.set('', 'z/', '<cmd>Svart<CR>')
-    --   end,
-    -- })
 
     -- Buffers management
     use({
@@ -319,25 +310,6 @@ return packer.startup({
     use('tpope/vim-sleuth')
     use('tpope/vim-unimpaired')
     -- use('dhruvasagar/vim-zoom')
-    -- use('nullchilly/fsread.nvim')
-    -- use({
-    --   'princejoogie/chafa.nvim',
-    --   requires = {
-    --     'nvim-lua/plenary.nvim',
-    --     'm00qek/baleia.nvim',
-    --   },
-    --   config = function()
-    --     require('chafa').setup({
-    --       render = {
-    --         min_padding = 5,
-    --         show_label = true,
-    --       },
-    --       events = {
-    --         update_on_nvim_resize = true,
-    --       },
-    --     })
-    --   end,
-    -- })
   end,
   config = {
     compile_path = vim.fn.stdpath('config') .. '/lua/plugins/packer_compiled.lua',

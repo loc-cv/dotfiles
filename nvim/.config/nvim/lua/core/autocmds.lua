@@ -8,9 +8,10 @@ local configs = {
       group = vim.api.nvim_create_augroup('Packer', { clear = true }),
       pattern = '*/lua/plugins/init.lua',
       callback = function()
-        vim.cmd({ cmd = 'source', args = { '<afile> | PackerClean' } })
-        vim.cmd({ cmd = 'source', args = { '<afile> | PackerInstall' } })
-        vim.cmd({ cmd = 'source', args = { '<afile> | PackerCompile' } })
+        vim.cmd({ cmd = 'source', args = { '<afile>' } })
+        vim.cmd({ cmd = 'PackerClean' })
+        vim.cmd({ cmd = 'PackerInstall' })
+        vim.cmd({ cmd = 'PackerCompile' })
       end,
     })
   end,
