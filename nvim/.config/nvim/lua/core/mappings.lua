@@ -217,8 +217,14 @@ local configs = {
     end, { expr = true })
   end,
 
+  -- lazygit.nvim
   lazygit = function()
     map('n', '<leader>g', '<cmd>LazyGit<cr>')
+  end,
+
+  -- close-buffers.vim
+  close_buffers = function()
+    map('n', '<leader>O', '<cmd>Bwipeout hidden<cr>', { silent = false })
   end,
 }
 
