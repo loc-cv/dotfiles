@@ -260,8 +260,8 @@ M.init = function()
   map('c', '<C-k>', '<C-p>', { silent = false })
 
   -- Use ALT-g and ALT-t to move to matches when searching
-  map('c', '<M-g>', '<C-g>', { silent = false })
-  map('c', '<M-t>', '<C-t>', { silent = false })
+  -- map('c', '<M-g>', '<C-g>', { silent = false })
+  -- map('c', '<M-t>', '<C-t>', { silent = false })
 
   -- map('t', '<C-[><C-[>', '<C-\\><C-n>')
 

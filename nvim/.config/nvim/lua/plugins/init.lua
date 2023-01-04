@@ -112,7 +112,7 @@ return packer.startup({
         require('plugins.configs.gitsigns').setup()
       end,
     })
-    use('tpope/vim-fugitive')
+    -- use('tpope/vim-fugitive')
 
     -- Commenting code
     use({
@@ -221,7 +221,7 @@ return packer.startup({
     use({
       'simeji/winresizer',
       config = function()
-        vim.g.winresizer_start_key = '<M-e>'
+        vim.g.winresizer_start_key = '<leader>m'
       end,
     })
     use({
