@@ -159,29 +159,29 @@ local configs = {
   end,
 
   -- vim-floaterm
-  -- floaterm = function()
-  --   map('n', '<C-q>c', [[<CMD>FloatermNew<CR>]])
-  --   map('t', '<C-q>c', [[<C-\><C-n><cmd>FloatermNew<CR>]])
-  --   map('n', '<C-q>p', [[<cmd>FloatermPrev<CR>]])
-  --   map('t', '<C-q>p', [[<C-\><C-n><CMD>FloatermPrev<CR>]])
-  --   map('n', '<C-q>n', [[<CMD>FloatermNext<CR>]])
-  --   map('t', '<C-q>n', [[<C-\><C-n><CMD>FloatermNext<CR>]])
-  --   map('n', '<C-q>t', [[<CMD>FloatermToggle<CR>]])
-  --   map('t', '<C-q>t', [[<C-\><C-n><CMD>FloatermToggle<CR>]])
-  --   map('n', '<C-q>h', [[<CMD>FloatermHide!<CR>]])
-  --   map('t', '<C-q>h', [[<C-\><C-n><CMD>FloatermHide!<CR>]])
-  --   map('n', '<C-q>k', [[<CMD>FloatermKill<CR><CMD>FloatermShow!<CR>]])
-  --   map('t', '<C-q>k', [[<C-\><C-n><CMD>FloatermKill<CR><CMD>FloatermShow!<CR>]])
-  --   map('t', '<C-h>', [[<C-\><C-n><C-w>h]])
+  floaterm = function()
+    map('n', '<C-q>c', [[<CMD>FloatermNew<CR>]])
+    map('t', '<C-q>c', [[<C-\><C-n><cmd>FloatermNew<CR>]])
+    map('n', '<C-q>p', [[<cmd>FloatermPrev<CR>]])
+    map('t', '<C-q>p', [[<C-\><C-n><CMD>FloatermPrev<CR>]])
+    map('n', '<C-q>n', [[<CMD>FloatermNext<CR>]])
+    map('t', '<C-q>n', [[<C-\><C-n><CMD>FloatermNext<CR>]])
+    map('n', '<C-q>t', [[<CMD>FloatermToggle<CR>]])
+    map('t', '<C-q>t', [[<C-\><C-n><CMD>FloatermToggle<CR>]])
+    map('n', '<C-q>h', [[<CMD>FloatermHide!<CR>]])
+    map('t', '<C-q>h', [[<C-\><C-n><CMD>FloatermHide!<CR>]])
+    map('n', '<C-q>k', [[<CMD>FloatermKill<CR><CMD>FloatermShow!<CR>]])
+    map('t', '<C-q>k', [[<C-\><C-n><CMD>FloatermKill<CR><CMD>FloatermShow!<CR>]])
+    map('t', '<C-h>', [[<C-\><C-n><C-w>h]])
 
-  --   -- Clear terminal (Only work for floaterm)
-  --   map('t', '<C-l>', function()
-  --     if vim.bo.filetype == 'floaterm' then
-  --       return [[<C-\><C-n><CMD>set scrollback=1<CR><CMD>sleep 10ms<CR><CMD>set scrollback=10000<CR>i<C-l><C-\><C-n><CMD>FloatermHide<CR><CMD>FloatermShow<CR><C-l>]]
-  --     end
-  --     return [[<C-\><C-n><C-w>l]]
-  --   end, { expr = true })
-  -- end,
+    -- Clear terminal (Only work for floaterm)
+    map('t', '<C-l>', function()
+      if vim.bo.filetype == 'floaterm' then
+        return [[<C-\><C-n><CMD>set scrollback=1<CR><CMD>sleep 10ms<CR><CMD>set scrollback=10000<CR>i<C-l><C-\><C-n><CMD>FloatermHide<CR><CMD>FloatermShow<CR><C-l>]]
+      end
+      return [[<C-\><C-n><C-w>l]]
+    end, { expr = true })
+  end,
 
   -- nvim-window
   nvim_window = function()
@@ -217,26 +217,8 @@ local configs = {
     end, { expr = true })
   end,
 
-  -- toggleterm.nvim
-  toggleterm = function()
-    local function set_terminal_keymaps()
-      local opts = { buffer = 0 }
-      map('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-      map('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-      map('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-      map('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
-    end
-
-    vim.api.nvim_create_autocmd('TermOpen', {
-      pattern = 'term://*',
-      callback = set_terminal_keymaps,
-    })
-
-    local toggleterm_config = require('plugins.configs.toggleterm')
-    _G.toggle_lazygit = toggleterm_config.toggle_lazygit
-
-    map({ 'n' }, '<C-q>g', 'v:lua.toggle_lazygit()')
-    map({ 'n', 't' }, '<C-q>t', '<cmd>ToggleTerm<cr>')
+  lazygit = function()
+    map('n', '<leader>g', '<cmd>LazyGit<cr>')
   end,
 }
 

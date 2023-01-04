@@ -78,30 +78,32 @@ return packer.startup({
     use('fannheyward/telescope-coc.nvim')
 
     -- Terminal
-    -- use({
-    --   'voldikss/vim-floaterm',
-    --   cmd = {
-    --     'FloatermNew',
-    --     'FloatermPrev',
-    --     'FloatermNext',
-    --     'FloatermToggle',
-    --     'FloatermHide',
-    --     'FloatermKill',
-    --     'FloatermShow',
-    --   },
-    --   config = function()
-    --     vim.g.floaterm_wintype = 'float'
-    --     vim.g.floaterm_position = 'topright'
-    --     vim.g.floaterm_title = ' TERMINAL: $1/$2 '
-    --     vim.g.floaterm_width = 0.5
-    --     vim.g.floaterm_height = 0.99
-    --   end,
-    -- })
     use({
-      'akinsho/toggleterm.nvim',
-      tag = '*',
+      'voldikss/vim-floaterm',
+      cmd = {
+        'FloatermNew',
+        'FloatermPrev',
+        'FloatermNext',
+        'FloatermToggle',
+        'FloatermHide',
+        'FloatermKill',
+        'FloatermShow',
+      },
       config = function()
-        require('plugins.configs.toggleterm').setup()
+        vim.g.floaterm_wintype = 'float'
+        vim.g.floaterm_position = 'topright'
+        vim.g.floaterm_title = ' TERMINAL: $1/$2 '
+        vim.g.floaterm_width = 0.5
+        vim.g.floaterm_height = 0.99
+      end,
+    })
+    use({
+      'kdheepak/lazygit.nvim',
+      config = function()
+        vim.g.lazygit_floating_window_winblend = 10
+        vim.g.lazygit_floating_window_scaling_factor = 0.88
+        vim.g.lazygit_floating_window_corner_chars = { '┌', '┐', '└', '┘' }
+        vim.g.lazygit_floating_window_use_plenary = 0
       end,
     })
 
