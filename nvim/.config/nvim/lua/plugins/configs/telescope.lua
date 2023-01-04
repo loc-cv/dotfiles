@@ -1,5 +1,4 @@
 local M = {}
-
 M.setup = function()
   local ok, telescope = pcall(require, 'telescope')
   if not ok then
@@ -42,7 +41,7 @@ M.setup = function()
       file_ignore_patterns = {
         'node_modules',
         -- '^./.git/',
-        '.git/',
+        '%.git/',
       },
       mappings = {
         i = {
