@@ -9,14 +9,14 @@ gui:
   timeFormat: '02 Jan 06 15:04 MST' # https://pkg.go.dev/time#Time.Format
   theme:
     activeBorderColor:
-      - green
+      - blue
       - bold
     inactiveBorderColor:
       - white
     optionsTextColor:
       - blue
     selectedLineBgColor:
-      - '#303030' # set to `default` to have no background colour
+      - '#303030'
     selectedRangeBgColor:
       - blue
     cherryPickedCommitBgColor:
@@ -72,8 +72,10 @@ git:
   parseEmoji: false
   diffContextSize: 3 # how many lines of context are shown around a change in diffs
 os:
-  editCommand: '' # see 'Configuring File Editing' section
-  editCommandTemplate: ''
+  # editCommand: '' # see 'Configuring File Editing' section
+  # editCommandTemplate: ''
+  editCommand: 'nvim'
+  editCommandTemplate: '{{editor}} --server /tmp/nvim-server.pipe --remote-tab "$(pwd)/{{filename}}"'
   openCommand: ''
 refresher:
   refreshInterval: 10 # File/submodule refresh interval in seconds. Auto-refresh can be disabled via option 'git.autoRefresh'.
