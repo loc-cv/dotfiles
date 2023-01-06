@@ -7,9 +7,9 @@ local configs = {
     -- coc-explorer
     map('n', '<leader>e', [[<CMD>CocCommand explorer<CR><CMD>sleep 10m<CR><C-w>=]])
 
-    -- coc-snippet
-    vim.g.coc_snippet_next = '<Tab>'
-    vim.g.coc_snippet_prev = '<S-Tab>'
+    -- -- coc-snippet
+    -- vim.g.coc_snippet_next = '<Tab>'
+    -- vim.g.coc_snippet_prev = '<S-Tab>'
 
     -- Use <C-space> to trigger completion
     map('i', '<C-space>', function()

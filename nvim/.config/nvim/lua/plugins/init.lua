@@ -47,9 +47,18 @@ return packer.startup({
     use('tpope/vim-rails')
 
     -- Snippet
+    -- use({
+    --   'rafamadriz/friendly-snippets',
+    --   after = 'coc.nvim',
+    -- })
+    use({ 'honza/vim-snippets' })
     use({
-      'rafamadriz/friendly-snippets',
-      after = 'coc.nvim',
+      'SirVer/ultisnips',
+      config = function()
+        vim.g.UltiSnipsExpandTrigger = '<Tab>'
+        vim.g.UltiSnipsJumpForwardTrigger = '<C-f>'
+        vim.g.UltiSnipsJumpBackwardTrigger = '<C-b>'
+      end,
     })
 
     -- Document generator

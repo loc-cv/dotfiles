@@ -10,7 +10,6 @@ M.setup = function()
     'coc-json',
     'coc-prettier',
     'coc-eslint',
-    'coc-snippets',
     'coc-explorer',
     'coc-sumneko-lua',
     'coc-stylua',
@@ -20,6 +19,8 @@ M.setup = function()
     'coc-solargraph',
     'coc-symbol-line',
     'coc-markdownlint',
+    'coc-ultisnips',
+    -- 'coc-snippets',
     -- 'coc-styled-components',
   }
 
