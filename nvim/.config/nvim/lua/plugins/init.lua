@@ -251,8 +251,11 @@ return packer.startup({
 
     -- Buffers management
     use({
-      'Asheq/close-buffers.vim',
-      cmd = { 'Bdelete', 'Bwipeout' },
+      'kazhala/close-buffers.nvim',
+      module = 'close_buffers',
+      config = function()
+        require('plugins.configs.close-buffers').setup()
+      end,
     })
 
     -- Markdown

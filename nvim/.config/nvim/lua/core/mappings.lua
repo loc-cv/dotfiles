@@ -222,9 +222,11 @@ local configs = {
     map('n', '<leader>g', '<cmd>LazyGit<cr>')
   end,
 
-  -- close-buffers.vim
+  -- close-buffers.nvim
   close_buffers = function()
-    map('n', '<leader>O', '<cmd>Bwipeout hidden<cr>', { silent = false })
+    map('n', '<leader>O', function()
+      require('close_buffers').wipe({ type = 'hidden' })
+    end, { silent = false })
   end,
 }
 
