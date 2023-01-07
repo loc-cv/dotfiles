@@ -37,11 +37,12 @@ M.setup = function()
         '--smart-case',
         '--hidden',
         '--glob=!.git/',
+        '--glob=!.yarn/',
       },
       file_ignore_patterns = {
         'node_modules',
-        -- '^./.git/',
         '%.git/',
+        '%.yarn/',
       },
       mappings = {
         i = {
