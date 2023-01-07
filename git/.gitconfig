@@ -1,37 +1,54 @@
 [user]
-    email = donbb6824@gmail.com
-    name = loc-cv
+	email = donbb6824@gmail.com
+	name = loc-cv
 [core]
-    editor = nvim
-    pager = delta
+	editor = nvim
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = diff-so-fancy --patch
 [delta]
-    navigate = true    # use n and N to move between diff sections
-    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
-    line-numbers = true
-    side-by-side = true
+	navigate = true    # use n and N to move between diff sections
+	light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+	line-numbers = true
+	side-by-side = true
 [merge]
-    conflictstyle = diff3
+	conflictstyle = diff3
 [diff]
-    colorMoved = default
+	colorMoved = default
 [init]
-    defaultBranch = main
+	defaultBranch = main
 [push]
-    default = simple
+	default = simple
 [credential "https://github.com"]
-    helper = 
-    helper = !/usr/bin/gh auth git-credential
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-    helper = 
-    helper = !/usr/bin/gh auth git-credential
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
 [alias]
-    s = status
-    ss = status --short
-    ssb = status --short --branch
-    cm = commit
-    co = checkout
-    cob = checkout -b
-    br = branch
-    adog = log --all --decorate --oneline --graph
-    lg = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	s = status
+	ss = status --short
+	ssb = status --short --branch
+	cm = commit
+	co = checkout
+	cob = checkout -b
+	br = branch
+	adog = log --all --decorate --oneline --graph
+	lg = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = black bold red
+	newNormal = green bold
+	newHighlight = black bold green
+[color "diff"]
+	meta = blue
+	frag = magenta bold
+	func = blue bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = white reverse
+[diff-so-fancy]
+	stripLeadingSymbols = true

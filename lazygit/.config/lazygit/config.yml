@@ -43,7 +43,8 @@ gui:
 git:
   paging:
     colorArg: always
-    useConfig: false
+    # useConfig: false
+    pager: diff-so-fancy
   commit:
     signOff: false
     verbose: false
