@@ -13,7 +13,7 @@ return packer.startup({
     -- Better performance for Neovim
     use('lewis6991/impatient.nvim')
 
-    -- Make Neovim look good
+    -- UI stuff
     use('Mofiqul/vscode.nvim')
     -- use('projekt0n/github-nvim-theme')
     -- use('rebelot/kanagawa.nvim')
@@ -33,7 +33,7 @@ return packer.startup({
       end,
     })
 
-    -- Lsp and friends
+    -- LSP and friends
     use({
       'neoclide/coc.nvim',
       branch = 'release',
@@ -47,10 +47,6 @@ return packer.startup({
     use('tpope/vim-rails')
 
     -- Snippet
-    -- use({
-    --   'rafamadriz/friendly-snippets',
-    --   after = 'coc.nvim',
-    -- })
     use({ 'honza/vim-snippets' })
     use({
       'SirVer/ultisnips',
@@ -76,7 +72,7 @@ return packer.startup({
     -- Fuzzy finder
     use({
       'nvim-telescope/telescope.nvim',
-      -- tag = '0.1.0',
+      tag = '0.1.0',
       requires = 'nvim-lua/plenary.nvim',
       config = function()
         require('plugins.configs.telescope').setup()
@@ -106,6 +102,14 @@ return packer.startup({
         vim.g.floaterm_height = 0.99
       end,
     })
+
+    -- Git
+    use({
+      'lewis6991/gitsigns.nvim',
+      config = function()
+        require('plugins.configs.gitsigns').setup()
+      end,
+    })
     use({
       'kdheepak/lazygit.nvim',
       config = function()
@@ -115,15 +119,6 @@ return packer.startup({
         vim.g.lazygit_floating_window_use_plenary = 0
       end,
     })
-
-    -- Git
-    use({
-      'lewis6991/gitsigns.nvim',
-      config = function()
-        require('plugins.configs.gitsigns').setup()
-      end,
-    })
-    -- use('tpope/vim-fugitive')
 
     -- Commenting code
     use({
@@ -173,13 +168,6 @@ return packer.startup({
         require('plugins.configs.treesitter').setup_textobjects()
       end,
     })
-
-    -- Endwise with treesitter
-    -- use({
-    --   'RRethy/nvim-treesitter-endwise',
-    --   requires = 'nvim-treesitter/nvim-treesitter',
-    --   after = 'nvim-treesitter',
-    -- })
 
     -- Show code context
     -- use({
@@ -242,6 +230,8 @@ return packer.startup({
         require('plugins.configs.window').setup()
       end,
     })
+
+    -- Tmux
     use({
       'christoomey/vim-tmux-navigator',
       config = function()
@@ -249,7 +239,7 @@ return packer.startup({
       end,
     })
 
-    -- Buffers management
+    -- Buffers
     use({
       'kazhala/close-buffers.nvim',
       module = 'close_buffers',
@@ -267,9 +257,6 @@ return packer.startup({
       end,
       ft = { 'markdown' },
     })
-
-    -- Move lines and selections
-    use('matze/vim-move')
 
     -- Trailing whitespaces
     use({
@@ -289,12 +276,6 @@ return packer.startup({
       end,
     })
 
-    -- Startup time
-    use({
-      'dstein64/vim-startuptime',
-      cmd = { 'StartupTime' },
-    })
-
     -- Colors related stuff
     use({
       'brenoprata10/nvim-highlight-colors',
@@ -307,7 +288,12 @@ return packer.startup({
       end,
     })
 
-    -- Miscs
+    -- Utils
+    use('matze/vim-move')
+    use({
+      'dstein64/vim-startuptime',
+      cmd = { 'StartupTime' },
+    })
     use({
       'lambdalisue/suda.vim',
       cmd = { 'SudaRead', 'SudaWrite' },
@@ -345,7 +331,6 @@ return packer.startup({
     })
     use('tpope/vim-sleuth')
     use('tpope/vim-unimpaired')
-    -- use('dhruvasagar/vim-zoom')
   end,
   config = {
     compile_path = vim.fn.stdpath('config') .. '/lua/plugins/packer_compiled.lua',

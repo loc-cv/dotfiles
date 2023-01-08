@@ -32,10 +32,6 @@ M.setup_ts = function()
     indent = {
       enable = false,
     },
-
-    -- endwise = {
-    --   enable = true,
-    -- },
   })
 end
 
