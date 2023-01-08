@@ -55,7 +55,7 @@ return packer.startup({
     use('xiyaowong/coc-symbol-line')
 
     -- Languages
-    use('tpope/vim-rails')
+    use({ 'tpope/vim-rails', ft = 'ruby' })
 
     -- Snippet
     use({ 'honza/vim-snippets' })
@@ -72,6 +72,7 @@ return packer.startup({
     use({
       'kkoomen/vim-doge',
       run = ':call doge#install()',
+      keys = '<leader>d',
       config = function()
         vim.g.doge_javascript_settings = {
           destructuring_props = 1,
@@ -123,6 +124,7 @@ return packer.startup({
     })
     use({
       'kdheepak/lazygit.nvim',
+      cmd = 'LazyGit',
       config = function()
         vim.g.lazygit_floating_window_winblend = 10
         vim.g.lazygit_floating_window_scaling_factor = 0.88
@@ -300,7 +302,7 @@ return packer.startup({
     })
 
     -- Utils
-    use('matze/vim-move')
+    use({ 'matze/vim-move', keys = { '<M-j>', '<M-k>', '<M-h>', '<M-l>' } })
     use({
       'dstein64/vim-startuptime',
       cmd = { 'StartupTime' },
