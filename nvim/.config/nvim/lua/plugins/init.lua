@@ -1,12 +1,23 @@
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+    vim.cmd({ cmd = 'packadd', args = { 'packer.nvim' } })
+    return true
+  end
+  return false
+end
+
+local packer_bootstrap = ensure_packer()
+
 local ok, packer = pcall(require, 'packer')
 if not ok then
   return
 end
 
-local use = packer.use
-
 return packer.startup({
-  function()
+  function(use)
     -- Packer himself
     use('wbthomason/packer.nvim')
 
@@ -331,6 +342,10 @@ return packer.startup({
     })
     use('tpope/vim-sleuth')
     use('tpope/vim-unimpaired')
+
+    if packer_bootstrap then
+      require('packer').sync()
+    end
   end,
   config = {
     compile_path = vim.fn.stdpath('config') .. '/lua/plugins/packer_compiled.lua',
