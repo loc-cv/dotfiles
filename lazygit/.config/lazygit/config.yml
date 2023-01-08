@@ -16,7 +16,7 @@ gui:
     optionsTextColor:
       - blue
     selectedLineBgColor:
-      - '#303030'
+      - '#323232'
     selectedRangeBgColor:
       - blue
     cherryPickedCommitBgColor:
