@@ -66,12 +66,14 @@ local configs = {
 M.init = function()
   -- No line numbers in terminals
   vim.api.nvim_create_autocmd('TermOpen', {
+    group = vim.api.nvim_create_augroup('DisableTermLineNumbers', { clear = true }),
     pattern = '*',
     command = 'setlocal nonumber norelativenumber',
   })
 
   -- Disable auto comment insertion
   vim.api.nvim_create_autocmd('FileType', {
+    group = vim.api.nvim_create_augroup('DisableAutoCommentInsertion', { clear = true }),
     pattern = '*',
     command = 'setlocal formatoptions-=cro',
   })
@@ -109,6 +111,7 @@ M.init = function()
 
   -- Enable comment in json filetype (make it jsonc)
   vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+    group = vim.api.nvim_create_augroup('MakeJsonJsonc', { clear = true }),
     pattern = '*.json',
     command = 'set filetype=jsonc',
   })
