@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-parameter
 local M = {}
 local colorscheme = require('colorschemes')
 
@@ -164,6 +165,7 @@ M.setup = function()
       sep = vim.tbl_extend('keep', sep, { hl = colors[status] })
       component = vim.tbl_extend('keep', component, {
         hl = colors[status],
+        ---@diagnostic disable-next-line: need-check-nil
         [sep.position .. '_sep'] = sep,
       })
     else

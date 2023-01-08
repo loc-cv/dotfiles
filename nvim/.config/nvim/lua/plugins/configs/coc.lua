@@ -35,6 +35,7 @@ M.setup = function()
       pattern = '*',
       callback = function()
         if vim.b.coc_symbol_line and vim.bo.buftype == '' then
+          ---@diagnostic disable-next-line: undefined-field
           if vim.opt_local.winbar:get() == '' then
             vim.opt_local.winbar = '%!v:lua.symbol_line()'
           end

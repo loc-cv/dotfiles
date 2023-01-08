@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-parameter
 local M = {}
 local map = require('core.utils').map
 
