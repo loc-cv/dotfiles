@@ -128,7 +128,7 @@ return packer.startup({
       cmd = 'LazyGit',
       config = function()
         vim.g.lazygit_floating_window_winblend = 10
-        vim.g.lazygit_floating_window_scaling_factor = 0.88
+        vim.g.lazygit_floating_window_scaling_factor = 1
         vim.g.lazygit_floating_window_corner_chars = { '┌', '┐', '└', '┘' }
         vim.g.lazygit_floating_window_use_plenary = 0
       end,
