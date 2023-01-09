@@ -54,7 +54,7 @@ M.setup = function()
           ['<C-s>'] = actions.select_horizontal,
           ['<C-t>'] = actions.select_tab,
           ['<esc>'] = actions.close,
-          ['<C-u>'] = false,
+          -- ['<C-u>'] = false,
           ['<M-p>'] = actions_layout.toggle_preview,
         },
       },

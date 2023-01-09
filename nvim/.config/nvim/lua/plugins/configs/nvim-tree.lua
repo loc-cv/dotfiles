@@ -77,7 +77,7 @@ M.setup = function()
     sort_by = 'name',
     view = {
       adaptive_size = true,
-      centralize_selection = true,
+      centralize_selection = false,
       width = 40,
       hide_root_folder = false,
       mappings = {
@@ -87,6 +87,18 @@ M.setup = function()
           { key = 'L', action = 'vsplit_preview', action_cb = vsplit_preview },
           { key = 'h', action = 'close_node' },
           { key = 'H', action = 'collapse_all', action_cb = collapse_all },
+          { key = '<C-v>', action = 'vsplit' },
+          { key = '<C-s>', action = 'split' },
+          { key = '<C-t>', action = 'tabnew' },
+        },
+      },
+    },
+    actions = {
+      open_file = {
+        window_picker = {
+          enable = true,
+          picker = 'default',
+          chars = 'FJDKSLA;CMRUEIWOQP',
         },
       },
     },
