@@ -6,11 +6,11 @@ local configs = {
   -- coc.nvim
   coc = function()
     -- coc-explorer
-    map('n', '<leader>e', [[<CMD>CocCommand explorer<CR><CMD>sleep 10m<CR><C-w>=]])
+    -- map('n', '<leader>e', [[<CMD>CocCommand explorer<CR><CMD>sleep 10m<CR><C-w>=]])
 
     -- -- coc-snippet
-    -- vim.g.coc_snippet_next = '<Tab>'
-    -- vim.g.coc_snippet_prev = '<S-Tab>'
+    vim.g.coc_snippet_next = '<C-f>'
+    vim.g.coc_snippet_prev = '<C-b>'
 
     -- Use <C-space> to trigger completion
     map('i', '<C-space>', function()
@@ -228,6 +228,14 @@ local configs = {
     map('n', '<leader>O', function()
       require('close_buffers').wipe({ type = 'hidden' })
     end, { silent = false })
+  end,
+
+  -- nvim-tree.lua
+  nvim_tree = function()
+    local api = require('nvim-tree.api')
+    map('n', '<leader>e', function()
+      api.tree.toggle(nil, true)
+    end)
   end,
 }
 

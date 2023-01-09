@@ -95,6 +95,15 @@ return packer.startup({
     use('nvim-telescope/telescope-media-files.nvim')
     use('fannheyward/telescope-coc.nvim')
 
+    -- Explorer
+    use({
+      'nvim-tree/nvim-tree.lua',
+      tag = 'nightly', -- optional, updated every week. (see issue #1193)
+      config = function()
+        require('plugins.configs.nvim-tree').setup()
+      end,
+    })
+
     -- Terminal
     use({
       'voldikss/vim-floaterm',

@@ -10,7 +10,6 @@ M.setup = function()
     'coc-json',
     'coc-prettier',
     'coc-eslint',
-    'coc-explorer',
     'coc-sumneko-lua',
     'coc-stylua',
     '@yaegassy/coc-tailwindcss3',
@@ -20,6 +19,7 @@ M.setup = function()
     'coc-symbol-line',
     'coc-markdownlint',
     'coc-ultisnips',
+    -- 'coc-explorer',
     -- 'coc-snippets',
     -- 'coc-styled-components',
   }
