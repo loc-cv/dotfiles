@@ -71,9 +71,10 @@ M.setup = function()
 
   nvimtree.setup({
     disable_netrw = true,
-    sort_by = function(nodes)
-      table.sort(nodes, natural_cmp)
-    end,
+    -- sort_by = function(nodes)
+    --   table.sort(nodes, natural_cmp)
+    -- end,
+    sort_by = 'name',
     view = {
       adaptive_size = true,
       centralize_selection = true,
@@ -112,7 +113,7 @@ M.setup = function()
           default = '',
           symlink = '',
           bookmark = '',
-          modified = '●',
+          modified = '',
           folder = {
             arrow_closed = '',
             arrow_open = '',
@@ -124,12 +125,13 @@ M.setup = function()
             symlink_open = '',
           },
           git = {
-            unstaged = '✗',
+            unstaged = '●',
             staged = '✓',
             unmerged = '',
             renamed = '➜',
             untracked = '?',
-            deleted = '',
+            -- deleted = '',
+            deleted = '✗',
             ignored = '!',
           },
         },
@@ -164,7 +166,7 @@ M.setup = function()
       ignore_dirs = {},
     },
     git = {
-      enable = false,
+      enable = true,
       ignore = false,
       show_on_dirs = true,
       show_on_open_dirs = false,
