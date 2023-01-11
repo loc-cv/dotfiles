@@ -1,4 +1,5 @@
 local M = {}
+
 M.setup = function()
   local ok, telescope = pcall(require, 'telescope')
   if not ok then

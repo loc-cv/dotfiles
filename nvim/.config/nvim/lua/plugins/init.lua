@@ -38,10 +38,16 @@ return packer.startup({
     })
 
     -- Sessions
+    -- use({
+    --   'rmagatti/auto-session',
+    --   config = function()
+    --     require('plugins.configs.session').setup()
+    --   end,
+    -- })
     use({
-      'rmagatti/auto-session',
+      'olimorris/persisted.nvim',
       config = function()
-        require('plugins.configs.session').setup()
+        require('plugins.configs.persisted').setup()
       end,
     })
 
@@ -354,6 +360,7 @@ return packer.startup({
     })
     use('tpope/vim-sleuth')
     use('tpope/vim-unimpaired')
+    -- use('tpope/vim-abolish')
 
     if packer_bootstrap then
       require('packer').sync()

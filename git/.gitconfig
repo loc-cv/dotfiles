@@ -51,4 +51,4 @@
 	new = green bold
 	whitespace = white reverse
 [diff-so-fancy]
-	stripLeadingSymbols = true
+	stripLeadingSymbols = false
