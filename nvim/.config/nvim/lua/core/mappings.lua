@@ -156,7 +156,7 @@ local configs = {
     map('n', '<C-p>b', [[<CMD>Telescope buffers<CR>]])
     map('n', '<C-p>r', [[<CMD>Telescope live_grep<CR>]])
     map('n', '<C-p>h', [[<CMD>Telescope help_tags<CR>]])
-    map('n', '<C-p>s', [[<CMD>Telescope persisted<CR>]])
+    map('n', '<C-p>w', [[<CMD>Telescope persisted<CR>]])
   end,
 
   -- vim-floaterm

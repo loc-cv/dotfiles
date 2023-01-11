@@ -79,6 +79,10 @@ M.setup = function()
         return false
       end
     end,
+
+    using_session = function()
+      return (vim.g.persisting ~= nil)
+    end,
   }
 
   -- Custom providers
@@ -142,6 +146,14 @@ M.setup = function()
 
     coclist_status = function(segment)
       return vim.fn['coc#list#status'](segment)
+    end,
+
+    session = function()
+      if vim.g.persisting then
+        return ' '
+      elseif vim.g.persisting == false then
+        return ' '
+      end
     end,
   }
 
@@ -321,6 +333,12 @@ M.setup = function()
       provider = providers.static_file_name,
       enabled = conditions.filetype_normal,
     },
+    session = {
+      provider = providers.session,
+      enabled = function()
+        return conditions.using_session()
+      end,
+    },
   }
 
   local sl_components = { -- statusline components
@@ -348,6 +366,7 @@ M.setup = function()
         render_c(nft_c.filetype, { sep = { position = 'left', str = '  ' } }),
         render_c(nft_c.file_encoding, { sep = { position = 'left', str = '  ' } }),
         render_c(nft_c.position, { sep = { position = 'left', str = '  ' } }),
+        render_c(nft_c.session, { sep = { position = 'left', str = '  ' } }),
         render_c(nft_c.line_percentage, { sep = { position = 'left', str = '  ' } }),
         render_c(coclist_c.path, { sep = { position = 'left', str = '  ' } }),
         render_c(c_c.blank, { sep = { position = 'none' } }),
