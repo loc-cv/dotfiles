@@ -358,7 +358,12 @@ return packer.startup({
         require('tabout').setup()
       end,
     })
-    use('Darazaki/indent-o-matic')
+    use({
+      'nmac427/guess-indent.nvim',
+      config = function()
+        require('guess-indent').setup({})
+      end,
+    })
     use('tpope/vim-unimpaired')
     -- use('tpope/vim-sleuth')
     -- use('tpope/vim-abolish')
