@@ -5,10 +5,7 @@ local map = require('core.utils').map
 local configs = {
   -- coc.nvim
   coc = function()
-    -- coc-explorer
-    -- map('n', '<leader>e', [[<CMD>CocCommand explorer<CR><CMD>sleep 10m<CR><C-w>=]])
-
-    -- -- coc-snippet
+    -- coc-snippet
     vim.g.coc_snippet_next = '<C-f>'
     vim.g.coc_snippet_prev = '<C-b>'
 
@@ -57,26 +54,26 @@ local configs = {
     map('n', 'K', '<CMD>lua _G.show_docs()<CR>')
 
     -- Symbol renaming
-    map('n', '<leader>rn', '<Plug>(coc-rename)')
+    map('n', '<leader>lrn', '<Plug>(coc-rename)')
 
     -- Format selected code
-    map({ 'x', 'n' }, '<leader>fm', '<Plug>(coc-format-selected)')
+    map({ 'x', 'n' }, '<leader>lfm', '<Plug>(coc-format-selected)')
 
     -- Apply code action to the selected region
-    map({ 'x', 'n' }, '<leader>ca', '<Plug>(coc-codeaction-selected)')
+    map({ 'x', 'n' }, '<leader>lca', '<Plug>(coc-codeaction-selected)')
 
     -- Apply code action to the current buffer
-    map('n', '<leader>cA', '<Plug>(coc-codeaction-source)')
+    map('n', '<leader>lcA', '<Plug>(coc-codeaction-source)')
 
     -- Apply autofix to problem on the current line
-    map('n', '<leader>qf', '<Plug>(coc-fix-current)')
+    map('n', '<leader>laf', '<Plug>(coc-fix-current)')
 
     -- Run the Code Lens action on the current line
-    map('n', '<leader>cl', '<Plug>(coc-codelens-action)')
+    map('n', '<leader>lcl', '<Plug>(coc-codelens-action)')
 
     -- Apply refactor code actions
-    map('n', '<leader>rF', '<Plug>(coc-codeaction-refactor)')
-    map({ 'x', 'n' }, '<leader>rf', '<Plug>(coc-codeaction-refactor-selected)')
+    map({ 'x', 'n' }, '<leader>lrf', '<Plug>(coc-codeaction-refactor-selected)')
+    map('n', '<leader>lrF', '<Plug>(coc-codeaction-refactor)')
 
     -- Map function and class text objects
     -- NOTE: Requires 'textDocument.documentSymbol' support from the language server
@@ -112,9 +109,9 @@ local configs = {
     map('i', '<C-s>', "<C-r>=CocActionAsync('showSignatureHelp')<CR>")
 
     -- Mappings for CoCList
-    map('n', '<C-p>L', '<CMD>CocList<CR>', { nowait = true })
-    map('n', '<C-p>e', '<CMD>CocList extensions<CR>', { nowait = true })
-    map('n', '<C-p>o', '<CMD>CocList -A outline<CR>', { nowait = true })
+    map('n', '<leader>lli', '<CMD>CocList<CR>', { nowait = true })
+    map('n', '<leader>lex', '<CMD>CocList extensions<CR>', { nowait = true })
+    -- map('n', '<leader>lol', '<CMD>CocList -A outline<CR>', { nowait = true })
     -- map('n', '<C-m>c', '<CMD>CocList commands<CR>', { nowait = true })
     -- map('n', '<C-m>d', '<CMD>CocList -A diagnostics<CR>', { nowait = true })
     -- map('n', '<C-m>l', '<CMD>CocList -A location<CR>', { nowait = true })
@@ -131,7 +128,7 @@ local configs = {
       end
       vim.fn.CocAction('showOutline')
     end
-    map('n', '<leader>t', toggleOutline, { nowait = true })
+    map('n', '<leader>lol', toggleOutline, { nowait = true })
   end,
 
   -- telescope-coc.nvim
@@ -141,26 +138,26 @@ local configs = {
     map('n', 'gi', [[<cmd>Telescope coc implementations<cr>]])
     map('n', 'gr', [[<CMD>Telescope coc references<CR>]])
     map('n', 'gD', [[<cmd>Telescope coc declarations<cr>]])
-    map('n', '<C-p>c', [[<cmd>Telescope coc commands<cr>]])
-    map('n', '<C-p>d', [[<cmd>Telescope coc diagnostics<cr>]])
-    map('n', '<C-p>D', [[<cmd>Telescope coc workspace_diagnostics<cr>]])
-    map('n', '<C-p>l', [[<cmd>Telescope coc locations<cr>]])
-    map('n', '<C-p>s', [[<cmd>Telescope coc document_symbols<cr>]])
-    map('n', '<C-p>S', [[<cmd>Telescope coc workspace_symbols<cr>]])
+    map('n', '<leader>lcm', [[<cmd>Telescope coc commands<cr>]])
+    map('n', '<leader>lda', [[<cmd>Telescope coc diagnostics<cr>]])
+    map('n', '<leader>ldA', [[<cmd>Telescope coc workspace_diagnostics<cr>]])
+    map('n', '<leader>llo', [[<cmd>Telescope coc locations<cr>]])
+    map('n', '<leader>lds', [[<cmd>Telescope coc document_symbols<cr>]])
+    map('n', '<leader>lws', [[<cmd>Telescope coc workspace_symbols<cr>]])
   end,
 
   -- telescope.nvim
   telescope = function()
-    map('n', '<C-p>p', [[<CMD>Telescope builtin<CR>]])
-    map('n', '<C-p>f', [[<CMD>Telescope find_files<CR>]])
-    map('n', '<C-p>b', [[<CMD>Telescope buffers<CR>]])
-    map('n', '<C-p>r', [[<CMD>Telescope live_grep<CR>]])
-    map('n', '<C-p>h', [[<CMD>Telescope help_tags<CR>]])
+    map('n', '<leader>fp', [[<CMD>Telescope builtin<CR>]])
+    map('n', '<leader>ff', [[<CMD>Telescope find_files<CR>]])
+    map('n', '<leader>fb', [[<CMD>Telescope buffers<CR>]])
+    map('n', '<leader>fr', [[<CMD>Telescope live_grep<CR>]])
+    map('n', '<leader>fh', [[<CMD>Telescope help_tags<CR>]])
   end,
 
   persisted = function()
-    map('n', '<C-p>w', [[<CMD>Telescope persisted<CR>]])
-    map('n', '<leader>s', [[<CMD>SessionSave<CR>]])
+    map('n', '<leader>fw', [[<CMD>Telescope persisted<CR>]])
+    map('n', '<leader>st', [[<CMD>SessionToggle<CR>]])
   end,
 
   -- vim-floaterm
@@ -229,7 +226,7 @@ local configs = {
 
   -- close-buffers.nvim
   close_buffers = function()
-    map('n', '<leader>O', function()
+    map('n', '<leader>bc', function()
       require('close_buffers').wipe({ type = 'hidden' })
     end, { silent = false })
   end,
