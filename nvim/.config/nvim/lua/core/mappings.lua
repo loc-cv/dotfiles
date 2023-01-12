@@ -156,7 +156,11 @@ local configs = {
     map('n', '<C-p>b', [[<CMD>Telescope buffers<CR>]])
     map('n', '<C-p>r', [[<CMD>Telescope live_grep<CR>]])
     map('n', '<C-p>h', [[<CMD>Telescope help_tags<CR>]])
+  end,
+
+  persisted = function()
     map('n', '<C-p>w', [[<CMD>Telescope persisted<CR>]])
+    map('n', '<leader>s', [[<CMD>SessionSave<CR>]])
   end,
 
   -- vim-floaterm
