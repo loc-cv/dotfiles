@@ -358,8 +358,9 @@ return packer.startup({
         require('tabout').setup()
       end,
     })
-    use('tpope/vim-sleuth')
+    use('Darazaki/indent-o-matic')
     use('tpope/vim-unimpaired')
+    -- use('tpope/vim-sleuth')
     -- use('tpope/vim-abolish')
 
     if packer_bootstrap then
