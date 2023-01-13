@@ -158,6 +158,8 @@ local configs = {
   persisted = function()
     map('n', '<leader>fw', [[<CMD>Telescope persisted<CR>]])
     map('n', '<leader>st', [[<CMD>SessionToggle<CR>]])
+    map('n', '<leader>ss', [[<CMD>SessionSave<CR>]])
+    map('n', '<leader>sd', [[<CMD>SessionDelete<CR>]])
   end,
 
   -- vim-floaterm

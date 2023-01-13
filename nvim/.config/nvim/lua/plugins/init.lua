@@ -351,7 +351,6 @@ return packer.startup({
     --   end,
     -- })
     use('gcmt/taboo.vim')
-    use('jeffkreeftmeijer/vim-numbertoggle')
     use({
       'abecodes/tabout.nvim',
       config = function()
@@ -365,6 +364,7 @@ return packer.startup({
       end,
     })
     use('tpope/vim-unimpaired')
+    -- use('jeffkreeftmeijer/vim-numbertoggle')
     -- use('tpope/vim-sleuth')
     -- use('tpope/vim-abolish')
 
