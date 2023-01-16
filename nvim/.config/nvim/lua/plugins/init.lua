@@ -26,7 +26,7 @@ return packer.startup({
     use('lewis6991/impatient.nvim')
 
     -- UI stuff
-    use('Mofiqul/vscode.nvim')
+    use({ 'Mofiqul/vscode.nvim' })
     -- use('projekt0n/github-nvim-theme')
     -- use('rebelot/kanagawa.nvim')
     use('kyazdani42/nvim-web-devicons')
@@ -104,7 +104,7 @@ return packer.startup({
     -- Explorer
     use({
       'nvim-tree/nvim-tree.lua',
-      tag = 'nightly', -- optional, updated every week. (see issue #1193)
+      tag = 'nightly',
       config = function()
         require('plugins.configs.nvim-tree').setup()
       end,
@@ -249,7 +249,7 @@ return packer.startup({
     use({
       'simeji/winresizer',
       config = function()
-        vim.g.winresizer_start_key = '<leader>m'
+        vim.g.winresizer_start_key = '<leader>r'
       end,
     })
     use({
@@ -259,6 +259,9 @@ return packer.startup({
         require('plugins.configs.window').setup()
       end,
     })
+
+    -- Motions
+    -- use({ 'https://gitlab.com/madyanov/svart.nvim', cmd = 'Svart' })
 
     -- Tmux
     use({
@@ -350,13 +353,7 @@ return packer.startup({
     --     require('fold-preview').setup()
     --   end,
     -- })
-    use('gcmt/taboo.vim')
-    use({
-      'abecodes/tabout.nvim',
-      config = function()
-        require('tabout').setup()
-      end,
-    })
+    -- use('gcmt/taboo.vim')
     use({
       'nmac427/guess-indent.nvim',
       config = function()
@@ -364,7 +361,7 @@ return packer.startup({
       end,
     })
     use('tpope/vim-unimpaired')
-    -- use('jeffkreeftmeijer/vim-numbertoggle')
+    use('jeffkreeftmeijer/vim-numbertoggle')
     -- use('tpope/vim-sleuth')
     -- use('tpope/vim-abolish')
 

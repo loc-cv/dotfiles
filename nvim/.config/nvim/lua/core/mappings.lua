@@ -240,6 +240,11 @@ local configs = {
       api.tree.toggle(nil, true)
     end)
   end,
+
+  -- svart.nvim
+  -- svart = function()
+  --   map({ 'n', 'x', 'o' }, 'z/', [[<CMD>Svart<CR>]])
+  -- end,
 }
 
 M.init = function()
