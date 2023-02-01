@@ -44,12 +44,6 @@ return packer.startup({
         require('plugins.configs.session').setup()
       end,
     })
-    -- use({
-    --   'olimorris/persisted.nvim',
-    --   config = function()
-    --     require('plugins.configs.persisted').setup()
-    --   end,
-    -- })
 
     -- LSP and friends
     use({
