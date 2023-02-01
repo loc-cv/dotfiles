@@ -21,6 +21,7 @@ M.setup_ts = function()
       'markdown',
       'c_sharp',
       'ruby',
+      'vue',
     },
 
     highlight = {

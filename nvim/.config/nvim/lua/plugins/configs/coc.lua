@@ -19,6 +19,8 @@ M.setup = function()
     'coc-symbol-line',
     'coc-markdownlint',
     'coc-ultisnips',
+    '@yaegassy/coc-volar',
+    '@yaegassy/coc-volar-tools',
     -- 'coc-explorer',
     -- 'coc-snippets',
     -- 'coc-styled-components',
