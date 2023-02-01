@@ -3,7 +3,8 @@ local hi = require('core.utils').hi
 
 local colors = {
   -- Cursorline
-  CursorLine = { bg = '#282828' },
+  CursorLine = { bg = '#303030' },
+  NvimTreeCursorLine = { link = 'Cursorline' },
 
   -- Fold
   Folded = { bg = '#252526', fg = '#3F3F46', underline = false },

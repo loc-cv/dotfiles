@@ -38,18 +38,18 @@ return packer.startup({
     })
 
     -- Sessions
-    -- use({
-    --   'rmagatti/auto-session',
-    --   config = function()
-    --     require('plugins.configs.session').setup()
-    --   end,
-    -- })
     use({
-      'olimorris/persisted.nvim',
+      'rmagatti/auto-session',
       config = function()
-        require('plugins.configs.persisted').setup()
+        require('plugins.configs.session').setup()
       end,
     })
+    -- use({
+    --   'olimorris/persisted.nvim',
+    --   config = function()
+    --     require('plugins.configs.persisted').setup()
+    --   end,
+    -- })
 
     -- LSP and friends
     use({
