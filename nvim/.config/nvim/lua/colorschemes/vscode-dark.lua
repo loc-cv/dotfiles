@@ -36,6 +36,11 @@ local colors = {
   -- vim-better-whitespace
   ExtraWhitespace = { bg = '#808080' },
 
+  -- telescope.nvim
+  TelescopeResultsBorder = { link = 'Normal' },
+  TelescopePromptBorder = { link = 'Normal' },
+  TelescopePreviewBorder = { link = 'Normal' },
+
   -- coc.nvim
   CocErrorSign = { fg = '#db4b4b' },
   CocErrorVirtualText = { fg = '#db4b4b' },

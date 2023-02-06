@@ -31,7 +31,7 @@ M.setup_ts = function()
     },
 
     indent = {
-      enable = false,
+      enable = true,
     },
   })
 end

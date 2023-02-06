@@ -58,17 +58,6 @@ return packer.startup({
     -- Languages
     use({ 'tpope/vim-rails', ft = 'ruby' })
 
-    -- Snippet
-    use({ 'honza/vim-snippets' })
-    use({
-      'SirVer/ultisnips',
-      config = function()
-        vim.g.UltiSnipsExpandTrigger = '<Tab>'
-        vim.g.UltiSnipsJumpForwardTrigger = '<C-f>'
-        vim.g.UltiSnipsJumpBackwardTrigger = '<C-b>'
-      end,
-    })
-
     -- Document generator
     use({
       'kkoomen/vim-doge',
@@ -136,7 +125,7 @@ return packer.startup({
       'kdheepak/lazygit.nvim',
       cmd = 'LazyGit',
       config = function()
-        vim.g.lazygit_floating_window_winblend = 10
+        vim.g.lazygit_floating_window_winblend = 15
         vim.g.lazygit_floating_window_scaling_factor = 1
         vim.g.lazygit_floating_window_corner_chars = { '┌', '┐', '└', '┘' }
         vim.g.lazygit_floating_window_use_plenary = 0
@@ -253,9 +242,6 @@ return packer.startup({
         require('plugins.configs.window').setup()
       end,
     })
-
-    -- Motions
-    -- use({ 'https://gitlab.com/madyanov/svart.nvim', cmd = 'Svart' })
 
     -- Tmux
     use({

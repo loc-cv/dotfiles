@@ -18,11 +18,11 @@ M.setup = function()
     'coc-solargraph',
     'coc-symbol-line',
     'coc-markdownlint',
-    'coc-ultisnips',
     '@yaegassy/coc-volar',
     '@yaegassy/coc-volar-tools',
+    'coc-snippets',
+    'https://github.com/rafamadriz/friendly-snippets@main',
     -- 'coc-explorer',
-    -- 'coc-snippets',
     -- 'coc-styled-components',
   }
 
