@@ -17,14 +17,14 @@ local configs = {
   end,
 
   -- vim-floaterm
-  floaterm = function()
-    -- Make floaterm window transparent
-    vim.api.nvim_create_autocmd('FileType', {
-      group = vim.api.nvim_create_augroup('Floaterm', { clear = true }),
-      pattern = 'floaterm',
-      command = 'setlocal winblend=15',
-    })
-  end,
+  -- floaterm = function()
+  --   -- Make floaterm window transparent
+  --   vim.api.nvim_create_autocmd('FileType', {
+  --     group = vim.api.nvim_create_augroup('Floaterm', { clear = true }),
+  --     pattern = 'floaterm',
+  --     command = 'setlocal winblend=15',
+  --   })
+  -- end,
 
   -- coc.nvim
   coc = function()
