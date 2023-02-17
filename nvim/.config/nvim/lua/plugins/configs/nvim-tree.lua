@@ -76,7 +76,7 @@ M.setup = function()
     -- end,
     sort_by = 'name',
     view = {
-      adaptive_size = true,
+      adaptive_size = false,
       centralize_selection = false,
       width = 40,
       hide_root_folder = false,

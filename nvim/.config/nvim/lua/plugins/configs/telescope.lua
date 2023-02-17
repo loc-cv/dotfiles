@@ -40,6 +40,7 @@ M.setup = function()
         '--hidden',
         '--glob=!.git/',
         '--glob=!.yarn/',
+        '--glob=!package-lock.json',
       },
       file_ignore_patterns = {
         'node_modules',
