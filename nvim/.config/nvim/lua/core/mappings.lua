@@ -231,13 +231,7 @@ local configs = {
 
   -- nvim-tree.lua
   nvim_tree = function()
-    local api = require('nvim-tree.api')
-    map('n', '<leader>e', function()
-      api.tree.toggle(true, true)
-      -- temporary fix for cursorline bug in nvim-tree
-      vim.opt.cursorline = true
-      vim.opt.relativenumber = true
-    end)
+    map('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
   end,
 }
 

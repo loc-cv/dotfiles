@@ -27,11 +27,11 @@ return packer.startup({
 
     -- UI stuff
     use({ 'Mofiqul/vscode.nvim' })
-    -- use('projekt0n/github-nvim-theme')
+    use('projekt0n/github-nvim-theme')
     -- use('rebelot/kanagawa.nvim')
     use('kyazdani42/nvim-web-devicons')
     use({
-      'feline-nvim/feline.nvim',
+      'freddiehaddad/feline.nvim',
       config = function()
         require('plugins.configs.feline').setup()
       end,
@@ -125,12 +125,13 @@ return packer.startup({
       'kdheepak/lazygit.nvim',
       cmd = 'LazyGit',
       config = function()
-        vim.g.lazygit_floating_window_winblend = 15
+        vim.g.lazygit_floating_window_winblend = 0
         vim.g.lazygit_floating_window_scaling_factor = 1
         vim.g.lazygit_floating_window_corner_chars = { '┌', '┐', '└', '┘' }
         vim.g.lazygit_floating_window_use_plenary = 0
       end,
     })
+    use({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' })
 
     -- Commenting code
     use({
@@ -320,20 +321,6 @@ return packer.startup({
         })
       end,
     })
-    -- use({
-    --   'anuvyklack/pretty-fold.nvim',
-    --   config = function()
-    --     require('plugins.configs.pretty-fold').setup()
-    --   end,
-    -- })
-    -- use({
-    --   'anuvyklack/fold-preview.nvim',
-    --   requires = 'anuvyklack/keymap-amend.nvim',
-    --   config = function()
-    --     require('fold-preview').setup()
-    --   end,
-    -- })
-    -- use('gcmt/taboo.vim')
     use({
       'nmac427/guess-indent.nvim',
       config = function()
@@ -342,8 +329,22 @@ return packer.startup({
     })
     use('tpope/vim-unimpaired')
     use('jeffkreeftmeijer/vim-numbertoggle')
+    use({
+      'anuvyklack/pretty-fold.nvim',
+      config = function()
+        require('plugins.configs.pretty-fold').setup()
+      end,
+    })
+    use({
+      'anuvyklack/fold-preview.nvim',
+      requires = 'anuvyklack/keymap-amend.nvim',
+      config = function()
+        require('fold-preview').setup()
+      end,
+    })
     -- use('tpope/vim-sleuth')
     -- use('tpope/vim-abolish')
+    -- use('gcmt/taboo.vim')
 
     if packer_bootstrap then
       require('packer').sync()

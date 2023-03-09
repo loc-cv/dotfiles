@@ -16,8 +16,8 @@ local colors = {
 
   -- Tabline
   TabLineFill = { bg = '#282828', fg = '#d4d4d4' },
-  TabLineSel = { bg = '#f5f5f5', fg = '#343434', bold = true },
-  TabLine = { bg = '#373737', fg = '#ffffff', bold = true },
+  TabLineSel = { bg = '#f5f5f5', fg = '#343434' },
+  TabLine = { bg = '#373737', fg = '#ffffff' },
 
   -- Statusline
   StatusLine = { bg = '#1e1e1e' },
