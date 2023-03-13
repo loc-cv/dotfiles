@@ -338,7 +338,13 @@ return packer.startup({
         require('fold-preview').setup()
       end,
     })
-    -- use('tpope/vim-abolish')
+    use({
+      'markonm/traces.vim',
+      config = function()
+        vim.g.traces_abolish_integration = 1
+      end,
+    })
+    use('tpope/vim-abolish')
     -- use('gcmt/taboo.vim')
 
     if packer_bootstrap then
