@@ -73,6 +73,7 @@ M.colors_statusline = {
 M.setup = function()
   vim.o.background = 'dark'
   vim.g.vscode_disable_nvim_tree_bg = 1
+  require('vscode').setup({})
   vim.cmd({ cmd = 'colorscheme', args = { 'vscode' } })
 
   for group, conf in pairs(colors) do

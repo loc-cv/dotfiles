@@ -26,12 +26,13 @@ return packer.startup({
     use('lewis6991/impatient.nvim')
 
     -- UI stuff
-    use({ 'Mofiqul/vscode.nvim' })
-    use('projekt0n/github-nvim-theme')
+    use('Mofiqul/vscode.nvim')
+    -- use('projekt0n/github-nvim-theme')
     -- use('rebelot/kanagawa.nvim')
     use('kyazdani42/nvim-web-devicons')
     use({
       'freddiehaddad/feline.nvim',
+      branch = 'main',
       config = function()
         require('plugins.configs.feline').setup()
       end,
@@ -321,12 +322,7 @@ return packer.startup({
         })
       end,
     })
-    use({
-      'nmac427/guess-indent.nvim',
-      config = function()
-        require('guess-indent').setup({})
-      end,
-    })
+    use('tpope/vim-sleuth')
     use('tpope/vim-unimpaired')
     use('jeffkreeftmeijer/vim-numbertoggle')
     use({
@@ -342,7 +338,6 @@ return packer.startup({
         require('fold-preview').setup()
       end,
     })
-    -- use('tpope/vim-sleuth')
     -- use('tpope/vim-abolish')
     -- use('gcmt/taboo.vim')
 
