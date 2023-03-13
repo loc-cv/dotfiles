@@ -54,7 +54,7 @@ return packer.startup({
         require('plugins.configs.coc').setup()
       end,
     })
-    use('xiyaowong/coc-symbol-line')
+    -- use('xiyaowong/coc-symbol-line')
 
     -- Languages
     use({ 'tpope/vim-rails', ft = 'ruby' })
@@ -184,11 +184,11 @@ return packer.startup({
     })
 
     -- Show code context
-    -- use({
-    --   'nvim-treesitter/nvim-treesitter-context',
-    --   requires = 'nvim-treesitter/nvim-treesitter',
-    --   after = 'nvim-treesitter',
-    -- })
+    use({
+      'nvim-treesitter/nvim-treesitter-context',
+      requires = 'nvim-treesitter/nvim-treesitter',
+      after = 'nvim-treesitter',
+    })
 
     -- Autopairs
     use({
