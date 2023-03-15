@@ -31,7 +31,7 @@ M.setup_ts = function()
     },
 
     indent = {
-      enable = true,
+      enable = false,
     },
   })
 end
@@ -69,6 +69,14 @@ M.setup_textobjects = function()
           ['ic'] = '@class.inner',
         },
       },
+    },
+  })
+end
+
+M.setup_yati = function()
+  treesitter.setup({
+    yati = {
+      enable = true,
     },
   })
 end

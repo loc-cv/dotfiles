@@ -190,6 +190,16 @@ return packer.startup({
       after = 'nvim-treesitter',
     })
 
+    -- Better indentation for treesitter
+    use({
+      'yioneko/nvim-yati',
+      requires = 'nvim-treesitter/nvim-treesitter',
+      after = 'nvim-treesitter',
+      config = function()
+        require('plugins.configs.treesitter').setup_yati()
+      end,
+    })
+
     -- Autopairs
     use({
       'windwp/nvim-autopairs',
