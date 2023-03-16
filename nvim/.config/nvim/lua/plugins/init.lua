@@ -39,12 +39,12 @@ return packer.startup({
     })
 
     -- Sessions
-    -- use({
-    --   'rmagatti/auto-session',
-    --   config = function()
-    --     require('plugins.configs.session').setup()
-    --   end,
-    -- })
+    use({
+      'rmagatti/auto-session',
+      config = function()
+        require('plugins.configs.session').setup()
+      end,
+    })
 
     -- LSP and friends
     use({
