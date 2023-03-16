@@ -233,6 +233,11 @@ local configs = {
   nvim_tree = function()
     map('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
   end,
+
+  -- winresizer
+  winresizer = function()
+    map('n', '<leader>r', '<cmd>WinResizerStartResize<cr>')
+  end,
 }
 
 M.init = function()

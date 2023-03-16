@@ -177,7 +177,6 @@ return packer.startup({
     -- Set the comment string based on the cursor location in a file
     use({
       'JoosepAlviste/nvim-ts-context-commentstring',
-      requires = 'nvim-treesitter/nvim-treesitter',
       after = 'nvim-treesitter',
       config = function()
         require('plugins.configs.treesitter').setup_context_commentstring()
@@ -187,7 +186,6 @@ return packer.startup({
     -- Use treesitter to auto close and auto rename HTML tags
     use({
       'windwp/nvim-ts-autotag',
-      requires = 'nvim-treesitter/nvim-treesitter',
       after = 'nvim-treesitter',
       config = function()
         require('plugins.configs.treesitter').setup_autotag()
@@ -197,7 +195,6 @@ return packer.startup({
     -- Syntax aware text-objects
     use({
       'nvim-treesitter/nvim-treesitter-textobjects',
-      requires = 'nvim-treesitter/nvim-treesitter',
       after = 'nvim-treesitter',
       config = function()
         require('plugins.configs.treesitter').setup_textobjects()
@@ -207,14 +204,12 @@ return packer.startup({
     -- Show code context
     use({
       'nvim-treesitter/nvim-treesitter-context',
-      requires = 'nvim-treesitter/nvim-treesitter',
       after = 'nvim-treesitter',
     })
 
     -- Better indentation for treesitter
     use({
       'yioneko/nvim-yati',
-      requires = 'nvim-treesitter/nvim-treesitter',
       after = 'nvim-treesitter',
       config = function()
         require('plugins.configs.treesitter').setup_yati()
@@ -228,12 +223,6 @@ return packer.startup({
       config = function()
         require('plugins.configs.autopairs').setup()
       end,
-    })
-
-    -- Text objects for entire buffer
-    use({
-      'kana/vim-textobj-entire',
-      requires = 'kana/vim-textobj-user',
     })
 
     -- Indent guides for Neovim
@@ -264,9 +253,7 @@ return packer.startup({
     -- Windows / Split
     use({
       'simeji/winresizer',
-      config = function()
-        vim.g.winresizer_start_key = '<leader>r'
-      end,
+      cmd = 'WinResizerStartResize',
     })
     use({
       'https://gitlab.com/yorickpeterse/nvim-window.git',
@@ -345,8 +332,6 @@ return packer.startup({
         require('plugins.configs.cinnamon').setup()
       end,
     })
-    use('tpope/vim-sleuth')
-    use('tpope/vim-unimpaired')
     use('jeffkreeftmeijer/vim-numbertoggle')
     use({
       'anuvyklack/pretty-fold.nvim',
@@ -368,6 +353,8 @@ return packer.startup({
       end,
     })
     use('tpope/vim-abolish')
+    use('tpope/vim-sleuth')
+    use('tpope/vim-unimpaired')
     -- use('gcmt/taboo.vim')
 
     if packer_bootstrap then
