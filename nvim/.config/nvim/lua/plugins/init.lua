@@ -1,3 +1,4 @@
+---@diagnostic disable: different-requires
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
@@ -28,7 +29,6 @@ return packer.startup({
     -- UI stuff
     use('Mofiqul/vscode.nvim')
     -- use('projekt0n/github-nvim-theme')
-    -- use('rebelot/kanagawa.nvim')
     use('kyazdani42/nvim-web-devicons')
     use({
       'freddiehaddad/feline.nvim',
@@ -39,12 +39,12 @@ return packer.startup({
     })
 
     -- Sessions
-    use({
-      'rmagatti/auto-session',
-      config = function()
-        require('plugins.configs.session').setup()
-      end,
-    })
+    -- use({
+    --   'rmagatti/auto-session',
+    --   config = function()
+    --     require('plugins.configs.session').setup()
+    --   end,
+    -- })
 
     -- LSP and friends
     use({
@@ -77,18 +77,39 @@ return packer.startup({
       'nvim-telescope/telescope.nvim',
       tag = '0.1.0',
       requires = 'nvim-lua/plenary.nvim',
+      cmd = 'Telescope',
       config = function()
         require('plugins.configs.telescope').setup()
       end,
     })
-    use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
-    use('nvim-telescope/telescope-media-files.nvim')
-    use('fannheyward/telescope-coc.nvim')
+    use({
+      'nvim-telescope/telescope-fzf-native.nvim',
+      run = 'make',
+      after = 'telescope.nvim',
+      config = function()
+        require('telescope').load_extension('fzf')
+      end,
+    })
+    use({
+      'nvim-telescope/telescope-media-files.nvim',
+      after = 'telescope.nvim',
+      config = function()
+        require('telescope').load_extension('media_files')
+      end,
+    })
+    use({
+      'fannheyward/telescope-coc.nvim',
+      after = 'telescope.nvim',
+      config = function()
+        require('telescope').load_extension('coc')
+      end,
+    })
 
     -- Explorer
     use({
       'nvim-tree/nvim-tree.lua',
       tag = 'nightly',
+      cmd = 'NvimTreeToggle',
       config = function()
         require('plugins.configs.nvim-tree').setup()
       end,
@@ -304,11 +325,7 @@ return packer.startup({
     use({
       'brenoprata10/nvim-highlight-colors',
       config = function()
-        require('nvim-highlight-colors').setup({
-          render = 'background',
-          enable_named_color = true,
-          enable_tailwind = true,
-        })
+        require('plugins.configs.highlight-colors').setup()
       end,
     })
 
@@ -325,11 +342,7 @@ return packer.startup({
     use({
       'declancm/cinnamon.nvim',
       config = function()
-        require('cinnamon').setup({
-          always_scroll = true,
-          centered = true,
-          default_delay = 2,
-        })
+        require('plugins.configs.cinnamon').setup()
       end,
     })
     use('tpope/vim-sleuth')

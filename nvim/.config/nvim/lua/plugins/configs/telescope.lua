@@ -7,14 +7,14 @@ M.setup = function()
   end
 
   -- Loading extensions
-  local extensions = {
-    'fzf',
-    'media_files',
-    'coc',
-  }
-  for _, ext in ipairs(extensions) do
-    telescope.load_extension(ext)
-  end
+  -- local extensions = {
+  --   'fzf',
+  --   'media_files',
+  --   'coc',
+  -- }
+  -- for _, ext in ipairs(extensions) do
+  --   telescope.load_extension(ext)
+  -- end
 
   local actions = require('telescope.actions')
   local actions_layout = require('telescope.actions.layout')
@@ -59,6 +59,7 @@ M.setup = function()
           ['<esc>'] = actions.close,
           -- ['<C-u>'] = false,
           ['<M-p>'] = actions_layout.toggle_preview,
+          ['<Tab>'] = actions.toggle_selection,
         },
       },
       borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
