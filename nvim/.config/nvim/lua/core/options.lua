@@ -73,7 +73,6 @@ M.init = function()
   vim.g.colorscheme = 'vscode_dark'
   -- vim.g.colorscheme = 'vscode_light'
   -- vim.g.colorscheme = 'github_light'
-  -- vim.g.colorscheme = 'kanagawa'
 
   -- Set options
   for k, v in pairs(options) do
