@@ -54,7 +54,7 @@ return packer.startup({
         require('plugins.configs.coc').setup()
       end,
     })
-    -- use('xiyaowong/coc-symbol-line')
+    use('xiyaowong/coc-symbol-line')
 
     -- Languages
     use({ 'tpope/vim-rails', ft = 'ruby' })
