@@ -75,7 +75,6 @@ return packer.startup({
     -- Fuzzy finder
     use({
       'nvim-telescope/telescope.nvim',
-      tag = '0.1.0',
       requires = 'nvim-lua/plenary.nvim',
       cmd = 'Telescope',
       config = function()
@@ -253,7 +252,9 @@ return packer.startup({
     -- Windows / Split
     use({
       'simeji/winresizer',
-      cmd = 'WinResizerStartResize',
+      config = function()
+        vim.g.winresizer_start_key = '<leader>r'
+      end,
     })
     use({
       'https://gitlab.com/yorickpeterse/nvim-window.git',

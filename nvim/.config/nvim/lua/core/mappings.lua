@@ -156,6 +156,7 @@ local configs = {
     map('n', '<leader>fb', [[<CMD>Telescope buffers<CR>]])
     map('n', '<leader>fr', [[<CMD>Telescope live_grep<CR>]])
     map('n', '<leader>fh', [[<CMD>Telescope help_tags<CR>]])
+    map('n', '<leader>fq', [[<CMD>Telescope quickfix<CR>]])
   end,
 
   -- vim-floaterm
@@ -232,11 +233,6 @@ local configs = {
   -- nvim-tree.lua
   nvim_tree = function()
     map('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
-  end,
-
-  -- winresizer
-  winresizer = function()
-    map('n', '<leader>r', '<cmd>WinResizerStartResize<cr>')
   end,
 }
 

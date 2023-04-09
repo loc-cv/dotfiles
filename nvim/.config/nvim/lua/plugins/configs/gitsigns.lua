@@ -8,11 +8,12 @@ M.setup = function()
 
   gitsigns.setup({
     signs = {
-      add = { hl = 'DiffAdd', text = '┃', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
-      change = { hl = 'DiffChange', text = '┃', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
-      delete = { hl = 'DiffDelete', text = '🭻', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-      topdelete = { hl = 'DiffDelete', text = '🭶', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-      changedelete = { hl = 'DiffChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+      add = { text = '┃' },
+      change = { text = '┃' },
+      delete = { text = '🭻' },
+      topdelete = { text = '🭶' },
+      changedelete = { text = '~' },
+      untracked = { text = '┆' },
     },
     current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
     current_line_blame_opts = {

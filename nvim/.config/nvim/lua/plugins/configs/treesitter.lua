@@ -26,7 +26,6 @@ M.setup_ts = function()
 
     highlight = {
       enable = true,
-      disable = { 'vim', 'html' },
       additional_vim_regex_highlighting = false,
     },
 

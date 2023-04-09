@@ -10,9 +10,9 @@ local colors = {
   Folded = { bg = '#252526', fg = '#3F3F46', underline = false },
 
   -- Git
-  DiffAdd = { fg = '#458700', bg = 'NONE' },
-  DiffChange = { fg = '#007c9f', bg = 'NONE' },
-  DiffDelete = { fg = '#db4b4b', bg = 'NONE' },
+  -- DiffAdd = { fg = '#458700', bg = 'NONE' },
+  -- DiffChange = { fg = '#007c9f', bg = 'NONE' },
+  -- DiffDelete = { fg = '#db4b4b', bg = 'NONE' },
 
   -- Tabline
   TabLineFill = { bg = '#282828', fg = '#d4d4d4' },
