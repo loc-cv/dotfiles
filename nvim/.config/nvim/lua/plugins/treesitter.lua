@@ -2,6 +2,13 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+      'windwp/nvim-ts-autotag',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/nvim-treesitter-context',
+      'yioneko/nvim-yati',
+    },
     opts = {
       ensure_installed = {
         'lua',
@@ -28,40 +35,19 @@ return {
       indent = {
         enable = false,
       },
-    },
-    config = function(_, opts)
-      require('nvim-treesitter.configs').setup(opts)
-    end,
-  },
-  {
-    'JoosepAlviste/nvim-ts-context-commentstring',
-    dependencies = 'nvim-treesitter',
-    opts = {
+
+      -- 'JoosepAlviste/nvim-ts-context-commentstring'
       context_commentstring = {
         enable = true,
         enable_autocmd = false,
       },
-    },
-    config = function(_, opts)
-      require('nvim-treesitter.configs').setup(opts)
-    end,
-  },
-  {
-    'windwp/nvim-ts-autotag',
-    dependencies = 'nvim-treesitter',
-    opts = {
+
+      -- 'windwp/nvim-ts-autotag'
       autotag = {
         enable = true,
       },
-    },
-    config = function(_, opts)
-      require('nvim-treesitter.configs').setup(opts)
-    end,
-  },
-  {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    dependencies = 'nvim-treesitter',
-    opts = {
+
+      -- 'nvim-treesitter/nvim-treesitter-textobjects'
       textobjects = {
         select = {
           enable = true,
@@ -77,19 +63,8 @@ return {
           },
         },
       },
-    },
-    config = function(_, opts)
-      require('nvim-treesitter.configs').setup(opts)
-    end,
-  },
-  {
-    'nvim-treesitter/nvim-treesitter-context',
-    dependencies = 'nvim-treesitter',
-  },
-  {
-    'yioneko/nvim-yati',
-    dependencies = 'nvim-treesitter',
-    opts = {
+
+      -- 'yioneko/nvim-yati'
       yati = {
         enable = true,
       },

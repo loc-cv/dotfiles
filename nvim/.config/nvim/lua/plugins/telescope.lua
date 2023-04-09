@@ -13,11 +13,40 @@ return {
       { 'nvim-telescope/telescope-media-files.nvim' },
       { 'fannheyward/telescope-coc.nvim' },
     },
+    keys = {
+      -- telescope-coc.nvim
+      { 'gd', [[<Cmd>Telescope coc definitions<cr>]] },
+      { 'gy', [[<cmd>Telescope coc type_definitions<cr>]] },
+      { 'gi', [[<cmd>Telescope coc implementations<cr>]] },
+      { 'gr', [[<CMD>Telescope coc references<CR>]] },
+      { 'gD', [[<cmd>Telescope coc declarations<cr>]] },
+      { '<leader>lcm', [[<cmd>Telescope coc commands<cr>]] },
+      { '<leader>lda', [[<cmd>Telescope coc diagnostics<cr>]] },
+      { '<leader>ldA', [[<cmd>Telescope coc workspace_diagnostics<cr>]] },
+      { '<leader>llo', [[<cmd>Telescope coc locations<cr>]] },
+      { '<leader>lds', [[<cmd>Telescope coc document_symbols<cr>]] },
+      { '<leader>lws', [[<cmd>Telescope coc workspace_symbols<cr>]] },
+
+      -- telescope.nvim
+      { '<leader>fp', [[<CMD>Telescope builtin<CR>]] },
+      { '<leader>ff', [[<CMD>Telescope find_files<CR>]] },
+      { '<leader>fb', [[<CMD>Telescope buffers<CR>]] },
+      { '<leader>fr', [[<CMD>Telescope live_grep<CR>]] },
+      { '<leader>fh', [[<CMD>Telescope help_tags<CR>]] },
+      { '<leader>fq', [[<CMD>Telescope quickfix<CR>]] },
+    },
     config = function()
       local ok, telescope = pcall(require, 'telescope')
       if not ok then
         return
       end
+
+      -- AUTOCMDS
+      vim.api.nvim_create_autocmd('User', {
+        group = vim.api.nvim_create_augroup('Telescope', { clear = true }),
+        pattern = 'TelescopePreviewerLoaded',
+        command = 'setlocal number',
+      })
 
       -- Loading extensions
       local extensions = {

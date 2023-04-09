@@ -4,8 +4,6 @@ return {
   { 'kyazdani42/nvim-web-devicons' },
   {
     'Mofiqul/vscode.nvim',
-    lazy = false,
-    priority = 1000,
     init = function()
       vim.g.vscode_disable_nvim_tree_bg = 1
     end,

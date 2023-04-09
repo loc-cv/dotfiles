@@ -1,4 +1,5 @@
 ---@diagnostic disable: redundant-parameter
+local map = require('core.utils').map
 
 return {
   {
@@ -21,7 +22,27 @@ return {
       },
     },
     config = function(_, opts)
-      require('gitsigns').setup(opts)
+      local gs = require('gitsigns')
+      gs.setup(opts)
+      map('n', ']c', function()
+        if vim.wo.diff then
+          return ']c'
+        end
+        vim.schedule(function()
+          gs.next_hunk()
+        end)
+        return '<Ignore>'
+      end, { expr = true })
+
+      map('n', '[c', function()
+        if vim.wo.diff then
+          return '[c'
+        end
+        vim.schedule(function()
+          gs.prev_hunk()
+        end)
+        return '<Ignore>'
+      end, { expr = true })
     end,
   },
   {
@@ -33,5 +54,8 @@ return {
       vim.g.lazygit_floating_window_corner_chars = { '┌', '┐', '└', '┘' }
       vim.g.lazygit_floating_window_use_plenary = 0
     end,
+    keys = {
+      { '<leader>g', '<cmd>LazyGit<cr>' },
+    },
   },
 }
