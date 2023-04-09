@@ -1,21 +1,6 @@
 local M = {}
 
 local configs = {
-  -- packer.nvim
-  packer = function()
-    -- Auto compile/clean/install plugins with packer-nvim
-    vim.api.nvim_create_autocmd('BufWritePost', {
-      group = vim.api.nvim_create_augroup('Packer', { clear = true }),
-      pattern = '*/lua/plugins/init.lua',
-      callback = function()
-        vim.cmd({ cmd = 'source', args = { '<afile>' } })
-        vim.cmd({ cmd = 'PackerClean' })
-        vim.cmd({ cmd = 'PackerInstall' })
-        vim.cmd({ cmd = 'PackerCompile' })
-      end,
-    })
-  end,
-
   -- vim-floaterm
   -- floaterm = function()
   --   -- Make floaterm window transparent
@@ -27,32 +12,32 @@ local configs = {
   -- end,
 
   -- coc.nvim
-  coc = function()
-    local cocAuGroup = vim.api.nvim_create_augroup('CoC', { clear = true })
+  -- coc = function()
+  --   local cocaugroup = vim.api.nvim_create_augroup('coc', { clear = true })
 
-    -- Setup formatexpr specified filetype(s)
-    vim.api.nvim_create_autocmd('FileType', {
-      group = cocAuGroup,
-      pattern = { 'typescript', 'json' },
-      command = "setl formatexpr=CocAction('formatSelected')",
-      desc = 'Setup formatexpr specified filetype(s)',
-    })
+  --   -- setup formatexpr specified filetype(s)
+  --   vim.api.nvim_create_autocmd('filetype', {
+  --     group = cocaugroup,
+  --     pattern = { 'typescript', 'json' },
+  --     command = "setl formatexpr=cocaction('formatselected')",
+  --     desc = 'setup formatexpr specified filetype(s)',
+  --   })
 
-    -- Update signature help on jump placeholder
-    vim.api.nvim_create_autocmd('User', {
-      group = cocAuGroup,
-      pattern = 'CocJumpPlaceholder',
-      command = "call CocActionAsync('showSignatureHelp')",
-      desc = 'Update signature help on jump placeholder',
-    })
+  --   -- update signature help on jump placeholder
+  --   vim.api.nvim_create_autocmd('user', {
+  --     group = cocaugroup,
+  --     pattern = 'cocjumpplaceholder',
+  --     command = "call cocactionasync('showsignaturehelp')",
+  --     desc = 'update signature help on jump placeholder',
+  --   })
 
-    -- Highlight the symbol and its references when holding the cursor
-    vim.api.nvim_create_autocmd('CursorHold', {
-      group = cocAuGroup,
-      command = "silent call CocActionAsync('highlight')",
-      desc = 'Highlight symbol under cursor on CursorHold',
-    })
-  end,
+  --   -- Highlight the symbol and its references when holding the cursor
+  --   vim.api.nvim_create_autocmd('CursorHold', {
+  --     group = cocAuGroup,
+  --     command = "silent call CocActionAsync('highlight')",
+  --     desc = 'Highlight symbol under cursor on CursorHold',
+  --   })
+  -- end,
 
   telescope = function()
     vim.api.nvim_create_autocmd('User', {

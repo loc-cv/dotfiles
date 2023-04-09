@@ -114,11 +114,6 @@ local configs = {
     -- Mappings for CoCList
     map('n', '<leader>lli', '<CMD>CocList<CR>', { nowait = true })
     map('n', '<leader>lex', '<CMD>CocList extensions<CR>', { nowait = true })
-    -- map('n', '<leader>lol', '<CMD>CocList -A outline<CR>', { nowait = true })
-    -- map('n', '<C-m>c', '<CMD>CocList commands<CR>', { nowait = true })
-    -- map('n', '<C-m>d', '<CMD>CocList -A diagnostics<CR>', { nowait = true })
-    -- map('n', '<C-m>l', '<CMD>CocList -A location<CR>', { nowait = true })
-    -- map('n', '<C-m>s', '<CMD>CocList -A -I symbols<CR>', { nowait = true })
 
     local toggleOutline = function()
       for _, win in ipairs(vim.api.nvim_list_wins()) do

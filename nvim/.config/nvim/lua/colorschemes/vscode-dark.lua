@@ -65,11 +65,6 @@ local colors = {
   OperatorSandwichDelete = { link = 'Visual' },
 }
 
-M.colors_statusline = {
-  active = { fg = '#ffffff', bg = '#0a7aca', style = 'NONE' },
-  inactive = { fg = '#ffffff', bg = '#373737', style = 'NONE' },
-}
-
 M.setup = function()
   vim.o.background = 'dark'
   vim.g.vscode_disable_nvim_tree_bg = 1
