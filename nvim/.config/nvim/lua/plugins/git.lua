@@ -45,6 +45,7 @@ return {
       end, { expr = true })
     end,
   },
+
   {
     'kdheepak/lazygit.nvim',
     cmd = 'LazyGit',

@@ -2,6 +2,7 @@ local hi = require('core.utils').hi
 
 return {
   { 'kyazdani42/nvim-web-devicons' },
+
   {
     'Mofiqul/vscode.nvim',
     init = function()
@@ -80,6 +81,7 @@ return {
       end
     end,
   },
+
   {
     'lukas-reineke/indent-blankline.nvim',
     opts = {

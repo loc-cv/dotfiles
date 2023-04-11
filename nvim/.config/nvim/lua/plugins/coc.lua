@@ -82,9 +82,6 @@ return {
       vim.g.coc_snippet_next = '<C-f>'
       vim.g.coc_snippet_prev = '<C-b>'
 
-      -- coc-explorer
-      -- map('n', '<leader>e', [[<CMD>CocCommand explorer<CR><CMD>sleep 10m<CR><C-w>=]])
-
       -- Use <C-space> to trigger completion
       map('i', '<C-space>', function()
         return vim.fn['coc#refresh']()

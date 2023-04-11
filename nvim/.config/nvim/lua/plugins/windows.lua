@@ -4,7 +4,9 @@ return {
     init = function()
       vim.g.winresizer_start_key = '<leader>r'
     end,
+    keys = { '<leader>r' },
   },
+
   {
     url = 'https://gitlab.com/yorickpeterse/nvim-window.git',
     lazy = true,

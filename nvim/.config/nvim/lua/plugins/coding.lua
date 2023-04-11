@@ -1,5 +1,6 @@
 return {
   { 'tpope/vim-rails', ft = { 'ruby', 'eruby' } },
+
   {
     'kkoomen/vim-doge',
     build = ':call doge#install()',
@@ -11,6 +12,7 @@ return {
       }
     end,
   },
+
   {
     'numToStr/Comment.nvim',
     dependencies = 'JoosepAlviste/nvim-ts-context-commentstring',
@@ -23,6 +25,7 @@ return {
       })
     end,
   },
+
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
@@ -37,21 +40,23 @@ return {
       require('nvim-autopairs').setup(opts)
     end,
   },
+
   {
     'machakann/vim-sandwich',
     config = function()
       vim.cmd({ cmd = 'runtime', args = { 'macros/sandwich/keymap/surround.vim' } })
     end,
   },
+
   {
     'machakann/vim-highlightedyank',
     init = function()
       vim.g.highlightedyank_highlight_duration = 300
     end,
   },
+
   { 'svban/YankAssassin.vim' },
 
-  -- Markdown
   {
     'iamcco/markdown-preview.nvim',
     ft = { 'markdown' },
@@ -60,6 +65,7 @@ return {
       vim.g.mkdp_filetypes = { 'markdown' }
     end,
   },
+
   {
     'ntpeters/vim-better-whitespace',
     init = function()

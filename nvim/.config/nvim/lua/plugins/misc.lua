@@ -2,14 +2,17 @@
 
 return {
   { 'matze/vim-move', keys = { '<M-j>', '<M-k>', '<M-h>', '<M-l>' } },
+
   {
     'dstein64/vim-startuptime',
     cmd = { 'StartupTime' },
   },
+
   {
     'lambdalisue/suda.vim',
     cmd = { 'SudaRead', 'SudaWrite' },
   },
+
   {
     'declancm/cinnamon.nvim',
     opts = {
@@ -21,7 +24,9 @@ return {
       require('cinnamon').setup(opts)
     end,
   },
+
   { 'jeffkreeftmeijer/vim-numbertoggle' },
+
   {
     'anuvyklack/pretty-fold.nvim',
     opts = {
@@ -50,6 +55,7 @@ return {
       require('pretty-fold').setup(opts)
     end,
   },
+
   {
     'anuvyklack/fold-preview.nvim',
     dependencies = 'anuvyklack/keymap-amend.nvim',
@@ -57,13 +63,17 @@ return {
       require('fold-preview').setup()
     end,
   },
+
   {
     'markonm/traces.vim',
     init = function()
       vim.g.traces_abolish_integration = 1
     end,
   },
+
   { 'tpope/vim-abolish' },
+
   { 'tpope/vim-sleuth' },
+
   { 'tpope/vim-unimpaired' },
 }
