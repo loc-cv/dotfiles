@@ -2,7 +2,7 @@ local opt = vim.opt
 
 local options = {
   -- General options
-  clipboard = 'unnamed,unnamedplus', -- copy-paste between vim and everything else
+  clipboard = "unnamed,unnamedplus", -- copy-paste between vim and everything else
   showmode = false, -- don't show things like -- INSERT -- anymore
   pumheight = 10, -- set popup menu height
   splitright = true, -- vertical splits will automatically be to the right
@@ -12,20 +12,20 @@ local options = {
   -- scrolloff = 1, -- minimal number of lines above and below cursor
   number = true, -- enable number lines
   relativenumber = true, -- enable relative number lines
-  signcolumn = 'yes', -- always show the signcolumn
+  signcolumn = "yes", -- always show the signcolumn
   wrap = false, -- enable lines wrapping
   linebreak = true, -- prevent words from being split across two lines when line wraps
-  showbreak = '↳ ', -- string to put at the start of lines that have been wrapped
+  showbreak = "↳ ", -- string to put at the start of lines that have been wrapped
   breakindent = true, -- wrapped line will continue visually indented (same amount of space as the beginning of that line)
   cursorline = true, -- enable cursorline
-  mouse = 'a', -- enable your mouse
+  mouse = "a", -- enable your mouse
   shortmess = opt.shortmess + { c = true }, -- don't give ins-completion-menu message
-  fillchars = { eob = ' ', stl = ' ' }, -- disable `~` on nonexistent lines
+  fillchars = { eob = " ", stl = " " }, -- disable `~` on nonexistent lines
   ttimeout = false, -- fix delay <ESC>
   timeout = false, -- no waiting for key combination
-  sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal', -- some session options that I don't understand :)
-  cpoptions = opt.cpoptions - { '_' }, -- make sense of 'cw'
-  splitkeep = 'screen', -- keep the text on the same screen line when opening, closing or resizing horizontal splits
+  sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal", -- some session options that I don't understand :)
+  cpoptions = opt.cpoptions - { "_" }, -- make sense of 'cw'
+  splitkeep = "screen", -- keep the text on the same screen line when opening, closing or resizing horizontal splits
 
   -- Disable swapfiles & backup files
   backup = false, -- prevent making a backup before overwriting a file

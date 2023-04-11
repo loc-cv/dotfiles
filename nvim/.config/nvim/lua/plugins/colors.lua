@@ -1,13 +1,13 @@
 return {
   {
-    'brenoprata10/nvim-highlight-colors',
+    "brenoprata10/nvim-highlight-colors",
     opts = {
-      render = 'background',
+      render = "background",
       enable_named_color = true,
       enable_tailwind = true,
     },
     config = function(_, opts)
-      require('nvim-highlight-colors').setup(opts)
+      require("nvim-highlight-colors").setup(opts)
     end,
   },
 }

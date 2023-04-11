@@ -24,36 +24,6 @@
   "diagnostic.hintSign": "H",
   "diagnostic.refreshOnInsertMode": false,
 
-  // "suggest.completionItemKindLabels": {
-  //   "keyword": " Keyword",
-  //   "variable": " Variable",
-  //   "value": " Value",
-  //   "operator": " Operator",
-  //   "constructor": " Constructor",
-  //   "function": " Function",
-  //   "reference": " Reference",
-  //   "constant": " Constant",
-  //   "method": " Method",
-  //   "struct": " Struct",
-  //   "class": " Class",
-  //   "interface": " Interface",
-  //   "text": " Text",
-  //   "enum": " Enum",
-  //   "enumMember": " EnumMember",
-  //   "module": " Module",
-  //   "color": " Color",
-  //   "property": " Property",
-  //   "field": " Field",
-  //   "unit": " Unit",
-  //   "event": " Event",
-  //   "file": " File",
-  //   "folder": " Folder",
-  //   "snippet": " Snippet",
-  //   "typeParameter": " TypeParameter",
-  //   // "default": ""
-  //   "default": ""
-  // },
-
   "suggest.completionItemKindLabels": {
     "keyword": "",
     "variable": "",
@@ -118,49 +88,13 @@
     "<C-t>": "action:tabe"
   },
 
-  "coc.preferences.formatOnSaveFiletypes": [
-    "html",
-    "css",
-    "scss",
-    "json",
-    "jsonc",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "lua",
-    "vue",
-    "yaml",
-    "ruby"
-  ],
+  "coc.preferences.formatOnSave": true,
 
   // lua
-  "Lua.telemetry.enable": false,
   "Lua.hint.enable": false,
   "sumneko-lua.enableNvimLuaDev": true,
-  "stylua.configPath": "/home/colcv/dotfiles/nvim/.config/nvim/stylua.toml",
-
-  // coc-explorer
-  // "explorer.width": 40,
-  // "explorer.icon.expanded": "▸",
-  // "explorer.icon.collapsed": "▾",
-  // "explorer.icon.enableNerdfont": true,
-  // "explorer.icon.source": "nvim-web-devicons",
-  // "explorer.file.reveal.auto": true,
-  // "explorer.file.showHiddenFiles": true,
-  // "explorer.file.reveal.filter": {
-  //   "literals": ["node_modules", ".git"]
-  // },
-  // "explorer.file.column.indent.indentLine": true,
-  // "explorer.filename.colored.enable": true,
-  // "explorer.buffer.showHiddenBuffers": true,
-  // "explorer.previewAction.onHover": false,
-  // "explorer.keyMappings.global": {
-  //   "<C-v>": "open:vsplit",
-  //   "<C-s>": "open:split",
-  //   "<C-t>": "open:tab"
-  // },
-  // "explorer.focus": false,
+  // "stylua.configPath": "/home/colcv/dotfiles/nvim/.config/nvim/stylua.toml",
+  "stylua.configPath": "./stylua.toml",
 
   // emmet
   "emmet.priority": 99,
@@ -184,6 +118,5 @@
 
   // solargraph
   "solargraph.diagnostics": true,
-  "solargraph.formatting": true,
-  "solargraph.hover": true
+  "solargraph.formatting": true
 }

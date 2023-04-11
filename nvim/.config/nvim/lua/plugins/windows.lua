@@ -1,29 +1,28 @@
 return {
   {
-    'simeji/winresizer',
+    "simeji/winresizer",
     init = function()
-      vim.g.winresizer_start_key = '<leader>r'
+      vim.g.winresizer_start_key = "<leader>r"
     end,
-    keys = { '<leader>r' },
+    keys = { "<leader>r" },
   },
 
   {
-    url = 'https://gitlab.com/yorickpeterse/nvim-window.git',
-    lazy = true,
-    opts = {
-      hint_hl = 'Bold',
-      border = 'single',
-    },
+    url = "https://gitlab.com/yorickpeterse/nvim-window.git",
     keys = {
       {
-        '<leader>w',
+        "<leader>w",
         function()
-          require('nvim-window').pick()
+          require("nvim-window").pick()
         end,
       },
     },
+    opts = {
+      hint_hl = "Bold",
+      border = "single",
+    },
     config = function(_, opts)
-      require('nvim-window').setup(opts)
+      require("nvim-window").setup(opts)
     end,
   },
 }

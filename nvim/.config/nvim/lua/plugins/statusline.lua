@@ -2,51 +2,48 @@
 
 return {
   {
-    'freddiehaddad/feline.nvim',
-    branch = 'main',
+    "freddiehaddad/feline.nvim",
+    branch = "main",
     config = function()
-      local feline_ok, feline = pcall(require, 'feline')
-      if not feline_ok then
-        return
-      end
+      local feline = require("feline")
 
       local colors_statusline = {
-        active = { fg = '#ffffff', bg = '#0a7aca', style = 'NONE' },
-        inactive = { fg = '#ffffff', bg = '#373737', style = 'NONE' },
+        active = { fg = "#ffffff", bg = "#0a7aca", style = "NONE" },
+        inactive = { fg = "#ffffff", bg = "#373737", style = "NONE" },
       }
 
       local special_filetypes = {
-        'packer',
-        'vim-plug',
-        'NvimTree',
-        'CHADTree',
-        'coc-explorer',
-        'startuptime',
-        'fugitive',
-        'DiffviewFiles',
-        'nnn',
-        'floaterm',
-        'coctree',
-        'list',
-        'Trouble',
-        -- 'toggleterm',
+        "packer",
+        "vim-plug",
+        "NvimTree",
+        "CHADTree",
+        "coc-explorer",
+        "startuptime",
+        "fugitive",
+        "DiffviewFiles",
+        "nnn",
+        "floaterm",
+        "coctree",
+        "list",
+        "Trouble",
+        "toggleterm",
       }
 
       local get_coc_diagnostic = function(diag_type)
-        local has_info, info = pcall(vim.api.nvim_buf_get_var, 0, 'coc_diagnostic_info')
+        local has_info, info = pcall(vim.api.nvim_buf_get_var, 0, "coc_diagnostic_info")
         if not has_info then
-          return ''
+          return ""
         end
         if info[diag_type] > 0 then
           return tostring(info[diag_type])
         end
-        return ''
+        return ""
       end
 
       -- Custom conditons
       local conditions = {
         buffer_not_empty = function()
-          if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
+          if vim.fn.empty(vim.fn.expand("%:t")) ~= 1 then
             return true
           end
           return false
@@ -62,7 +59,7 @@ return {
         filetype_special = function()
           local filetype = vim.bo.filetype
           if vim.tbl_contains(special_filetypes, filetype) then
-            if filetype ~= 'list' then
+            if filetype ~= "list" then
               return true
             end
           end
@@ -70,7 +67,7 @@ return {
         end,
 
         filetype_list = function()
-          if vim.bo.filetype == 'list' then
+          if vim.bo.filetype == "list" then
             return true
           end
           return false
@@ -94,18 +91,18 @@ return {
       local providers = {
         file_icon = function()
           local icon
-          if vim.fn.exists('*WebDevIconsGetFileTypeSymbol') == 1 then
+          if vim.fn.exists("*WebDevIconsGetFileTypeSymbol") == 1 then
             icon = vim.fn.WebDevIconsGetFileTypeSymbol()
             return icon
           end
-          local icons_ok, devicons = pcall(require, 'nvim-web-devicons')
+          local icons_ok, devicons = pcall(require, "nvim-web-devicons")
           if not icons_ok then
             print("No icon plugin found. Please install 'kyazdani42/nvim-web-devicons'")
-            return ''
+            return ""
           end
-          icon = devicons.get_icon(vim.fn.expand('%:t'), vim.fn.expand('%:e'))
+          icon = devicons.get_icon(vim.fn.expand("%:t"), vim.fn.expand("%:e"))
           if icon == nil then
-            icon = ''
+            icon = ""
           end
           return icon
         end,
@@ -113,51 +110,51 @@ return {
         smart_file_name = function()
           local file_name = vim.api.nvim_buf_get_name(0)
 
-          if file_name ~= '' then
+          if file_name ~= "" then
             local squeeze_width = vim.fn.winwidth(0) / 2
             if squeeze_width > 60 then
-              file_name = vim.fn.fnamemodify(file_name, ':~:.')
+              file_name = vim.fn.fnamemodify(file_name, ":~:.")
             elseif squeeze_width > 40 then
-              file_name = vim.fn.pathshorten(vim.fn.fnamemodify(file_name, ':~:.'))
+              file_name = vim.fn.pathshorten(vim.fn.fnamemodify(file_name, ":~:."))
             else
-              file_name = vim.fn.fnamemodify(file_name, ':t')
+              file_name = vim.fn.fnamemodify(file_name, ":t")
             end
           else
-            file_name = ' Untitled'
+            file_name = " Untitled"
           end
 
           if vim.bo.readonly == true then
-            file_name = file_name .. ' '
+            file_name = file_name .. " "
           end
 
           if vim.bo.modified then
-            file_name = file_name .. '  '
+            file_name = file_name .. "  "
           end
 
-          local trail = vim.fn.search('\\s$', 'nw')
+          local trail = vim.fn.search("\\s$", "nw")
           if trail ~= 0 then
-            file_name = file_name .. '  '
+            file_name = file_name .. "  "
           end
 
           return file_name
         end,
 
         coc_diagnostic = function(diag_type)
-          if vim.fn.exists('*coc#rpc#start_server') == 1 then
+          if vim.fn.exists("*coc#rpc#start_server") == 1 then
             return get_coc_diagnostic(diag_type)
           end
-          return ''
+          return ""
         end,
 
         coclist_status = function(segment)
-          return vim.fn['coc#list#status'](segment)
+          return vim.fn["coc#list#status"](segment)
         end,
 
         session = function()
           if vim.g.persisting then
-            return ' '
+            return " "
           elseif vim.g.persisting == false then
-            return ' '
+            return " "
           end
         end,
       }
@@ -169,24 +166,24 @@ return {
         local status = opts.status
 
         -- Default status: 'active' ('active'|'inactive')
-        status = status or 'active'
+        status = status or "active"
 
         -- Default sep: { position = 'right' ('right'|'left'|'none'), str = ' ' }
         sep = sep or {}
-        sep.position = sep.position or 'right'
-        sep.str = sep.str or ' '
+        sep.position = sep.position or "right"
+        sep.str = sep.str or " "
 
         local colors = colors_statusline
 
-        if sep.position ~= 'none' then
-          sep = vim.tbl_extend('keep', sep, { hl = colors[status] })
-          component = vim.tbl_extend('keep', component, {
+        if sep.position ~= "none" then
+          sep = vim.tbl_extend("keep", sep, { hl = colors[status] })
+          component = vim.tbl_extend("keep", component, {
             hl = colors[status],
             ---@diagnostic disable-next-line: need-check-nil
-            [sep.position .. '_sep'] = sep,
+            [sep.position .. "_sep"] = sep,
           })
         else
-          component = vim.tbl_extend('keep', component, { hl = colors[status] })
+          component = vim.tbl_extend("keep", component, { hl = colors[status] })
         end
         return component
       end
@@ -194,36 +191,36 @@ return {
       local coclist_c = { -- coclist components
         mode = {
           provider = function()
-            return providers.coclist_status('mode') .. ' |'
+            return providers.coclist_status("mode") .. " |"
           end,
           enabled = conditions.filetype_list,
         },
         title = {
-          provider = 'CocList',
+          provider = "CocList",
           enabled = conditions.filetype_list,
         },
         loading = {
           provider = function()
-            return providers.coclist_status('loading')
+            return providers.coclist_status("loading")
           end,
           enabled = conditions.filetype_list,
         },
         args = {
           provider = function()
-            return providers.coclist_status('args')
+            return providers.coclist_status("args")
           end,
           enabled = conditions.filetype_list,
         },
         total = {
           provider = function()
-            local total_line = tostring(vim.fn.line('$'))
-            return '(' .. total_line .. '/' .. tostring(providers.coclist_status('total')) .. ')'
+            local total_line = tostring(vim.fn.line("$"))
+            return "(" .. total_line .. "/" .. tostring(providers.coclist_status("total")) .. ")"
           end,
           enabled = conditions.filetype_list,
         },
         path = {
           provider = function()
-            return providers.coclist_status('cwd')
+            return providers.coclist_status("cwd")
           end,
           enabled = conditions.filetype_list,
         },
@@ -231,23 +228,23 @@ return {
 
       local c_c = { -- common components
         blank = {
-          provider = ' ',
+          provider = " ",
         },
       }
 
       local sft_c = { -- special filetype components
         filetype = {
-          provider = 'file_type',
+          provider = "file_type",
           enabled = conditions.filetype_special,
         },
       }
 
       local nft_c = { -- normal filetype components
         git_branch = {
-          provider = 'git_branch',
-          icon = ' ',
+          provider = "git_branch",
+          icon = " ",
           enabled = function()
-            return require('feline.providers.git').git_info_exists() and conditions.filetype_normal()
+            return require("feline.providers.git").git_info_exists() and conditions.filetype_normal()
           end,
         },
         file_icon = {
@@ -263,75 +260,75 @@ return {
         },
         diagnostic_errors = {
           provider = function()
-            return providers.coc_diagnostic('error')
+            return providers.coc_diagnostic("error")
           end,
-          icon = 'E',
+          icon = "E",
           enabled = conditions.filetype_normal,
         },
         diagnostic_warnings = {
           provider = function()
-            return providers.coc_diagnostic('warning')
+            return providers.coc_diagnostic("warning")
           end,
-          icon = 'W',
+          icon = "W",
           enabled = conditions.filetype_normal,
         },
         diagnostic_hints = {
           provider = function()
-            return providers.coc_diagnostic('hint')
+            return providers.coc_diagnostic("hint")
           end,
-          icon = 'H',
+          icon = "H",
           enabled = conditions.filetype_normal,
         },
         diagnostic_info = {
           provider = function()
-            return providers.coc_diagnostic('information')
+            return providers.coc_diagnostic("information")
           end,
-          icon = 'I',
+          icon = "I",
           enabled = conditions.filetype_normal,
         },
         lsp_client_names = {
-          provider = 'lsp_client_names',
+          provider = "lsp_client_names",
           enabled = conditions.filetype_normal,
         },
         git_diff_added = {
-          provider = 'git_diff_added',
-          icon = '+',
+          provider = "git_diff_added",
+          icon = "+",
           enabled = function()
-            return require('feline.providers.git').git_info_exists() and conditions.filetype_normal()
+            return require("feline.providers.git").git_info_exists() and conditions.filetype_normal()
           end,
         },
         git_diff_removed = {
-          provider = 'git_diff_removed',
-          icon = '-',
+          provider = "git_diff_removed",
+          icon = "-",
           enabled = function()
-            return require('feline.providers.git').git_info_exists() and conditions.filetype_normal()
+            return require("feline.providers.git").git_info_exists() and conditions.filetype_normal()
           end,
         },
         git_diff_changed = {
-          provider = 'git_diff_changed',
-          icon = '~',
+          provider = "git_diff_changed",
+          icon = "~",
           enabled = function()
-            return require('feline.providers.git').git_info_exists() and conditions.filetype_normal()
+            return require("feline.providers.git").git_info_exists() and conditions.filetype_normal()
           end,
         },
         position = {
-          provider = 'position',
+          provider = "position",
           enabled = conditions.filetype_normal,
         },
         filetype = {
-          provider = 'file_type',
+          provider = "file_type",
           enabled = function()
             return conditions.hide_by_width() and conditions.filetype_normal()
           end,
         },
         file_encoding = {
-          provider = 'file_encoding',
+          provider = "file_encoding",
           enabled = function()
             return conditions.hide_by_width() and conditions.filetype_normal()
           end,
         },
         line_percentage = {
-          provider = 'line_percentage',
+          provider = "line_percentage",
           enabled = conditions.filetype_normal,
         },
         static_file_name = {
@@ -349,53 +346,53 @@ return {
       local sl_components = { -- statusline components
         active = {
           { -- left
-            render_c(c_c.blank, { sep = { position = 'none' } }),
+            render_c(c_c.blank, { sep = { position = "none" } }),
             render_c(coclist_c.mode),
             render_c(coclist_c.title),
             render_c(coclist_c.loading),
             render_c(coclist_c.args),
             render_c(coclist_c.total),
             render_c(sft_c.filetype),
-            render_c(nft_c.git_branch, { sep = { str = '  ' } }),
+            render_c(nft_c.git_branch, { sep = { str = "  " } }),
             render_c(nft_c.file_icon),
-            render_c(nft_c.smart_file_name, { sep = { str = '  ' } }),
+            render_c(nft_c.smart_file_name, { sep = { str = "  " } }),
             render_c(nft_c.diagnostic_errors),
             render_c(nft_c.diagnostic_warnings),
             render_c(nft_c.diagnostic_hints),
             render_c(nft_c.diagnostic_info),
           },
           { -- right
-            render_c(nft_c.git_diff_added, { sep = { position = 'left' } }),
-            render_c(nft_c.git_diff_removed, { sep = { position = 'left' } }),
-            render_c(nft_c.git_diff_changed, { sep = { position = 'left' } }),
-            render_c(nft_c.filetype, { sep = { position = 'left', str = '  ' } }),
-            render_c(nft_c.file_encoding, { sep = { position = 'left', str = '  ' } }),
-            render_c(nft_c.position, { sep = { position = 'left', str = '  ' } }),
-            render_c(nft_c.line_percentage, { sep = { position = 'left', str = '  ' } }),
-            render_c(nft_c.session, { sep = { position = 'left', str = '  ' } }),
-            render_c(coclist_c.path, { sep = { position = 'left', str = '  ' } }),
-            render_c(c_c.blank, { sep = { position = 'none' } }),
+            render_c(nft_c.git_diff_added, { sep = { position = "left" } }),
+            render_c(nft_c.git_diff_removed, { sep = { position = "left" } }),
+            render_c(nft_c.git_diff_changed, { sep = { position = "left" } }),
+            render_c(nft_c.filetype, { sep = { position = "left", str = "  " } }),
+            render_c(nft_c.file_encoding, { sep = { position = "left", str = "  " } }),
+            render_c(nft_c.position, { sep = { position = "left", str = "  " } }),
+            render_c(nft_c.line_percentage, { sep = { position = "left", str = "  " } }),
+            render_c(nft_c.session, { sep = { position = "left", str = "  " } }),
+            render_c(coclist_c.path, { sep = { position = "left", str = "  " } }),
+            render_c(c_c.blank, { sep = { position = "none" } }),
           },
         },
         inactive = {
           { -- left
-            render_c(c_c.blank, { status = 'inactive', sep = { position = 'none' } }),
-            render_c(coclist_c.mode, { status = 'inactive' }),
-            render_c(coclist_c.title, { status = 'inactive' }),
-            render_c(coclist_c.loading, { status = 'inactive' }),
-            render_c(coclist_c.args, { status = 'inactive' }),
-            render_c(coclist_c.total, { status = 'inactive' }),
-            render_c(sft_c.filetype, { status = 'inactive' }),
-            render_c(nft_c.file_icon, { status = 'inactive' }),
-            render_c(nft_c.smart_file_name, { status = 'inactive', sep = { str = '  ' } }),
-            render_c(nft_c.diagnostic_errors, { status = 'inactive' }),
-            render_c(nft_c.diagnostic_warnings, { status = 'inactive' }),
-            render_c(nft_c.diagnostic_hints, { status = 'inactive' }),
-            render_c(nft_c.diagnostic_info, { status = 'inactive' }),
+            render_c(c_c.blank, { status = "inactive", sep = { position = "none" } }),
+            render_c(coclist_c.mode, { status = "inactive" }),
+            render_c(coclist_c.title, { status = "inactive" }),
+            render_c(coclist_c.loading, { status = "inactive" }),
+            render_c(coclist_c.args, { status = "inactive" }),
+            render_c(coclist_c.total, { status = "inactive" }),
+            render_c(sft_c.filetype, { status = "inactive" }),
+            render_c(nft_c.file_icon, { status = "inactive" }),
+            render_c(nft_c.smart_file_name, { status = "inactive", sep = { str = "  " } }),
+            render_c(nft_c.diagnostic_errors, { status = "inactive" }),
+            render_c(nft_c.diagnostic_warnings, { status = "inactive" }),
+            render_c(nft_c.diagnostic_hints, { status = "inactive" }),
+            render_c(nft_c.diagnostic_info, { status = "inactive" }),
           },
           { -- right
-            render_c(coclist_c.path, { status = 'inactive', sep = { position = 'left', str = '  ' } }),
-            render_c(c_c.blank, { status = 'inactive', sep = { position = 'none' } }),
+            render_c(coclist_c.path, { status = "inactive", sep = { position = "left", str = "  " } }),
+            render_c(c_c.blank, { status = "inactive", sep = { position = "none" } }),
           },
         },
       }

@@ -1,30 +1,30 @@
 return {
   {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
     dependencies = {
-      'JoosepAlviste/nvim-ts-context-commentstring',
-      'windwp/nvim-ts-autotag',
-      'nvim-treesitter/nvim-treesitter-textobjects',
-      'nvim-treesitter/nvim-treesitter-context',
-      'yioneko/nvim-yati',
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      "windwp/nvim-ts-autotag",
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "nvim-treesitter/nvim-treesitter-context",
+      "yioneko/nvim-yati",
     },
     opts = {
       ensure_installed = {
-        'lua',
-        'javascript',
-        'typescript',
-        'tsx',
-        'html',
-        'css',
-        'scss',
-        'jsdoc',
-        'json',
-        'jsonc',
-        'markdown',
-        'c_sharp',
-        'ruby',
-        'vue',
+        "lua",
+        "javascript",
+        "typescript",
+        "tsx",
+        "html",
+        "css",
+        "scss",
+        "jsdoc",
+        "json",
+        "jsonc",
+        "markdown",
+        "c_sharp",
+        "ruby",
+        "vue",
       },
 
       highlight = {
@@ -56,10 +56,10 @@ return {
           lookahead = true,
 
           keymaps = {
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
           },
         },
       },
@@ -70,7 +70,7 @@ return {
       },
     },
     config = function(_, opts)
-      require('nvim-treesitter.configs').setup(opts)
+      require("nvim-treesitter.configs").setup(opts)
     end,
   },
 }
