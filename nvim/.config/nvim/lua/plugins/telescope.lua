@@ -54,13 +54,16 @@ return {
 
       telescope.setup({
         defaults = {
-          layout_strategy = "vertical",
+          -- layout_strategy = "vertical",
           previewer = true,
-          -- winblend = 15,
+          winblend = 20,
           layout_config = {
             prompt_position = "bottom",
             scroll_speed = 1,
             preview_cutoff = 0,
+            width = 0.9,
+            height = 0.9,
+            preview_width = 0.5,
           },
           vimgrep_arguments = {
             "rg",
