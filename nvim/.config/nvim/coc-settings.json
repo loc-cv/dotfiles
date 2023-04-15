@@ -93,8 +93,8 @@
   // lua
   "Lua.hint.enable": false,
   "sumneko-lua.enableNvimLuaDev": true,
-  // "stylua.configPath": "/home/colcv/dotfiles/nvim/.config/nvim/stylua.toml",
-  "stylua.configPath": "./stylua.toml",
+  "stylua.configPath": "/home/colcv/dotfiles/nvim/.config/nvim/stylua.toml",
+  // "stylua.configPath": "./stylua.toml",
 
   // emmet
   "emmet.priority": 99,

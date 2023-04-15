@@ -1,7 +1,6 @@
 return {
   {
     "kazhala/close-buffers.nvim",
-    lazy = true,
     opts = {
       filetype_ignore = { "floaterm" },
     },

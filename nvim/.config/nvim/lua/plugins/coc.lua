@@ -26,7 +26,6 @@ return {
         "coc-snippets",
         "https://github.com/rafamadriz/friendly-snippets@main",
         "coc-symbol-line",
-        -- 'coc-explorer',
         -- 'coc-styled-components',
       }
     end,

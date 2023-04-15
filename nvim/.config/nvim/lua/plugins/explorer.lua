@@ -11,7 +11,6 @@ return {
     config = function()
       local nvimtree = require("nvim-tree")
       local lib = require("nvim-tree.lib")
-      local view = require("nvim-tree.view")
 
       local function edit_or_open()
         -- open as vsplit on current node

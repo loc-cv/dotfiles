@@ -29,6 +29,7 @@ return {
       { "<leader>fr", [[<CMD>Telescope live_grep<CR>]] },
       { "<leader>fh", [[<CMD>Telescope help_tags<CR>]] },
       { "<leader>fq", [[<CMD>Telescope quickfix<CR>]] },
+      { "<leader>fw", [[<CMD>Telescope current_buffer_fuzzy_find<CR>]] },
     },
     config = function()
       local ok, telescope = pcall(require, "telescope")

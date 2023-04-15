@@ -3,10 +3,11 @@
 return {
   { "nvim-lua/plenary.nvim", lazy = true },
 
-  { "svban/YankAssassin.vim" },
+  { "svban/YankAssassin.vim", event = "VeryLazy" },
 
   {
     "machakann/vim-highlightedyank",
+    event = "VeryLazy",
     init = function()
       vim.g.highlightedyank_highlight_duration = 300
     end,
@@ -63,13 +64,20 @@ return {
   { "jeffkreeftmeijer/vim-numbertoggle" },
 
   {
+    "chrisgrieser/nvim-early-retirement",
+    config = true,
+    event = "VeryLazy",
+  },
+
+  {
     "markonm/traces.vim",
+    event = "VeryLazy",
     init = function()
       vim.g.traces_abolish_integration = 1
     end,
   },
 
-  { "tpope/vim-abolish" },
   { "tpope/vim-sleuth" },
-  { "tpope/vim-unimpaired" },
+  { "tpope/vim-abolish", event = "VeryLazy" },
+  { "tpope/vim-unimpaired", event = "VeryLazy" },
 }

@@ -43,9 +43,9 @@ return {
   },
 
   {
-    "machakann/vim-sandwich",
-    config = function()
-      vim.cmd({ cmd = "runtime", args = { "macros/sandwich/keymap/surround.vim" } })
-    end,
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = true,
   },
 }
