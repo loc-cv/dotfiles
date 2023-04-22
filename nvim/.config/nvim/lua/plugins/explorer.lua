@@ -1,5 +1,40 @@
 ---@diagnostic disable: redundant-parameter
 
+local function on_attach(bufnr)
+  local api = require("nvim-tree.api")
+
+  api.config.mappings.default_on_attach(bufnr)
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  vim.keymap.set("n", "H", "", { buffer = bufnr })
+  vim.keymap.del("n", "H", { buffer = bufnr })
+
+  vim.keymap.set("n", "l", function()
+    local lib = require("nvim-tree.lib")
+    -- open as vsplit on current node
+    local action = "edit"
+    local node = lib.get_node_at_cursor()
+
+    -- Just copy what's done normally with vsplit
+    if node.link_to and not node.nodes then
+      require("nvim-tree.actions.node.open-file").fn(action, node.link_to)
+      -- view.close() -- Close the tree if file was opened
+    elseif node.nodes ~= nil then
+      lib.expand_or_collapse(node)
+    else
+      require("nvim-tree.actions.node.open-file").fn(action, node.absolute_path)
+      -- view.close() -- Close the tree if file was opened
+    end
+  end, opts("Edit or Open"))
+  vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
+  vim.keymap.set("n", "<C-v>", api.node.open.vertical, opts("Open: Vertical Split"))
+  vim.keymap.set("n", "<C-s>", api.node.open.horizontal, opts("Open: Horizontal Split"))
+  vim.keymap.set("n", "<C-t>", api.node.open.tab, opts("Open: New Tab"))
+end
+
 return {
   {
     "nvim-tree/nvim-tree.lua",
@@ -9,31 +44,9 @@ return {
       { "<leader>e", "<cmd>NvimTreeToggle<cr>" },
     },
     config = function()
-      local nvimtree = require("nvim-tree")
-      local lib = require("nvim-tree.lib")
-
-      local function edit_or_open()
-        -- open as vsplit on current node
-        local action = "edit"
-        local node = lib.get_node_at_cursor()
-
-        -- Just copy what's done normally with vsplit
-        if node.link_to and not node.nodes then
-          require("nvim-tree.actions.node.open-file").fn(action, node.link_to)
-        -- view.close() -- Close the tree if file was opened
-        elseif node.nodes ~= nil then
-          lib.expand_or_collapse(node)
-        else
-          require("nvim-tree.actions.node.open-file").fn(action, node.absolute_path)
-          -- view.close() -- Close the tree if file was opened
-        end
-      end
-
-      nvimtree.setup({
+      require("nvim-tree").setup({
+        on_attach = on_attach,
         disable_netrw = true,
-        -- sort_by = function(nodes)
-        --   table.sort(nodes, natural_cmp)
-        -- end,
         sort_by = "name",
         view = {
           adaptive_size = false,
@@ -42,17 +55,6 @@ return {
           hide_root_folder = false,
           number = true,
           relativenumber = true,
-          mappings = {
-            custom_only = false,
-            list = {
-              { key = "l", action = "edit", action_cb = edit_or_open },
-              { key = "h", action = "close_node" },
-              { key = "<C-v>", action = "vsplit" },
-              { key = "<C-s>", action = "split" },
-              { key = "<C-t>", action = "tabnew" },
-              { key = "H", action = "" },
-            },
-          },
         },
         actions = {
           open_file = {
