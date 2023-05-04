@@ -49,4 +49,24 @@ return {
     event = "VeryLazy",
     config = true,
   },
+
+  {
+    "Wansmer/treesj",
+    keys = {
+      { "<leader>m", [[<cmd>TSJToggle<cr>]] },
+    },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {
+      use_default_keymaps = false,
+    },
+    config = function(_, opts)
+      require("treesj").setup(opts)
+    end,
+  },
+
+  {
+    "utilyre/sentiment.nvim",
+    version = "*",
+    config = true,
+  },
 }
