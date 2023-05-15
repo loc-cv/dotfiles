@@ -57,7 +57,7 @@ return {
         defaults = {
           -- layout_strategy = "vertical",
           previewer = true,
-          winblend = 20,
+          winblend = 0,
           layout_config = {
             prompt_position = "bottom",
             scroll_speed = 1,
