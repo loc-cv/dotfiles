@@ -51,6 +51,7 @@ return {
 
   {
     "declancm/cinnamon.nvim",
+    event = "VeryLazy",
     opts = {
       always_scroll = true,
       centered = true,
