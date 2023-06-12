@@ -62,7 +62,8 @@ return {
     end,
   },
 
-  { "jeffkreeftmeijer/vim-numbertoggle" },
+  -- { "jeffkreeftmeijer/vim-numbertoggle" },
+  { "cpea2506/relative-toggle.nvim" },
 
   {
     "chrisgrieser/nvim-early-retirement",
@@ -81,4 +82,5 @@ return {
   { "tpope/vim-sleuth" },
   { "tpope/vim-abolish", event = "VeryLazy" },
   { "tpope/vim-unimpaired", event = "VeryLazy" },
+  { "tpope/vim-eunuch", event = "VeryLazy" },
 }

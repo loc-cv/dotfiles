@@ -105,7 +105,6 @@ return {
                 unmerged = "",
                 renamed = "➜",
                 untracked = "?",
-                -- deleted = '',
                 deleted = "✗",
                 ignored = "!",
               },
