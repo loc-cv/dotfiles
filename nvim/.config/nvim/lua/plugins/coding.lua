@@ -1,5 +1,5 @@
 return {
-  { "tpope/vim-rails", ft = { "ruby", "eruby" } },
+  { "tpope/vim-rails" },
 
   { "matze/vim-move", keys = { "<M-j>", "<M-k>", "<M-h>", "<M-l>" } },
 
@@ -43,11 +43,16 @@ return {
     end,
   },
 
+  -- {
+  --   "kylechui/nvim-surround",
+  --   version = "*",
+  --   event = "VeryLazy",
+  --   config = true,
+  -- },
+
   {
-    "kylechui/nvim-surround",
-    version = "*",
+    "https://github.com/machakann/vim-sandwich",
     event = "VeryLazy",
-    config = true,
   },
 
   {

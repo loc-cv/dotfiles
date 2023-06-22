@@ -45,11 +45,6 @@ return {
   },
 
   {
-    "lambdalisue/suda.vim",
-    cmd = { "SudaRead", "SudaWrite" },
-  },
-
-  {
     "declancm/cinnamon.nvim",
     event = "VeryLazy",
     opts = {
