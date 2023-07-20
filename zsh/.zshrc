@@ -75,4 +75,4 @@ export PATH="$HOME/diff-so-fancy:$PATH"
 
 # alias
 alias cl="clear"
-# alias nvim='nvim --listen /tmp/nvim-server.pipe'
+alias vim="nvim"
