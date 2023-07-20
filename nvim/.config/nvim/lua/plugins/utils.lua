@@ -1,9 +1,13 @@
----@diagnostic disable: redundant-parameter, different-requires
-
 return {
-  { "nvim-lua/plenary.nvim", lazy = true },
+  {
+    "nvim-lua/plenary.nvim",
+    lazy = true,
+  },
 
-  { "svban/YankAssassin.vim", event = "VeryLazy" },
+  {
+    "svban/YankAssassin.vim",
+    event = "VeryLazy",
+  },
 
   {
     "machakann/vim-highlightedyank",

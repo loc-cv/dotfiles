@@ -1,7 +1,10 @@
 return {
   { "tpope/vim-rails" },
 
-  { "matze/vim-move", keys = { "<M-j>", "<M-k>", "<M-h>", "<M-l>" } },
+  {
+    "matze/vim-move",
+    keys = { "<M-j>", "<M-k>", "<M-h>", "<M-l>" },
+  },
 
   {
     "kkoomen/vim-doge",
@@ -43,13 +46,6 @@ return {
     end,
   },
 
-  -- {
-  --   "kylechui/nvim-surround",
-  --   version = "*",
-  --   event = "VeryLazy",
-  --   config = true,
-  -- },
-
   {
     "https://github.com/machakann/vim-sandwich",
     event = "VeryLazy",
@@ -57,13 +53,9 @@ return {
 
   {
     "Wansmer/treesj",
-    keys = {
-      { "<leader>m", [[<cmd>TSJToggle<cr>]] },
-    },
+    keys = { { "<leader>m", [[<cmd>TSJToggle<cr>]] } },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = {
-      use_default_keymaps = false,
-    },
+    opts = { use_default_keymaps = false, max_join_length = 9999 },
     config = function(_, opts)
       require("treesj").setup(opts)
     end,

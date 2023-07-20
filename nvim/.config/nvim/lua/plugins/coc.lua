@@ -7,6 +7,7 @@ return {
     init = function()
       vim.g.coc_max_treeview_width = 100
       vim.g.coc_global_extensions = {
+        "coc-symbol-line",
         "coc-html",
         "coc-css",
         "coc-emmet",
@@ -16,21 +17,19 @@ return {
         "coc-eslint",
         "coc-sumneko-lua",
         "coc-stylua",
-        "@yaegassy/coc-tailwindcss3",
+        "coc-snippets",
+        "https://github.com/rafamadriz/friendly-snippets@main",
         "coc-docker",
-        -- 'coc-deno',
         "coc-solargraph",
         "coc-markdownlint",
         "@yaegassy/coc-volar",
         "@yaegassy/coc-volar-tools",
-        "coc-snippets",
-        "https://github.com/rafamadriz/friendly-snippets@main",
-        "coc-symbol-line",
-        -- 'coc-styled-components',
+        -- "@yaegassy/coc-tailwindcss3",
+        -- 'coc-deno',
       }
     end,
     config = function()
-      -- USERCMDS
+      -- USERCMDS --
       -- Add `:Format` command to format current buffer.
       vim.api.nvim_create_user_command("Format", "call CocActionAsync('format')", { nargs = 0, bang = true })
 
@@ -51,7 +50,7 @@ return {
         { nargs = 0, bang = true }
       )
 
-      -- AUTOCMDS
+      -- AUTOCMDS --
       local cocaugroup = vim.api.nvim_create_augroup("coc", { clear = true })
 
       -- setup formatexpr specified filetype(s)
@@ -77,7 +76,7 @@ return {
         desc = "Highlight symbol under cursor on CursorHold",
       })
 
-      -- MAPPINGS
+      -- MAPPINGS --
       vim.g.coc_snippet_next = "<C-f>"
       vim.g.coc_snippet_prev = "<C-b>"
 
