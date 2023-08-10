@@ -63,10 +63,10 @@
   "outline.autoWidth": true,
   "outline.keepWindow": true,
 
-  "suggest.floatConfig": { "border": false },
-  "diagnostic.floatConfig": { "border": false },
-  "signature.floatConfig": { "border": false },
-  "hover.floatConfig": { "border": false },
+  "suggest.floatConfig": { "border": true },
+  "diagnostic.floatConfig": { "border": true },
+  "signature.floatConfig": { "border": true },
+  "hover.floatConfig": { "border": true },
 
   "list.statusLineSegments": [],
   "list.normalMappings": {

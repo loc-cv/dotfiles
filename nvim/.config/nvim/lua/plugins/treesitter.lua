@@ -25,6 +25,8 @@ return {
         "c_sharp",
         "ruby",
         "vue",
+        "c",
+        "cpp",
       },
 
       highlight = {

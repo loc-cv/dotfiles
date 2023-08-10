@@ -61,7 +61,6 @@ return {
     end,
   },
 
-  -- { "jeffkreeftmeijer/vim-numbertoggle" },
   { "cpea2506/relative-toggle.nvim" },
 
   {

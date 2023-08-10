@@ -122,6 +122,7 @@ return {
           vim.api.nvim_command("!" .. vim.o.keywordprg .. " " .. cw)
         end
       end
+
       map("n", "K", "<CMD>lua _G.show_docs()<CR>")
 
       -- Symbol renaming

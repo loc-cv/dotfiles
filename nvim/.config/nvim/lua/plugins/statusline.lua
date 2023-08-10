@@ -242,7 +242,7 @@ return {
       local nft_c = { -- normal filetype components
         git_branch = {
           provider = "git_branch",
-          icon = " ",
+          icon = "󰊢 ",
           enabled = function()
             return require("feline.providers.git").git_info_exists() and conditions.filetype_normal()
           end,

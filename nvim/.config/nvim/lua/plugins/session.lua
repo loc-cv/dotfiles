@@ -14,7 +14,7 @@ return {
           -- Close all special buffers before savings
           local excluded_filetypes = { "coc-explorer", "packer", "coctree", "NvimTree" }
           local buf = vim.api.nvim_win_get_buf(win)
-          local buf_ft = vim.api.nvim_buf_get_option(buf, "filetype")
+          local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = buf })
           if vim.tbl_contains(excluded_filetypes, buf_ft) then
             vim.api.nvim_win_close(win, false)
           end

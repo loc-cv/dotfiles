@@ -1,7 +1,8 @@
 local hi = require("core.utils").hi
 
 return {
-  { "kyazdani42/nvim-web-devicons", lazy = true },
+  -- { "kyazdani42/nvim-web-devicons", lazy = true },
+  { "DaikyXendo/nvim-web-devicons", lazy = true },
 
   {
     "Mofiqul/vscode.nvim",
