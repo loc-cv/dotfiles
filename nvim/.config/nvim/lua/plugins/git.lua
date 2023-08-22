@@ -1,4 +1,3 @@
----@diagnostic disable: redundant-parameter
 local map = require("core.utils").map
 
 return {
