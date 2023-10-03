@@ -52,7 +52,6 @@ return {
           adaptive_size = false,
           centralize_selection = false,
           width = 40,
-          hide_root_folder = false,
           number = true,
           relativenumber = true,
         },

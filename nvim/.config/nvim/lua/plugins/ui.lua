@@ -37,8 +37,7 @@ return {
         HighlightedyankRegion = { bg = "#4f4f4f" },
 
         -- indent-blankline.nvim
-        IndentBlanklineContextChar = { fg = "#d4d4d4" },
-        IndentBlanklineContextStart = { fg = "NONE", sp = "#d4d4d4", underline = true },
+        IblScope = { fg = "#d4d4d4" },
 
         -- vim-better-whitespace
         ExtraWhitespace = { bg = "#808080" },
@@ -80,43 +79,50 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     opts = {
-      char = "▏",
-      context_char = "▏",
-      -- context_char = '▎',
-      show_current_context = true,
-      show_current_context_start = false,
-      show_trailing_blankline_indent = false,
-      show_current_context_start_oncurrent_line = true,
-      filetype_exclude = {
-        "help",
-        "terminal",
-        "TelescopePrompt",
-        "TelescopeResults",
-        "fugitive",
-        "coc-explorer",
-        "packer",
-        "tutor",
-        "startuptime",
-        "NeogitStatus",
-        "DiffviewFiles",
-        "lsp-installer",
-        "lspinfo",
-        "Trouble",
-        "neo-tree",
-        "neo-tree-popup",
-        "NvimTree",
-        "mason",
-        "",
-        "coctree",
-        "ccc-ui",
-        "git",
-        "lazy",
+      indent = {
+        char = "▏",
+        smart_indent_cap = true,
       },
-      buftype_exclude = { "terminal" },
+      whitespace = {
+        remove_blankline_trail = true,
+      },
+      scope = {
+        show_start = false,
+        show_end = false,
+      },
+      exclude = {
+        filetypes = {
+          "help",
+          "terminal",
+          "TelescopePrompt",
+          "TelescopeResults",
+          "fugitive",
+          "coc-explorer",
+          "packer",
+          "tutor",
+          "startuptime",
+          "NeogitStatus",
+          "DiffviewFiles",
+          "lsp-installer",
+          "lspinfo",
+          "Trouble",
+          "neo-tree",
+          "neo-tree-popup",
+          "NvimTree",
+          "mason",
+          "",
+          "coctree",
+          "ccc-ui",
+          "git",
+          "lazy",
+        },
+        buftypes = { "terminal " },
+      },
     },
     config = function(_, opts)
-      require("indent_blankline").setup(opts)
+      require("ibl").setup(opts)
     end,
   },
 }

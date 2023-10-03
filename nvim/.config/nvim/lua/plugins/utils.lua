@@ -77,6 +77,7 @@ return {
     end,
   },
 
+  -- { "craigemery/vim-autotag", event = "VeryLazy" },
   { "tpope/vim-sleuth" },
   { "tpope/vim-abolish", event = "VeryLazy" },
   { "tpope/vim-unimpaired", event = "VeryLazy" },

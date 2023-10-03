@@ -16,8 +16,9 @@ return {
         "typescript",
         "tsx",
         "html",
-        "css",
-        "scss",
+        "go",
+        -- "css",
+        -- "scss",
         "jsdoc",
         "json",
         "jsonc",
@@ -47,6 +48,9 @@ return {
       -- 'windwp/nvim-ts-autotag'
       autotag = {
         enable = true,
+        enable_rename = true,
+        enable_close = true,
+        enable_close_on_slash = true,
       },
 
       -- 'nvim-treesitter/nvim-treesitter-textobjects'

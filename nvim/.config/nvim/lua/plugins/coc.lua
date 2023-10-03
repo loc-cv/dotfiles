@@ -24,6 +24,7 @@ return {
         "coc-markdownlint",
         "@yaegassy/coc-volar",
         "@yaegassy/coc-volar-tools",
+        "coc-go",
         -- "@yaegassy/coc-tailwindcss3",
         -- 'coc-deno',
       }
