@@ -49,7 +49,7 @@ return {
   {
     "https://github.com/machakann/vim-sandwich",
     event = "VeryLazy",
-    init = function ()
+    init = function()
       vim.g.sandwich_no_default_key_mappings = 1
       vim.g.operator_sandwich_no_default_key_mappings = 1
       vim.g.textobj_sandwich_no_default_key_mappings = 1
@@ -72,6 +72,38 @@ return {
   {
     "utilyre/sentiment.nvim",
     version = "*",
+    event = "VeryLazy",
+    init = function()
+      vim.g.loaded_matchparen = 1
+    end,
     config = true,
   },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+
+  {
+    "declancm/cinnamon.nvim",
+    event = "VeryLazy",
+    opts = {
+      always_scroll = true,
+      centered = true,
+      default_delay = 2,
+    },
+    config = function(_, opts)
+      require("cinnamon").setup(opts)
+    end,
+  },
+
+  -- { "craigemery/vim-autotag", event = "VeryLazy" },
+  { "tpope/vim-sleuth" },
+  { "tpope/vim-abolish", event = "VeryLazy" },
+  { "tpope/vim-unimpaired", event = "VeryLazy" },
+  { "tpope/vim-eunuch", event = "VeryLazy" },
 }

@@ -18,15 +18,6 @@ return {
   },
 
   {
-    "iamcco/markdown-preview.nvim",
-    ft = { "markdown" },
-    build = "cd app && npm install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-  },
-
-  {
     "ntpeters/vim-better-whitespace",
     init = function()
       vim.g.better_whitespace_filetypes_blacklist = {
@@ -48,19 +39,6 @@ return {
     cmd = { "StartupTime" },
   },
 
-  {
-    "declancm/cinnamon.nvim",
-    event = "VeryLazy",
-    opts = {
-      always_scroll = true,
-      centered = true,
-      default_delay = 2,
-    },
-    config = function(_, opts)
-      require("cinnamon").setup(opts)
-    end,
-  },
-
   { "cpea2506/relative-toggle.nvim" },
 
   {
@@ -76,10 +54,4 @@ return {
       vim.g.traces_abolish_integration = 1
     end,
   },
-
-  -- { "craigemery/vim-autotag", event = "VeryLazy" },
-  { "tpope/vim-sleuth" },
-  { "tpope/vim-abolish", event = "VeryLazy" },
-  { "tpope/vim-unimpaired", event = "VeryLazy" },
-  { "tpope/vim-eunuch", event = "VeryLazy" },
 }

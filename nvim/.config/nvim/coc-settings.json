@@ -9,7 +9,18 @@
           "directory": "/tmp/ccls"
         }
       }
+    },
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
     }
+    // "terraform": {
+    //   "command": "terraform-lsp",
+    //   "filetypes": ["terraform", "tf"]
+    // }
   },
 
   "diagnostic.errorSign": "E",
@@ -82,16 +93,19 @@
     "<C-t>": "action:tabe"
   },
 
-  "coc.preferences.formatOnSave": true,
+  "coc.preferences.formatOnSave": false,
 
   // lua
-  "Lua.hint.enable": false,
   "sumneko-lua.enableNvimLuaDev": true,
-  "stylua.configPath": "/home/colcv/dotfiles/nvim/.config/nvim/stylua.toml",
-  // "stylua.configPath": "./stylua.toml",
+  "stylua.configPath": "/home/loccv/dotfiles/nvim/.config/nvim/stylua.toml",
 
   // emmet
   "emmet.priority": 99,
+  "emmet.includeLanguages": {
+    "vue": "html",
+    "eruby": "html",
+    "vue-html": "html"
+  },
 
   // tsserver
   "javascript.suggest.completeFunctionCalls": false,
@@ -104,13 +118,26 @@
   // css
   "css.lint.unknownAtRules": "ignore",
 
-  // prettier
-  "prettier.singleQuote": true,
-
   // symbol-line
   "symbol-line.separator": " ❯ ",
 
   // solargraph
   "solargraph.diagnostics": true,
-  "solargraph.formatting": true
+  "solargraph.formatting": true,
+
+  // go
+  "go.goplsOptions": {
+    "gofumpt": true
+  },
+
+  // inlay hints
+  "inlayHint.enable": false,
+  "Lua.hint.enable": false,
+  "vue.inlayHints.missingProps": true,
+  "vue.inlayHints.optionsWrapper": true,
+  "vue.inlayHints.inlineHandlerLeading": true,
+
+  // misc
+  "snippets.ultisnips.pythonPrompt": false
+  // "prettier.singleQuote": true
 }

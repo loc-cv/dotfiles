@@ -16,7 +16,6 @@ return {
         "coc-prettier",
         "coc-eslint",
         "coc-sumneko-lua",
-        "coc-stylua",
         "coc-snippets",
         "https://github.com/rafamadriz/friendly-snippets@main",
         "coc-docker",
@@ -25,8 +24,8 @@ return {
         "@yaegassy/coc-volar",
         "@yaegassy/coc-volar-tools",
         "coc-go",
+        "coc-deno",
         -- "@yaegassy/coc-tailwindcss3",
-        -- 'coc-deno',
       }
     end,
     config = function()

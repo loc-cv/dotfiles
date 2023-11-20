@@ -17,8 +17,8 @@ return {
         "tsx",
         "html",
         "go",
-        -- "css",
-        -- "scss",
+        "css",
+        "scss",
         "jsdoc",
         "json",
         "jsonc",
@@ -28,6 +28,7 @@ return {
         "vue",
         "c",
         "cpp",
+        "terraform",
       },
 
       highlight = {
