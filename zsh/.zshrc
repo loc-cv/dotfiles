@@ -78,6 +78,9 @@ export PATH="$HOME/diff-so-fancy:$PATH"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
+# nvim
+export PATH="$HOME/nvim-linux64/bin:$PATH"
+
 # alias
 alias cl="clear"
 alias vim="nvim"

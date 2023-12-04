@@ -5,7 +5,6 @@ return {
     dependencies = {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "fannheyward/telescope-coc.nvim" },
-      { "nvim-telescope/telescope-frecency.nvim" },
     },
     keys = {
       -- telescope-coc.nvim
@@ -29,7 +28,6 @@ return {
       { "<leader>fh", [[<CMD>Telescope help_tags<CR>]] },
       { "<leader>fq", [[<CMD>Telescope quickfix<CR>]] },
       { "<leader>fw", [[<CMD>Telescope current_buffer_fuzzy_find<CR>]] },
-      { "<leader>fj", [[<CMD>Telescope frecency<CR>]] },
     },
     config = function()
       local ok, telescope = pcall(require, "telescope")
@@ -45,7 +43,7 @@ return {
       })
 
       -- Loading extensions
-      local extensions = { "fzf", "coc", "frecency" }
+      local extensions = { "fzf", "coc" }
       for _, ext in ipairs(extensions) do
         telescope.load_extension(ext)
       end
