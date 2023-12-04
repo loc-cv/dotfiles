@@ -30,6 +30,7 @@ return {
     end,
     config = function()
       -- USERCMDS --
+      --------------
       -- Add `:Format` command to format current buffer.
       vim.api.nvim_create_user_command("Format", "call CocActionAsync('format')", { nargs = 0, bang = true })
 
@@ -51,6 +52,7 @@ return {
       )
 
       -- AUTOCMDS --
+      --------------
       local cocaugroup = vim.api.nvim_create_augroup("coc", { clear = true })
 
       -- setup formatexpr specified filetype(s)
@@ -77,6 +79,7 @@ return {
       })
 
       -- MAPPINGS --
+      --------------
       vim.g.coc_snippet_next = "<C-f>"
       vim.g.coc_snippet_prev = "<C-b>"
 

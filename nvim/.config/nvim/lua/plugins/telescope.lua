@@ -7,6 +7,7 @@ return {
     dependencies = {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "fannheyward/telescope-coc.nvim" },
+      { "nvim-telescope/telescope-frecency.nvim" },
     },
     keys = {
       -- telescope-coc.nvim
@@ -30,6 +31,7 @@ return {
       { "<leader>fh", [[<CMD>Telescope help_tags<CR>]] },
       { "<leader>fq", [[<CMD>Telescope quickfix<CR>]] },
       { "<leader>fw", [[<CMD>Telescope current_buffer_fuzzy_find<CR>]] },
+      { "<leader>fj", [[<CMD>Telescope frecency<CR>]] },
     },
     config = function()
       local ok, telescope = pcall(require, "telescope")
@@ -37,7 +39,7 @@ return {
         return
       end
 
-      -- AUTOCMDS
+      -- Autocmds
       vim.api.nvim_create_autocmd("User", {
         group = vim.api.nvim_create_augroup("Telescope", { clear = true }),
         pattern = "TelescopePreviewerLoaded",
@@ -45,7 +47,7 @@ return {
       })
 
       -- Loading extensions
-      local extensions = { "fzf", "coc" }
+      local extensions = { "fzf", "coc", "frecency" }
       for _, ext in ipairs(extensions) do
         telescope.load_extension(ext)
       end
@@ -97,6 +99,8 @@ return {
               -- ['<C-u>'] = false,
               ["<C-p>"] = actions_layout.toggle_preview,
               ["<Tab>"] = actions.toggle_selection,
+              ["<M-q>"] = actions.send_selected_to_qflist,
+              ["<C-q>"] = actions.send_to_qflist,
             },
           },
           borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
