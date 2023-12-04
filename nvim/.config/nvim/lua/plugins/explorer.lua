@@ -153,4 +153,24 @@ return {
       })
     end,
   },
+
+  {
+    "stevearc/oil.nvim",
+    opts = {
+      columns = {
+        "icon",
+        "permissions",
+        "size",
+      },
+      keymaps = {
+        ["<CR>"] = "actions.select",
+        ["<C-v>"] = "actions.select_vsplit",
+        ["<C-s>"] = "actions.select_split",
+        ["<C-t>"] = "actions.select_tab",
+      },
+      view_options = {
+        show_hidden = true,
+      },
+    },
+  },
 }

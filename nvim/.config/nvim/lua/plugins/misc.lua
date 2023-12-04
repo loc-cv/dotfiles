@@ -54,4 +54,10 @@ return {
       vim.g.traces_abolish_integration = 1
     end,
   },
+
+  {
+    "declancm/maximize.nvim",
+    event = "VeryLazy",
+    config = true,
+  },
 }

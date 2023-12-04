@@ -1,5 +1,3 @@
----@diagnostic disable: redundant-parameter
-
 return {
   {
     "nvim-telescope/telescope.nvim",

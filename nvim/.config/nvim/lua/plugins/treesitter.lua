@@ -3,7 +3,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
       "windwp/nvim-ts-autotag",
       "nvim-treesitter/nvim-treesitter-textobjects",
       "nvim-treesitter/nvim-treesitter-context",
@@ -38,12 +37,6 @@ return {
 
       indent = {
         enable = false,
-      },
-
-      -- 'JoosepAlviste/nvim-ts-context-commentstring'
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
       },
 
       -- 'windwp/nvim-ts-autotag'

@@ -1,5 +1,9 @@
 return {
-  { "tpope/vim-rails" },
+  { "tpope/vim-sleuth" }, -- Heuristically set buffer options
+  { "tpope/vim-abolish", event = "VeryLazy" }, -- Work with several variants of a word at once
+  { "tpope/vim-unimpaired", event = "VeryLazy" }, -- Pairs of handy bracket mappings
+  { "tpope/vim-eunuch", event = "VeryLazy" }, -- Helpers for UNIX
+  { "tpope/vim-rails" }, --  Ruby on Rails power tools
 
   {
     "matze/vim-move",
@@ -18,6 +22,12 @@ return {
     end,
   },
 
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    init = function()
+      vim.g.skip_ts_context_commentstring_module = true
+    end,
+  },
   {
     "numToStr/Comment.nvim",
     dependencies = "JoosepAlviste/nvim-ts-context-commentstring",
@@ -102,8 +112,4 @@ return {
   },
 
   -- { "craigemery/vim-autotag", event = "VeryLazy" },
-  { "tpope/vim-sleuth" },
-  { "tpope/vim-abolish", event = "VeryLazy" },
-  { "tpope/vim-unimpaired", event = "VeryLazy" },
-  { "tpope/vim-eunuch", event = "VeryLazy" },
 }
