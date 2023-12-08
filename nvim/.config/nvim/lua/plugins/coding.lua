@@ -1,15 +1,24 @@
 return {
+  -- Time Pope stuff
   { "tpope/vim-sleuth" }, -- Heuristically set buffer options
   { "tpope/vim-abolish", event = "VeryLazy" }, -- Work with several variants of a word at once
   { "tpope/vim-unimpaired", event = "VeryLazy" }, -- Pairs of handy bracket mappings
   { "tpope/vim-eunuch", event = "VeryLazy" }, -- Helpers for UNIX
   { "tpope/vim-rails" }, --  Ruby on Rails power tools
 
+  -- { "craigemery/vim-autotag", event = "VeryLazy" },
+
+  -- preview markdown
   {
-    "matze/vim-move",
-    keys = { "<M-j>", "<M-k>", "<M-h>", "<M-l>" },
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
   },
 
+  -- generate code documentation
   {
     "kkoomen/vim-doge",
     build = ":call doge#install()",
@@ -22,40 +31,7 @@ return {
     end,
   },
 
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    init = function()
-      vim.g.skip_ts_context_commentstring_module = true
-    end,
-  },
-  {
-    "numToStr/Comment.nvim",
-    dependencies = "JoosepAlviste/nvim-ts-context-commentstring",
-    event = "VeryLazy",
-    config = function()
-      require("Comment").setup({
-        ignore = "^$",
-        toggler = { block = "gbb" },
-        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-      })
-    end,
-  },
-
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    opts = {
-      map_cr = false,
-      map_c_h = true,
-      map_c_w = true,
-      fast_wrap = {}, -- use <M-e> to fast wrap
-      break_undo = false,
-    },
-    config = function(_, opts)
-      require("nvim-autopairs").setup(opts)
-    end,
-  },
-
+  -- surround
   {
     "https://github.com/machakann/vim-sandwich",
     event = "VeryLazy",
@@ -69,8 +45,10 @@ return {
     end,
   },
 
+  -- smart splitting/joining code
   {
     "Wansmer/treesj",
+    event = "VeryLazy",
     keys = { { "<leader>m", [[<cmd>TSJToggle<cr>]] } },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = { use_default_keymaps = false, max_join_length = 9999 },
@@ -78,38 +56,4 @@ return {
       require("treesj").setup(opts)
     end,
   },
-
-  {
-    "utilyre/sentiment.nvim",
-    version = "*",
-    event = "VeryLazy",
-    init = function()
-      vim.g.loaded_matchparen = 1
-    end,
-    config = true,
-  },
-
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-  },
-
-  {
-    "declancm/cinnamon.nvim",
-    event = "VeryLazy",
-    opts = {
-      always_scroll = true,
-      centered = true,
-      default_delay = 2,
-    },
-    config = function(_, opts)
-      require("cinnamon").setup(opts)
-    end,
-  },
-
-  -- { "craigemery/vim-autotag", event = "VeryLazy" },
 }

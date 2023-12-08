@@ -1,14 +1,20 @@
 return {
+  -- lua functions for other plugins
   {
     "nvim-lua/plenary.nvim",
     lazy = true,
   },
 
+  -- smart relative number toggle
+  { "cpea2506/relative-toggle.nvim" },
+
+  -- don't let the cursor move while yanking
   {
     "svban/YankAssassin.vim",
     event = "VeryLazy",
   },
 
+  -- highlight yank
   {
     "machakann/vim-highlightedyank",
     event = "VeryLazy",
@@ -17,6 +23,7 @@ return {
     end,
   },
 
+  -- better whitespace highlighting
   {
     "ntpeters/vim-better-whitespace",
     init = function()
@@ -34,19 +41,14 @@ return {
     end,
   },
 
-  {
-    "dstein64/vim-startuptime",
-    cmd = { "StartupTime" },
-  },
-
-  { "cpea2506/relative-toggle.nvim" },
-
+  -- automatically close inactive buffers
   {
     "chrisgrieser/nvim-early-retirement",
     config = true,
     event = "VeryLazy",
   },
 
+  -- range, pattern and substitute preview
   {
     "markonm/traces.vim",
     event = "VeryLazy",
@@ -55,9 +57,23 @@ return {
     end,
   },
 
+  -- smooth scrolling
   {
-    "declancm/maximize.nvim",
+    "declancm/cinnamon.nvim",
     event = "VeryLazy",
-    config = true,
+    opts = {
+      always_scroll = true,
+      centered = true,
+      default_delay = 2,
+    },
+    config = function(_, opts)
+      require("cinnamon").setup(opts)
+    end,
+  },
+
+  -- move lines and selections up and down
+  {
+    "matze/vim-move",
+    keys = { "<M-j>", "<M-k>", "<M-h>", "<M-l>" },
   },
 }

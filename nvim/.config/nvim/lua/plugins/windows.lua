@@ -25,4 +25,11 @@ return {
       require("nvim-window").setup(opts)
     end,
   },
+
+  -- maximize neovim windows
+  {
+    "declancm/maximize.nvim",
+    event = "VeryLazy",
+    config = true,
+  },
 }
