@@ -73,7 +73,9 @@ return {
 
   -- move lines and selections up and down
   {
-    "matze/vim-move",
-    keys = { "<M-j>", "<M-k>", "<M-h>", "<M-l>" },
+    'echasnovski/mini.move',
+    config = true,
+    event = "VeryLazy",
+    version = false,
   },
 }

@@ -78,6 +78,20 @@ return {
   },
 
   {
+    'echasnovski/mini.indentscope',
+    version = false,
+    opts = {
+      draw = {
+        delay = 20,
+      },
+      symbol = "▏"
+    },
+    config = function(_, opts)
+      require("mini.indentscope").setup(opts)
+    end,
+  },
+
+  {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = {
@@ -89,6 +103,7 @@ return {
         remove_blankline_trail = true,
       },
       scope = {
+        enabled = false,
         show_start = false,
         show_end = false,
       },
