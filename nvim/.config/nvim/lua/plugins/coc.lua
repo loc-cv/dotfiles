@@ -25,6 +25,10 @@ return {
         "@yaegassy/coc-volar-tools",
         "coc-go",
         "coc-deno",
+        "@yaegassy/coc-ansible",
+        "@yaegassy/coc-black-formatter",
+        "coc-pyright",
+
         -- "@yaegassy/coc-tailwindcss3",
       }
     end,
@@ -80,8 +84,8 @@ return {
 
       -- MAPPINGS --
       --------------
-      vim.g.coc_snippet_next = "<C-f>"
-      vim.g.coc_snippet_prev = "<C-b>"
+      vim.g.coc_snippet_next = "<M-f>"
+      vim.g.coc_snippet_prev = "<M-b>"
 
       -- Use <C-space> to trigger completion
       map("i", "<C-space>", function()
@@ -209,6 +213,11 @@ return {
         vim.fn.CocAction("showOutline")
       end
       map("n", "<leader>lol", toggleOutline, { nowait = true })
+
+      -- ansible
+      vim.g.coc_filetype_map = {
+        ["yaml.ansible"] = "ansible",
+      }
     end,
   },
 

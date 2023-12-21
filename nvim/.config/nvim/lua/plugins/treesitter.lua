@@ -28,6 +28,7 @@ return {
         "c",
         "cpp",
         "terraform",
+        "python",
       },
 
       highlight = {

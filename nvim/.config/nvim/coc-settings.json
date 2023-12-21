@@ -81,23 +81,23 @@
 
   "list.statusLineSegments": [],
   "list.normalMappings": {
-    "<C-v>": "action:vsplit",
-    "<C-s>": "action:split",
-    "<C-t>": "action:tabe",
+    "<A-v>": "action:vsplit",
+    "<A-s>": "action:split",
+    "<A-t>": "action:tabe",
     "<C-j>": "normal:j",
     "<C-k>": "normal:k"
   },
   "list.insertMappings": {
-    "<C-v>": "action:vsplit",
-    "<C-s>": "action:split",
-    "<C-t>": "action:tabe"
+    "<A-v>": "action:vsplit",
+    "<A-s>": "action:split",
+    "<A-t>": "action:tabe"
   },
 
   "coc.preferences.formatOnSave": false,
 
   // lua
   "sumneko-lua.enableNvimLuaDev": true,
-  "stylua.configPath": "/home/loccv/dotfiles/nvim/.config/nvim/stylua.toml",
+  // "stylua.configPath": "/home/loccv/dotfiles/nvim/.config/nvim/stylua.toml",
 
   // emmet
   "emmet.priority": 99,
@@ -130,6 +130,9 @@
     "gofumpt": true
   },
 
+  // python
+  "python.formatting.provider": "none",
+
   // inlay hints
   "inlayHint.enable": false,
   "Lua.hint.enable": false,
@@ -137,7 +140,6 @@
   "vue.inlayHints.optionsWrapper": true,
   "vue.inlayHints.inlineHandlerLeading": true,
 
-  // misc
+  // snippets
   "snippets.ultisnips.pythonPrompt": false
-  // "prettier.singleQuote": true
 }

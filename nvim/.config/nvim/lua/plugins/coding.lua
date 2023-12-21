@@ -8,6 +8,9 @@ return {
 
   -- { "craigemery/vim-autotag", event = "VeryLazy" },
 
+  -- ansible
+  { "pearofducks/ansible-vim" },
+
   -- preview markdown
   {
     "iamcco/markdown-preview.nvim",

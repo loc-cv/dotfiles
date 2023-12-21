@@ -78,16 +78,19 @@ return {
   },
 
   {
-    'echasnovski/mini.indentscope',
+    "echasnovski/mini.indentscope",
     version = false,
-    opts = {
-      draw = {
-        delay = 20,
-      },
-      symbol = "▏"
-    },
-    config = function(_, opts)
-      require("mini.indentscope").setup(opts)
+    config = function()
+      local mini_indentscope = require("mini.indentscope")
+      mini_indentscope.setup({
+        draw = {
+          animation = mini_indentscope.gen_animation.none(),
+        },
+        symbol = "▏",
+        options = {
+          indent_at_cursor = false,
+        },
+      })
     end,
   },
 

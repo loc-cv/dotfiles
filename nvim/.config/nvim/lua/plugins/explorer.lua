@@ -161,7 +161,7 @@ return {
     "stevearc/oil.nvim",
     cmd = "Oil",
     keys = {
-      { "-", "<cmd>Oil<cr>" }
+      { "-", "<cmd>Oil<cr>" },
     },
     opts = {
       columns = {
@@ -171,10 +171,10 @@ return {
       },
       keymaps = {
         ["<CR>"] = "actions.select",
-        ["<C-v>"] = "actions.select_vsplit",
-        ["<C-s>"] = "actions.select_split",
-        ["<C-t>"] = "actions.select_tab",
-        ["<C-e>"] = "actions.close",
+        ["<M-v>"] = "actions.select_vsplit",
+        ["<M-s>"] = "actions.select_split",
+        ["<M-t>"] = "actions.select_tab",
+        ["<M-e>"] = "actions.close",
       },
       view_options = {
         show_hidden = true,

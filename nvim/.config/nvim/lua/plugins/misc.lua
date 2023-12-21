@@ -73,7 +73,7 @@ return {
 
   -- move lines and selections up and down
   {
-    'echasnovski/mini.move',
+    "echasnovski/mini.move",
     config = true,
     event = "VeryLazy",
     version = false,
