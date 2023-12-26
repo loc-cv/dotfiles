@@ -17,10 +17,6 @@
       "initializationOptions": {},
       "settings": {}
     }
-    // "terraform": {
-    //   "command": "terraform-lsp",
-    //   "filetypes": ["terraform", "tf"]
-    // }
   },
 
   "diagnostic.errorSign": "E",
@@ -97,7 +93,6 @@
 
   // lua
   "sumneko-lua.enableNvimLuaDev": true,
-  // "stylua.configPath": "/home/loccv/dotfiles/nvim/.config/nvim/stylua.toml",
 
   // emmet
   "emmet.priority": 99,
