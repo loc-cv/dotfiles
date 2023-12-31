@@ -2,8 +2,8 @@ return {
   {
     "simeji/winresizer",
     keys = {
-      { "<leader>rr", [[<cmd>WinResizerStartResize<cr>]] },
-      { "<leader>rm", [[<cmd>WinResizerStartMove<cr>]] },
+      { "<leader>wr", [[<cmd>WinResizerStartResize<cr>]] },
+      { "<leader>wm", [[<cmd>WinResizerStartMove<cr>]] },
     },
   },
 
@@ -11,7 +11,7 @@ return {
     url = "https://gitlab.com/yorickpeterse/nvim-window.git",
     keys = {
       {
-        "<leader>w",
+        "<leader>wp",
         function()
           require("nvim-window").pick()
         end,
@@ -29,7 +29,19 @@ return {
   -- maximize neovim windows
   {
     "declancm/maximize.nvim",
-    event = "VeryLazy",
-    config = true,
+    keys = {
+      {
+        "<leader>wz",
+        function()
+          require("maximize").toggle()
+        end,
+      },
+    },
+    opts = {
+      default_keymaps = false,
+    },
+    config = function(_, opts)
+      require("maximize").setup(opts)
+    end,
   },
 }
