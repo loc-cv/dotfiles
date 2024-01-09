@@ -38,7 +38,8 @@ end
 return {
   {
     "nvim-tree/nvim-tree.lua",
-    version = "nightly",
+    version = "*",
+    lazy = false,
     cmd = "Explorer",
     keys = {
       { "<leader>e", "<cmd>NvimTreeToggle<cr>" },
