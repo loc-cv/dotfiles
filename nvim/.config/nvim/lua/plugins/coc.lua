@@ -68,7 +68,7 @@ return {
       })
 
       -- update signature help on jump placeholder
-      vim.api.nvim_create_autocmd("user", {
+      vim.api.nvim_create_autocmd("User", {
         group = cocaugroup,
         pattern = "cocjumpplaceholder",
         command = "call cocactionasync('showsignaturehelp')",
@@ -207,10 +207,12 @@ return {
           local buf_ft = vim.api.nvim_buf_get_option(buf, "filetype")
           if buf_ft == "coctree" then
             vim.fn.CocAction("hideOutline")
+            vim.cmd([[set cursorline]])
             return
           end
         end
         vim.fn.CocAction("showOutline")
+        vim.cmd([[set cursorline]])
       end
       map("n", "<leader>lol", toggleOutline, { nowait = true })
 

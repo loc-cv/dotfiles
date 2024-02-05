@@ -5,6 +5,7 @@ return {
   { "tpope/vim-unimpaired", event = "VeryLazy" }, -- Pairs of handy bracket mappings
   { "tpope/vim-eunuch", event = "VeryLazy" }, -- Helpers for UNIX
   { "tpope/vim-rails" }, --  Ruby on Rails power tools
+  { "tpope/vim-haml", ft = { "haml" } },
 
   -- { "craigemery/vim-autotag", event = "VeryLazy" },
 

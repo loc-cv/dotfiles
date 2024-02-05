@@ -26,22 +26,9 @@ return {
     end,
   },
 
-  -- maximize neovim windows
+  -- zen mode
   {
-    "declancm/maximize.nvim",
-    keys = {
-      {
-        "<leader>wz",
-        function()
-          require("maximize").toggle()
-        end,
-      },
-    },
-    opts = {
-      default_keymaps = false,
-    },
-    config = function(_, opts)
-      require("maximize").setup(opts)
-    end,
+    "folke/zen-mode.nvim",
+    keys = { { "<leader>wf", [[<cmd>ZenMode<cr>]] } },
   },
 }
