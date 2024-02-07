@@ -1,6 +1,9 @@
 return {
   {
     "simeji/winresizer",
+    init = function()
+      vim.g.winresizer_start_key = ""
+    end,
     keys = {
       { "<leader>wr", [[<cmd>WinResizerStartResize<cr>]] },
       { "<leader>wm", [[<cmd>WinResizerStartMove<cr>]] },
