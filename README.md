@@ -1,6 +1,7 @@
 # Dotfiles managed by Stow
 
 * tmux
+* zellij
 * zsh
 * kitty
 * nvim

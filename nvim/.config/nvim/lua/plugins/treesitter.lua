@@ -29,6 +29,7 @@ return {
         "cpp",
         "terraform",
         "python",
+        "kdl",
       },
 
       highlight = {
