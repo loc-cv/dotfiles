@@ -23,12 +23,8 @@ plugins=(
   # vi-mode
 )
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR="nvim"
-else
-  export EDITOR="vim"
-fi
+# Preferred editor
+export EDITOR="nvim"
 
 # Load oh-my-zsh
 source "${ZSH}/oh-my-zsh.sh"
@@ -47,10 +43,10 @@ export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH}/bin"
 
 # virtualenv
-export PATH="${PATH}:/home/colcv/.local/bin"
+export PATH="${PATH}:${HOME}/.local/bin"
 
 # pnpm
-export PNPM_HOME="/home/colcv/.local/share/pnpm"
+export PNPM_HOME="${HOME}/.local/share/pnpm"
 export PATH="${PATH}:${PNPM_HOME}"
 
 # nnn
@@ -59,7 +55,7 @@ BLK="04" CHR="04" DIR="04" EXE="00" REG="00" HARDLINK="00" SYMLINK="06" MISSING=
 export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 
 # Deno
-export DENO_INSTALL="/home/colcv/.deno"
+export DENO_INSTALL="${HOME}/.deno"
 export PATH="${PATH}:${DENO_INSTALL}/bin"
 
 # Deno completion
@@ -78,4 +74,4 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
 # nvim
-export PATH="${PATH}:${HOME}/nvim-linux64/bin"
+# export PATH="${PATH}:${HOME}/nvim-linux64/bin"
