@@ -60,4 +60,10 @@ return {
       require("treesj").setup(opts)
     end,
   },
+
+  -- notes
+  {
+    "backdround/global-note.nvim",
+    config = true,
+  },
 }
