@@ -7,6 +7,28 @@ return {
   { "tpope/vim-rails" }, --  Ruby on Rails power tools
   { "tpope/vim-haml", ft = { "haml" } },
 
+  {
+    "zbirenbaum/copilot.lua",
+    event = "VeryLazy",
+    opts = {
+      panel = {
+        auto_refresh = true,
+      },
+      suggestion = {
+        auto_trigger = true,
+        keymap = {
+          accept = "<C-l>",
+          -- accept_word = "<C-l>w",
+          -- accept_line = "<C-l>l",
+        },
+      },
+      filetypes = {},
+    },
+    config = function(_, opts)
+      require("copilot").setup(opts)
+    end,
+  },
+
   -- { "craigemery/vim-autotag", event = "VeryLazy" },
 
   -- ansible
