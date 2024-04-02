@@ -39,11 +39,8 @@ return {
     "ton/vim-bufsurf",
     lazy = false,
     keys = {
-      { "<leader>bn", "<cmd>BufSurfForward<cr>" },
-      { "<leader>bp", "<cmd>BufSurfBack<cr>" },
-      { "<leader>bl", "<cmd>BufSurfList<cr>" },
-      { "<leader>bL", "<cmd>BufSurfListAll<cr>" },
-      { "<leader>bc", "<cmd>BufSurfClear<cr>" },
+      { "]b", "<cmd>BufSurfForward<cr>" },
+      { "[b", "<cmd>BufSurfBack<cr>" },
     },
   },
 }

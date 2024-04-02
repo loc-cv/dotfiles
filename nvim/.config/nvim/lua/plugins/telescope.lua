@@ -1,3 +1,5 @@
+local map = require("core.utils").map
+
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -5,6 +7,7 @@ return {
     dependencies = {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "fannheyward/telescope-coc.nvim" },
+      { "mollerhoj/telescope-recent-files.nvim" },
     },
     keys = {
       -- telescope-coc.nvim
@@ -35,6 +38,11 @@ return {
         return
       end
 
+      -- telescope-recent-files.nvim
+      map("n", "<leader>fj", function()
+        require("telescope").extensions["recent-files"].recent_files({})
+      end)
+
       -- Autocmds
       vim.api.nvim_create_autocmd("User", {
         group = vim.api.nvim_create_augroup("Telescope", { clear = true }),
@@ -43,7 +51,7 @@ return {
       })
 
       -- Loading extensions
-      local extensions = { "fzf", "coc" }
+      local extensions = { "fzf", "coc", "recent-files" }
       for _, ext in ipairs(extensions) do
         telescope.load_extension(ext)
       end
