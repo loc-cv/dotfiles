@@ -1,3 +1,5 @@
+local window_map_prefix = "<leader>w"
+
 return {
   {
     "simeji/winresizer",
@@ -5,8 +7,8 @@ return {
       vim.g.winresizer_start_key = ""
     end,
     keys = {
-      { "<leader>wr", [[<cmd>WinResizerStartResize<cr>]] },
-      { "<leader>wm", [[<cmd>WinResizerStartMove<cr>]] },
+      { window_map_prefix .. "r", [[<cmd>WinResizerStartResize<cr>]] },
+      { window_map_prefix .. "m", [[<cmd>WinResizerStartMove<cr>]] },
     },
   },
 
@@ -14,7 +16,7 @@ return {
     url = "https://gitlab.com/yorickpeterse/nvim-window.git",
     keys = {
       {
-        "<leader>wp",
+        window_map_prefix .. "p",
         function()
           require("nvim-window").pick()
         end,
@@ -32,7 +34,7 @@ return {
   -- zen mode
   {
     "folke/zen-mode.nvim",
-    keys = { { "<leader>wf", [[<cmd>ZenMode<cr>]] } },
+    keys = { { window_map_prefix .. "f", [[<cmd>ZenMode<cr>]] } },
   },
 
   {

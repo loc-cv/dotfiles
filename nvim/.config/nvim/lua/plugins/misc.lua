@@ -58,18 +58,18 @@ return {
   },
 
   -- smooth scrolling
-  {
-    "declancm/cinnamon.nvim",
-    event = "VeryLazy",
-    opts = {
-      always_scroll = true,
-      centered = true,
-      default_delay = 2,
-    },
-    config = function(_, opts)
-      require("cinnamon").setup(opts)
-    end,
-  },
+  -- {
+  --   "declancm/cinnamon.nvim",
+  --   event = "VeryLazy",
+  --   opts = {
+  --     always_scroll = false,
+  --     centered = true,
+  --     default_delay = 2,
+  --   },
+  --   config = function(_, opts)
+  --     require("cinnamon").setup(opts)
+  --   end,
+  -- },
 
   -- move lines and selections up and down
   {

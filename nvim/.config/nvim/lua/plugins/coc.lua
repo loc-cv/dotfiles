@@ -1,4 +1,5 @@
 local map = require("core.utils").map
+local coc_map_prefix = "<leader>l"
 
 return {
   {
@@ -133,26 +134,26 @@ return {
       map("n", "K", "<CMD>lua _G.show_docs()<CR>")
 
       -- Symbol renaming
-      map("n", "<leader>lrn", "<Plug>(coc-rename)")
+      map("n", coc_map_prefix .. "rn", "<Plug>(coc-rename)")
 
       -- Format selected code
-      map({ "x", "n" }, "<leader>lfm", "<Plug>(coc-format-selected)")
+      map({ "x", "n" }, coc_map_prefix .. "fm", "<Plug>(coc-format-selected)")
 
       -- Apply code action to the selected region
-      map({ "x", "n" }, "<leader>lca", "<Plug>(coc-codeaction-selected)")
+      map({ "x", "n" }, coc_map_prefix .. "ca", "<Plug>(coc-codeaction-selected)")
 
       -- Apply code action to the current buffer
-      map("n", "<leader>lcA", "<Plug>(coc-codeaction-source)")
+      map("n", coc_map_prefix .. "cA", "<Plug>(coc-codeaction-source)")
 
       -- Apply autofix to problem on the current line
-      map("n", "<leader>laf", "<Plug>(coc-fix-current)")
+      map("n", coc_map_prefix .. "af", "<Plug>(coc-fix-current)")
 
       -- Run the Code Lens action on the current line
-      map("n", "<leader>lcl", "<Plug>(coc-codelens-action)")
+      map("n", coc_map_prefix .. "cl", "<Plug>(coc-codelens-action)")
 
       -- Apply refactor code actions
-      map({ "x", "n" }, "<leader>lrf", "<Plug>(coc-codeaction-refactor-selected)")
-      map("n", "<leader>lrF", "<Plug>(coc-codeaction-refactor)")
+      map({ "x", "n" }, coc_map_prefix .. "rf", "<Plug>(coc-codeaction-refactor-selected)")
+      map("n", coc_map_prefix .. "rF", "<Plug>(coc-codeaction-refactor)")
 
       -- Map function and class text objects
       -- NOTE: Requires 'textDocument.documentSymbol' support from the language server
@@ -198,8 +199,8 @@ return {
       map("i", "<C-s>", "<C-r>=CocActionAsync('showSignatureHelp')<CR>")
 
       -- Mappings for CoCList
-      map("n", "<leader>lli", "<CMD>CocList<CR>", { nowait = true })
-      map("n", "<leader>lex", "<CMD>CocList extensions<CR>", { nowait = true })
+      map("n", coc_map_prefix .. "li", "<CMD>CocList<CR>", { nowait = true })
+      map("n", coc_map_prefix .. "ex", "<CMD>CocList extensions<CR>", { nowait = true })
 
       local toggleOutline = function()
         for _, win in ipairs(vim.api.nvim_list_wins()) do
@@ -214,7 +215,7 @@ return {
         vim.fn.CocAction("showOutline")
         vim.cmd([[set cursorline]])
       end
-      map("n", "<leader>lol", toggleOutline, { nowait = true })
+      map("n", coc_map_prefix .. "ol", toggleOutline, { nowait = true })
 
       -- ansible
       vim.g.coc_filetype_map = {

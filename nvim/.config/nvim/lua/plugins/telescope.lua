@@ -1,4 +1,6 @@
 local map = require("core.utils").map
+local coc_map_prefix = "<leader>l"
+local telescope_map_prefix = "<leader>f"
 
 return {
   {
@@ -16,21 +18,21 @@ return {
       { "gi", [[<cmd>Telescope coc implementations<cr>]] },
       { "gr", [[<CMD>Telescope coc references<CR>]] },
       { "gD", [[<cmd>Telescope coc declarations<cr>]] },
-      { "<leader>lcm", [[<cmd>Telescope coc commands<cr>]] },
-      { "<leader>lda", [[<cmd>Telescope coc diagnostics<cr>]] },
-      { "<leader>ldA", [[<cmd>Telescope coc workspace_diagnostics<cr>]] },
-      { "<leader>llo", [[<cmd>Telescope coc locations<cr>]] },
-      { "<leader>lds", [[<cmd>Telescope coc document_symbols<cr>]] },
-      { "<leader>lws", [[<cmd>Telescope coc workspace_symbols<cr>]] },
+      { coc_map_prefix .. "cm", [[<cmd>Telescope coc commands<cr>]] },
+      { coc_map_prefix .. "da", [[<cmd>Telescope coc diagnostics<cr>]] },
+      { coc_map_prefix .. "dA", [[<cmd>Telescope coc workspace_diagnostics<cr>]] },
+      { coc_map_prefix .. "lo", [[<cmd>Telescope coc locations<cr>]] },
+      { coc_map_prefix .. "ds", [[<cmd>Telescope coc document_symbols<cr>]] },
+      { coc_map_prefix .. "ws", [[<cmd>Telescope coc workspace_symbols<cr>]] },
 
       -- telescope.nvim
-      { "<leader>fp", [[<CMD>Telescope builtin<CR>]] },
-      { "<leader>ff", [[<CMD>Telescope find_files<CR>]] },
-      { "<leader>fb", [[<CMD>Telescope buffers<CR>]] },
-      { "<leader>fr", [[<CMD>Telescope live_grep<CR>]] },
-      { "<leader>fh", [[<CMD>Telescope help_tags<CR>]] },
-      { "<leader>fq", [[<CMD>Telescope quickfix<CR>]] },
-      { "<leader>fw", [[<CMD>Telescope current_buffer_fuzzy_find<CR>]] },
+      { telescope_map_prefix .. "p", [[<CMD>Telescope builtin<CR>]] },
+      { telescope_map_prefix .. "f", [[<CMD>Telescope find_files<CR>]] },
+      { telescope_map_prefix .. "b", [[<CMD>Telescope buffers<CR>]] },
+      { telescope_map_prefix .. "r", [[<CMD>Telescope live_grep<CR>]] },
+      { telescope_map_prefix .. "h", [[<CMD>Telescope help_tags<CR>]] },
+      { telescope_map_prefix .. "q", [[<CMD>Telescope quickfix<CR>]] },
+      { telescope_map_prefix .. "w", [[<CMD>Telescope current_buffer_fuzzy_find<CR>]] },
     },
     config = function()
       local ok, telescope = pcall(require, "telescope")
@@ -39,7 +41,7 @@ return {
       end
 
       -- telescope-recent-files.nvim
-      map("n", "<leader>fj", function()
+      map("n", telescope_map_prefix .. "j", function()
         require("telescope").extensions["recent-files"].recent_files({})
       end)
 

@@ -1,3 +1,5 @@
+local map_prefix = "<C-q>"
+
 return {
   {
     "voldikss/vim-floaterm",
@@ -11,18 +13,18 @@ return {
       "FloatermShow",
     },
     keys = {
-      { "<C-q>c", [[<CMD>FloatermNew<CR>]], mode = "n" },
-      { "<C-q>c", [[<C-\><C-n><cmd>FloatermNew<CR>]], mode = "t" },
-      { "<C-q>p", [[<cmd>FloatermPrev<CR>]], mode = "n" },
-      { "<C-q>p", [[<C-\><C-n><CMD>FloatermPrev<CR>]], mode = "t" },
-      { "<C-q>n", [[<CMD>FloatermNext<CR>]], mode = "n" },
-      { "<C-q>n", [[<C-\><C-n><CMD>FloatermNext<CR>]], mode = "t" },
-      { "<C-q>t", [[<CMD>FloatermToggle<CR>]], mode = "n" },
-      { "<C-q>t", [[<C-\><C-n><CMD>FloatermToggle<CR>]], mode = "t" },
-      { "<C-q>h", [[<CMD>FloatermHide!<CR>]], mode = "n" },
-      { "<C-q>h", [[<C-\><C-n><CMD>FloatermHide!<CR>]], mode = "t" },
-      { "<C-q>k", [[<CMD>FloatermKill<CR><CMD>FloatermShow!<CR>]], mode = "n" },
-      { "<C-q>k", [[<C-\><C-n><CMD>FloatermKill<CR><CMD>FloatermShow!<CR>]], mode = "t" },
+      { map_prefix .. "c", [[<CMD>FloatermNew<CR>]], mode = "n" },
+      { map_prefix .. "c", [[<C-\><C-n><cmd>FloatermNew<CR>]], mode = "t" },
+      { map_prefix .. "p", [[<cmd>FloatermPrev<CR>]], mode = "n" },
+      { map_prefix .. "p", [[<C-\><C-n><CMD>FloatermPrev<CR>]], mode = "t" },
+      { map_prefix .. "n", [[<CMD>FloatermNext<CR>]], mode = "n" },
+      { map_prefix .. "n", [[<C-\><C-n><CMD>FloatermNext<CR>]], mode = "t" },
+      { map_prefix .. "t", [[<CMD>FloatermToggle<CR>]], mode = "n" },
+      { map_prefix .. "t", [[<C-\><C-n><CMD>FloatermToggle<CR>]], mode = "t" },
+      { map_prefix .. "h", [[<CMD>FloatermHide!<CR>]], mode = "n" },
+      { map_prefix .. "h", [[<C-\><C-n><CMD>FloatermHide!<CR>]], mode = "t" },
+      { map_prefix .. "k", [[<CMD>FloatermKill<CR><CMD>FloatermShow!<CR>]], mode = "n" },
+      { map_prefix .. "k", [[<C-\><C-n><CMD>FloatermKill<CR><CMD>FloatermShow!<CR>]], mode = "t" },
       { "<C-h>", [[<C-\><C-n><C-w>h]], mode = "t" },
 
       -- Clear terminal (Only work for floaterm)

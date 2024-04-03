@@ -5,7 +5,7 @@ return {
   { "tpope/vim-unimpaired", event = "VeryLazy" }, -- Pairs of handy bracket mappings
   { "tpope/vim-eunuch", event = "VeryLazy" }, -- Helpers for UNIX
   { "tpope/vim-rails" }, --  Ruby on Rails power tools
-  { "tpope/vim-haml", ft = { "haml" } },
+  -- { "tpope/vim-haml", ft = { "haml" } },
 
   {
     "zbirenbaum/copilot.lua",
@@ -32,7 +32,7 @@ return {
   -- { "craigemery/vim-autotag", event = "VeryLazy" },
 
   -- ansible
-  { "pearofducks/ansible-vim" },
+  -- { "pearofducks/ansible-vim" },
 
   -- preview markdown
   {
@@ -48,7 +48,7 @@ return {
   {
     "kkoomen/vim-doge",
     build = ":call doge#install()",
-    keys = "<leader>d",
+    event = "VeryLazy",
     init = function()
       vim.g.doge_javascript_settings = {
         destructuring_props = 1,
@@ -75,7 +75,7 @@ return {
   {
     "Wansmer/treesj",
     event = "VeryLazy",
-    keys = { { "<leader>m", [[<cmd>TSJToggle<cr>]] } },
+    keys = { { "<leader>j", [[<cmd>TSJToggle<cr>]] } },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = { use_default_keymaps = false, max_join_length = 9999 },
     config = function(_, opts)
@@ -87,5 +87,6 @@ return {
   {
     "backdround/global-note.nvim",
     config = true,
+    cmd = "GlobalNote",
   },
 }
