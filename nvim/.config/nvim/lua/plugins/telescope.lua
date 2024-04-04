@@ -1,4 +1,3 @@
-local map = require("core.utils").map
 local coc_map_prefix = "<leader>l"
 local telescope_map_prefix = "<leader>f"
 
@@ -9,7 +8,6 @@ return {
     dependencies = {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "fannheyward/telescope-coc.nvim" },
-      { "mollerhoj/telescope-recent-files.nvim" },
     },
     keys = {
       -- telescope-coc.nvim
@@ -40,11 +38,6 @@ return {
         return
       end
 
-      -- telescope-recent-files.nvim
-      map("n", telescope_map_prefix .. "j", function()
-        require("telescope").extensions["recent-files"].recent_files({})
-      end)
-
       -- Autocmds
       vim.api.nvim_create_autocmd("User", {
         group = vim.api.nvim_create_augroup("Telescope", { clear = true }),
@@ -53,7 +46,7 @@ return {
       })
 
       -- Loading extensions
-      local extensions = { "fzf", "coc", "recent-files" }
+      local extensions = { "fzf", "coc" }
       for _, ext in ipairs(extensions) do
         telescope.load_extension(ext)
       end
@@ -102,7 +95,6 @@ return {
               ["<M-s>"] = actions.select_horizontal,
               ["<M-t>"] = actions.select_tab,
               ["<esc>"] = actions.close,
-              -- ['<C-u>'] = false,
               ["<C-p>"] = actions_layout.toggle_preview,
               ["<Tab>"] = actions.toggle_selection,
               ["<M-q>"] = actions.send_selected_to_qflist,

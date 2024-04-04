@@ -1,18 +1,12 @@
 return {
   -- lua functions for other plugins
-  {
-    "nvim-lua/plenary.nvim",
-    lazy = true,
-  },
+  { "nvim-lua/plenary.nvim", lazy = true },
 
   -- smart relative number toggle
   { "cpea2506/relative-toggle.nvim" },
 
   -- don't let the cursor move while yanking
-  {
-    "svban/YankAssassin.vim",
-    event = "VeryLazy",
-  },
+  { "svban/YankAssassin.vim", event = "VeryLazy" },
 
   -- highlight yank
   {
@@ -58,18 +52,15 @@ return {
   },
 
   -- smooth scrolling
-  -- {
-  --   "declancm/cinnamon.nvim",
-  --   event = "VeryLazy",
-  --   opts = {
-  --     always_scroll = false,
-  --     centered = true,
-  --     default_delay = 2,
-  --   },
-  --   config = function(_, opts)
-  --     require("cinnamon").setup(opts)
-  --   end,
-  -- },
+  {
+    "declancm/cinnamon.nvim",
+    opts = {
+      default_delay = 2,
+    },
+    config = function(_, opts)
+      require("cinnamon").setup(opts)
+    end,
+  },
 
   -- move lines and selections up and down
   {

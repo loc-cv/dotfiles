@@ -18,8 +18,6 @@ return {
         auto_trigger = true,
         keymap = {
           accept = "<C-l>",
-          -- accept_word = "<C-l>w",
-          -- accept_line = "<C-l>l",
         },
       },
       filetypes = {},
@@ -30,9 +28,6 @@ return {
   },
 
   -- { "craigemery/vim-autotag", event = "VeryLazy" },
-
-  -- ansible
-  -- { "pearofducks/ansible-vim" },
 
   -- preview markdown
   {
@@ -74,8 +69,10 @@ return {
   -- smart splitting/joining code
   {
     "Wansmer/treesj",
-    event = "VeryLazy",
-    keys = { { "<leader>j", [[<cmd>TSJToggle<cr>]] } },
+    cmd = "TSJToggle",
+    keys = {
+      { "<leader>j", [[<cmd>TSJToggle<cr>]] },
+    },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = { use_default_keymaps = false, max_join_length = 9999 },
     config = function(_, opts)

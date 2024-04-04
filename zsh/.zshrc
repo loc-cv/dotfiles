@@ -74,4 +74,4 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
 # nvim
-# export PATH="${PATH}:${HOME}/nvim-linux64/bin"
+export PATH="${PATH}:${HOME}/nvim-linux64/bin"

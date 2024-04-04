@@ -47,12 +47,5 @@ return {
       vim.g.floaterm_width = 0.5
       vim.g.floaterm_height = 0.99
     end,
-    -- config = function()
-    --   vim.api.nvim_create_autocmd("FileType", {
-    --     group = vim.api.nvim_create_augroup("Floaterm", { clear = true }),
-    --     pattern = "floaterm",
-    --     command = "setlocal winblend=20",
-    --   })
-    -- end,
   },
 }

@@ -34,7 +34,9 @@ return {
   -- zen mode
   {
     "folke/zen-mode.nvim",
-    keys = { { window_map_prefix .. "f", [[<cmd>ZenMode<cr>]] } },
+    keys = {
+      { window_map_prefix .. "f", [[<cmd>ZenMode<cr>]] },
+    },
   },
 
   {

@@ -29,8 +29,10 @@ return {
         "@yaegassy/coc-ansible",
         "@yaegassy/coc-black-formatter",
         "coc-pyright",
-
         -- "@yaegassy/coc-tailwindcss3",
+      }
+      vim.g.coc_filetype_map = {
+        ["yaml.ansible"] = "ansible",
       }
     end,
     config = function()
@@ -216,11 +218,6 @@ return {
         vim.cmd([[set cursorline]])
       end
       map("n", coc_map_prefix .. "ol", toggleOutline, { nowait = true })
-
-      -- ansible
-      vim.g.coc_filetype_map = {
-        ["yaml.ansible"] = "ansible",
-      }
     end,
   },
 
