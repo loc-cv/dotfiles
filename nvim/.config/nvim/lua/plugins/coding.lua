@@ -7,27 +7,24 @@ return {
   { "tpope/vim-rails" }, --  Ruby on Rails power tools
   -- { "tpope/vim-haml", ft = { "haml" } },
 
+  -- codeium
   {
-    "zbirenbaum/copilot.lua",
-    event = "VeryLazy",
-    opts = {
-      panel = {
-        auto_refresh = true,
-      },
-      suggestion = {
-        auto_trigger = true,
-        keymap = {
-          accept = "<C-l>",
-        },
-      },
-      filetypes = {},
-    },
-    config = function(_, opts)
-      require("copilot").setup(opts)
+    "Exafunction/codeium.vim",
+    lazy = false,
+    init = function()
+      vim.g.codeium_disable_bindings = 1
     end,
+    keys = {
+      {
+        "<C-l>",
+        function()
+          return vim.fn["codeium#Accept"]()
+        end,
+        mode = "i",
+        expr = true,
+      },
+    },
   },
-
-  -- { "craigemery/vim-autotag", event = "VeryLazy" },
 
   -- preview markdown
   {

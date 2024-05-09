@@ -30,6 +30,7 @@ return {
         "terraform",
         "python",
         "kdl",
+        "yaml"
       },
 
       highlight = {

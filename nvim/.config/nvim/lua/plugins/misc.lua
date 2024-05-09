@@ -69,4 +69,10 @@ return {
     event = "VeryLazy",
     version = false,
   },
+
+  -- reopen your last closed window
+  {
+    "gu-fan/lastbuf.vim",
+    event = "VeryLazy",
+  },
 }

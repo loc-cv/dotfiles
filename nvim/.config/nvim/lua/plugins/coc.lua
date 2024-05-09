@@ -29,6 +29,8 @@ return {
         "@yaegassy/coc-ansible",
         "@yaegassy/coc-black-formatter",
         "coc-pyright",
+        "coc-yaml",
+        "coc-stylua",
         -- "@yaegassy/coc-tailwindcss3",
       }
       vim.g.coc_filetype_map = {
@@ -116,10 +118,10 @@ return {
       map("n", "]d", "<Plug>(coc-diagnostic-next)")
 
       -- GOTO code navigation
-      -- map('n', 'gd', '<Plug>(coc-definition)')
-      -- map('n', 'gy', '<Plug>(coc-type-definition)')
-      -- map('n', 'gi', '<Plug>(coc-implementation)')
-      -- map('n', 'gr', '<Plug>(coc-references)')
+      map('n', 'gd', '<Plug>(coc-definition)')
+      map('n', 'gy', '<Plug>(coc-type-definition)')
+      map('n', 'gi', '<Plug>(coc-implementation)')
+      map('n', 'gr', '<Plug>(coc-references)')
 
       -- Use K to show documentation in preview window
       function _G.show_docs()
@@ -203,6 +205,12 @@ return {
       -- Mappings for CoCList
       map("n", coc_map_prefix .. "li", "<CMD>CocList<CR>", { nowait = true })
       map("n", coc_map_prefix .. "ex", "<CMD>CocList extensions<CR>", { nowait = true })
+      map("n", coc_map_prefix .. "cm", "<CMD>CocList commands<CR>", { nowait = true })
+      map("n", coc_map_prefix .. "da", "<CMD>CocList diagnostics<CR>", { nowait = true })
+      map("n", coc_map_prefix .. "dA", "<CMD>CocList workspace_diagnostics<CR>", { nowait = true })
+      map("n", coc_map_prefix .. "lo", "<CMD>CocList locations<Cl>", { nowait = true })
+      map("n", coc_map_prefix .. "ds", "<CMD>CocList outline<CR>", { nowait = true })
+      map("n", coc_map_prefix .. "ws", "<CMD>CocList -I symbols<CR>", { nowait = true })
 
       local toggleOutline = function()
         for _, win in ipairs(vim.api.nvim_list_wins()) do

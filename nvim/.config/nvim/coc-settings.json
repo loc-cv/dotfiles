@@ -77,22 +77,23 @@
 
   "list.statusLineSegments": [],
   "list.normalMappings": {
-    "<A-v>": "action:vsplit",
-    "<A-s>": "action:split",
-    "<A-t>": "action:tabe",
+    "<C-v>": "action:vsplit",
+    "<C-s>": "action:split",
+    "<C-t>": "action:tabe",
     "<C-j>": "normal:j",
     "<C-k>": "normal:k"
   },
   "list.insertMappings": {
-    "<A-v>": "action:vsplit",
-    "<A-s>": "action:split",
-    "<A-t>": "action:tabe"
+    "<C-v>": "action:vsplit",
+    "<C-s>": "action:split",
+    "<C-t>": "action:tabe"
   },
 
   "coc.preferences.formatOnSave": false,
 
   // lua
   "sumneko-lua.enableNvimLuaDev": true,
+  "stylua.configPath": "/home/loccv/.config/nvim/stylua.toml",
 
   // emmet
   "emmet.priority": 99,
