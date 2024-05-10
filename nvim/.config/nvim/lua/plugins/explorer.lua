@@ -172,9 +172,9 @@ return {
       },
       keymaps = {
         ["<CR>"] = "actions.select",
-        ["<M-v>"] = "actions.select_vsplit",
-        ["<M-s>"] = "actions.select_split",
-        ["<M-t>"] = "actions.select_tab",
+        ["<C-v>"] = "actions.select_vsplit",
+        ["<C-s>"] = "actions.select_split",
+        ["<C-t>"] = "actions.select_tab",
         ["<M-e>"] = "actions.close",
       },
       view_options = {
