@@ -4,7 +4,6 @@ return {
   {
     "ibhagwan/fzf-lua",
     cmd = "FzfLua",
-    build = "./install --bin",
     opts = {
       winopts = {
         border = "single",

@@ -13,12 +13,21 @@ return {
     lazy = false,
     init = function()
       vim.g.codeium_disable_bindings = 1
+      vim.g.codium_manual = true
     end,
     keys = {
       {
         "<C-l>",
         function()
           return vim.fn["codeium#Accept"]()
+        end,
+        mode = "i",
+        expr = true,
+      },
+      {
+        "<M-l>",
+        function()
+          return vim.fn["codeium#Complete"]()
         end,
         mode = "i",
         expr = true,

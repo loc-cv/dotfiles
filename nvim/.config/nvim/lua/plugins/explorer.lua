@@ -53,8 +53,8 @@ return {
           adaptive_size = false,
           centralize_selection = false,
           width = 40,
-          number = true,
-          relativenumber = true,
+          -- number = true,
+          -- relativenumber = true,
         },
         actions = {
           open_file = {
