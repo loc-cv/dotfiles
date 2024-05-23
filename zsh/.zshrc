@@ -20,6 +20,9 @@ plugins=(
   rails
   rbenv
   ruby
+  docker-compose
+  zsh-autosuggestions
+  # zsh-syntax-highlighting
   # vi-mode
 )
 
@@ -75,3 +78,5 @@ complete -o nospace -C /usr/bin/terraform terraform
 
 # nvim
 export PATH="${PATH}:${HOME}/nvim-linux64/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

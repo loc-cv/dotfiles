@@ -41,11 +41,12 @@ return {
       },
     },
     init = function()
-      vim.g.floaterm_wintype = "float"
-      vim.g.floaterm_position = "topright"
+      -- vim.g.floaterm_wintype = "float"
+      vim.g.floaterm_wintype = "vsplit"
+      vim.g.floaterm_position = "botright"
       vim.g.floaterm_title = " TERMINAL: $1/$2 "
-      vim.g.floaterm_width = 0.5
-      vim.g.floaterm_height = 0.99
+      vim.g.floaterm_width = 0.4
+      -- vim.g.floaterm_height = 0.99
     end,
   },
 }

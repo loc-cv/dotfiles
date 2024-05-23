@@ -137,5 +137,8 @@
   "vue.inlayHints.inlineHandlerLeading": true,
 
   // snippets
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+
+  // yaml
+  "yaml.maxItemsComputed": 99999
 }
