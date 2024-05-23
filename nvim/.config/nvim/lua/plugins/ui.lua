@@ -9,11 +9,12 @@ return {
     init = function()
       vim.g.zenwritten = {
         -- lightness = "bright",
-        solid_line_nr = true,
         darken_comments = 60,
         italic_comments = false,
         darken_noncurrent_window = true,
         darken_cursor_line = 5,
+        darken_non_text = 50,
+        colorize_diagnostic_underline_text = true,
       }
     end,
     config = function()
