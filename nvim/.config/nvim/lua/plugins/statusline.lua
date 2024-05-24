@@ -5,15 +5,15 @@ return {
     config = function()
       local feline = require("feline")
 
-      -- local colors_statusline = {
-      --   active = { fg = "#ffffff", bg = "#0a7aca", style = "NONE" },
-      --   inactive = { fg = "#ffffff", bg = "#373737", style = "NONE" },
-      -- }
-
       local colors_statusline = {
-        active = { fg = "#eeeeee", bg = "#353535", style = "NONE" },
-        inactive = { fg = "#353535", bg = "#CFCFCF", style = "NONE" },
+        active = { fg = "#ffffff", bg = "#0a7aca", style = "NONE" },
+        inactive = { fg = "#ffffff", bg = "#373737", style = "NONE" },
       }
+
+      -- local colors_statusline = {
+      --   active = { fg = "#eeeeee", bg = "#353535", style = "NONE" },
+      --   inactive = { fg = "#353535", bg = "#CFCFCF", style = "NONE" },
+      -- }
 
       local special_filetypes = {
         "packer",
