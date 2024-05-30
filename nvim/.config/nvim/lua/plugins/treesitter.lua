@@ -3,10 +3,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     dependencies = {
-      "windwp/nvim-ts-autotag",
       "nvim-treesitter/nvim-treesitter-textobjects",
       "nvim-treesitter/nvim-treesitter-context",
-      "yioneko/nvim-yati",
     },
     opts = {
       ensure_installed = {
@@ -39,15 +37,7 @@ return {
       },
 
       indent = {
-        enable = false,
-      },
-
-      -- 'windwp/nvim-ts-autotag'
-      autotag = {
         enable = true,
-        enable_rename = true,
-        enable_close = true,
-        enable_close_on_slash = true,
       },
 
       -- 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -66,14 +56,14 @@ return {
           },
         },
       },
-
-      -- 'yioneko/nvim-yati'
-      yati = {
-        enable = true,
-      },
     },
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
+
+  {
+    "windwp/nvim-ts-autotag",
+    config = true,
+  }
 }
