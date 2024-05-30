@@ -14,3 +14,6 @@ map("n", "k", [[v:count ? (v:count > 1 ? "m'" . v:count : '') . 'k' : 'gk']], { 
 -- Use <C-j> and <C-k> to navigate the completion list in command-line
 map("c", "<C-j>", "<C-n>", { silent = false })
 map("c", "<C-k>", "<C-p>", { silent = false })
+
+-- Use <Esc> to exit terminal-mode
+map("t", "<Esc>", [[<C-\><C-n>]])

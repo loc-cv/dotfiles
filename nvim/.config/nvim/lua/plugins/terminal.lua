@@ -25,7 +25,6 @@ return {
       { map_prefix .. "h", [[<C-\><C-n><CMD>FloatermHide!<CR>]], mode = "t" },
       { map_prefix .. "k", [[<CMD>FloatermKill<CR><CMD>FloatermShow!<CR>]], mode = "n" },
       { map_prefix .. "k", [[<C-\><C-n><CMD>FloatermKill<CR><CMD>FloatermShow!<CR>]], mode = "t" },
-      { "<C-h>", [[<C-\><C-n><C-w>h]], mode = "t" },
 
       -- Clear terminal (Only work for floaterm)
       {
@@ -45,8 +44,8 @@ return {
       vim.g.floaterm_wintype = "vsplit"
       vim.g.floaterm_position = "botright"
       vim.g.floaterm_title = " TERMINAL: $1/$2 "
-      vim.g.floaterm_width = 0.4
-      -- vim.g.floaterm_height = 0.99
+      vim.g.floaterm_width = 0.45
+      vim.g.floaterm_autoinsert = false
     end,
   },
 }
