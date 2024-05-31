@@ -80,3 +80,6 @@ complete -o nospace -C /usr/bin/terraform terraform
 export PATH="${PATH}:${HOME}/nvim-linux64/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias vim='nvim --listen ./nvim-server.pipe'
+
