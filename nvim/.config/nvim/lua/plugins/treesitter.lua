@@ -5,6 +5,7 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "nvim-treesitter/nvim-treesitter-context",
+      "yioneko/nvim-yati",
     },
     opts = {
       ensure_installed = {
@@ -37,7 +38,7 @@ return {
       },
 
       indent = {
-        enable = true,
+        enable = false,
       },
 
       -- 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -55,6 +56,11 @@ return {
             ["ic"] = "@class.inner",
           },
         },
+      },
+
+      -- 'yioneko/nvim-yati'
+      yati = {
+        enable = true,
       },
     },
     config = function(_, opts)
