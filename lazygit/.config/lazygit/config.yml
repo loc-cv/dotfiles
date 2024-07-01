@@ -183,7 +183,7 @@ git:
     # diff-so-fancy
     # delta --dark --paging=never
     # ydiff -p cat -s --wrap --width={{columnWidth}}
-    pager: ""
+    pager: diff-so-fancy
 
     # e.g. 'difft --color=always'
     externalDiffCommand: ""

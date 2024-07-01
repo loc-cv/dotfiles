@@ -55,7 +55,14 @@ return {
   {
     "declancm/cinnamon.nvim",
     opts = {
-      default_delay = 2,
+      keymaps = {
+        basic = true,
+        extra = false,
+      },
+      options = {
+        delay = 2,
+        mode = "window",
+      },
     },
     config = function(_, opts)
       require("cinnamon").setup(opts)
