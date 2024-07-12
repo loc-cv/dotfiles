@@ -29,7 +29,8 @@ return {
         "terraform",
         "python",
         "kdl",
-        "yaml"
+        "yaml",
+        "graphql",
       },
 
       highlight = {
@@ -71,5 +72,5 @@ return {
   {
     "windwp/nvim-ts-autotag",
     config = true,
-  }
+  },
 }

@@ -15,5 +15,9 @@ map("n", "k", [[v:count ? (v:count > 1 ? "m'" . v:count : '') . 'k' : 'gk']], { 
 map("c", "<C-j>", "<C-n>", { silent = false })
 map("c", "<C-k>", "<C-p>", { silent = false })
 
+-- Use <C-u> and <C-d> to scroll the viewport faster
+map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz")
+
 -- Use <Esc> to exit terminal mode
 -- map("t", "<Esc>", [[<C-\><C-n>]])

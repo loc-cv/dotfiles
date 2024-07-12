@@ -165,6 +165,7 @@ return {
       { "-", "<cmd>Oil<cr>" },
     },
     opts = {
+      watch_for_changes = true,
       columns = {
         "icon",
         "permissions",

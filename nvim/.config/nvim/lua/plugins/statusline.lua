@@ -356,7 +356,6 @@ return {
             render_c(coclist_c.args),
             render_c(coclist_c.total),
             render_c(sft_c.filetype),
-            render_c(nft_c.git_branch, { sep = { str = "  " } }),
             render_c(nft_c.file_icon),
             render_c(nft_c.smart_file_name, { sep = { str = "  " } }),
             render_c(nft_c.diagnostic_errors),
@@ -365,6 +364,7 @@ return {
             render_c(nft_c.diagnostic_info),
           },
           { -- right
+            render_c(nft_c.git_branch, { sep = { position = "left" } }),
             render_c(nft_c.git_diff_added, { sep = { position = "left" } }),
             render_c(nft_c.git_diff_removed, { sep = { position = "left" } }),
             render_c(nft_c.git_diff_changed, { sep = { position = "left" } }),
@@ -395,6 +395,7 @@ return {
           },
           { -- right
             render_c(coclist_c.path, { status = "inactive", sep = { position = "left", str = "  " } }),
+            render_c(nft_c.git_branch, { status = "inactive", sep = { position = "left" } }),
             render_c(c_c.blank, { status = "inactive", sep = { position = "none" } }),
           },
         },

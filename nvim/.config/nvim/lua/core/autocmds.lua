@@ -51,10 +51,10 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 -- Yaml filetype
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "eruby.yaml",
-  command = "set filetype=yaml",
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "eruby.yaml",
+--   command = "set filetype=yaml",
+-- })
 
 -- Start insert when open terminal
 vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
