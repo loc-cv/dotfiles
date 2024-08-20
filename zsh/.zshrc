@@ -83,3 +83,5 @@ export PATH="${PATH}:${HOME}/nvim-linux64/bin"
 
 alias vim='nvim --listen ./nvim-server.pipe'
 
+# C#
+export PATH="${PATH}:${HOME}/.dotnet/tools"
