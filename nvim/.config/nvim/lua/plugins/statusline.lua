@@ -152,14 +152,6 @@ return {
         coclist_status = function(segment)
           return vim.fn["coc#list#status"](segment)
         end,
-
-        session = function()
-          if vim.g.persisting then
-            return " "
-          elseif vim.g.persisting == false then
-            return " "
-          end
-        end,
       }
 
       -- utils: render component
@@ -338,12 +330,6 @@ return {
           provider = providers.static_file_name,
           enabled = conditions.filetype_normal,
         },
-        session = {
-          provider = providers.session,
-          enabled = function()
-            return conditions.using_session()
-          end,
-        },
       }
 
       local sl_components = { -- statusline components
@@ -372,7 +358,6 @@ return {
             render_c(nft_c.file_encoding, { sep = { position = "left", str = "  " } }),
             render_c(nft_c.position, { sep = { position = "left", str = "  " } }),
             render_c(nft_c.line_percentage, { sep = { position = "left", str = "  " } }),
-            render_c(nft_c.session, { sep = { position = "left", str = "  " } }),
             render_c(coclist_c.path, { sep = { position = "left", str = "  " } }),
             render_c(c_c.blank, { sep = { position = "none" } }),
           },
