@@ -78,10 +78,11 @@ complete -o nospace -C /usr/bin/terraform terraform
 
 # nvim
 export PATH="${PATH}:${HOME}/nvim-linux64/bin"
+alias nvim='nvim --listen ./nvim-server.pipe'
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias vim='nvim --listen ./nvim-server.pipe'
-
-# C#
+# dotnet
 export PATH="${PATH}:${HOME}/.dotnet/tools"
+export PATH="${PATH}:${HOME}/.dotnet"
