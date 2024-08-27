@@ -19,5 +19,7 @@ else
   vim.g.mapleader = " "
 
   require("core")
-  require("lazy").setup("plugins")
+  require("lazy").setup("plugins", {
+    change_detection = { enabled = true, notify = false },
+  })
 end
