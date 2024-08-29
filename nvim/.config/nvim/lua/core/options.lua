@@ -45,9 +45,9 @@ local options = {
   smartindent = true, -- do smart autoindenting when starting a new line
   smarttab = true, -- <Tab> in front of a line inserts blanks according to 'shiftwidth'
   shiftround = true, -- round indent to multiple of 'shiftwidth'
-  shiftwidth = 2, -- number of spaces to use for each step of (auto)indent
-  tabstop = 2, -- number of spaces that a <Tab> counts for
-  softtabstop = 2, -- number of spaces that a <Tab> counts for while performing editting eperations
+  shiftwidth = 4, -- number of spaces to use for each step of (auto)indent
+  tabstop = 4, -- number of spaces that a <Tab> counts for
+  softtabstop = 4, -- number of spaces that a <Tab> counts for while performing editting eperations
 }
 
 -- Disable some builtin plugins
