@@ -79,6 +79,8 @@ complete -o nospace -C /usr/bin/terraform terraform
 # nvim
 export PATH="${PATH}:${HOME}/nvim-linux64/bin"
 alias nvim='nvim --listen ./nvim-server.pipe'
+alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
+alias nvim-lazyvim='NVIM_APPNAME="lazyvim" nvim'
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

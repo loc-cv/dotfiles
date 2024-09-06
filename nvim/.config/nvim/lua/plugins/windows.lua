@@ -30,21 +30,4 @@ return {
       require("nvim-window").setup(opts)
     end,
   },
-
-  -- zen mode
-  {
-    "folke/zen-mode.nvim",
-    keys = {
-      { window_map_prefix .. "f", [[<cmd>ZenMode<cr>]] },
-    },
-  },
-
-  {
-    "ton/vim-bufsurf",
-    lazy = false,
-    keys = {
-      { "]b", "<cmd>BufSurfForward<cr>" },
-      { "[b", "<cmd>BufSurfBack<cr>" },
-    },
-  },
 }

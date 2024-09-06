@@ -52,36 +52,12 @@ return {
     end,
   },
 
-  -- -- smooth scrolling
-  -- {
-  --   "declancm/cinnamon.nvim",
-  --   opts = {
-  --     keymaps = {
-  --       basic = true,
-  --       extra = false,
-  --     },
-  --     options = {
-  --       delay = 2,
-  --       mode = "window",
-  --     },
-  --   },
-  --   config = function(_, opts)
-  --     require("cinnamon").setup(opts)
-  --   end,
-  -- },
-
   -- move lines and selections up and down
   {
     "echasnovski/mini.move",
     config = true,
     event = "VeryLazy",
     version = false,
-  },
-
-  -- reopen your last closed window
-  {
-    "gu-fan/lastbuf.vim",
-    event = "VeryLazy",
   },
 
   {

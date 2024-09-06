@@ -50,24 +50,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   command = "set filetype=jsonc",
 })
 
--- Yaml filetype
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "eruby.yaml",
---   command = "set filetype=yaml",
--- })
-
 -- Start insert when open terminal
 vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
   pattern = "term://*",
   command = "startinsert",
 })
-
--- Skip adding eol on last line or eof when saving
--- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
---   pattern = "*",
---   command = "set binary | set noeol",
--- })
--- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
---   pattern = "*",
---   command = "set nobinary | set eol",
--- })

@@ -21,5 +21,8 @@ else
   require("core")
   require("lazy").setup("plugins", {
     change_detection = { enabled = true, notify = false },
+    ui = {
+      border = "single",
+    },
   })
 end

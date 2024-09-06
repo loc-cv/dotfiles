@@ -3,26 +3,6 @@ local hi = require("core.utils").hi
 return {
   { "nvim-tree/nvim-web-devicons", lazy = true },
 
-  -- {
-  --   "mcchrish/zenbones.nvim",
-  --   dependencies = "rktjmp/lush.nvim",
-  --   init = function()
-  --     vim.g.zenwritten = {
-  --       -- lightness = "bright",
-  --       darken_comments = 60,
-  --       italic_comments = false,
-  --       darken_noncurrent_window = true,
-  --       darken_cursor_line = 5,
-  --       darken_non_text = 50,
-  --       colorize_diagnostic_underline_text = true,
-  --     }
-  --   end,
-  --   config = function()
-  --     vim.opt["background"] = "light"
-  --     vim.cmd({ cmd = "colorscheme", args = { "zenwritten" } })
-  --   end
-  -- },
-
   {
     "Mofiqul/vscode.nvim",
     init = function()
