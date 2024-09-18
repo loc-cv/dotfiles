@@ -64,13 +64,13 @@ return {
       --------------
       local cocaugroup = vim.api.nvim_create_augroup("coc", { clear = true })
 
-      -- setup formatexpr specified filetype(s)
-      vim.api.nvim_create_autocmd("filetype", {
-        group = cocaugroup,
-        pattern = { "typescript", "json" },
-        command = "setl formatexpr=cocaction('formatselected')",
-        desc = "setup formatexpr specified filetype(s)",
-      })
+      -- -- setup formatexpr specified filetype(s)
+      -- vim.api.nvim_create_autocmd("filetype", {
+      --   group = cocaugroup,
+      --   pattern = { "typescript", "json" },
+      --   command = "setl formatexpr=cocaction('formatselected')",
+      --   desc = "setup formatexpr specified filetype(s)",
+      -- })
 
       -- update signature help on jump placeholder
       vim.api.nvim_create_autocmd("User", {
@@ -242,6 +242,9 @@ return {
         vim.api.nvim_create_autocmd({ "CursorHold", "WinEnter", "BufWinEnter" }, {
           pattern = "*",
           callback = function()
+            if vim.bo.filetype == "rest_nvim_result" then
+              return
+            end
             ---@diagnostic disable-next-line: undefined-field
             if vim.b.coc_symbol_line and vim.bo.buftype == "" then
               if vim.opt_local.winbar:get() == "" then

@@ -31,6 +31,9 @@ return {
         "kdl",
         "yaml",
         "graphql",
+        "vim",
+        "vimdoc",
+        "http",
       },
 
       highlight = {
