@@ -3,8 +3,8 @@ return {
   { "tpope/vim-sleuth" }, -- Heuristically set buffer options
   { "tpope/vim-abolish", event = "VeryLazy" }, -- Work with several variants of a word at once
   { "tpope/vim-unimpaired", event = "VeryLazy" }, -- Pairs of handy bracket mappings
-  { "tpope/vim-eunuch", event = "VeryLazy" }, -- Helpers for UNIX
-  { "tpope/vim-rails" }, --  Ruby on Rails power tools
+  -- { "tpope/vim-eunuch", event = "VeryLazy" }, -- Helpers for UNIX
+  -- { "tpope/vim-rails" }, --  Ruby on Rails power tools
   -- { "tpope/vim-haml", ft = { "haml" } },
 
   -- codeium
@@ -93,6 +93,7 @@ return {
     cmd = "GlobalNote",
   },
 
+  -- http client
   {
     "loc-cv/rest.nvim",
     ft = "http",

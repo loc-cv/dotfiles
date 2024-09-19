@@ -63,3 +63,12 @@ vim.api.nvim_create_autocmd("FileType",  {
     vim.api.nvim_set_option_value("formatprg", "jq", { scope = 'local' })
   end,
 })
+
+-- Run rest.nvim on http filetype
+local map = require("core.utils").map
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "http",
+  callback = function(event)
+    map("n", "<Leader>r", ":Rest run<CR>", { buffer = event.buf })
+  end,
+})

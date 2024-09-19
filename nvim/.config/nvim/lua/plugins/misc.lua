@@ -60,10 +60,12 @@ return {
     version = false,
   },
 
+  -- automatically restoring file's cursor position and folding
   {
     "vim-scripts/restore_view.vim",
   },
 
+  -- bookmark files
   {
     "otavioschwanck/arrow.nvim",
     opts = {
