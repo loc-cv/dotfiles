@@ -69,8 +69,10 @@ return {
   {
     "otavioschwanck/arrow.nvim",
     opts = {
+      separate_by_branch = false,
       show_icons = true,
       leader_key = '<leader>fs',
+      index_keys = 'afghjkl;zcbnmruiwo123456789',
       mappings = {
         edit = "e",
         delete_mode = "d",

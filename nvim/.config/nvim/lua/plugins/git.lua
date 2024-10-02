@@ -58,4 +58,9 @@ return {
       { "<leader>g", "<cmd>LazyGit<cr>" },
     },
   },
+
+  {
+    "sindrets/diffview.nvim",
+    event = "VeryLazy",
+  },
 }
