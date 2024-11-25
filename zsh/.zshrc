@@ -67,7 +67,7 @@ autoload -Uz compinit
 compinit -u
 
 # rbenv
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
+# eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
 # diff-so-fancy
 export PATH="${PATH}:${HOME}/diff-so-fancy"

@@ -13,17 +13,16 @@ local function on_attach(bufnr)
   vim.keymap.del("n", "H", { buffer = bufnr })
 
   vim.keymap.set("n", "l", function()
-    local lib = require("nvim-tree.lib")
     -- open as vsplit on current node
     local action = "edit"
-    local node = lib.get_node_at_cursor()
+    local node = api.tree.get_node_under_cursor()
 
     -- Just copy what's done normally with vsplit
     if node.link_to and not node.nodes then
       require("nvim-tree.actions.node.open-file").fn(action, node.link_to)
       -- view.close() -- Close the tree if file was opened
     elseif node.nodes ~= nil then
-      lib.expand_or_collapse(node)
+      api.tree.expand_or_collapse(node)
     else
       require("nvim-tree.actions.node.open-file").fn(action, node.absolute_path)
       -- view.close() -- Close the tree if file was opened

@@ -92,10 +92,4 @@ return {
     config = true,
     cmd = "GlobalNote",
   },
-
-  -- http client
-  {
-    "loc-cv/rest.nvim",
-    ft = "http",
-  },
 }
