@@ -22,7 +22,7 @@ local function on_attach(bufnr)
       require("nvim-tree.actions.node.open-file").fn(action, node.link_to)
       -- view.close() -- Close the tree if file was opened
     elseif node.nodes ~= nil then
-      api.tree.expand_or_collapse(node)
+      api.node.open.edit()
     else
       require("nvim-tree.actions.node.open-file").fn(action, node.absolute_path)
       -- view.close() -- Close the tree if file was opened

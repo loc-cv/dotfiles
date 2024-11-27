@@ -120,7 +120,7 @@ return {
       -- GOTO code navigation
       map('n', 'gd', '<Plug>(coc-definition)')
       map('n', 'gy', '<Plug>(coc-type-definition)')
-      map('n', 'gi', '<Plug>(coc-implementation)')
+      map('n', 'gI', '<Plug>(coc-implementation)')
       map('n', 'gr', '<Plug>(coc-references)')
 
       -- Use K to show documentation in preview window
