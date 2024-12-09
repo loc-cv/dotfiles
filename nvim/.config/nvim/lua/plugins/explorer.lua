@@ -11,6 +11,8 @@ local function on_attach(bufnr)
 
   vim.keymap.set("n", "H", "", { buffer = bufnr })
   vim.keymap.del("n", "H", { buffer = bufnr })
+  vim.keymap.set("n", "L", "", { buffer = bufnr })
+  vim.keymap.del("n", "L", { buffer = bufnr })
 
   vim.keymap.set("n", "l", function()
     -- open as vsplit on current node
