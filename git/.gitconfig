@@ -19,6 +19,8 @@
 	defaultBranch = main
 [push]
 	default = simple
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential

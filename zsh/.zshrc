@@ -5,6 +5,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 export BAT_THEME="Visual Studio Dark+"
 
 # Zsh theme
+# Installation: npm install -g pure-prompt
 fpath+="${HOME}/.zsh/pure"
 autoload -U promptinit; promptinit
 prompt pure

@@ -1,7 +1,7 @@
 return {
   {
-    "freddiehaddad/feline.nvim",
-    branch = "main",
+    "famiu/feline.nvim",
+    branch = "master",
     config = function()
       local feline = require("feline")
 
