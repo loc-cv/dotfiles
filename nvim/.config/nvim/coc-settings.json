@@ -17,11 +17,6 @@
       "initializationOptions": {},
       "settings": {}
     },
-    "graphql": {
-      "command": "graphql-lsp",
-      "args": ["server", "-m", "stream"],
-      "filetypes": ["typescript", "typescriptreact", "graphql"]
-    },
     "csharp-ls": {
       "command": "csharp-ls",
       "filetypes": ["cs"],
@@ -150,5 +145,12 @@
   "snippets.ultisnips.pythonPrompt": false,
 
   // yaml
-  "yaml.maxItemsComputed": 99999
+  "yaml.maxItemsComputed": 99999,
+  "yaml.schemas": {
+    "kubernetes": [
+      "/*.yaml",
+      "/*.yml"
+    ]
+  },
+  "svelte.enable-ts-plugin": false
 }

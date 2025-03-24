@@ -21,7 +21,7 @@ return {
         "https://github.com/rafamadriz/friendly-snippets@main",
         "coc-docker",
         "coc-solargraph",
-        "coc-markdownlint",
+        -- "coc-markdownlint",
         "@yaegassy/coc-volar",
         "@yaegassy/coc-volar-tools",
         "coc-go",
@@ -29,7 +29,7 @@ return {
         "@yaegassy/coc-ansible",
         "@yaegassy/coc-black-formatter",
         "coc-pyright",
-        "coc-yaml",
+        -- "coc-yaml",
         "coc-stylua",
         -- "@yaegassy/coc-tailwindcss3",
       }

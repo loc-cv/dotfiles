@@ -70,6 +70,7 @@ return {
     "otavioschwanck/arrow.nvim",
     opts = {
       separate_by_branch = false,
+      always_show_path = true,
       show_icons = true,
       leader_key = '<leader>fs',
       index_keys = 'afghjkl;zcbnmruiwo123456789',

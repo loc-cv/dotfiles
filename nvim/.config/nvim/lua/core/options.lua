@@ -3,7 +3,7 @@ local opt = vim.opt
 local options = {
   -- General options
   clipboard = "unnamed,unnamedplus", -- copy-paste between vim and everything else
-  -- showmode = false, -- don't show things like -- INSERT -- anymore
+  showmode = false, -- don't show things like -- INSERT -- anymore
   pumheight = 10, -- set popup menu height
   splitright = true, -- vertical splits will automatically be to the right
   splitbelow = true, -- horizontal splits will automatically be below
